@@ -1,0 +1,55 @@
+header{
+
+    width: 100vw;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+header nav:first-child{
+    
+    display: flex;
+    align-items: center;
+    padding-left: 5%;
+    padding-right: 70px;
+    background: #2D2D2D;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+#logoHeader{
+
+    width: 80px;
+    height: 40px;
+    display: inline-block;
+
+}
+
+#listaInterna{
+
+    display: flex;
+    list-style: none;
+    margin-right: 10px;
+
+    & li{
+
+        margin-left: 43px;
+
+    }
+
+}
+#listaInterna li:first-child{margin-left: 0}
+
+/* login e logof */
+#log{
+
+    display: flex;
+    flex-direction: column;
+    padding: 10px 5% 10px 43px;
+    background: #2D2D2D;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+
+}
