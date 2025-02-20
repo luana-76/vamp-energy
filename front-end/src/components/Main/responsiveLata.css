@@ -3,7 +3,6 @@
     #sepTextButtons{
 
         width: 600px;
-        /*Testando*/
 
     }
 
@@ -49,16 +48,42 @@
         width:auto;
         margin-top: 0px;
         height: 100vh;
+        justify-content: center;
     }
 
     #logoCentral {width: 200px !important;}/* imagem logo */
-    .seguraBorda:nth-child(2), #buttons{display: none;} /* Tira esses elementos da tela */
+    /*.seguraBorda:nth-child(2), #buttons{display: none;}  Tira esses elementos da tela */
 
     #sepTextButtons{
         justify-content: center;
         /*height: 70vh;*/
         align-items: center;
         width: auto;
+    }
+
+    .seguraBorda:nth-child(2){
+        position: initial;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+
+    .seguraBorda p{
+
+        width: 75%;
+
+    }
+
+    #vampImagem img{
+
+        width: 67%;
+
+    }
+    #vampImagem{
+        display: flex;
+        justify-content: center;
+
     }
 
     #sepTextButtons div{width:67%;}/* div do texto */
