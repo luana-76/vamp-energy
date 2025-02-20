@@ -1,0 +1,64 @@
+@media screen and (min-width:1024px){
+
+    #sepTextButtons{
+
+        width: 600px;
+
+    }
+
+
+}
+@media screen and (max-width:1024px){
+
+    main{
+
+        flex-direction: column;
+        height: 100vh;
+
+    }
+
+    .seguraBorda {
+        height: auto;
+    }
+
+    #buttons, svg{display: none;}
+
+    /* Imagem da logo */
+    #logoCentral {width: 235px;}
+
+    /* Imagem da lata */
+    #lata {left: 22%;}
+    .seguraBorda:nth-child(2){
+
+        position: relative;
+        bottom: 15%;
+
+    }
+
+    #sepTextButtons{
+
+        width: 70%;
+    }
+}
+
+
+@media screen and (max-width:667px) {
+
+    main{
+        width:auto;
+        margin-top: 0px;
+        height: 100vh;
+    }
+
+    #logoCentral {width: 200px !important;}/* imagem logo */
+    .seguraBorda:nth-child(2), #buttons{display: none;} /* Tira esses elementos da tela */
+
+    #sepTextButtons{
+        justify-content: center;
+        /*height: 70vh;*/
+        align-items: center;
+        width: auto;
+    }
+
+    #sepTextButtons div{width:67%;}/* div do texto */
+}

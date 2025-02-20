@@ -1,0 +1,88 @@
+main{
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100vw;
+  align-items: center;
+  margin-top: 40px;
+
+}
+
+/* Div que separa os botões do campo de texto */
+#sepTextButtons{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100vh;
+  align-items: flex-start;
+
+}
+
+/* Designer dos botões */
+#buttons{
+
+    background: #2D2D2D;
+    padding: 10px 30px;
+    border-radius: 50px;
+    
+}
+
+.colors:first-child{margin-left:0px;}/* Tira a margin do primeiro botão */
+
+.colors{
+
+    padding: 10px;
+    border-radius: 100%;
+    border: 4px solid #fff;
+    margin-left: 15px;
+
+}
+
+#blue{background: #3688EC;}
+#yellow{background: #ECA936;}
+#black{background: #111111;}
+
+/* Designer da lata */
+
+#lata {
+  width: 260px;
+  z-index: 100;
+  position: absolute;
+  left: 71%;
+  right: 50%;
+  animation: upDown 3s linear(0.65 -12.5%, 1.6 72.06%) infinite alternate;
+}
+
+/* Faz a lata subir e descer */
+@keyframes upDown { 
+  0% { 
+    transform: translateY(20px) rotate(18deg);
+  }
+  100%{
+  
+    transform: translateY(-15px) rotate(18deg);
+
+   }
+}
+
+/* Borda ao redor da lata */
+
+.seguraBorda{height: 50%;}
+  
+.borda{
+  /* Não mexa no tamanho */
+  width: 420px;
+  height: 425px;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='%23DF1919FF' stroke-width='25' stroke-dasharray='40%2c 80%2c120%2c 160' stroke-dashoffset='86' stroke-linecap='butt'/%3e%3c/svg%3e");
+  border-radius: 1000px;
+  animation: spin 10s linear infinite;
+}
+  
+/* Animação da borda, faz ela girar*/
+@keyframes spin { 
+  100% { 
+    transform: rotateZ(360deg); 
+  }
+}

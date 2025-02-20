@@ -1,0 +1,65 @@
+header {
+    width: 100vw;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Navbar principal */
+header nav:first-child {
+
+    display: flex;
+    align-items: center;
+    padding: 10px 5%;
+    background: #2D2D2D;
+    border-radius: 0 15px 15px 0; /* Apenas a borda direita arredondada */
+    
+}
+
+/* Logo */
+#logoHeader {
+    width: 80px;
+    height: 40px;
+    display: inline-block;
+}
+
+/* Lista de navegação da primaira nav */
+#listaInterna {
+    display: flex;
+    list-style: none;
+    margin-left: 20px;
+}
+
+#listaInterna li {
+    margin-left: 35px;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+#listaInterna li:hover {
+    color: #ff4141;
+    transform: scale(1.1);
+}
+
+/* Parte de login */
+
+.desktop-links a{display: block;}/* Colocando os links em bloco */
+
+/* Nav da parte do Login */
+#log {
+    align-items: center;
+    display: flex;
+    padding: 10px 5%;
+    background: #2D2D2D;
+    border-radius: 15px 0px 0px 15px;
+    
+}
+
+/* Ícone do usuário */
+#log img {
+    width: 40px;
+    margin-right: 15px;
+}

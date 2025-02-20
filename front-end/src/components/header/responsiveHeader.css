@@ -1,0 +1,36 @@
+@media screen and (max-width:1024px){
+    
+    header{flex-direction: row;}
+
+    /* Primeira nav */
+    header nav:first-child{width: 20% !important;}
+    /* Imagem da logo */
+    #logoHeader {
+        width: 60px;
+        height: auto;
+    }
+
+    /* Tirando margin da imagem de login */
+    #log img {margin-right: 0px;}
+
+
+    /* parte de login e dropdown*/
+    #log {
+
+        flex-direction: column;
+        width: 15%;
+    
+    }
+    #dropdownMenu{
+
+        position: absolute;
+        top: 124%;
+
+    }
+
+    #dropdownMenu a{display: block;}
+
+    /* Tirando a lista 1 e botões de login */
+    #listaInterna, #linksLogin{display: none;}
+
+}
