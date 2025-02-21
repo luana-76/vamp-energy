@@ -8,7 +8,7 @@
 
 
 }
-@media screen and (max-width:1024px){
+@media screen and (max-width:1024px) {
 
     main{
 
@@ -72,6 +72,8 @@
     .seguraBorda p{
 
         width: 75%;
+        text-align: center;
+        margin-top: 28px;
 
     }
 

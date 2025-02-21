@@ -1,6 +1,13 @@
+@media screen and (max-width:667px){
+
+    #log img{width: 140%;}
+
+}
 @media screen and (max-width:1024px){
     
     header{flex-direction: row;}
+
+    header nav{background: none !important;}
 
     /* Primeira nav */
     header nav:first-child{width: 20% !important;}
