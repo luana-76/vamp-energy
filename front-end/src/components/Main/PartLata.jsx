@@ -7,6 +7,7 @@ import VampLogo from "../../assets/mobile.png";
 import { useState, useEffect } from "react";
 import { CampText } from "./TextDoMain/campText";
 import { motion } from "framer-motion";
+import teste from "../../assets/teste.gif"
 
 export function Main() {
   const [currentImage, setCurrentImage] = useState(Black); // Estado inicial com a imagem preta
@@ -30,7 +31,7 @@ export function Main() {
 
           <div id='vampImagem'>
 
-            <img src={VampLogo} alt='vampiro vamp'/>
+            <img src={teste} alt='vampiro vamp'/>
 
           </div>
           <CampText />

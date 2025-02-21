@@ -46,7 +46,7 @@
 
     main{
         width:auto;
-        margin-top: 0px;
+        /*margin-top: 0px;*/
         height: 100vh;
         justify-content: center;
     }
@@ -79,7 +79,8 @@
 
     #vampImagem img{
 
-        width: 67%;
+        width: 60vw;
+        margin-bottom: 30px;
 
     }
     #vampImagem{
