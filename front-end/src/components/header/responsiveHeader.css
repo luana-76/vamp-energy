@@ -1,6 +1,27 @@
 @media screen and (max-width:667px){
+    #log img{
+        
+        width: 140%;
+        
+    
+    }
 
-    #log img{width: 140%;}
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Fundo escuro semi-transparente */
+        z-index: 5; /* Coloca acima dos outros elementos */
+      }
+    
+    .login-container, #dropdownMenu{z-index: 100;}
+
+    #dropdownMenu {
+        top: 85%;
+        right: 2%;
+    }
 
 }
 @media screen and (max-width:1024px){
@@ -31,7 +52,6 @@
     #dropdownMenu{
 
         position: absolute;
-        top: 124%;
 
     }
 
