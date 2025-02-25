@@ -13,7 +13,13 @@
     main{
 
         flex-direction: column;
+        align-items: center;
         height: 100vh;
+
+    }
+    #sepTextButtons p{
+
+        font-size: 1.3em;
 
     }
 
@@ -24,7 +30,7 @@
     #buttons, svg{display: none;}
 
     /* Imagem da logo */
-    #logoCentral {width: 235px;}
+    #logoCentral {width: 250px !important;}
 
     /* Imagem da lata */
     #lata {left: 22%;}
@@ -50,6 +56,8 @@
         height: 100vh;
         justify-content: center;
     }
+
+    main div {gap: initial !important;}
 
     #logoCentral {width: 200px !important;}/* imagem logo */
     /*.seguraBorda:nth-child(2), #buttons{display: none;}  Tira esses elementos da tela */
@@ -90,4 +98,29 @@
     }
 
     #sepTextButtons div{width:67%;}/* div do texto */
+}
+
+
+@media screen and (max-width:768px) and (max-height:1024px){
+    
+
+    .seguraBorda p{
+
+        width: 75%;
+    }
+
+    main div{
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 27px;
+
+    }
+
+    .seguraBorda:nth-child(2) {
+        position: initial;
+    }
+
 }

@@ -8,10 +8,12 @@ export function Header() {
   const [activeLink, setActiveLink] = useState("Início");//Decoração de links
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);//DropDown responsivo
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024);//Verificando se é mobile
+  const [isTablet, setIsTablet] = useState(window.innerWidth >= 768);
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 1024);
+      setIsTablet(window.innerWidth >= 768);
       if (window.innerWidth > 1024) {
         setIsDropdownOpen(false); // Fecha dropdown quando voltar para desktop
       }
@@ -78,7 +80,7 @@ export function Header() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.2, ease: "easeOut" }}
           className="login-container"
-          onClick={() => isMobile && setIsDropdownOpen(!isDropdownOpen)}
+          onClick={() => (isMobile || isTablet) && setIsDropdownOpen(!isDropdownOpen)}
         >
           <img 
             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAWVJREFUSEvFlM8rRFEUxz/fZI2wsJxkZaPYytKGmqLY2NjZWPi1tFFKiaT8CbKRX9n4ByjJQrMiS1JYoJTimJnmTePNe3Nf983k7t6793w+59zOuaLBSw3mk0hgZkPAKtBbSugGWJJ07krQKTCzSWAXqpL5AbKSTmpJagrMrBW4B9piII9At6TPOIlLkAUOHNcwLOnMVzAPrDsEc5I2fQWjwLFDMCLp1FfQAtwBHTGAJ6BH0ruXoBBkZhPAXgSg0EVjkg69uygINLNBYK00B99ADliUdJF6DlwA175z0FwA136swMw6gQWgH+gD2kOwF+AauAQ2JD1HySIFZjaVB24DhS5Ksl6BaUlH4cNVAjObzT8NW0moEWfGJe1X/v8jMLMMcAs0eQo+gEzldYUFO8CMJzwIW5a0EnyEBQ9AV0rBlaSBOMEX0JxS8JZ//MrNEa7AUsKL4ZLK3P8btHpUUqymXqA4zi95YmAZ3ClLGQAAAABJRU5ErkJggg=="
@@ -87,12 +89,12 @@ export function Header() {
           />
         </motion.div>
 
-        {isMobile && isDropdownOpen && (
-        <div 
-          className="overlay" 
-          onClick={() => setIsDropdownOpen(false)} // Fecha ao clicar no fundo
-        />
-      )}
+        {(isMobile || isTablet) && isDropdownOpen && (
+          <div 
+            className="overlay" 
+            onClick={() => setIsDropdownOpen(false)} // Fecha ao clicar no fundo
+          />
+        )}
 
       {isMobile ? (
         isDropdownOpen && (
@@ -127,6 +129,7 @@ export function Header() {
         )}
 
       </motion.nav>
+
     </header>
   );
 }

@@ -12,12 +12,14 @@ import teste from "../../assets/teste.gif"
 export function Main() {
   const [currentImage, setCurrentImage] = useState(Black); // Estado inicial com a imagem preta
   const [isMobile, setIsMobile] = useState(false); // Evita erro no SSR
+  const [isTablet, setIsTablet] = useState(false); // Evita erro no SSR
 
   useEffect(() => {
     setIsMobile(window.innerWidth <= 768); // Define o valor correto no client-side
-
+    setIsTablet(window.innerWidth >= 768); 
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
+      setIsTablet(window.innerWidth >= 768); 
     };
 
     window.addEventListener("resize", handleResize);
