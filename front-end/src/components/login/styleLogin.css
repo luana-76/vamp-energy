@@ -1,0 +1,118 @@
+#mainLogin{
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(../../assets/fundoLogin.webp);
+    background-size: 100%;
+
+}
+#mainLogin #caixaForm{
+
+    background: #2D2D2D;
+    border-radius: 7px;
+    width: 35%;
+    height: 60vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#mainLogin h1{
+
+    position: absolute;
+    top: 30vh;
+    margin-left: 25px;
+
+}
+
+#formLogin{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position:relative;
+    bottom: -40px;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+#formLogin input[type=text], #formLogin input[type=password]{
+
+    width: 70%;
+    height: 40px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: none;
+    padding-left: 10px;
+}
+
+#formLogin input[type=submit]{
+
+    width: 85px;
+    height: 40px;
+    border-radius: 20px;
+    background: #65558F;
+    cursor: pointer;
+
+}
+/* Botão lifar e desigar */
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    margin-left: 12%;
+   
+}
+
+.toggle-container span{margin-left: 10px;}
+input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+.toggle-label {
+    cursor: pointer;
+    width: 50px;
+    height: 25px;
+    background: #ccc;
+    display: block;
+    border-radius: 50px;
+    position: relative;
+    transition: background 0.3s ease-in-out;
+}
+
+.toggle-label::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    width: 19px;
+    height: 19px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out, background 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .toggle-label {
+    background: #4caf50;
+}
+
+input:checked + .toggle-label::after {
+    transform: translateX(25px);
+    background: #e8f5e9;
+}
+
+.toggle-label:active::after {
+    width: 22px;
+}

@@ -3,6 +3,7 @@ import "./responsiveHeader.css";
 import Dentadura from "../../assets/logoDentadura.png";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export function Header() {
   const [activeLink, setActiveLink] = useState("Início");//Decoração de links
@@ -12,8 +13,10 @@ export function Header() {
 
   useEffect(() => {
     const handleResize = () => {
+
       setIsMobile(window.innerWidth <= 1024);
       setIsTablet(window.innerWidth >= 768);
+      
       if (window.innerWidth > 1024) {
         setIsDropdownOpen(false); // Fecha dropdown quando voltar para desktop
       }
@@ -123,8 +126,8 @@ export function Header() {
         ) : (
           /* Links normais no desktop */
           <div className="desktop-links">
-            <a href="#">Entrar</a>
-            <a href="#">Cadastrar</a>
+            <Link to='/login'>Entrar</Link>  
+            <Link to='/cadastro'>Cadastrar</Link>
           </div>
         )}
 

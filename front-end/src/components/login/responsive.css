@@ -1,0 +1,10 @@
+@media screen and (max-width:667px){
+
+    #mainLogin #caixaForm {
+        
+        width: 100vw;
+        background: #2d2d2dcf;
+
+    }
+
+}
