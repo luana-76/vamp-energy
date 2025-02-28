@@ -107,20 +107,21 @@ export function Header() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <motion.a
+            <motion.div
               initial={{ y: -50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 1, ease: "easeOut" }}
             >
-              Entrar
-            </motion.a>
-            <motion.a
+              <Link to="/login">Entrar</Link>
+            </motion.div>
+
+            <motion.div
               initial={{ y: -50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 1.3, ease: "easeOut" }}
             >
-              Cadastrar
-            </motion.a>
+              <Link to="/cadastro">Cadastrar</Link>
+            </motion.div>
           </motion.div>
         )
         ) : (

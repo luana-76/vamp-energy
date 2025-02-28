@@ -1,10 +1,43 @@
-@media screen and (max-width:667px){
+@media screen and (max-width:1180px){
+
+    #mainLogin h1{
+
+        font-size: 4em;
+        position: initial;
+        margin: 0 0 0 119px;
+
+    }
 
     #mainLogin #caixaForm {
         
-        width: 100vw;
         background: #2d2d2dcf;
+        width: 100vw;
+    }
 
+    #formLogin {
+     
+        justify-content: space-evenly;
+        height: 60%;
+    }
+
+    #formLogin input[type=text], #formLogin input[type=password] {
+        
+        height: 48px;
+    }
+}
+
+@media screen and (max-width:667px){
+
+    #mainLogin h1{
+
+        font-size: 2em;
+        margin: 0 0 0 50px;
+
+    }
+
+    #formLogin input[type=text], #formLogin input[type=password] {
+        
+        height: 40px;
     }
 
 }

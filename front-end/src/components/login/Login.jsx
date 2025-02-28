@@ -13,6 +13,7 @@ export function Login(){
             <div id='caixaForm'>
 
                 <h1>Entrar</h1>
+                
                 <form id='formLogin'>
 
                     <input type='text' placeholder='Email ou telefone' required/>
@@ -33,13 +34,7 @@ export function Login(){
 
                     <input type='submit'/>
 
-                    {/*<div id='google'>
-
-                        <input type='text'/>
-
-                    </div>*/}
-
-                    <span>Não tem uma conta?<a href='#'>Cadastre-se</a></span>
+                    <span>Não tem uma conta?<a href='#'> Cadastre-se</a></span>
                 </form>
 
             </div>

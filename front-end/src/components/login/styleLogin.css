@@ -58,10 +58,18 @@
     width: 85px;
     height: 40px;
     border-radius: 20px;
+    border: 0;
     background: #65558F;
     cursor: pointer;
 
 }
+
+#formLogin input[type=submit]:hover{
+
+    background: #4d358d;
+
+}
+
 /* Botão lifar e desigar */
 
 .toggle-container {
