@@ -23,6 +23,7 @@
     #formLogin input[type=text], #formLogin input[type=password] {
         
         height: 48px;
+        padding: 10px;
     }
 }
 

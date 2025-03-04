@@ -1,10 +1,9 @@
-import './styleLogin.css';
-import './responsive.css';
+import './cadastroStyle.css';
+import './responsiveCadastro.css';
 import { useState } from "react";
-import { Raiz } from '../google/raiz';
+import {Raiz} from "../google/Raiz"
 
-
-export function Login(){
+export function Cadastro(){
 
     const [isChecked, setIsChecked] = useState(false);
 
@@ -14,7 +13,7 @@ export function Login(){
 
             <div id='caixaForm'>
 
-                <h1>Entrar</h1>
+                <h1>Cadastro</h1>
                 
                 <form id='formLogin'>
 

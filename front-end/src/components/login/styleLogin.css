@@ -16,6 +16,7 @@
     border-radius: 7px;
     width: 35%;
     height: 60vh;
+    padding-bottom: 20px;
 
     display: flex;
     flex-direction: column;
@@ -25,7 +26,7 @@
 #mainLogin h1{
 
     position: absolute;
-    top: 30vh;
+    top: 26vh;
     margin-left: 25px;
 
 }
@@ -42,6 +43,8 @@
     gap: 10px;
     margin-bottom: 40px;
 }
+
+#formLogin span{margin-top: 10px;}
 
 #formLogin input[type=text], #formLogin input[type=password]{
 
@@ -61,6 +64,7 @@
     border: 0;
     background: #65558F;
     cursor: pointer;
+    margin: 15px 0;
 
 }
 
@@ -123,4 +127,14 @@ input:checked + .toggle-label::after {
 
 .toggle-label:active::after {
     width: 22px;
+}
+
+/* Google */
+
+.nsm7Bb-HzV7m-LgbsSe-MJoBVe{background: #000;}
+.nsm7Bb-HzV7m-LgbsSe-BPrWId{
+    
+    color: #fff;
+    margin: 0 !important;
+
 }

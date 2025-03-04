@@ -40,14 +40,17 @@ export function Header() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="sombra"
       >
-        <motion.img
-          src={Dentadura}
-          id="logoHeader"
-          alt="logo dentadura"
-          initial={{ y: -100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-        />
+      
+        <Link to="/">
+          <motion.img
+            src={Dentadura}
+              id="logoHeader"
+              alt="logo dentadura"
+              initial={{ y: -100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            />
+        </Link>
 
         <ul id="listaInterna">
           {["Início", "Informações", "Protótipo", "Surgimento", "Rodapé"].map(
