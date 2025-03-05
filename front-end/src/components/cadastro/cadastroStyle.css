@@ -1,0 +1,26 @@
+.caixaSegurar{
+
+    height: auto !important;
+    position: relative;
+    bottom: -300px;
+    padding-top: 15px;
+
+}
+
+.caixaSegurar h1{
+    top: -9vh !important;
+}
+
+/* Caixa checkbox */
+#caixaCheckbox{
+
+    align-self: flex-start;
+    margin-left: 60px;
+
+}
+
+#caixaCheckbox input[type='checkbox']{
+
+    margin-right: 10px;
+
+}

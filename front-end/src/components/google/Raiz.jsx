@@ -8,7 +8,13 @@ export function Raiz() {
 
       <GoogleOAuthProvider clientId="961797263921-8hesqka7m95ci069n19dqm1498dpf728.apps.googleusercontent.com">
         
-        <GoogleAut/>
+        <GoogleAut
+
+          onSuccess={(response) => console.log(response)}
+          onError={() => console.log('Login Failed')}
+          redirectUri="https://vamp-energy.vercel.app"
+        
+        />
         
       </GoogleOAuthProvider>
 

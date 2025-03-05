@@ -46,14 +46,18 @@
 
 #formLogin span{margin-top: 10px;}
 
-#formLogin input[type=text], #formLogin input[type=password]{
+#formLogin input[type=text],
+#formLogin input[type=password],
+#formLogin input[type=tel],
+#formLogin input[type=date],
+#formLogin input[type=email]{
 
     width: 70%;
     height: 40px;
     margin-bottom: 10px;
     border-radius: 8px;
     border: none;
-    padding-left: 10px;
+    padding: 0 10px;
 }
 
 #formLogin input[type=submit]{
@@ -86,7 +90,7 @@
 }
 
 .toggle-container span{margin-left: 10px;}
-input[type=checkbox] {
+input[type=checkbox]:not(#checkCadastro){
     height: 0;
     width: 0;
     visibility: hidden;

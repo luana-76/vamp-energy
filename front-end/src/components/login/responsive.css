@@ -20,7 +20,11 @@
         height: 60%;
     }
 
-    #formLogin input[type=text], #formLogin input[type=password] {
+    #formLogin input[type=text],
+    #formLogin input[type=password],
+    #formLogin input[type=tel],
+    #formLogin input[type=date],
+    #formLogin input[type=email]{
         
         height: 48px;
         padding: 10px;

@@ -9,34 +9,40 @@ export function Cadastro(){
 
     return(
 
-        <main id='mainLogin'>
+        <main id='mainLogin' className='mainCadastro'>
 
-            <div id='caixaForm'>
+            <div id='caixaForm' className='caixaSegurar'>
 
                 <h1>Cadastro</h1>
                 
                 <form id='formLogin'>
 
-                    <input type='text' placeholder='Email ou telefone' required/>
-                    <input type='password' placeholder='Senha' required/>
+                    <input type='text' placeholder='Nome completo' required/>
+                    <input type='date' required/>
+                    <input type='tel' placeholder='Telefone' required/>
+
+                    <input type='text' placeholder='Nome da sua empresa' required/>
 
                     {/* Botão de ligar e desligar */}
-                    <div className="toggle-container">
+                    <div id='caixaCheckbox'>
                         <input
                             type="checkbox"
-                            id="switch"
+                            id="checkCadastro"
                             checked={isChecked}
                             onChange={() => setIsChecked(!isChecked)}
                         />
-                        <label htmlFor="switch" className="toggle-label"></label>
+                        <label htmlFor="switch"></label>
 
-                        <span>Logar automatico</span>
+                        <span>Não tenho uma empresa</span>
                     </div>
 
-                    <input type='submit'/>
+                    <input type='email' placeholder='Email' required/>
+                    <input type='password' placeholder='Senha' required/>
+
+                    <input type='submit' value='Cadastrar'/>
                     <Raiz/>
 
-                    <span>Não tem uma conta?<a href='#'> Cadastre-se</a></span>
+                    <span>Já tem uma conta?<a href='#'> Faça login</a></span>
                 </form>
 
             </div>
