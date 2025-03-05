@@ -1,7 +1,7 @@
 import './styleLogin.css';
 import './responsive.css';
 import { useState } from "react";
-import { Raiz } from '../google/raiz';
+import { Raiz } from '../google/Raiz';
 
 
 export function Login(){
