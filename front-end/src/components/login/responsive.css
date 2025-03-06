@@ -26,9 +26,48 @@
     #formLogin input[type=date],
     #formLogin input[type=email]{
         
-        height: 48px;
-        padding: 10px;
+        height: 30px;
+        padding: 11px;
     }
+    #formLogin input[type=password]{width: 30%;}
+
+
+    #formLogin input[type=text], #formLogin input[type=password] {
+        
+        /*height: 40px;*/
+    }
+
+    /* botão password */
+    button {
+    
+        padding: 1.1em 1.2em;
+        position: absolute;
+    }
+
+    .password-container{
+        
+        /*height: 40px;*/
+        width: 73%;
+    
+    }
+
+    .password-container input[type=text],
+    .password-container input[type=password]
+    {
+    
+        width: calc((70vw + 11px) - 4.5em)!important;
+
+    }
+
+    .toggle-container{
+        
+        align-items: flex-end;
+    
+    }
+
+    /* Botão do olho */
+
+   
 }
 
 @media screen and (max-width:667px){
@@ -40,9 +79,21 @@
 
     }
 
-    #formLogin input[type=text], #formLogin input[type=password] {
-        
-        height: 40px;
+    .password-container{
+        width: 76%;
     }
 
+    button {
+        padding: 0.8em 1.3em;
+    }
+
+    input[type=password] {
+        height: 20px !important;
+    }
+
+    #formLogin input[type=text], #formLogin input[type=password], #formLogin input[type=tel], #formLogin input[type=date], #formLogin input[type=email] {
+        height: auto;
+    }
+    
 }
+

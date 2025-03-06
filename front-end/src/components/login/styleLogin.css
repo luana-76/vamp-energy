@@ -60,6 +60,25 @@
     padding: 0 10px;
 }
 
+.password-container input[type=password]{
+    
+    border-radius:  8px 0px 0px 8px !important;
+    width: 80% !important;
+
+}
+button {
+    
+    padding: 0.7em 1.2em;
+
+}
+button{
+    
+    border-radius:  0px 8px 8px 0px;
+
+}
+
+.password-container{width: 74%;}
+
 #formLogin input[type=submit]{
 
     width: 85px;

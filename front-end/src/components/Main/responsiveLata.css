@@ -20,7 +20,7 @@
 
     .seguraBorda {height: auto;}/*div de texto e lata*/
 
-    #buttons, svg{display: none;}/*campos do button da lata*/
+    #buttons, #buttons svg{display: none;}/*campos do button da lata*/
 
     #logoCentral {width: 250px !important;}/* Imagem da logo */
 
