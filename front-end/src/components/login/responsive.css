@@ -12,12 +12,19 @@
         
         background: #2d2d2dcf;
         width: 100vw;
+        padding-bottom: 40px;
     }
 
     #formLogin {
      
         justify-content: space-evenly;
         height: 60%;
+    }
+
+    #formLogin input[type=submit] {
+
+        padding: 10px;
+
     }
 
     #formLogin input[type=text],
@@ -29,12 +36,9 @@
         height: 30px;
         padding: 11px;
     }
-    #formLogin input[type=password]{width: 30%;}
-
-
-    #formLogin input[type=text], #formLogin input[type=password] {
-        
-        /*height: 40px;*/
+    #formLogin input[type=password]{
+        border-radius:  8px 0px 0px 8px;
+        width: 30%;
     }
 
     /* botão password */
@@ -64,9 +68,6 @@
         align-items: flex-end;
     
     }
-
-    /* Botão do olho */
-
    
 }
 
@@ -84,14 +85,14 @@
     }
 
     button {
-        padding: 0.8em 1.3em;
+        padding: 0.6em 1.3em;
     }
 
-    input[type=password] {
-        height: 20px !important;
-    }
-
-    #formLogin input[type=text], #formLogin input[type=password], #formLogin input[type=tel], #formLogin input[type=date], #formLogin input[type=email] {
+    #formLogin input[type=text],
+    #formLogin input[type=password],
+    #formLogin input[type=tel],
+    #formLogin input[type=date],
+    #formLogin input[type=email] {
         height: auto;
     }
     

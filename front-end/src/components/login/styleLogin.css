@@ -60,7 +60,8 @@
     padding: 0 10px;
 }
 
-.password-container input[type=password]{
+.password-container input[type=password],
+.password-container input[type=text]{
     
     border-radius:  8px 0px 0px 8px !important;
     width: 80% !important;
@@ -68,7 +69,7 @@
 }
 button {
     
-    padding: 0.7em 1.2em;
+    padding: 0.6em 1.2em;
 
 }
 button{
