@@ -11,7 +11,33 @@
     top: -9vh !important;
 }
 
+#formLogin input[type=password] {
+    border-radius: 8px;
+    width: 70%;
+}
+
+/* Check lista */
+
+.password-validation {
+    list-style: none;
+    padding: 10px;
+    font-size: 14px;
+    background: #1e1e1e;
+    color: white;
+    border-radius: 5px;
+    width: fit-content;
+    margin-top: 5px;
+}
+
+.password-validation li {
+    margin: 5px 0;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+
 /* Caixa checkbox */
+.loginCheck{margin-left: 45px !important;}
 #caixaCheckbox{
 
     align-self: flex-start;
