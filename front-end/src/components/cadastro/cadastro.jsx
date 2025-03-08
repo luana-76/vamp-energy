@@ -2,8 +2,9 @@ import './cadastroStyle.css';
 import './responsiveCadastro.css';
 import { useState } from "react";
 import { Raiz } from "../google/Raiz";
+import './autenticacao.js';
 
-export function Cadastro() {
+export function Cadastro(){
     const [isChecked, setIsChecked] = useState(false);
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -16,6 +17,7 @@ export function Cadastro() {
         hasSpecialChar: false,
         hasValidLength: false,
     });
+
 
     const validateConfirmPassword = (value) => {
         setConfirmPassword(value);
@@ -40,14 +42,22 @@ export function Cadastro() {
                 <h1>Cadastro</h1>
 
                 <form id="formLogin">
-                    <input type="text" placeholder="Nome completo" required />
-                    <input type="date" required />
+                    <input
+                    type="text"
+                    placeholder="Nome completo"
+                    id='campNome'
+                    pattern='^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$'
+                    required
+            
+                    />
+                    <input type="date" required placeholder='Data de nascimento'/>
                     <input type="tel" placeholder="Telefone" required />
 
                     <input
                         type="text"
                         placeholder="Nome da sua empresa"
                         required
+                        id='campoEmpresa'
                         disabled={isChecked}
                     />
 

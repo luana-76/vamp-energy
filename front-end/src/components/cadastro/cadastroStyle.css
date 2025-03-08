@@ -3,7 +3,7 @@
     height: auto !important;
     position: relative;
     bottom: -300px;
-    padding-top: 15px;
+    padding-top: 20px;
 
 }
 
@@ -35,13 +35,15 @@
     transition: all 0.3s ease;
 }
 
+#campoEmpresa{margin-bottom: 0;}
 
 /* Caixa checkbox */
-.loginCheck{margin-left: 45px !important;}
+
 #caixaCheckbox{
 
     align-self: flex-start;
-    margin-left: 60px;
+    margin-left: 73px;
+    margin-bottom: 10px;
 
 }
 

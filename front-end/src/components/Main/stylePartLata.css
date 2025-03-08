@@ -1,3 +1,4 @@
+
 #mainPrincipal{
 
   display: flex;
@@ -5,7 +6,11 @@
   justify-content: space-around;
   width: 100vw;
   align-items: center;
-  margin-top: 40px;
+  padding-top: 40px;
+
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url(../../assets/ceu.jpeg);
+        background-size: cover;
 
 }
 
