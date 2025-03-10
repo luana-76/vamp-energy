@@ -1,35 +1,33 @@
-class Autenticacao{
+export class Autenticacao{
 
-    constructor(){
+    padraoString(value) {
+        const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]{1,100}$/;
+        return regex.test(value);
+    }
 
-        this.nome = document.querySelector('#campNome');
-        this.tempo();
+    padraoData(value){
+
+        const dataNasc = new Date(value);
+        const atual = new Date();
+
+        const calc = atual.setFullYear(atual.getFullYear() - 17);
+
+        return dataNasc <= calc;
 
     }
 
-    tempo(){
+    padraoTelefone(tel){
 
-        setInterval(()=>{
-
-            this.padraoNome()
-
-        }, 100)
+        const regex = /^\(?\d{2}\)?[\s-]?\d{4,5}[-]?\d{4}$/;
+        return regex.test(tel);
 
     }
 
-    padraoNome(){
+    padraoEmail(email){
 
-        if(this.nome.validity.patternMismatch){
-
-            console.log('invalido')
-
-        }
-        else{console.log('Valido')
-
-        }
+        const regex=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return regex.test(email);
 
     }
 
 }
-
-new Autenticacao()

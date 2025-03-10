@@ -52,3 +52,14 @@
     margin-right: 10px;
 
 }
+
+/* estilo do texto de erro */
+
+.error{
+
+    color: red;
+    margin: 0;
+    align-self: flex-start;
+    margin-left: 4.5vw;
+
+}
