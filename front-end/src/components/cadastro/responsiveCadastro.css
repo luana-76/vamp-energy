@@ -1,7 +1,12 @@
 @media screen and (max-width:1180px){
 
     #caixaCheckbox{margin-left: 14vw;}
-    .error{margin-left: 14vw;}
+    .error{
+        
+        margin-left: 12vw;
+        font-size: 0.8em;
+    
+    }
 
 }
 

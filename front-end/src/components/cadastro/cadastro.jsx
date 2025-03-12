@@ -32,12 +32,20 @@ export function Cadastro() {
     const [isTelefoneValido, setIsTelefoneValido] = useState(true);
 
     const handleTelefoneChange = (e) => {
-        const value = e.target.value;
+        let value = e.target.value;
         setTel(value);
         setIsTelefoneValido(validacao.padraoTelefone(value));
         if(!isTelefoneValido){e.target.style.marginBottom = "0px";}
-    };
+        
+        // Formatação ao digitar (coloca parênteses nos primeiros dois dígitos)
+        if (value.length === 2 && !value.includes("(")) {
+            value = `(${value})`;
+        }
 
+        setTel(value);
+
+    };
+ 
     const [isChecked, setIsChecked] = useState(false);//Check do nome da empresa
     const [empresa, setEmpresa] = useState("");
     const [isEmpresaValido, setIsEmpresaValido] = useState(true);
@@ -88,6 +96,20 @@ export function Cadastro() {
         });
     };
 
+    /* Botão de enviar */
+    const enviar = (e)=>{
+
+        if(
+        nome == '' || data == '' ||
+        tel == '' || email == '' ||
+        empresa == '' || password == '' || confirmPassword == ''){
+
+            e.preventDefault();
+            alert('Preencha todos os campos!')
+
+        }
+
+    }
     return (
         <main id="mainLogin" className="mainCadastro">
             <div id="caixaForm" className="caixaSegurar">
@@ -106,7 +128,7 @@ export function Cadastro() {
                     />
 
                     {!isNomeValido && nome.length > 0 && (
-                        <p className='error'>Apenas letras e espaços são permitidos(0-100).</p>
+                        <p className='error'>Apenas letras e espaços são permitidos.</p>
                     )}
                     
                     {/* Parte da data */}
@@ -141,7 +163,7 @@ export function Cadastro() {
                         required
                         id='campoEmpresa'
                         disabled={isChecked}
-                        value={empresa}
+                        value={isChecked ? "" : empresa}
                         onChange={handleEmpresaChange}
                     />
                     {!isEmpresaValido && empresa.length > 0 && (
@@ -218,7 +240,7 @@ export function Cadastro() {
                         <p className='error'>As senhas não coincidem!</p>
                     )}
 
-                    <input type="submit" value="Cadastrar" />
+                    <input type="submit" value="Cadastrar" onClick={enviar}/>
                     <Raiz />
 
                     <span>Já tem uma conta?<a href="#"> Faça login</a></span>

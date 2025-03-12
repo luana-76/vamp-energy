@@ -29,5 +29,6 @@ export class Autenticacao{
         return regex.test(email);
 
     }
+    
 
 }
