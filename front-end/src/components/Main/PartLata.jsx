@@ -3,7 +3,6 @@ import "./responsiveLata.css";
 import Black from "../../assets/lata.png";
 import Yellow from "../../assets/yellow.png";
 import Blue from "../../assets/blue.png";
-import VampLogo from "../../assets/mobile.png";
 import { useState, useEffect } from "react";
 import { CampText } from "./TextDoMain/campText";
 import { motion } from "framer-motion";

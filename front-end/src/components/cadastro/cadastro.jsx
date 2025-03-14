@@ -1,8 +1,10 @@
 import './cadastroStyle.css';
 import './responsiveCadastro.css';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Raiz } from "../google/Raiz";
 import { Autenticacao } from './autenticacao.js';
+import { Link } from "react-router-dom";
+import { ErroInputVazio } from '../ErroVazio/ErroInpuVazio.jsx';
 
 export function Cadastro() {
 
@@ -15,7 +17,6 @@ export function Cadastro() {
         const value = e.target.value;
         setNome(value);
         setIsNomeValido(validacao.padraoString(value)); // Chama a função da classe `Autenticacao`
-        if(!isNomeValido){e.target.style.marginBottom = "0px";}
 
     };
 
@@ -25,27 +26,45 @@ export function Cadastro() {
         const value = e.target.value;
         setData(value);
         setIsDataValido(validacao.padraoData(value)); // Chama a função da classe `Autenticacao`
-        if(!isDataValido){e.target.style.marginBottom = "0px";}
+        
     };
 
     const [tel, setTel] = useState("");
     const [isTelefoneValido, setIsTelefoneValido] = useState(true);
 
     const handleTelefoneChange = (e) => {
-        let value = e.target.value;
-        setTel(value);
-        setIsTelefoneValido(validacao.padraoTelefone(value));
-        if(!isTelefoneValido){e.target.style.marginBottom = "0px";}
-        
-        // Formatação ao digitar (coloca parênteses nos primeiros dois dígitos)
-        if (value.length === 2 && !value.includes("(")) {
-            value = `(${value})`;
+        let value = e.target.value.replace(/\D/g, ""); // Remove tudo que não for número
+    
+        if (value.length > 11) {
+            value = value.slice(0, 11); // Garante que não tenha mais de 11 números
         }
-
-        setTel(value);
-
+    
+        let formatted = "";
+    
+        if (value.length > 0) {
+            formatted = `(${value.substring(0, 2)}`;
+        }
+        if (value.length >= 3) {
+            formatted += `) ${value.substring(2, 3)}`;
+        }
+        if (value.length >= 4) {
+            formatted += ` ${value.substring(3, 7)}`;
+        }
+        if (value.length >= 8) {
+            formatted += `-${value.substring(7, 11)}`;
+        }
+    
+        // Permite apagar tudo sem travar
+        // Esse e.nativeEvent.inputType indica a ação realizada pelo usuário, no caso a que queremos é "deleteContentBackward".
+        if (e.nativeEvent.inputType === "deleteContentBackward") {
+            setTel(e.target.value);
+        } else {
+            setTel(formatted);
+        }
+    
+        setIsTelefoneValido(validacao.padraoTelefone(value));
     };
- 
+    
     const [isChecked, setIsChecked] = useState(false);//Check do nome da empresa
     const [empresa, setEmpresa] = useState("");
     const [isEmpresaValido, setIsEmpresaValido] = useState(true);
@@ -53,9 +72,15 @@ export function Cadastro() {
         const value = e.target.value;
         setEmpresa(value);
         setIsEmpresaValido(validacao.padraoString(value)); // Chama a função da classe `Autenticacao`
-        if(!isEmpresaValido){e.target.style.marginBottom = "0px";}
 
     };
+    /* Quando o usuário clica no checkbox ele apaga o input */
+    /* Renderização fora de useState ou useEffect, não funciona */
+    useEffect(() => {
+        if (isChecked) {
+            setEmpresa("");
+        }
+    }, [isChecked]);
 
     const [email, setEmail] = useState("");
     const [isEmailValido, setIsEmailValido] = useState(true);
@@ -63,7 +88,7 @@ export function Cadastro() {
         const value = e.target.value;
         setEmail(value);
         setIsEmailValido(validacao.padraoEmail(value)); // Chama a função da classe `Autenticacao`
-        if(!isEmailValido){e.target.style.marginBottom = "0px";}
+        
     };
 
     //Senha
@@ -112,6 +137,7 @@ export function Cadastro() {
     }
     return (
         <main id="mainLogin" className="mainCadastro">
+
             <div id="caixaForm" className="caixaSegurar">
                 <h1>Cadastro</h1>
 
@@ -243,7 +269,7 @@ export function Cadastro() {
                     <input type="submit" value="Cadastrar" onClick={enviar}/>
                     <Raiz />
 
-                    <span>Já tem uma conta?<a href="#"> Faça login</a></span>
+                    <span>Já tem uma conta? <Link to='/login'>Faça login</Link></span>
                 </form>
             </div>
         </main>

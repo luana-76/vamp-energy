@@ -3,6 +3,7 @@ import './responsive.css';
 import { useState } from "react";
 import { Raiz } from '../google/Raiz';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export function Login(){
 
@@ -70,7 +71,7 @@ export function Login(){
                     
                     <input type='submit' onClick={enviar}/>
                     <Raiz/>
-                    <span>Não tem uma conta?<a href='#'> Cadastre-se</a></span>
+                    <span>Não tem uma conta?<Link to='/cadastro'> Cadastre-se</Link></span>
                 </form>
             </div>
         </main>
