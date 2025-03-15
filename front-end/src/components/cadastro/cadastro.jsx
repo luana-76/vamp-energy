@@ -122,6 +122,8 @@ export function Cadastro() {
     };
 
     /* Botão de enviar */
+
+    const [erro, setErro] = useState(false);
     const enviar = (e)=>{
 
         if(
@@ -130,7 +132,13 @@ export function Cadastro() {
         empresa == '' || password == '' || confirmPassword == ''){
 
             e.preventDefault();
-            alert('Preencha todos os campos!')
+            setErro(true);
+
+            setTimeout(() => {//Faz o erro desaparecer em 2s
+
+                setErro(false);
+
+            }, 2000)
 
         }
 
@@ -266,7 +274,13 @@ export function Cadastro() {
                         <p className='error'>As senhas não coincidem!</p>
                     )}
 
-                    <input type="submit" value="Cadastrar" onClick={enviar}/>
+                    <input
+                    type="submit"
+                    value="Cadastrar"
+                    onClick={enviar}/>
+                    
+                    {erro && <ErroInputVazio />}
+
                     <Raiz />
 
                     <span>Já tem uma conta? <Link to='/login'>Faça login</Link></span>

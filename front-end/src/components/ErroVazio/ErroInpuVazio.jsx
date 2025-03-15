@@ -5,7 +5,7 @@ export function ErroInputVazio(){
 
         <div id='erroVazio'>
 
-            Preencha todos os campos<br/> para enviar.
+            Preencha todos os campos para enviar.
 
         </div>
     )

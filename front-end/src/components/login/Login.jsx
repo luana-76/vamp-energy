@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Raiz } from '../google/Raiz';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { ErroInputVazio } from '../ErroVazio/ErroInpuVazio';
 
 export function Login(){
 
@@ -12,12 +13,19 @@ export function Login(){
 
     const [login, setLogin] = useState('');
     const [senha, setSenha] = useState('');
+    const [erro, setErro] = useState(false);
     const enviar = (e)=>{
 
         if(login == '' || senha == ''){
 
             e.preventDefault();
-            alert('Preencha todos os campos!')
+            setErro(true);
+
+            setTimeout(() => {//Faz o erro desaparecer em 2s
+
+                setErro(false);
+
+            }, 2000)
 
         }
 
@@ -70,6 +78,8 @@ export function Login(){
                     </div>
                     
                     <input type='submit' onClick={enviar}/>
+                    {erro && <ErroInputVazio/>}
+
                     <Raiz/>
                     <span>Não tem uma conta?<Link to='/cadastro'> Cadastre-se</Link></span>
                 </form>
