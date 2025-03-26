@@ -37,7 +37,7 @@ export function Header() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="sombra"
         >
-          <Link to="/">
+          <Link to="/produtos">
             <motion.img
               src={Dentadura}
               id="logoHeader"
@@ -60,7 +60,7 @@ export function Header() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="sombra"
       >
-        <Link to="/">
+        <Link to="/produtos">
           <motion.img
             src={Dentadura}
             id="logoHeader"
