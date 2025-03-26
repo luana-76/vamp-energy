@@ -1,0 +1,151 @@
+#mainProduto{
+
+    margin-bottom: 50px;
+
+}
+
+/* Carrocel inicial */
+.carousel{
+
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    margin-top: 80px;
+
+}
+
+.wrap{
+
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100vw;
+    justify-items: stretch;
+    animation: slide 30s linear infinite;
+
+}
+
+.wrap img{
+
+    width: 100vw;
+    height: 90vh;
+    border-radius: 15px;
+    object-fit: 100% 100%;
+    filter: brightness(50%);/* Deixa as imagens escura */
+    /* Faz um fade */
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 30%, black 70%, transparent 100%);
+    mask-image: linear-gradient(to top, transparent 0%, black 30%, black 70%, transparent 100%);
+
+}
+
+@keyframes slide {
+
+    to{
+
+        translate: calc(-4 * 100vw);
+
+    }
+    
+}
+
+/* Marcação de seção */
+
+.imagem{
+
+    display: flex;
+    width: 100vw;
+    height: 40vh;
+    margin: 0;
+    margin: 120px 0 80px 0;
+
+}
+
+.imagem img {
+    flex: 1;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* 🌐 Responsivo para tablets e celulares */
+@media (max-width: 1024px) {
+    .wrap img {
+      height: 60vh;
+    }
+  
+    .imagem {
+      /*flex-direction: column;*/
+      height: auto;
+    }
+  
+    .imagem img {
+        width: 10%;
+        height: 200px;
+    
+    }
+  
+    #alinhamentoCaixas {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+  
+    .produto {
+      width: 100%;
+      height: auto;
+      max-width: auto;
+    }
+    .caixaProduto {
+
+        width: 100vw;
+        flex-direction: row !important;
+
+    }
+  
+    .titulo {
+      align-self: center;
+      margin-left: 0;
+      text-align: center;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .wrap img {
+      height: 50vh;
+    }
+  
+    .carousel {
+      height: 60vh;
+    }
+    
+    .caixaProduto{
+
+        flex-direction: row !important;
+        align-items: center;
+        width: 90vw !important;
+    
+    }
+
+    .produto{
+
+        width: 100vw !important;
+        max-width: auto !important;
+
+    }
+    .produto span,
+    .produto h3 {
+      padding-left: 5px;
+      font-size: 0.9em;
+    }
+  
+    .produto button {
+      width: 70%;
+      font-size: 0.9em;
+    }
+  
+    .titulo h2 {
+      font-size: 1.5em;
+    }
+  }
+
+
+
+  

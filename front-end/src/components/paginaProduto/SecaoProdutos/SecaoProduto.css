@@ -1,0 +1,14 @@
+#alinhamentoCaixas{
+
+    display: flex;
+    
+
+}
+
+#tagSection{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}

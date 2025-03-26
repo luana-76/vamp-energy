@@ -8,3 +8,9 @@ a{
                 0px 12px 30px rgba(0, 0, 0, 0.15);
 
 }
+body{
+    
+    margin: 0;
+    overflow-x: hidden;
+
+}

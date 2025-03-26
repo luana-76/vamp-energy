@@ -3,6 +3,7 @@ import { Principal } from "./components/Principal";
 import { Login } from "./components/login/Login";
 import { Cadastro } from "./components/cadastro/cadastro";
 import { ErroInputVazio } from "./components/ErroVazio/ErroInpuVazio";
+import { MainProduto } from "./components/paginaProduto/MainProduto";
 
 export default function AppRoutes() {
   return (
@@ -11,6 +12,7 @@ export default function AppRoutes() {
       <Route path="/login" element={<Login />} />
       <Route path="/cadastro" element={<Cadastro/>} />
       <Route path="/erro" element={<ErroInputVazio/>} />
+      <Route path='/produtos' element={<MainProduto/>} />
     </Routes>
   );
 }
