@@ -13,7 +13,7 @@ export function CaixaProduto(prop){
                 <h3>{prop.nomeProduto}</h3>
                 <span id='descricao'>kslkkajsklaskkjslaksj<br/>
                     ksjdksjdkskdjskds</span>
-                <span>R$ {prop.preco}</span>
+                <span className='preco'>R$ {prop.preco}</span>
         
                 <button>Comprar</button>
         

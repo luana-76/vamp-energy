@@ -13,22 +13,20 @@
 
 }
 
-.produto{
-
-    width: 200px;
-    background: #2C2C2C;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 30px;
-    border-radius: 10px;
-    height: 162px;
-    
-}
-
 .produto span,
 .produto h3{padding-left: 10px;}
 
-.produto h3{margin-bottom: 0;}
+.produto h3{
+  font-size: 1.3em;
+  margin-bottom: 0;
+
+}
+
+.preco{
+
+  font-weight: bold;
+
+}
 
 #descricao{margin: 10px 0;}
 
@@ -43,11 +41,7 @@
 
 }
 
-.caixaProduto{margin-right: 30px;}
-.caixaProduto img{width: 200px;}
-
-
-
+.produto button:hover{background:#65558f85;}
 
 .produto {
   background: #2C2C2C;
@@ -55,9 +49,9 @@
   flex-direction: column;
   padding-bottom: 30px;
   border-radius: 10px;
-  height: auto;
-  width: 100%;
-  max-width: 180px;
+  /*height: auto;*/
+  width: 180px;
+
 }
 
 .caixaProduto {
@@ -69,6 +63,5 @@
 }
 
 .caixaProduto img {
-  width: 100%;
-  max-width: 180px;
+  width: 180px;
 }
