@@ -4,6 +4,7 @@ import { Login } from "./components/login/Login";
 import { Cadastro } from "./components/cadastro/cadastro";
 import { ErroInputVazio } from "./components/ErroVazio/ErroInpuVazio";
 import { MainProduto } from "./components/paginaProduto/MainProduto";
+import { VisualizacaoProduto } from "./components/paginaProduto/SecaoProdutos/produto/VisualizacaoProduto/visualizacaoProduto";
 
 export default function AppRoutes() {
   return (
@@ -13,6 +14,7 @@ export default function AppRoutes() {
       <Route path="/cadastro" element={<Cadastro/>} />
       <Route path="/erro" element={<ErroInputVazio/>} />
       <Route path='/produtos' element={<MainProduto/>} />
+      <Route path='/secaoProduto' element={<VisualizacaoProduto/>} />
     </Routes>
   );
 }

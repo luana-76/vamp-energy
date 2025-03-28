@@ -1,0 +1,132 @@
+#principal{
+
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: row;
+    background: #141318;
+
+}
+
+#close{
+    
+    align-self: end;
+    cursor: pointer;
+
+}
+.imagemm img{
+
+    width: 500px;
+    height: 100%;
+
+}
+
+.parteTexto{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    margin: 0 auto;
+
+}
+
+.preco{
+    
+    font-weight: bold;
+    font-size: 1.3em;
+
+}
+
+.cep  label{
+
+    font-weight: bold;
+    margin-bottom: 10px;
+
+}
+.cep input{
+
+    padding: 7px;
+    width: 200px;
+    border: 1px solid #fff;
+
+}
+
+.form form .butoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.carro{
+    
+    width: 4vw;
+    cursor: pointer;
+
+}
+
+.butoes input[type='button']{
+
+    position: initial;
+    border-radius: 100px;
+    background: #65558F;
+    padding: 5px;
+    width: 50%;
+    cursor: pointer;
+
+}
+.texto p{margin: 20px 0;}
+.tituloo h1{
+
+    margin: 0;
+
+}
+.desconto{
+
+    padding: 3px;
+    width: 120px;
+    background: #D72020;
+    display: inline-block;
+    margin-right: 5px;
+    text-align: center;
+    font-size: 0.9em;
+
+}
+
+.frete{
+
+    text-align: center;
+    padding: 1px;
+    border: 2px solid #D72020;
+    width: 220px;
+    display: inline-block;
+    font-size: 0.9em;
+
+}
+
+.form{margin-top: 10px;}
+
+.form form div{
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+
+
+@media (max-width: 1024px) {
+
+    #principal{
+        flex-direction: column;
+    }
+
+    .parteTexto{width: auto;}
+
+    .imagemm img {
+        width: 100vw;
+    }
+
+}
