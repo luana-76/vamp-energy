@@ -6,11 +6,10 @@
 
 #mainProduto::before{
 
-  top: 10px;
     content: url(/src/assets/produto/l.png);
     position: absolute;
     z-index: 1000;
-    right: 0%;
+    left: 5%;
 
 }
 /* Carrocel inicial */

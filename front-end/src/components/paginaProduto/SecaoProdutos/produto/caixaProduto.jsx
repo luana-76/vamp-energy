@@ -11,8 +11,7 @@ export function CaixaProduto(prop){
             <div className='produto'>
         
                 <h3>{prop.nomeProduto}</h3>
-                <span id='descricao'>kslkkajsklaskkjslaksj<br/>
-                    ksjdksjdkskdjskds</span>
+                <span id='descricao'>{prop.descricao}</span>
                 <span className='preco'>R$ {prop.preco}</span>
         
                 <button>Comprar</button>
