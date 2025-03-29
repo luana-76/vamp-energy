@@ -28,6 +28,7 @@
     justify-content: center;
     width: 50%;
     margin: 0 auto;
+    margin-top: 60px;
 
 }
 
@@ -56,12 +57,12 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 70px;
 }
 
 .carro{
     
-    width: 4vw;
+    width: 3vw;
     cursor: pointer;
 
 }
@@ -71,8 +72,8 @@
     position: initial;
     border-radius: 100px;
     background: #65558F;
-    padding: 5px;
-    width: 50%;
+    padding: 2px;
+    width: 15%;
     cursor: pointer;
 
 }
@@ -121,12 +122,55 @@
 
     #principal{
         flex-direction: column;
+        
     }
 
-    .parteTexto{width: auto;}
+    .parteTexto{
+        
+        width: 90vw;
+        margin-top: 20px;
+        padding-bottom: 50px;
+        height: 100%;
+        justify-content:space-evenly;
+    
+    }
 
     .imagemm img {
         width: 100vw;
+        height: 50vh;
+    }
+
+    .desconto, .frete{
+        margin-top: 10px;
+    }
+
+    .form form .butoes {
+        margin-top: 40px;
+    }
+
+    .butoes input[type='button']{
+
+        padding: 8px;
+        width: 20%;
+
+    }
+
+    .carro {
+        width: 6vw;
+    }
+
+}
+
+@media screen and (max-width:667px){
+    #principal{height: auto !important;}
+
+    .butoes input[type='button'] {
+        padding: 10px;
+        width: 30%;
+    }
+
+    .carro {
+        width: 10%;
     }
 
 }

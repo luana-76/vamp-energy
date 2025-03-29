@@ -1,52 +1,37 @@
 import './estilizacaoStyle.css';
-import Barra from '../../../../../assets/produto/barra1.webp';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export function VisualizacaoProduto(){
 
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const { nome, imagem, descricao, preco } = location.state || {};
 
     return(
 
         <div id='principal'>
-
             <div className='imagemm'>
-
-                <img src={Barra} alt=''/>
-
+                <img src={imagem} alt='' />
             </div>
             <div className='parteTexto'>
+                <div id='close' onClick={() => navigate(-1)} style={{ cursor: 'pointer' }}>
 
-            <div id='close' onClick={() => navigate(-1)} style={{ cursor: 'pointer' }}>
-
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAATBJREFUSEvtlLsuRUEYhb/VSkRDkChEJDyDuCRoxWuIVuJNRKOSeAHxBIgK0bpETckLLPuXKTbnnJlxkh3NmXKy91r/+mbNiI6XOtZnZFAk/L+IbB8Cp5Le+o1qewlYk3QyKMrABLb3gSPgGVj/bWJ7EbgCZoBdSef9THIG8WMIhNBLmvQ7ie0F4AaYBh6ADUmffzJIQj0mwFiteGgUD9n2LHCZkjwCEwnLXZNwS9JHrkpFg5RkLuGaT2JZLG3DWoNgHcyDfaz7JtVmafpaRCF+nRA9JUSxd9vsb5dMsglstyd/BVaA8VY9i0lyNe0Rl/SeziSqG8imSrhyBntNz4+BwBI9/3GbbS+nJJPAjqSLYe7BAXCWeSrCZHWop6L4TFZ+UFXTSq2+n40MivQ6R/QFgd1qGe7ts/oAAAAASUVORK5CYII="/>
-
-            </div>
-                <div className='tituloo'>
-
-                    <h1>Mel</h1>
-                    
-                    <div>
-
-                        <div className='desconto'>Descoto de 10%</div>
-                        <div className='frete'>Frete Grátis na primeira conta</div>
-
-                    </div>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAANBJREFUSEvtlEEKwjAQRd8/hKB7Bc8ggrcQXAteR1wLHkbBO7hxL3iHaCCFUmsyKcmuXZbhvT+TTETlT5X5jILkhM0jcs5NgZ2kY5LaKjAJAvwKLICDpLNVkhQE+A2YA09gJelVRNCBP4BNDtyH+NuBc24C3ENyD19LeluTN3W9ggD3M19+D3YwvLeDDtwcWFJv2J+f1QU+ctURNTMpJYnuQYmblLto2buQFIQz8e9Q81TsJV2s18skCJIZsJV0ssKjm5wDidWaOxgqHAXJyX0AzWRKGaDSgDcAAAAASUVORK5CYII="/>
 
                 </div>
 
+                <div className='tituloo'>
+                    <h1>{nome}</h1>
+                    <div>
+                        <div className='desconto'>Descoto de 10%</div>
+                        <div className='frete'>Frete Grátis na primeira conta</div>
+                    </div>
+                </div>
+
                 <div className='texto'>
-
-                    <p>
-
-                        Deliciosa e prática, a barra de cereal sabor mel oferece energia de forma saudável. Perfeita para o café da manhã ou um lanche rápido, ela combina crocância com o toque doce do mel. Sem conservantes artificiais, é uma opção nutritiva para sua rotina.
-
-                        Composição: Aveia, mel, flocos de milho, açúcar mascavo, óleo de coco, amendoim, extrato de baunilha, sal marinho.
-
-                    </p>
-
-                    <span className='preco'>R$ 3,0</span>
-
+                    <p>{descricao}</p>
+                    <span className='preco'>R$ {preco}</span>
                 </div>
 
                 <div className='form'>
