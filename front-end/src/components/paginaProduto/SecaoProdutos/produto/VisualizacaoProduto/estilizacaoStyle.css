@@ -67,13 +67,11 @@
 
 }
 
-.butoes input[type='button']{
+.butoes button{
 
     position: initial;
     border-radius: 100px;
     background: #65558F;
-    padding: 2px;
-    width: 15%;
     cursor: pointer;
 
 }

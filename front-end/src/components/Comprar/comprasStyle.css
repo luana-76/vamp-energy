@@ -1,0 +1,293 @@
+ .comprar{
+
+    height: 150vh;
+    width: 100vw;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 30vh 0;
+
+ }
+ 
+ .imagemProduto{margin-right: 20px;}
+ .imagemProduto img {
+   width: 20vw;
+   height: 30vh;
+}
+
+ .cabecalho{
+
+    display: flex;
+
+ }
+
+ .divisaoSetor{
+
+    display: flex;
+    flex-direction: column;
+
+ }
+
+
+ .titu{
+
+    margin: 0;
+
+ }
+ .titu h1{
+
+    font-size: 1.5em;
+
+ }
+
+ .preco{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+ }
+
+ #tipoPagamento img{
+
+   width: 300px;
+   height: 100%;
+
+ }
+ .enderecoOpc{margin-bottom: 5px;}
+ .endereco .adicionar,  .endereco .enderecoOpc{
+
+   width: 50vw;
+   border-radius: 5px;
+   padding: 20px;
+   font-weight: 500;
+   background: #19191A;
+
+ }
+
+ #extrato, .enderecoOpc{
+
+   display: flex;
+   flex-direction: column;
+
+ }
+
+ .bold{font-weight: 700;}
+
+ #confirmar{margin-top: 20px;}
+
+
+/* Formulário */
+ .formularioEndereco {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.5);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.formularioEndereco h3{font-size: 2em;}
+.formularioContainer {
+   background-color: #3d3d3d;
+   padding: 20px;
+   border-radius: 8px;
+   width: 50%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.inputEndereco {
+   width: 80%;
+   padding: 10px;
+   margin: 10px 0;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+}
+
+.formButtons {
+   display: flex;
+   justify-content: space-between;
+}
+
+.salvarEndereco, .cancelarEndereco {
+   padding: 10px 20px;
+   background-color: #fd4141;
+   color: white;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+}
+
+.salvarEndereco:hover, .cancelarEndereco:hover {
+   background-color: #fd4141a4;
+}
+
+.fundoEscurecido {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.7);
+   z-index: -999;
+}
+
+
+/* Responsividade */
+@media (max-width: 1024px) and (min-width: 768px) {
+
+   .cabecalho {align-items: center;}
+
+   .titu h1 {font-size: 2em !important;}
+
+   .imagemProduto img {
+       width: 30vw;
+       height: 30vh;
+   }
+
+   .titu h1 {
+       font-size: 1.3em;
+   }
+
+   .preco {
+       flex-direction: row;
+       justify-content: space-between;
+       align-items: center;
+   }
+
+   .endereco .adicionar,
+   .endereco .enderecoOpc {
+       width: 70%;
+       max-width: 600px;
+   }
+
+   .formularioContainer {
+       width: 70%;
+       max-width: 600px;
+   }
+
+   .inputEndereco {
+       width: 80%;
+   }
+
+   .formButtons {
+       flex-direction: row;
+       justify-content: space-between;
+   }
+
+   .editarEndereco, .excluirEndereco, #confirmar{
+      position: initial!important;
+
+   }
+   .salvarEndereco,
+   .cancelarEndereco {
+       width: 48%;
+       margin: 5px;
+   }
+
+   .comprar {
+      height: auto;
+      width: 100vw;
+      margin: 10vh 0;
+  }
+}
+
+@media (max-width: 768px) {
+   .editarEndereco, .excluirEndereco, #confirmar{
+      position: initial!important;
+
+   }
+   .comprar {
+      height: auto;
+      width: 100vw;
+      margin: 10vh 0;
+  }
+   .imagemProduto img {
+       width: 40vw;
+       height: 40vh;
+   }
+
+   .titu h1 {
+       font-size: 1.2em;
+   }
+
+   .preco {
+       flex-direction: column;
+       align-items: center;
+   }
+
+   .endereco .adicionar,
+   .endereco .enderecoOpc {
+       width: 90%;
+   }
+
+   .formularioContainer {
+       width: 90%;
+       max-width: 400px;
+   }
+
+   .inputEndereco {
+       width: 90%;
+   }
+
+   .formButtons {
+       flex-direction: column;
+   }
+
+   .salvarEndereco,
+   .cancelarEndereco {
+       width: 100%;
+       margin: 5px 0;
+   }
+}
+
+@media (max-width: 480px) {
+   .cabecalho {
+      flex-direction: column;
+      align-items: center;
+  }
+   .comprar {
+       height: auto;
+       margin: 100px 0;
+   }
+
+   .imagemProduto img {
+       width: 60vw;
+       height: 40vh;
+   }
+
+   .titu h1 {
+       font-size: 1.5em;
+   }
+
+   .preco {
+       font-size: 0.9em;
+       flex-direction: column;
+       align-items: center;
+   }
+
+   .formularioContainer {
+       width: 90%;
+       max-width: 350px;
+   }
+
+   .inputEndereco {
+       width: 90%;
+   }
+
+   .formButtons {
+       flex-direction: column;
+   }
+
+   .salvarEndereco,
+   .cancelarEndereco {
+       width: 100%;
+       margin: 5px 0;
+   }
+}

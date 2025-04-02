@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./style.css";
 
 export function CaixaProduto(prop){
@@ -14,7 +15,15 @@ export function CaixaProduto(prop){
                 <span id='descricao'>{prop.descricao}</span>
                 <span className='preco'>R$ {prop.preco}</span>
         
-                <button>Comprar</button>
+                <button>
+                    <Link to='/comprar'
+                    state={{ 
+                        nome: prop.nomeProduto,
+                        imagem: prop.imagem,
+                        preco: prop.preco
+                    }}
+                
+                >Comprar</Link></button>
         
             </div>
         </div>
