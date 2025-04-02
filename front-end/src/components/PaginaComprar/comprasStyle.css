@@ -1,3 +1,5 @@
+.seta{width: 3vw;}
+
  .comprar{
 
     height: 150vh;
@@ -91,7 +93,12 @@
    align-items: center;
 }
 
-.formularioEndereco h3{font-size: 2em;}
+.formularioEndereco h3{
+    
+    font-size: 2em;
+    margin-bottom: 10px;
+
+}
 .formularioContainer {
    background-color: #3d3d3d;
    padding: 20px;
@@ -140,14 +147,24 @@
 
 
 /* Responsividade */
+
+@media (max-width: 1024px){
+
+.seta{width: 6vw;}
+
+}
 @media (max-width: 1024px) and (min-width: 768px) {
 
    .cabecalho {align-items: center;}
 
    .titu h1 {font-size: 2em !important;}
 
+   .imagemProduto {
+     margin-right: auto;
+    }
+
    .imagemProduto img {
-       width: 30vw;
+       width: 40vw;
        height: 30vh;
    }
 
@@ -185,11 +202,11 @@
       position: initial!important;
 
    }
-   .salvarEndereco,
+   /*.salvarEndereco,
    .cancelarEndereco {
        width: 48%;
        margin: 5px;
-   }
+   }*/
 
    .comprar {
       height: auto;
@@ -197,8 +214,21 @@
       margin: 10vh 0;
   }
 }
+@media (max-height: 1024px) or (max-height: 1400px){
 
+    .imagemProduto {
+        margin-right: 50px;
+    }
+
+    .formButtons {
+        gap: 10px;
+   }
+
+}
 @media (max-width: 768px) {
+
+    .seta{width: 9vw;}
+
    .editarEndereco, .excluirEndereco, #confirmar{
       position: initial!important;
 
@@ -208,6 +238,7 @@
       width: 100vw;
       margin: 10vh 0;
   }
+
    .imagemProduto img {
        width: 40vw;
        height: 40vh;
@@ -237,28 +268,33 @@
    }
 
    .formButtons {
-       flex-direction: column;
+        gap: 10px;
+
    }
 
-   .salvarEndereco,
+   /*.salvarEndereco,
    .cancelarEndereco {
-       width: 100%;
+        width: 15%;
        margin: 5px 0;
-   }
+   }*/
 }
 
 @media (max-width: 480px) {
+    .imagemProduto {
+        margin-right: 0;
+    }
    .cabecalho {
       flex-direction: column;
       align-items: center;
   }
    .comprar {
+    
        height: auto;
        margin: 100px 0;
    }
 
    .imagemProduto img {
-       width: 60vw;
+       width: 80vw;
        height: 40vh;
    }
 
@@ -273,16 +309,12 @@
    }
 
    .formularioContainer {
-       width: 90%;
+       width: 100%;
        max-width: 350px;
    }
 
    .inputEndereco {
        width: 90%;
-   }
-
-   .formButtons {
-       flex-direction: column;
    }
 
    .salvarEndereco,
