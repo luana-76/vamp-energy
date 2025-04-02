@@ -5,7 +5,7 @@ import { Cadastro } from "./components/cadastro/cadastro";
 import { ErroInputVazio } from "./components/ErroVazio/ErroInpuVazio";
 import { MainProduto } from "./components/paginaProduto/MainProduto";
 import { VisualizacaoProduto } from "./components/paginaProduto/SecaoProdutos/produto/VisualizacaoProduto/visualizacaoProduto";
-import { Comprar } from "./components/PaginaComprar/comprar.jsx";
+import { Comprar } from "./components/PaginaComprar/ComprarProduto.jsx";
 
 
 export default function AppRoutes() {

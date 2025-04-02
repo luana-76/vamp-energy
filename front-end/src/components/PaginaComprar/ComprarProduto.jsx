@@ -3,7 +3,7 @@ import pagamento from "../../assets/pagamento.png";
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useState } from "react";
 
-export function Comprar() {
+export function ComprarProduto() {
     const navigate = useNavigate();
     const location = useLocation();
     const { nome, imagem, preco } = location.state || {};
