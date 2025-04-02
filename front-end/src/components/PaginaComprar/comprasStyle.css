@@ -151,6 +151,10 @@
 @media (max-width: 1024px){
 
 .seta{width: 6vw;}
+.formButtons {
+    display: flex;
+    justify-content: space-between;
+}
 
 }
 @media (max-width: 1024px) and (min-width: 768px) {
