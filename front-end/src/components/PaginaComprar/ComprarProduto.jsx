@@ -102,12 +102,26 @@ export function ComprarProduto() {
                     </div>
                 </div>
 
-                <div className="pagamento">
+                <div
+                    className="pagamento"
+                    onClick={() => {
+                        fetch('http://localhost:3001/gerar-boleto', {
+                        method: 'POST',
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                            // abre o boleto gerado (se for um link, por exemplo)
+                            window.open(data.urlBoleto, '_blank');
+                        })
+                        .catch(err => console.error('Erro ao gerar boleto:', err));
+                    }}
+                    >
                     <h2>Pagamento</h2>
                     <div id="tipoPagamento">
                         <img src={pagamento} alt="" />
                     </div>
                 </div>
+
 
                 <div className="endereco">
                     <h2>Endereço</h2>
