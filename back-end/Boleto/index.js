@@ -18,7 +18,8 @@ app.options('*', cors());
 app.post('/gerar-boleto', async (req, res) => {
   try {
     const browser = await puppeteer.launch({
-      headless: 'new', // ou true
+      headless: true,
+      executablePath: '/usr/bin/chromium-browser', // necessário em ambientes como o Render
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
 
