@@ -114,8 +114,8 @@ export function ComprarProduto() {
                         <div 
                             
                             className='caixaIcone'
-                            onClick={() => {
-                            fetch('https://vamp-energy.onrender.com/gerar-boleto', {
+                            onClick={() => { 
+                            fetch('https://vamp-energy-api.onrender.com/gerar-boleto', {
                             method: 'POST',
                             })
                             .then(res => res.json())

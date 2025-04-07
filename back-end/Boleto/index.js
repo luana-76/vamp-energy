@@ -23,11 +23,6 @@ app.post('/gerar-boleto', async (req, res) => {
       timeout: 180000,
     });
 
-    app.use(cors({
-      origin: "https://vamp-energy.vercel.app",
-      credentials: true
-    }));
-
     // Preenche os campos
     await page.evaluate(() => {
       const inputs = document.querySelectorAll('input[type="text"], input:not([type])');
