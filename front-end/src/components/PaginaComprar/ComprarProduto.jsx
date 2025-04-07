@@ -1,5 +1,8 @@
 import "./comprasStyle.css";
-import pagamento from "../../assets/pagamento.png";
+import Boleto from "../../assets/produto/boleto.png";
+import CartaoCredito from "../../assets/produto/cartaoCredito.png"
+import Pix from "../../assets/produto/pix.png"
+
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useState } from "react";
 
@@ -102,23 +105,43 @@ export function ComprarProduto() {
                     </div>
                 </div>
 
-                <div
-                    className="pagamento"
-                    onClick={() => {
-                        fetch('http://localhost:3001/gerar-boleto', {
-                        method: 'POST',
-                        })
-                        .then(res => res.json())
-                        .then(data => {
-                            // abre o boleto gerado (se for um link, por exemplo)
-                            window.open(data.urlBoleto, '_blank');
-                        })
-                        .catch(err => console.error('Erro ao gerar boleto:', err));
-                    }}
-                    >
+                <div className="pagamento">
+
                     <h2>Pagamento</h2>
+
                     <div id="tipoPagamento">
-                        <img src={pagamento} alt="" />
+
+                        <div 
+                            
+                            className='caixaIcone'
+                            onClick={() => {
+                            fetch('http://localhost:3001/gerar-boleto', {
+                            method: 'POST',
+                            })
+                            .then(res => res.json())
+                            .then(data => {
+                                // abre o boleto gerado (se for um link, por exemplo)
+                                window.open(data.urlBoleto, '_blank');
+                            })
+                            .catch(err => console.error('Erro ao gerar boleto:', err));
+                        }}>
+
+                            <img src={Boleto} className='icone' alt='boleto'/>
+
+                        </div>
+
+                        <div className='caixaIcone'>
+
+                            <img src={CartaoCredito} className='icone' alt='cartão de credito'/>
+
+                        </div>
+
+                        <div className='caixaIcone'>
+
+                            <img src={Pix} className='icone' alt='pix'/>
+
+                        </div>
+                    
                     </div>
                 </div>
 
@@ -139,7 +162,7 @@ export function ComprarProduto() {
                         <div className="formularioEndereco">
                             <div className="formularioContainer">
                                 <h3>{editando !== null ? "Editar endereço" : "Preencha seu novo endereço"}</h3>
-                                <span style={{Color: "gray", alignSelf: "start", marginBottom: '20px'}}>Preencha os dados corretamente</span>
+                                <span style={{Color: "gray", marginBottom: '20px'}}>Preencha os dados corretamente</span>
                                 <input
                                     type="text"
                                     value={rua}
