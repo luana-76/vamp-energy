@@ -5,7 +5,10 @@ import cors from 'cors';
 const app = express();
 const PORT = 3001;
 
-app.use(cors());
+app.use(cors({
+  origin: "https://vamp-energy.vercel.app",
+}));
+
 
 app.post('/gerar-boleto', async (req, res) => {
   try {
