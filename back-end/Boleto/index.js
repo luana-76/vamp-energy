@@ -20,7 +20,7 @@ app.post('/gerar-boleto', async (req, res) => {
     });
 
     app.use(cors({
-      origin: process.env.FRONTEND_URL,
+      origin: "https://vamp-energy.vercel.app",
       credentials: true
     }));
 
