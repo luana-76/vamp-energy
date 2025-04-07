@@ -115,7 +115,7 @@ export function ComprarProduto() {
                             
                             className='caixaIcone'
                             onClick={() => {
-                            fetch('http://localhost:3001/gerar-boleto', {
+                            fetch('https://vamp-energy.vercel.app/gerar-boleto', {
                             method: 'POST',
                             })
                             .then(res => res.json())
