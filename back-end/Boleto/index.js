@@ -6,11 +6,7 @@ const app = express();
 const PORT = 3001;
 
 // CORS configurado corretamente
-app.use(cors({
-  origin: "https://vamp-energy.vercel.app",
-  methods: ["GET", "POST", "OPTIONS"],
-  allowedHeaders: ["Content-Type"],
-}));
+app.use(cors());
 
 // Lida com requisições OPTIONS (preflight)
 app.options('*', cors());
