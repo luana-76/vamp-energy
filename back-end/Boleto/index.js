@@ -15,7 +15,7 @@ app.post('/gerar-boleto', async (req, res) => {
   try {
     
     const browser = await puppeteer.launch({
-      headless: true,
+      headless: new,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
 
