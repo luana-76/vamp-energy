@@ -70,7 +70,7 @@ app.post('/gerar-boleto', async (req, res) => {
     console.error('Erro ao gerar boleto:', error);
     res.status(500).json({ error: 'Erro ao gerar boleto' });
   }
-});
+}); 
 
 app.listen(PORT, () => {
   console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
