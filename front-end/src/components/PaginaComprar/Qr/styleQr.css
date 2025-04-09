@@ -1,0 +1,130 @@
+/* Fundo */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+
+  }
+  
+  #caixaPrincipalQr {
+    width: 100%;
+    max-width: 300px;
+    max-height: 50vw;
+    padding: 20px;
+    background: #141414;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    z-index: 1000;
+    position: relative;
+    box-sizing: border-box;
+  }
+  
+  
+  #close {
+    align-self: flex-end;
+  }
+  
+  .chavesPix {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  
+  #qrCode {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .chaveAleatoria {
+
+    padding: 10px 8px;
+    background: #000;
+    border-radius: 6px;
+    border: 1px solid #fff;
+    word-wrap: break-word;
+    font-size: 0.7rem;
+    text-align: center;
+
+  }
+  
+  .tempo {
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .animacaoPix {
+    background: #000000;
+    width: 100%;
+    height: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .marcadoProgresso {
+    background: linear-gradient(90deg, #dd171700, #dd1717);
+    width: 50px;
+    height: 100%;
+    animation: moverEColorir 2s infinite linear;
+  }
+  
+  @keyframes moverEColorir {
+    to {
+      width: 100%;
+    }
+  }
+  
+  /* Texto abaixo do QR */
+  #caixaPrincipalQr p {
+    color: #c9c9c9;
+    font-size: 0.7rem;
+    margin-top: 15px;
+}
+
+@media screen and (max-width: 1040px) {
+
+    #caixaPrincipalQr {
+
+        max-width: 400px;
+        max-height: 90vh;
+    }
+
+
+}
+  
+  /* Responsivo para telas menores */
+  @media screen and (max-width: 480px) {
+
+    .overlay{padding: 0;}
+  
+    .chaveAleatoria {
+      font-size: 0.8rem;
+    }
+  
+    .tempo {
+      font-size: 0.9rem;
+    }
+    
+    #caixaPrincipalQr {
+
+        max-height: initial;
+        max-width: 300px;
+
+    }
+
+    #caixaPrincipalQr p {
+      font-size: 0.85rem;
+    }
+  }
+  

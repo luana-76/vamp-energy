@@ -5,12 +5,18 @@ import Pix from "../../assets/produto/pix.png"
 
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useState } from "react";
+import { PagamentoQr } from "./Qr/PagamentoQr";
 
 export function ComprarProduto() {
     const navigate = useNavigate();
     const location = useLocation();
     const { nome, imagem, preco } = location.state || {};
 
+
+    const [mostrarPix, setMostrarPix] = useState(false);//Mostrar tela de pix ou não
+
+
+    //Formação do endereço
     const [enderecos, setEnderecos] = useState([
         {
             rua: "Traversa Bernardo Reis",
@@ -21,7 +27,7 @@ export function ComprarProduto() {
         }
     ]);
 
-    const [formVisivel, setFormVisivel] = useState(false);
+    const [formVisivel, setFormVisivel] = useState(false);//Mostrando ou não formulário de endereço
     const [rua, setRua] = useState("");
     const [numero, setNumero] = useState("");
     const [referencia, setReferencia] = useState("");
@@ -29,6 +35,7 @@ export function ComprarProduto() {
     const [bairro, setBairro] = useState("");
     const [editando, setEditando] = useState(null); // Estado para controlar qual endereço está sendo editado
 
+    //Criando endereço novo
     const adicionarEndereco = () => {
         if (!rua || !numero || !referencia || !cidade || !bairro) {
             alert("Por favor, preencha todos os campos.");
@@ -46,6 +53,7 @@ export function ComprarProduto() {
         setFormVisivel(false);
     };
 
+    //Editando endereço
     const editarEndereco = (index) => {
         const enderecoParaEditar = enderecos[index];
         setRua(enderecoParaEditar.rua);
@@ -57,6 +65,7 @@ export function ComprarProduto() {
         setFormVisivel(true);
     };
 
+    //Salvando
     const salvarEnderecoEditado = () => {
         if (!rua || !numero || !referencia || !cidade || !bairro) {
             alert("Por favor, preencha todos os campos.");
@@ -72,6 +81,7 @@ export function ComprarProduto() {
         setFormVisivel(false);
     };
 
+    //Excluído
     const excluirEndereco = (index) => {
         const enderecosAtualizados = enderecos.filter((_, i) => i !== index);
         setEnderecos(enderecosAtualizados);
@@ -115,7 +125,7 @@ export function ComprarProduto() {
                             
                             className='caixaIcone'
                             onClick={() => { 
-                            fetch('https://vamp-energy.onrender.com/gerar-boleto', {
+                            fetch('http://localhost:3001/gerar-boleto', {
                             method: 'POST',
                             })
                             .then(res => res.json())
@@ -136,7 +146,7 @@ export function ComprarProduto() {
 
                         </div>
 
-                        <div className='caixaIcone'>
+                        <div className='caixaIcone' onClick={() => setMostrarPix(true)}>
 
                             <img src={Pix} className='icone' alt='pix'/>
 
@@ -145,6 +155,10 @@ export function ComprarProduto() {
                     </div>
                 </div>
 
+                {/* Mostrando tela do pix */}
+                {mostrarPix && (
+                    <PagamentoQr fechar={() => setMostrarPix(false)} />
+                )}
 
                 <div className="endereco">
                     <h2>Endereço</h2>

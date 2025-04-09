@@ -6,6 +6,8 @@ import { ErroInputVazio } from "./components/ErroVazio/ErroInpuVazio";
 import { MainProduto } from "./components/paginaProduto/MainProduto";
 import { VisualizacaoProduto } from "./components/paginaProduto/SecaoProdutos/produto/VisualizacaoProduto/visualizacaoProduto";
 import { ComprarProduto } from "./components/PaginaComprar/ComprarProduto";
+import { PagamentoQr } from "./components/PaginaComprar/Qr/PagamentoQr";
+import Credito from "./components/PaginaComprar/CartaoCredito/Credito";
 
 
 export default function AppRoutes() {
@@ -18,6 +20,8 @@ export default function AppRoutes() {
       <Route path='/produtos' element={<MainProduto/>} />
       <Route path='/secaoProduto' element={<VisualizacaoProduto/>} />
       <Route path='/comprar' element={<ComprarProduto/>} />
+      <Route path='/qrTeste' element={<PagamentoQr/>} />
+      <Route path='/credito' element={<Credito/>} />
     </Routes>
   );
 }
