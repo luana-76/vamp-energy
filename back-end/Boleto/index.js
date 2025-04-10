@@ -18,9 +18,6 @@ import express from 'express';
 
      const page = await browser.newPage();
 
-     const puppeteer = require('puppeteer');
-
- 
      await page.setUserAgent('Mozilla/5.0 ...');
  
      await page.goto('https://devtools.com.br/gerador-boleto/', {
