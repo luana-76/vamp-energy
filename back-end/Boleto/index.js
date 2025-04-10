@@ -1,7 +1,7 @@
 import express from 'express';
- import puppeteer from 'puppeteer';
- import cors from 'cors';
- 
+import cors from 'cors';
+const puppeteer = require('puppeteer');
+
  const app = express();
  const PORT = 3001;
  
