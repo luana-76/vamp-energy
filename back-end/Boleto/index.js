@@ -9,8 +9,17 @@ import express from 'express';
  
  app.post('/gerar-boleto', async (req, res) => {
    try {
-     const browser = await puppeteer.launch({ headless: false });
+     //const browser = await puppeteer.launch({ headless: false });
+
+      const browser = await puppeteer.launch({
+        headless: true,
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
+      });
+
      const page = await browser.newPage();
+
+     const puppeteer = require('puppeteer');
+
  
      await page.setUserAgent('Mozilla/5.0 ...');
  
