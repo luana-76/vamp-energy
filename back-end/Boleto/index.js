@@ -16,23 +16,28 @@ import puppeteer from 'puppeteer';
       });*/
 
       const browser = await puppeteer.launch({
-        headless: 'true', // ou headless: true se estiver com erro nessa opção
+        headless: true,
         args: [
-          '--no-sandbox',
-          '--disable-setuid-sandbox',
-          '--disable-dev-shm-usage',
-          '--disable-gpu',
-          '--no-zygote',
-          '--single-process',
+          "--no-sandbox",
+          "--disable-setuid-sandbox",
+          "--disable-dev-shm-usage",
+          "--disable-accelerated-2d-canvas",
+          "--disable-gpu",
+          "--no-first-run",
+          "--no-zygote",
+          "--single-process",
+          "--disable-dev-tools",
+          "--no-default-browser-check",
         ],
       });
+      
 
      const page = await browser.newPage();
 
      await page.setUserAgent('Mozilla/5.0 ...');
  
      await page.goto('https://devtools.com.br/gerador-boleto/', {
-       waitUntil: 'load',
+       waitUntil: 'networkidle0',
        timeout: 180000,
      });
  
