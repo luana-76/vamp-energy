@@ -10,8 +10,6 @@ import puppeteer from 'puppeteer';
  
  app.post('/comprar', async (req, res) => {
 
-  console.log('Body recebido:', req.body);
-  res.send('ok');
    try {
 
       /*const browser = await puppeteer.launch({
