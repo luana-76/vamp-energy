@@ -6,8 +6,12 @@ import puppeteer from 'puppeteer';
  const PORT = 3001;
  
  app.use(cors());
+ app.use(express.json()); 
  
  app.post('/comprar', async (req, res) => {
+
+  console.log('Body recebido:', req.body);
+  res.send('ok');
    try {
 
       /*const browser = await puppeteer.launch({
