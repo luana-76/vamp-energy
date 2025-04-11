@@ -126,7 +126,7 @@ export function ComprarProduto() {
                             
                             className='caixaIcone'
                             onClick={() => { 
-                            fetch('https://vamp-energy-production.up.railway.app/gerar-boleto', {
+                            fetch('https://vamp-energy-production.up.railway.app/comprar', {
                             method: 'POST',
                             })
                             .then(res => res.json())
