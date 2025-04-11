@@ -6,6 +6,7 @@ import Pix from "../../assets/produto/pix.png"
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useState } from "react";
 import { PagamentoQr } from "./Qr/PagamentoQr";
+import Credito from "./CartaoCredito/Credito";
 
 export function ComprarProduto() {
     const navigate = useNavigate();
@@ -14,7 +15,7 @@ export function ComprarProduto() {
 
 
     const [mostrarPix, setMostrarPix] = useState(false);//Mostrar tela de pix ou não
-
+    const [mostrarCredito, setMostrarCredito] = useState(false);
 
     //Formação do endereço
     const [enderecos, setEnderecos] = useState([
@@ -140,11 +141,15 @@ export function ComprarProduto() {
 
                         </div>
 
-                        <div className='caixaIcone'>
+                        <div className='caixaIcone' onClick={() => setMostrarCredito(true)}>
 
                             <img src={CartaoCredito} className='icone' alt='cartão de credito'/>
 
                         </div>
+                        {/* Mostrando tela do pix */}
+                        {mostrarCredito && (
+                            <Credito fechar={() => setMostrarCredito(false)} /> 
+                        )}
 
                         <div className='caixaIcone' onClick={() => setMostrarPix(true)}>
 

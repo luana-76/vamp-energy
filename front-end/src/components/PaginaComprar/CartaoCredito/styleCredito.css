@@ -1,0 +1,91 @@
+.container-credito {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 40vw;
+    background: #141414;
+    border-radius: 15px;
+    padding: 10px 10px 20px 10px;
+    border: 2px solid #fff;
+    position: fixed;
+  }
+
+  .container-credito p{
+
+    color: gray;
+
+  }
+  .formularioCartao{
+
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+  }
+
+  .divisaoCvvData{
+
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  input {
+    padding: 8px;
+    font-size: 16px;
+  }
+
+  .cvv, .data{
+
+    width: 8vw;
+
+  }
+  
+  input[type='button']{
+
+    background: #dd1717;
+    border: none;
+    cursor: pointer;
+
+  }
+
+  .bandeira-img {
+    margin-top: 10px;
+  }
+.logos{
+
+    display: flex;
+    gap: 5px;
+
+}
+  .caixaLogo{
+
+    background: #1c1c1c;
+    border-radius: 7px;
+    padding: 4px;
+    width: 29px;
+
+  }
+
+  .logo {
+    width: 24px;
+    opacity: 0.4;
+    transition: all 0.3s ease;
+    filter: grayscale(100%);
+    vertical-align: middle;
+  }
+  
+  .logo.destaque {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.1);
+  }
+  
+  @media screen and (max-width: 480px){
+
+    .container-credito {
+     
+        width: 80vw;
+    }
+
+  }
