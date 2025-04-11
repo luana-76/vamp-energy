@@ -7,7 +7,7 @@ import puppeteer from 'puppeteer';
  
  app.use(cors());
  
- app.post('/gerar-boleto', async (req, res) => {
+ app.post('/comprar', async (req, res) => {
    try {
 
       /*const browser = await puppeteer.launch({
