@@ -6,10 +6,6 @@ import puppeteer from 'puppeteer';
  const PORT = 3001;
  
  app.use(cors());
-
-  app.listen(PORT, () => {
-    console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
-  });
  
  app.post('/gerar-boleto', async (req, res) => {
    try {
