@@ -16,7 +16,7 @@ import puppeteer from 'puppeteer';
       });*/
 
       const browser = await puppeteer.launch({
-        headless: 'new', // ou headless: true se estiver com erro nessa opção
+        headless: 'true', // ou headless: true se estiver com erro nessa opção
         args: [
           '--no-sandbox',
           '--disable-setuid-sandbox',
