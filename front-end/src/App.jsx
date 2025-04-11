@@ -6,7 +6,7 @@ import { Header } from './components/header/Header';
 function App() {
   return (
     <Router>
-      {/*<Header />*/}
+      <Header />
       <AppRoutes />
     </Router>
   );
