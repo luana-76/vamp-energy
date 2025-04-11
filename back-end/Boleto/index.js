@@ -9,11 +9,22 @@ import puppeteer from 'puppeteer';
  
  app.post('/gerar-boleto', async (req, res) => {
    try {
-     //const browser = await puppeteer.launch({ headless: false });
 
-      const browser = await puppeteer.launch({
+      /*const browser = await puppeteer.launch({
         headless: false,
         args: ['--no-sandbox', '--disable-setuid-sandbox']
+      });*/
+
+      const browser = await puppeteer.launch({
+        headless: 'new', // ou headless: true se estiver com erro nessa opção
+        args: [
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+          '--disable-dev-shm-usage',
+          '--disable-gpu',
+          '--no-zygote',
+          '--single-process',
+        ],
       });
 
      const page = await browser.newPage();
