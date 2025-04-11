@@ -12,8 +12,7 @@ import puppeteer from 'puppeteer';
      //const browser = await puppeteer.launch({ headless: false });
 
       const browser = await puppeteer.launch({
-        headless: true,
-        executablePath:'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+        headless: false,
         args: ['--no-sandbox', '--disable-setuid-sandbox']
       });
 
