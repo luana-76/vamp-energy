@@ -12,10 +12,8 @@ import puppeteer from 'puppeteer';
 
    try {
 
-      /*const browser = await puppeteer.launch({
-        headless: false,
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
-      });*/
+    const boleto = await gerarBoleto(req.body); // função que usa Puppeteer
+    res.json({ boleto });
 
       const browser = await puppeteer.launch({
         headless: true,
@@ -63,9 +61,10 @@ import puppeteer from 'puppeteer';
      await page.click('[type="submit"]');
  
      await browser.close();
+     
    } catch (error) {
-     console.error('Erro ao gerar boleto:', error);
-     res.status(500).json({ error: 'Erro ao gerar boleto' });
+    console.error("Erro ao gerar boleto:", error);
+    res.status(500).json({ error: "Erro ao gerar boleto" });
    }
  });
  
