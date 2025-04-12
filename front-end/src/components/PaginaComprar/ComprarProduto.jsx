@@ -126,15 +126,20 @@ export function ComprarProduto() {
                             
                             className='caixaIcone'
                             onClick={() => { 
-                            fetch('https://vamp-energy-production.up.railway.app', {
-                            method: 'POST',
-                            })
-                            .then(res => res.json())
-                            .then(data => {
-                                // abre o boleto gerado (se for um link, por exemplo)
-                                window.open(data.urlBoleto, '_blank');
-                            })
-                            .catch(err => console.error('Erro ao gerar boleto:', err));
+                                fetch('https://vamp-energy.onrender.com/comprar', {
+                                    method: 'POST',
+                                    headers: {
+                                      'Content-Type': 'application/json'
+                                    },
+                
+                                })
+                                .then(async res => {
+                                    const text = await res.text();
+                                    console.log("Resposta crua:", text); // Veja se é HTML ou JSON
+                                    return JSON.parse(text); // só se for realmente JSON
+                                 })
+                                 .catch(err => console.error('Erro ao gerar boleto:', err));
+                            
                         }}>
 
                             <img src={Boleto} className='icone' alt='boleto'/>
