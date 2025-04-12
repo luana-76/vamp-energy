@@ -9,7 +9,17 @@ const { Boleto } = require('node-boleto');
 const app = express();
 const PORT = 3001;
 
-app.use(cors());
+const corsOptions = {
+    origin: 'https://vamp-energy.vercel.app',  // Permite somente o domínio do Vercel
+    methods: ['GET', 'POST'],  // Métodos permitidos
+    allowedHeaders: ['Content-Type', 'Authorization'],  // Cabeçalhos permitidos
+    preflightContinue: false,  // Previne que o CORS pré-processado continue
+    optionsSuccessStatus: 204, // Código de sucesso para preflight request
+  };
+  
+  // Aplica as configurações CORS ao seu servidor
+  app.use(cors(corsOptions));
+
 app.use(express.json());
 
 app.post('/gerar-boleto', async (req, res) => {
