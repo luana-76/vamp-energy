@@ -97,6 +97,30 @@ export function ComprarProduto() {
         setBairro("");
     };
 
+
+    const gerarBoleto = async () => {
+        try {
+          const res = await fetch('http://localhost:3001/gerar-boleto', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          });
+      
+          if (!res.ok) throw new Error('Erro ao gerar boleto');
+      
+          const blob = await res.blob();
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'boleto.pdf'; // Nome do arquivo
+          a.click();
+          window.URL.revokeObjectURL(url);
+        } catch (err) {
+          console.error('Erro ao baixar boleto:', err);
+        }
+      };
+      
     return (
         <section className="comprar">
             <div id="close" onClick={() => navigate(-1)} style={{ cursor: 'pointer', marginRight: "45px" }}>
@@ -125,22 +149,7 @@ export function ComprarProduto() {
                         <div 
                             
                             className='caixaIcone'
-                            onClick={() => { 
-                                fetch('https://vamp-energy.onrender.com/comprar', {
-                                    method: 'POST',
-                                    headers: {
-                                      'Content-Type': 'application/json'
-                                    },
-                
-                                })
-                                .then(async res => {
-                                    const text = await res.text();
-                                    console.log("Resposta crua:", text); // Veja se é HTML ou JSON
-                                    return JSON.parse(text); // só se for realmente JSON
-                                 })
-                                 .catch(err => console.error('Erro ao gerar boleto:', err));
-                            
-                        }}>
+                            onClick={() => gerarBoleto()}>
 
                             <img src={Boleto} className='icone' alt='boleto'/>
 
