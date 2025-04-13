@@ -30,7 +30,7 @@ app.use(cors({
 
 app.use(express.json());
 
-app.post('/gerar-boleto', async (req, res) => {
+app.get('/gerar-boleto', async (req, res) => {
   try {
     const boleto = new Boleto({
       banco: 'bradesco',

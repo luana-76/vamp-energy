@@ -101,7 +101,7 @@ export function ComprarProduto() {
     const gerarBoleto = async () => {
         try {
           const res = await fetch('https://vamp-energy-production.up.railway.app/gerar-boleto', {
-            method: 'POST',
+            method: 'GET',
             headers: {
               'Content-Type': 'application/json',
             },
