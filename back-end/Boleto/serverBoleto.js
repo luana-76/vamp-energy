@@ -7,18 +7,26 @@ const puppeteer = require('puppeteer');
 const { Boleto } = require('node-boleto');
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
-const corsOptions = {
-    origin: 'https://vamp-energy.vercel.app',  // Permite somente o domínio do Vercel
-    methods: ['GET', 'POST'],  // Métodos permitidos
-    allowedHeaders: ['Content-Type', 'Authorization'],  // Cabeçalhos permitidos
-    preflightContinue: false,  // Previne que o CORS pré-processado continue
-    optionsSuccessStatus: 204, // Código de sucesso para preflight request
-  };
-  
-  // Aplica as configurações CORS ao seu servidor
-  app.use(cors(corsOptions));
+
+const allowedOrigins = [
+  'http://localhost:3000', // para testes locais
+  'https://vamp-energy.vercel.app' // produção
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type']
+}));
+
 
 app.use(express.json());
 
