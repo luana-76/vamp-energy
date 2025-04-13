@@ -100,7 +100,7 @@ export function ComprarProduto() {
 
     const gerarBoleto = async () => {
         try {
-          const res = await fetch('https://vamp-energy-production.up.railway.app/gerar-boleto', {
+          const res = await fetch('https://vamp-energy.onrender.com/gerar-boleto', {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
