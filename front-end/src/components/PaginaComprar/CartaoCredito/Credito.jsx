@@ -4,6 +4,7 @@ import elo from "../../../assets/produto/elo.png";
 import './styleCredito.css';
 import PropTypes from 'prop-types';
 import InputMask from "react-input-mask";
+import { Topo } from "../../TopoDaPagina/topo";
 
 const Credito = ({fechar}) => {
   const [numero, setNumero] = useState("");
@@ -31,6 +32,7 @@ const Credito = ({fechar}) => {
 
   return (
     <div className="overlay">
+      <Topo/>
       <section className="container-credito">
 
         <div id="close" onClick={fechar} style={{ cursor: 'pointer' }}>
@@ -116,7 +118,7 @@ const Credito = ({fechar}) => {
 
           </div>
 
-          <p>Seus dados estarão totalmente seguros.</p>
+          <p>Seus dados estarão totalmente seguros com a Vamp.</p>
 
           <input type='button' value="Confirmar"/>
 

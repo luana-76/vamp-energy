@@ -2,6 +2,7 @@ import './styleQr.css';
 import QrCode from '../../../assets/produto/qr.jpeg';
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { Topo } from '../../TopoDaPagina/topo';
 
 export function PagamentoQr({ fechar }) {
     
@@ -30,6 +31,7 @@ export function PagamentoQr({ fechar }) {
 
   return (
     <div className="overlay">
+      <Topo/>
       <div id='caixaPrincipalQr'>
         <div id="close" onClick={fechar} style={{ cursor: 'pointer' }}>
           <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAATBJREFUSEvtlLsuRUEYhb/VSkRDkChEJDyDuCRoxWuIVuJNRKOSeAHxBIgK0bpETckLLPuXKTbnnJlxkh3NmXKy91r/+mbNiI6XOtZnZFAk/L+IbB8Cp5Le+o1qewlYk3QyKMrABLb3gSPgGVj/bWJ7EbgCZoBdSef9THIG8WMIhNBLmvQ7ie0F4AaYBh6ADUmffzJIQj0mwFiteGgUD9n2LHCZkjwCEwnLXZNwS9JHrkpFg5RkLuGaT2JZLG3DWoNgHcyDfaz7JtVmafpaRCF+nRA9JUSxd9vsb5dMsglstyd/BVaA8VY9i0lyNe0Rl/SeziSqG8imSrhyBntNz4+BwBI9/3GbbS+nJJPAjqSLYe7BAXCWeSrCZHWop6L4TFZ+UFXTSq2+n40MivQ6R/QFgd1qGe7ts/oAAAAASUVORK5CYII" alt="fechar" />

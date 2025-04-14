@@ -91,6 +91,7 @@
    display: flex;
    justify-content: center;
    align-items: center;
+   z-index: 9999;
 }
 
 .formularioEndereco h3{
@@ -100,7 +101,8 @@
 
 }
 .formularioContainer {
-   background-color: #3d3d3d;
+   background-color: #141414;
+   border: 2px solid #fff;
    padding: 20px;
    border-radius: 8px;
    width: 50%;

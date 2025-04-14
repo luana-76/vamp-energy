@@ -72,7 +72,7 @@ export function Header() {
         </Link>
 
         <ul id="listaInterna">
-          {["Início", "Informações", "Protótipo", "Surgimento", "Rodapé"].map(
+          {["Início", "Informações", "Produto", "Surgimento", "Rodapé"].map(
             (item, index) => (
               <motion.li
                 key={index}

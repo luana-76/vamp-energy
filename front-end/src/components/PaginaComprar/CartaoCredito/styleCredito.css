@@ -49,6 +49,13 @@
 
   }
 
+  input[type='button']:hover{
+
+    background: #8f0c0c;
+    transition: background 1s;
+
+  }
+
   .bandeira-img {
     margin-top: 10px;
   }

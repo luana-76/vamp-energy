@@ -1,5 +1,4 @@
 const express = require('express');
-const path = require('path');
 const fs = require('fs');
 const cors = require('cors');
 const moment = require('moment');
@@ -7,30 +6,12 @@ const puppeteer = require('puppeteer');
 const { Boleto } = require('node-boleto');
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = 3001;
 
-
-const allowedOrigins = [
-  'http://localhost:3000', // para testes locais
-  'https://vamp-energy.vercel.app' // produção
-];
-
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  methods: ['GET', 'POST'],
-  allowedHeaders: ['Content-Type']
-}));
-
-
+app.use(cors());
 app.use(express.json());
 
-app.get('/gerar-boleto', async (req, res) => {
+app.post('/gerar-boleto', async (req, res) => {
   try {
     const boleto = new Boleto({
       banco: 'bradesco',
@@ -51,7 +32,7 @@ app.get('/gerar-boleto', async (req, res) => {
       const browser = await puppeteer.launch();
       const page = await browser.newPage();
 
-      await page.setContent(html, { waitUntil: 'networkidle0', timeout: 60000 });
+      await page.setContent(html, { waitUntil: 'networkidle0', timeout: 600000  });
 
       const pdfBuffer = await page.pdf({ format: 'A4' });
 
