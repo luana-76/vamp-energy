@@ -1,7 +1,7 @@
-import Fundo1 from "../../assets/produto/fundoProduto.jpeg";
-import Fundo2 from "../../assets/produto/energetico3.jpeg";
-import Fundo3 from "../../assets/produto/barra1.webp";
-import Fundo4 from "../../assets/produto/barra2.webp";
+import Fundo1 from "../../assets/produto/conjuntoEnergetico.png";
+import Fundo2 from "../../assets/produto/adolescentes.png";
+import Fundo3 from "../../assets/produto/barrasProduto.png";
+import Fundo4 from "../../assets/produto/gymConjunto.png";
 
 import Barras from "../../assets/produto/barraCereal.webp";
 import Barras1 from "../../assets/produto/barra6.webp";
@@ -11,8 +11,10 @@ import Barras4 from "../../assets/produto/barra4.webp";
 import Barras5 from "../../assets/produto/barra5.webp";
 
 //Seçao 1 imagens
-import Imagem from '../../assets/produto/barra1.webp';
-import NeonBebida from '../../assets/produto/neonBebida.webp';
+import Tradicional from '../../assets/produto/tradicional.jpeg';
+import Limao from '../../assets/produto/limao.jpeg';
+import Uva from '../../assets/produto/uva.jpeg';
+import Misterioso from '../../assets/produto/misterioso.jpeg';
 import SacoBebida from '../../assets/produto/sacoBebida.webp';
 
 //Gym
@@ -56,11 +58,11 @@ export function MainProduto(){
             <ContainerDeProduto
             
             nomeSecao='Bebidas'
-            imagem1={Imagem} nomeProduto1='Bebida Vamp' preco1='7.0'
-            imagem2={NeonBebida} nomeProduto2='Bebida Vamp' preco2='7.0'
-            imagem3={SacoBebida} descricao3='Bebida energetica sabor...' nomeProduto3='Blood Pack' preco3='7.0'
-            imagem4={Imagem} nomeProduto4='Bebida Vamp' preco4='7.0'
-            imagem5={Imagem} nomeProduto5='Bebida Vamp' preco5='7.0'
+            imagem1={Tradicional} nomeProduto1='Vamp Tradicional' descricao1='Bebida energetica sabor...'preco1='7.0'
+            imagem2={SacoBebida} descricao2='Bebida energetica sabor...' nomeProduto2='Blood Pack' preco2='13.0'
+            imagem3={Uva} nomeProduto3='Vamp Uva' preco3='7.0' descricao3='Bebida energetica sabor...'
+            imagem4={Limao} nomeProduto4='Vamp Limão' preco4='7.0' descricao4='Bebida energetica sabor...'
+            imagem5={Misterioso} nomeProduto5='Vamp Misterioso' preco5='7.0' descricao5='Bebida energetica sabor...'
             
             />
 
