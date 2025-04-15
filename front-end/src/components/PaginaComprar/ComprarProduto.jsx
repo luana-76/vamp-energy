@@ -7,7 +7,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useState } from "react";
 import { PagamentoQr } from "./Qr/PagamentoQr";
 import Credito from "./CartaoCredito/Credito";
-import { Topo } from "../TopoDaPagina/topo";
+import { Topo } from "../TopoDaPagina/TopoPagina"
 
 export function ComprarProduto() {
     const navigate = useNavigate();

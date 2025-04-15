@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export function Topo() {
+export function TopoPagina() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
