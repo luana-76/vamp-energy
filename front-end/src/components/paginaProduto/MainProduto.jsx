@@ -28,15 +28,12 @@ import EnergeticoPo from '../../assets/produto/teste6.webp';
 
 import "./style.css";
 import { ContainerDeProduto } from "./SecaoProdutos/ContainerDeProduto";
-import { Topo } from "../TopoDaPagina/topo";
 
 export function MainProduto(){
 
     return(
 
         <main id='mainProduto'>
-
-            <Topo/>
 
             <div className='carousel'>
 
