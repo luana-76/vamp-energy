@@ -1,5 +1,6 @@
 import './estilizacaoStyle.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export function VisualizacaoProduto(){
 
@@ -7,6 +8,10 @@ export function VisualizacaoProduto(){
     const location = useLocation();
 
     const { nome, imagem, descricao, preco } = location.state || {};
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
 
     return(
 
@@ -31,7 +36,7 @@ export function VisualizacaoProduto(){
 
                 <div className='texto'>
                     <p>{descricao}</p>
-                    <span className='preco'>R$ {preco}</span>
+                    <span className='precoVisualizacaoPag'>R$ {preco}</span>
                 </div>
 
                 <div className='form'>

@@ -30,8 +30,13 @@ import EnergeticoPo from '../../assets/produto/teste6.webp';
 
 import "./style.css";
 import { ContainerDeProduto } from "./SecaoProdutos/ContainerDeProduto";
+import { useEffect } from 'react';
 
 export function MainProduto(){
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
 
     return(
 
@@ -58,11 +63,25 @@ export function MainProduto(){
             <ContainerDeProduto
             
             nomeSecao='Bebidas'
-            imagem1={Tradicional} nomeProduto1='Vamp Tradicional' descricao1='Bebida energetica sabor...'preco1='7.0'
-            imagem2={SacoBebida} descricao2='Bebida energetica sabor...' nomeProduto2='Blood Pack' preco2='13.0'
-            imagem3={Uva} nomeProduto3='Vamp Uva' preco3='7.0' descricao3='Bebida energetica sabor...'
-            imagem4={Limao} nomeProduto4='Vamp Limão' preco4='7.0' descricao4='Bebida energetica sabor...'
-            imagem5={Misterioso} nomeProduto5='Vamp Misterioso' preco5='7.0' descricao5='Bebida energetica sabor...'
+            imagem1={Tradicional} nomeProduto1='Tradicional' descricao1='Clássico, potente e direto ao ponto...'preco1='7,0'
+            decricaoCompleta1="Clássico, potente e direto ao ponto. O Vamp Tradicional entrega aquela explosão de energia que você precisa para encarar qualquer desafio. Com um sabor vibrante e fórmula equilibrada, ele é o combustível ideal pra quem vive intensamente – de dia ou de noite."
+
+            imagem2={SacoBebida} descricao2='O Blood Pack vai direto na veia...' nomeProduto2='Blood Pack' preco2='13.0'
+            decricaoCompleta2="O Blood Pack vai direto na veia do seu estilo: ousado, intenso e fora do comum. Esqueça latas — essa dose de energia vem em um saquinho que simula sangue, pra alimentar sua sede de adrenalina com visual impactante e atitude de sobra.
+            Sabe aquele impulso que só os noturnos entendem? Tá aqui dentro.
+            Rasgue, beba, sinta o poder subir."
+
+            imagem3={Uva} nomeProduto3='Vamp Uva' preco3='7,0' descricao3='Sinta o poder da noite com...'
+            decricaoCompleta3="Sinta o poder da noite com Vamp Uva, a bebida energética que une o sabor intenso da uva roxa com a energia que desperta seus sentidos. Com um gosto marcante e misterioso, Vamp te acompanha em jornadas noturnas, treinos extremos ou madrugadas criativas.
+            É mais do que energia — é atitude na veia."
+
+            imagem4={Limao} nomeProduto4='Vamp Limão' preco4='7,0' descricao4='Refrescante, ácido na medida e cheio...' decricaoCompleta4="Refrescante, ácido na medida e cheio de personalidade — o Vamp Limão traz a energia com um toque cítrico que desperta até os mortos. Perfeito pra quem curte um sabor ousado e uma dose de vigor que chega como um raio na sua rotina.
+            Gelado então? Vira seu aliado fiel nas batalhas mais intensas do dia (ou da madrugada)."
+
+            imagem5={Misterioso} nomeProduto5='Misterioso' preco5='7,0' descricao5='Você não vai saber o sabor. Só...' decricaoCompleta5="Você não vai saber o sabor. Só vai sentir.
+            Um gole e algo dentro de você muda — é como se o tempo desacelerasse e tudo ao redor escurecesse, exceto sua mente.
+            Refrescante? Talvez. Doce? Quem sabe. O que importa é o impacto: intenso, inesperado, inesquecível.
+            Vamp Eclipse não é sobre gosto. É sobre a experiência de provar o desconhecido."
             
             />
 

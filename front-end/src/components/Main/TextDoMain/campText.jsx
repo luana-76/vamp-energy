@@ -1,5 +1,5 @@
 import "./styleCampText.css";
-import LogoCentral from "../../../assets/logoCentral.png";
+import LogoCentral from "../../../assets/l.png";
 import { motion } from "framer-motion"; 
 
 export function CampText() {

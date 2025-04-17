@@ -8,6 +8,8 @@ import { useState } from "react";
 import { PagamentoQr } from "./Qr/PagamentoQr";
 import Credito from "./CartaoCredito/Credito";
 
+import { useEffect } from 'react';
+
 export function ComprarProduto() {
     const navigate = useNavigate();
     const location = useLocation();
@@ -120,6 +122,11 @@ export function ComprarProduto() {
           console.error('Erro ao baixar boleto:', err);
         }
       };
+
+    /* Rolando página pro início */
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
       
       
     return (

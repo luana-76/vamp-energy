@@ -1,16 +1,18 @@
 import "./stylePartLata.css";
 import "./responsiveLata.css";
-import Black from "../../assets/lata.png";
-import Yellow from "../../assets/yellow.png";
-import Blue from "../../assets/blue.png";
+import Tradicional from "../../assets/tradicional.png";
+import Limao from "../../assets/limao.png";
+import Misterioso from "../../assets/Misterioso.png";
 import { useState, useEffect } from "react";
 import { CampText } from "./TextDoMain/campText";
 import { motion } from "framer-motion";
 import teste from "../../assets/teste.gif"
 
 export function Main() {
-  const [currentImage, setCurrentImage] = useState(Black); // Estado inicial com a imagem preta
+  const [currentImage, setCurrentImage] = useState(Tradicional); // Estado inicial com a imagem preta
   const [isMobile, setIsMobile] = useState(false); // Evita erro no SSR
+
+  console.log(currentImage)
 
   useEffect(() => {
     setIsMobile(window.innerWidth <= 768); // Define o valor correto no client-side
@@ -45,31 +47,34 @@ export function Main() {
               <button
                 className="colors"
                 id="black"
-                onClick={() => setCurrentImage(Black)}
+                onClick={() => setCurrentImage(Tradicional)}
               ></button>
               <button
                 className="colors"
                 id="blue"
-                onClick={() => setCurrentImage(Blue)}
+                onClick={() => setCurrentImage(Limao)}
               ></button>
               <button
                 className="colors"
                 id="yellow"
-                onClick={() => setCurrentImage(Yellow)}
+                onClick={() => setCurrentImage(Misterioso)}
               ></button>
             </div>
           </div>
 
           {/* Animação da lata */}
           <div className="seguraBorda">
-            <motion.img
-              id="lata"
-              src={currentImage}
-              alt="Lata Vamp"
-              initial={{ opacity: 0 }} // Começa invisível
-              animate={{ opacity: 1 }} // Fica visível
-              transition={{ duration: 1.5, ease: "easeOut" }} // Animação suave de 1.5s
-            />
+          <motion.img
+            id="lata"
+            src={currentImage}
+            alt="Lata Vamp"
+            initial={{ opacity: 0, scale: 1 }}
+            animate={{
+              opacity: 1,
+              width: currentImage === Limao || currentImage === Misterioso  ? 310 : 210, // aumenta se for diferente do tradicional
+            }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+          />
             <div className="borda"></div>
           </div>
         </>

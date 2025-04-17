@@ -14,7 +14,7 @@
  
  .imagemProduto{margin-right: 20px;}
  .imagemProduto img {
-   width: 20vw;
+   /*width: 20vw;*/
    height: 30vh;
 }
 
@@ -202,7 +202,6 @@
    .preco {
        flex-direction: row;
        justify-content: space-between;
-       align-items: center;
    }
 
    .endereco .adicionar,
@@ -277,7 +276,7 @@
 
    .preco {
        flex-direction: column;
-       align-items: center;
+       /*align-items: center;*/
    }
 
    .endereco .adicionar,
@@ -332,7 +331,7 @@
    .preco {
        font-size: 0.9em;
        flex-direction: column;
-       align-items: center;
+       /*align-items: center;*/
    }
 
    .formularioContainer {

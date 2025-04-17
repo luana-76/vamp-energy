@@ -45,14 +45,15 @@
 
 }
 
-#blue{background: #3688EC;}
-#yellow{background: #ECA936;}
+#blue{background: green;}
+#yellow{background: #fff;}
 #black{background: #111111;}
+
 
 /* Designer da lata */
 
 #lata {
-  width: 240px;
+  width: 200px;
   z-index: 100;
   position: absolute;
   left: 71%;
