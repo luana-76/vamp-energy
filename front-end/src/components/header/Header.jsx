@@ -1,6 +1,6 @@
 import "./styleHeader.css";
 import "./responsiveHeader.css";
-import Dentadura from "../../assets/logoDentadura.png";
+import Dentadura from "../../assets/logo.png";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
