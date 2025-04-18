@@ -13,9 +13,9 @@ export function CampText() {
       <img id="logoCentral" src={LogoCentral} alt="logo vamp energy" />
 
       <p>
-        Nas luxuosas de uma noite sem fim, onde a <span className='pontosImportantes'>energia se esvai</span> e o corpo pede
-        por vigor, surge <span className='pontosImportantes'>Vamp</span>, uma bebida emprestada que renasce seu espírito.
-        Inspirado na força imortal e na <span className='pontosImportantes'>resistência</span> dos vampiros, Vamp é sua dose de poder para enfrentar qualquer desafio. Um gole e você sentirá o sangue novo correndo em
+        Nas luxuosas de uma noite sem fim, onde a energia se esvai e o corpo pede
+        por vigor, surge Vamp, uma bebida emprestada que renasce seu espírito.
+        Inspirado na força imortal e na resistência dos vampiros, Vamp é sua dose de poder para enfrentar qualquer desafio. Um gole e você sentirá o sangue novo correndo em
         suas veias, pronto para conquistar o impossível.
       </p>
 

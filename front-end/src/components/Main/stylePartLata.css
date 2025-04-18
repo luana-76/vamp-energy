@@ -8,9 +8,10 @@
   align-items: center;
   padding-top: 40px;
 
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-        url(../../assets/ceu.jpeg);
-        background-size: cover;
+  /*background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url(../../assets/fundo.jpeg);*/
+  background-image: url(../../assets/fundo.jpeg);
+  background-size: cover;
 
 }
 
@@ -75,7 +76,12 @@
 
 /* Borda ao redor da lata */
 
-.seguraBorda{height: 39%;}
+.seguraBorda{
+  
+  height: 39%;
+  font-weight: 500;
+
+}
   
 .borda{
   /* Não mexa no tamanho */

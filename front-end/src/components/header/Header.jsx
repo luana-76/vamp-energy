@@ -53,7 +53,11 @@ export function Header() {
   }
 
   return (
-    <header>
+    <header style={
+      location.pathname === "/produtos"
+        ? { background: "linear-gradient(rgba(17, 17, 17) 70%, #00000000)", zIndex: "9999" }
+        : {}
+    }>
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}

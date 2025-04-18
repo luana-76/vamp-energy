@@ -31,8 +31,6 @@ export function Main() {
 
           <div id='vampImagem'>
 
-            <img src={teste} alt='vampiro vamp'/>
-
           </div>
           <CampText />
         </div>

@@ -14,7 +14,7 @@ header nav:first-child {
     display: flex;
     align-items: center;
     padding: 10px 5%;
-    background: #2D2D2D;
+    /*background: #2D2D2D;*/
     border-radius: 0 15px 15px 0; /* Apenas a borda direita arredondada */
     
 }
@@ -52,7 +52,7 @@ header nav:first-child {
     align-items: center;
     display: flex;
     padding: 10px 3%;
-    background: #2D2D2D;
+    /*background: #2D2D2D;*/
     border-radius: 15px 0px 0px 15px;
     
 }
