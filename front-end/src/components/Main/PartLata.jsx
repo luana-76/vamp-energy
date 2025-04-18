@@ -2,7 +2,7 @@ import "./stylePartLata.css";
 import "./responsiveLata.css";
 import Tradicional from "../../assets/tradicional.png";
 import Limao from "../../assets/limao.png";
-import Misterioso from "../../assets/Misterioso.png";
+import Misterioso from "../../assets/misterioso.png";
 import { useState, useEffect } from "react";
 import { CampText } from "./TextDoMain/campText";
 import { motion } from "framer-motion";
