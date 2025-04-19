@@ -43,7 +43,10 @@
     header nav{background: none !important;}
 
     /* Primeira nav */
-    header nav:first-child{width: 20% !important;}
+    header nav:first-child {
+        width: 100vw;
+        justify-content: space-between;
+    }
     /* Imagem da logo */
     #logoHeader {
      
