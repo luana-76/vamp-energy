@@ -28,20 +28,30 @@
 
 }
 
-#descricao{margin: 10px 0;}
+#descricao{
+  
+  margin: 10px 0;
+  padding: 0 10px;
+
+}
 
 .produto button{
 
     position: initial;
     border-radius: 100px;
-    background: #65558F;
+    background: #59138b;
     padding: 5px;
     width: 50%;
     margin: 13px auto 0 auto;
 
 }
 
-.produto button:hover{background:#65558f85;}
+.produto button:hover{
+
+  background:#65558f85;
+  border: 1px solid #fff;
+
+}
 
 .produto {
   background: #2C2C2C;

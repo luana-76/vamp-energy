@@ -1,198 +1,176 @@
-#mainProduto{
-
-    margin-bottom: 50px;
-
+/* === Seção principal de produtos === */
+#mainProduto {
+  margin-bottom: 50px;
 }
 
-#mainProduto::before{
-
-    content: url(/src/assets/produto/l.png);
-    position: absolute;
-    z-index: 1000;
-    left: 5%;
-
-}
-/* Carrocel inicial */
-.carousel{
-
-    overflow: hidden;
-    width: 100vw;
-    height: 100vh;
-    margin-top: 80px;
-
+/* Adiciona uma imagem decorativa à esquerda da seção */
+#mainProduto::before {
+  content: url(/src/assets/produto/l.png);
+  position: absolute;
+  z-index: 1000;
+  left: 5%;
 }
 
-.wrap{
-
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 100vw;
-    justify-items: stretch;
-    animation: slide 30s linear infinite;
-
+/* === Carrossel de imagens === */
+.carrossel{
+  overflow: hidden; /* Esconde partes que saem do container */
+  width: 100vw;
+  height: 100vh;
+  margin-top: 80px;
 }
 
-.wrap img{
-
-    width: 100vw;
-    height: 90vh;
-    border-radius: 15px;
-    object-fit: 100% 100%;
-    filter: brightness(50%);/* Deixa as imagens escura */
-    /* Faz um fade */
-    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 30%, black 70%, transparent 100%);
-    mask-image: linear-gradient(to top, transparent 0%, black 30%, black 70%, transparent 100%);
-
+/* Container interno do carrossel com animação de slide horizontal */
+.wrap {
+  display: grid;
+  grid-auto-flow: column; /* Garante que as imagens fiquem em sequência horizontal */
+  grid-auto-columns: 100vw; /* Cada imagem ocupa a tela inteira */
+  justify-items: stretch;
+  animation: slide 30s linear infinite; /* Animação contínua */
 }
 
+/* Imagens do carrossel */
+.wrap img {
+  width: 100vw;
+  height: 90vh;
+  border-radius: 15px;
+  object-fit: 100% 100%; /* Força o preenchimento completo */
+  filter: brightness(50%); /* Escurece a imagem */
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 30%, black 70%, transparent 100%);
+  mask-image: linear-gradient(to top, transparent 0%, black 30%, black 70%, transparent 100%);
+}
+
+/* Animação que move o carrossel para a esquerda */
 @keyframes slide {
-
-    to{
-
-        translate: calc(-4 * 100vw);
-
-    }
-    
+  to {
+    translate: calc(-4 * 100vw); /* Desloca 4 imagens para a esquerda */
+  }
 }
 
-/* Marcação de seção */
-
-.imagem{
-
-    display: flex;
-    width: 100vw;
-    height: 40vh;
-    margin: 0;
-    margin: 120px 0 80px 0;
-
+/* === Imagem de separação/decoração entre seções === */
+.imagem {
+  display: flex;
+  width: 100vw;
+  height: 40vh;
+  margin: 120px 0 80px 0;
 }
 
 .imagem img {
-    flex: 1;
-    height: 100%;
-    object-fit: cover;
-  }
+  flex: 1;
+  height: 100%;
+  object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+}
 
-  /* 🌐 Responsivo para tablets e celulares */
+/* === Responsividade para tablets (até 1024px) === */
 @media (max-width: 1024px) {
-    .wrap img {
-      height: 60vh;
-    }
-  
-    .imagem {
-      /*flex-direction: column;*/
-      height: auto;
-      margin: 90px 0 80px 0;
-    }
-  
-    .imagem img {
-        width: 10%;
-        height: 200px;
-    
-    }
-  
-    #alinhamentoCaixas {
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-  
-    .produto {
-      width: 500px !important;
-      height: 90%;
-      box-shadow: -32px 7px 56px -15px rgb(0 0 0);
-      justify-content: center;
-      
-    }
-    .caixaProduto {
-
-        width: 100vw !important;
-        flex-direction: row !important;
-        justify-content: center;
-
-    }
-
-    .caixaProduto img{
-
-      width: 30% !important;
-      max-width: auto;
-
-    }
-
-    .produto h3 {
-      font-size: 2em !important;
-    }
-
-    .produto span{
-      font-size: 1.5em;
-    }
-  
-    .titulo {
-      align-self: center;
-      margin-left: 0;
-      text-align: center;
-    }
-
-    #mainProduto::before {
-      
-      left: 5%;
-      top: 10%;
-    
-    }
-  }
-  
-  @media (max-width: 600px) {
-
-    #mainProduto::before {
-      left: -30%;
-      transform: scale(0.5);
-    }
-
-    .wrap img {
-      height: 40vh;
-    }
-  
-    .carousel {
-      height: 60vh;
-    }
-    
-    .caixaProduto{
-
-        flex-direction: row !important;
-        align-items: center;
-        width: 90vw !important;
-    
-    }
-
-    .produto{
-
-        width: 100vw !important;
-        max-width: auto !important;
-        height: 160px!important;
-
-    }
-    .produto span,
-    .produto h3 {
-      padding-left: 5px;
-    }
-    .produto span{font-size: 1em !important;}
-
-    .produto h3{font-size: 1.3em !important;}
-  
-    .produto button {
-      width: 70%;
-      font-size: 0.9em;
-    }
-  
-    .titulo h2 {
-      font-size: 1.5em;
-    }
-
-    .caixaProduto img {
-      width: 180px !important;
-    }
+  .wrap img {
+    height: 60vh; /* Reduz altura do carrossel */
   }
 
+  .imagem {
+    height: auto;
+    margin: 90px 0 80px 0;
+  }
 
+  .imagem img {
+    width: 10%;
+    height: 200px;
+  }
 
-  
+  #alinhamentoCaixas {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .produto {
+    width: 500px !important;
+    height: 90%;
+    box-shadow: -32px 7px 56px -15px rgb(0 0 0);
+    justify-content: center;
+  }
+
+  .caixaProduto {
+    width: 100vw !important;
+    flex-direction: row !important;
+    justify-content: center;
+  }
+
+  .caixaProduto img {
+    width: 30% !important;
+    max-width: auto;
+  }
+
+  .produto h3 {
+    font-size: 2em !important;
+  }
+
+  .produto span {
+    font-size: 1.5em;
+  }
+
+  .titulo {
+    align-self: center;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  /* Reposiciona imagem decorativa para telas médias */
+  #mainProduto::before {
+    left: 5%;
+    top: 10%;
+  }
+}
+
+/* === Responsividade para celulares (até 600px) === */
+@media (max-width: 600px) {
+  #mainProduto::before {
+    left: -30%; /* Move a imagem decorativa para fora da tela */
+    transform: scale(0.5); /* Diminui tamanho da imagem */
+  }
+
+  .wrap img {
+    height: 40vh; /* Carrossel menor */
+  }
+
+  .carrossel{
+    height: 60vh;
+  }
+
+  .caixaProduto {
+    flex-direction: row !important;
+    align-items: center;
+    width: 90vw !important;
+  }
+
+  .produto {
+    width: 100vw !important;
+    max-width: auto !important;
+    height: 160px !important;
+  }
+
+  .produto span,
+  .produto h3 {
+    padding-left: 5px;
+  }
+
+  .produto span {
+    font-size: 1em !important;
+  }
+
+  .produto h3 {
+    font-size: 1.3em !important;
+  }
+
+  .produto button {
+    width: 70%;
+    font-size: 0.9em;
+  }
+
+  .titulo h2 {
+    font-size: 1.5em;
+  }
+
+  .caixaProduto img {
+    width: 180px !important;
+  }
+}

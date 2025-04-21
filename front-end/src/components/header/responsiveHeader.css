@@ -1,77 +1,55 @@
-@media screen and (max-width:667px){
-    
-    #log img{
-        
-        width: 140% !important;
-        
-    
-    }
-    #logoHeader{width: 70px !important;}
-    .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5); /* Fundo escuro semi-transparente */
-        z-index: 5; /* Coloca acima dos outros elementos */
-      }
-
-    #dropdownMenu {
-        top: 85%;
-        right: 2%;
-    }
-
-}
 @media screen and (max-width:1024px){
 
-    .sombra{box-shadow: none;}
+    .login-container, #dropdownMenu{z-index: 100;}/* Faz o dropDown ficar a cima de todos os elementos*/
 
-    .login-container, #dropdownMenu{z-index: 100;}
-    .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5); /* Fundo escuro semi-transparente */
-        z-index: 5; /* Coloca acima dos outros elementos */
-    }
-
-    header{flex-direction: row;}
-
-    header nav{background: none !important;}
-
-    /* Primeira nav */
-    header nav:first-child {
-        width: 100vw;
-        justify-content: space-between;
-    }
-    /* Imagem da logo */
-    #logoHeader {
-     
-        height: auto;
-        width: 117px;
-    }
-
-    /* Tirando margin da imagem de login */
-    #log img {
-        margin-right: 0px;
-        width: 230%;
-    }
-
-
-    /* parte de login e dropdown*/
+    /* Estilização do dropdown*/
     #log {
 
         flex-direction: column;
         width: 15%;
+        margin-top: 20px;
+        font-size: 1.5em;
     
     }
 
-    #dropdownMenu a{display: block;}
+    #log img {width: 150%;}
 
-    /* Tirando a lista 1 e botões de login */
-    #listaInterna, #linksLogin{display: none;}
+    #dropdownMenu{margin-top: 30px;}
 
+    /* separação do dropdown */
+    .bordaSeparatoria{
+
+        border-bottom: 2px solid #fff;
+        padding: 0 0 10px 0;
+    }
+
+    .padraoLi{margin-bottom: 5px;}
+    
+}
+
+@media screen and (max-width:667px){
+
+    /* Estilização da parte do dropDown */
+    #log{
+
+        margin: 10px 5% 0 0;
+        font-size: 1em;
+
+    }
+
+    #log img {width: 90%;}
+
+}
+
+@media screen and (max-width:1024px),
+       screen and (max-width:667px) {
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+  }
 }
