@@ -1,4 +1,4 @@
-import "./style.css";
+import "./mainProdutoPrincipal.css";
 import { useEffect } from 'react';
 import { ContainerDeProduto } from "./SecaoProdutos/ContainerDeProduto";
 
@@ -101,7 +101,7 @@ export function MainProduto(){
             />
 
             {/*Renderização dos conjuntos das Barras*/}
-            <section className="imagem">
+            <section className='separacaoSecao'>
 
                 <img src={Barras} alt=''/>
                 <img src={Barras1} alt=''/>
@@ -147,7 +147,7 @@ export function MainProduto(){
             />
 
             {/*Renderização dos conjuntos do gym*/}
-            <section className="imagem">
+            <section className='separacaoSecao'>
 
                 <img src={ListGym} alt='Academia'/>
                 <img src={whey} alt='Whey protein'/>

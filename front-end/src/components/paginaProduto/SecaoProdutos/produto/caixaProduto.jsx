@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./style.css";
+import "./caixaProduto.css";
 
 export function CaixaProduto(prop){
 
@@ -7,7 +7,7 @@ export function CaixaProduto(prop){
 
         <div className="caixaProduto">
         
-            <img src={prop.imagem} alt=''/>
+            <img src={prop.imagem} alt='produto'/>
         
             <div className='produto'>
         
@@ -17,13 +17,14 @@ export function CaixaProduto(prop){
         
                 <button>
                     <Link to='/comprar'
-                    state={{ 
-                        nome: prop.nomeProduto,
-                        imagem: prop.imagem,
-                        preco: prop.preco
-                    }}
-                
-                >Comprar</Link></button>
+                        state={{ 
+                            nome: prop.nomeProduto,
+                            imagem: prop.imagem,
+                            preco: prop.preco
+                        }}>
+                            Comprar
+                    </Link>
+                </button>
         
             </div>
         </div>
