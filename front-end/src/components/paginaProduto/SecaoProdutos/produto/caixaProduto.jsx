@@ -4,7 +4,7 @@ import "./caixaProduto.css";
 export function CaixaProduto(prop){
 
     return(
-
+ 
         <div className="caixaProduto">
         
             <img src={prop.imagem} alt='produto'/>
