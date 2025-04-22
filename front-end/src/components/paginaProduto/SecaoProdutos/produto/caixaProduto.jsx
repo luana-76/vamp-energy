@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./caixaProduto.css";
+import "./estiloCaixaProduto.css";
 
 export function CaixaProduto(prop){
 
