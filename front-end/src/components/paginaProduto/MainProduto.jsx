@@ -1,4 +1,4 @@
-import "./mainProdutoPrincipal.css";
+import "./mainProduto.css";
 import { useEffect } from 'react';
 import { ContainerDeProduto } from "./SecaoProdutos/ContainerDeProduto";
 

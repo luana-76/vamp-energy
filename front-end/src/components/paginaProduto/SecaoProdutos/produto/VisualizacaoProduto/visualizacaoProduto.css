@@ -1,0 +1,174 @@
+/* Seta de voltar */
+#close{
+    
+    align-self: end;
+    cursor: pointer;
+
+}
+
+#caixaPrincipal{
+
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: row;
+    background: #141318;
+
+}
+
+.caixaImagemProduto img{
+
+    width: 500px;
+    height: 90%;
+    margin-top: 10%;
+
+}
+
+.conteudoProduto{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 60px;
+    margin: 60px auto 0 auto;
+
+}
+
+.caixaDescricao p{margin: 20px 0;}
+.caixaDeTitulo h1{margin: 0;}
+
+/* Caixa de beneficios */
+.desconto, .frete{
+
+    text-align: center;
+    display: inline-block;
+    font-size: 0.9em;
+    
+}
+
+.desconto{
+
+    padding: 3px;
+    width: 120px;
+    background: #D72020;
+    margin-right: 5px;
+
+}
+
+.frete{
+
+    padding: 1px;
+    border: 2px solid #D72020;
+    width: 220px;
+
+}
+
+.visualizacaoPreco{
+    
+    font-weight: bold;
+    font-size: 1.3em;
+
+}
+
+/* Parte do formulário */
+
+.caixaDoForm{margin-top: 10px;}
+
+.caixaDoForm div{
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* Caixa do cep */
+
+.caixaDoCep label{
+
+    font-weight: bold;
+    margin-bottom: 10px;
+
+}
+
+.caixaDoCep input{
+
+    padding: 7px;
+    width: 200px;
+    border: 1px solid #fff;
+
+}
+
+/* Botões da página */
+
+.caixaDoForm .caixaDeBotoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 70px;
+}
+
+.caixaDeBotoes button{
+
+    position: initial;
+    border-radius: 100px;
+    background: #65558F;
+    cursor: pointer;
+
+}
+
+.botaoCarrinho{
+    
+    width: 3vw;
+    cursor: pointer;
+
+}
+
+@media (max-width: 1024px) {
+
+    #caixaPrincipal{flex-direction: column;}
+
+    .conteudoProduto{
+        
+        width: 90vw;
+        margin-top: 20px;
+        padding-bottom: 50px;
+        height: 100%;
+        justify-content:space-evenly;
+    
+    }
+
+    .caixaImagemProduto img {
+        width: 100vw;
+        height: 50vh;
+        margin-top: 0;
+    }
+
+    .desconto, .frete{margin-top: 10px;}
+
+    .caixaDoForm .caixaDeBotoes {margin-top: 40px;}
+
+    .caixaDeBotoes input[type='button']{
+
+        padding: 8px;
+        width: 20%;
+
+    }
+
+    .botaoCarrinho {width: 6vw;}
+
+}
+
+@media screen and (max-width:667px){
+
+    #caixaPrincipal{height: auto;}
+
+    .caixaDeBotoes input[type='button'] {
+        padding: 10px;
+        width: 30%;
+    }
+
+    .botaoCarrinho {width: 10%;}
+
+}
