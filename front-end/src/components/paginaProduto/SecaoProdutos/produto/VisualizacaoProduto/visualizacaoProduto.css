@@ -113,10 +113,12 @@
 
     position: initial;
     border-radius: 100px;
-    background: #65558F;
+    background: #59138b;
     cursor: pointer;
 
 }
+
+.caixaDeBotoes button:hover{background: #65558f85;}
 
 .botaoCarrinho{
     

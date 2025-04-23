@@ -25,7 +25,8 @@
     z-index: 1000;
     position: relative;
     box-sizing: border-box;
-    border: 2px solid #fff;
+    filter: drop-shadow(2px 4px 6px black);
+
   }
   
   

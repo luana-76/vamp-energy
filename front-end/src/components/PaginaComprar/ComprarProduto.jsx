@@ -241,7 +241,7 @@ export function ComprarProduto() {
                                 />
                                 <div className="formButtons">
                                     <button onClick={editando !== null ? salvarEnderecoEditado : adicionarEndereco} className="salvarEndereco">
-                                        {editando !== null ? "Salvar alterações" : "Salvar"}
+                                        {editando !== null ? "Salvar" : "Salvar"}
                                     </button>
                                     <button onClick={() => setFormVisivel(false)} className="cancelarEndereco">Cancelar</button>
                                 </div>
@@ -251,16 +251,19 @@ export function ComprarProduto() {
                         <div className="adicionar" onClick={() => {
                             setFormVisivel(true);
                             limparCampos(); // Limpa os campos antes de adicionar um novo endereço
-                        }}>Adicionar novo endereço</div>
+                        }}>Adicionar novo endereço  
+
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAARRJREFUSEvtlLFOwzAURc/9CgaGAoIFhJAYixi7deRz2PmZrmxsFUxILC0SQoJ26NCveMiRE6XBjZ8R3eolSvR8jp99HbHjoR3zcQvM7AB4BAwYS1p7FucSRPgLcBKhX8DQI8kKInwKnAHLKBgAn8BtTtIr6Kx8BdxEwTNwCGQ72SpIwSVVHZhZ6MAlSQr64PXBeiW/BB54iWRDUAL3ShpBJy1h/rGkhSfrZnYEfMfajXRVAjMLzzfgqgZKyka4LTezcAHrMZN0GV7aglfg+p8ET5JGjSC1kr920J2XSlHV6l7QnGU3hnUa9lvUt0Vz4NxzgxM175Iu2t9TMb0DHoDTQskHcC9p0isohGbLi/43WVqi4AcdgqsZWC8YwQAAAABJRU5ErkJggg=="/>
+                        </div>
                     )}
                 </div>
 
                 <div className="resumo">
                     <h2>Resumo</h2>
                     <div id="extrato">
-                        <span>Valor do produto: <span className="bold">R$ {preco}</span></span>
-                        <span>Desconto: <span className="bold">10%</span></span>
-                        <span>Frete: <span className="bold">R$20,0</span></span>
+                        <span><span className="bold">Valor do produto:</span> R$ {preco}</span>
+                        <span><span className="bold">Desconto:</span> 10%</span>
+                        <span><span className="bold">Frete:</span> R$20,0</span>
                         <h3 className="bold">Total: R${parseInt(preco) - (parseInt(preco) * (10 / 100)) + 20}</h3>
                         <button id="confirmar">Confirmar</button>
                     </div>

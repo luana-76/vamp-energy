@@ -6,8 +6,9 @@
     background: #141414;
     border-radius: 15px;
     padding: 10px 10px 20px 10px;
-    border: 2px solid #fff;
+    /*border: 2px solid #fff;*/
     position: fixed;
+    filter: drop-shadow(2px 4px 6px black);
   }
 
   .container-credito p{
