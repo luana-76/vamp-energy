@@ -1,7 +1,26 @@
 
 /* Seta de voltar  */
-.seta{width: 3vw;}
+.comprar .seta{
+    
+    width: 2.3vw;
+    margin: 10vh 0;
 
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+.comprar .seta {
+    align-self: flex-start;
+    margin-left: 20px;
+}
+.seta{
+
+    animation: blink 1s infinite;
+
+}
 /* Seção principal */
  .comprar{
 
@@ -11,7 +30,11 @@
     align-items: center;
     display: flex;
     justify-content: center;
-    margin: 30vh 0;
+    padding: 30vh 0;
+    /*background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/src/assets/fundo.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;*/
+    background: rgb(17 17 17);;
 
  }
  
@@ -144,7 +167,8 @@
 }
 
 .formularioContainer {
-   background-color: #141414;
+   background-color: #efefef;
+   color: #000;
    filter: drop-shadow(2px 4px 6px black);
    padding: 20px;
    border-radius: 8px;
@@ -243,7 +267,7 @@
 
 @media (max-width: 1024px){
 
-.seta{width: 6vw;}
+.comprar .seta{width: 6vw;}
 .formButtons {
     display: flex;
     justify-content: space-between;
@@ -262,8 +286,8 @@
     }
 
    .imagemProduto img {
-       /*width: 40vw;*/
-       height: 30vh;
+       width: 40vw;
+       height: 35vh;
    }
    .titu{font-size: 1.3em;}
    .titu h1 {
@@ -308,7 +332,8 @@
    .comprar {
       height: auto;
       width: 100vw;
-      margin: 10vh 0;
+      margin: 0;
+      padding: 5vh 0;
   }
 }
 @media (max-height: 1024px) or (max-height: 1400px){
@@ -325,7 +350,12 @@
 @media (max-width: 768px) {
 
     .titu{font-size: 1.2em;}
-    .seta{width: 9vw;}
+    .comprar .seta{
+        
+        width: 6vw;
+        margin: 5vh 0px;
+    
+    }
 
    .editarEndereco, .excluirEndereco, #confirmar{
       position: initial!important;
@@ -334,12 +364,14 @@
    .comprar {
       height: auto;
       width: 100vw;
-      margin: 10vh 0;
+      padding: 5vh 0;
+
   }
 
    .imagemProduto img {
-       width: 40vw;
-       height: 40vh;
+       
+        width: 40vw;
+        height: 40vh;
    }
 
    .titu h1 {
@@ -388,12 +420,11 @@
    .comprar {
     
        height: auto;
-       margin: 100px 0;
    }
 
    .imagemProduto img {
        width: 80vw;
-       height: 40vh;
+       height: 400px;
    }
 
    .titu h1 {
@@ -421,3 +452,15 @@
        margin: 5px 0;
    }
 }
+
+/* Formulario */
+.formularioEndereco {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+

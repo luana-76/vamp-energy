@@ -34,7 +34,7 @@ const Credito = ({fechar}) => {
       <section className="container-credito">
 
         <div id="close" onClick={fechar} style={{ cursor: 'pointer' }}>
-          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAATBJREFUSEvtlLsuRUEYhb/VSkRDkChEJDyDuCRoxWuIVuJNRKOSeAHxBIgK0bpETckLLPuXKTbnnJlxkh3NmXKy91r/+mbNiI6XOtZnZFAk/L+IbB8Cp5Le+o1qewlYk3QyKMrABLb3gSPgGVj/bWJ7EbgCZoBdSef9THIG8WMIhNBLmvQ7ie0F4AaYBh6ADUmffzJIQj0mwFiteGgUD9n2LHCZkjwCEwnLXZNwS9JHrkpFg5RkLuGaT2JZLG3DWoNgHcyDfaz7JtVmafpaRCF+nRA9JUSxd9vsb5dMsglstyd/BVaA8VY9i0lyNe0Rl/SeziSqG8imSrhyBntNz4+BwBI9/3GbbS+nJJPAjqSLYe7BAXCWeSrCZHWop6L4TFZ+UFXTSq2+n40MivQ6R/QFgd1qGe7ts/oAAAAASUVORK5CYII" alt="fechar" />
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAARlJREFUSEvt1M8qxUEYxvHP2SrZEMpCUlyD/Cls5TZkq9yJzsZKuQG5AmSFbP3JmiVX4PfWqF/6nZlx6mRzZjm98zzv8513pmfEqzdifWODIuF/R3SMM7wPaHUFGzgdFCWX4BAneMFmh8kyrjGHfVx0meQM4mAIhNBr6vQnyRJuMYtHbOHrrwZR32UyUSseAjWXPI+rlOQJU8n4vkm4g8/cKNUYxPmFhGsxiWWxtA1rDYJ1MA/2sR6aVNul7msRhfhNQvScEMXeXbO/WzIpJWh3/oY1TLbGs5gkZ9Al/pEQxegGspkSrpzBQTPnfQSWmPPfr3k1JZnGHi6HeQdHOM98FWGyPuxXUfwpawpKl1yjka0ZGxQRjhzRNxi0NBmpupZSAAAAAElFTkSuQmCC" alt="fechar" />
         </div>
         
         <div className="logos">

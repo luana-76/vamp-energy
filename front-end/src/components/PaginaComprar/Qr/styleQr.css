@@ -18,7 +18,8 @@
     max-width: 300px;
     max-height: 50vw;
     padding: 20px;
-    background: #141414;
+    background: #efefef;
+    color: #000;
     display: flex;
     flex-direction: column;
     border-radius: 15px;
@@ -28,11 +29,7 @@
     filter: drop-shadow(2px 4px 6px black);
 
   }
-  
-  
-  #close {
-    align-self: flex-end;
-  }
+
   
   .chavesPix {
     display: flex;
@@ -51,6 +48,7 @@
 
     padding: 10px 8px;
     background: #000;
+    color: #fff;
     border-radius: 6px;
     border: 1px solid #fff;
     word-wrap: break-word;
@@ -89,7 +87,7 @@
   
   /* Texto abaixo do QR */
   #caixaPrincipalQr p {
-    color: #c9c9c9;
+    color: #000;
     font-size: 0.7rem;
     margin-top: 15px;
 }

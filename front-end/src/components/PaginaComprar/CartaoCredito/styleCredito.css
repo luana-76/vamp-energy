@@ -3,19 +3,15 @@
     flex-direction: column;
     gap: 12px;
     width: 40vw;
-    background: #141414;
+    background: #efefef;
     border-radius: 15px;
     padding: 10px 10px 20px 10px;
     /*border: 2px solid #fff;*/
+    color: #000;
     position: fixed;
     filter: drop-shadow(2px 4px 6px black);
   }
 
-  .container-credito p{
-
-    color: gray;
-
-  }
   .formularioCartao{
 
     display: flex;
@@ -44,7 +40,7 @@
   
   input[type='button']{
 
-    background: #dd1717;
+    background: #59138b;
     border: none;
     cursor: pointer;
 
@@ -52,7 +48,7 @@
 
   input[type='button']:hover{
 
-    background: #8f0c0c;
+    background: #65558f85;
     transition: background 1s;
 
   }
