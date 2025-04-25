@@ -1,29 +1,35 @@
-import './confirmacaoStyle.css'
+import './confirmacaoStyle.css';
+import Logo from '../../assets/logo.png';
 
-import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export function Confirmacao(){
+export function Confirmacao() {
 
+    const [img, setImg] = useState(Logo);  // Estado para a imagem
     const navigate = useNavigate();
 
-    {/* Faz voltar para página de compras depois de 4 segundos */}
     useEffect(() => {
+
         const timeout = setTimeout(() => {
             navigate('/produtos');
-        }, 3000);
+        }, 3000); // Redireciona após 3 segundos
 
-        return () => clearTimeout(timeout); // limpeza
+        // Troca a imagem a cada 2 segundos
+        const interval = setInterval(() => {
+            
+            setImg("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAqVJREFUSEvFlU1IVFEUx//nzZgTNW/EKPrOomgRGdW8KUmxFkHlJmpRm6JFYG0kCmzepDUiOFNQUIJUywqCFlEQBEKECka8CdwUlaYGY4sW4nsjxqRzT71hZvC9+XRCurt7OOf/O1/cS1jkQ4usj4KAexiunJH1kww+AsYuEGoAMJjGQWIIhNfVuvS8Gd7ZfInmBYRl7SiDegA2RQudEUF84Zrue5PLKScgJGvBv5neWED7BJha1Zj3tj0mC9AlRzoIfH0B4hlXAl/yG76782MtgLAcaWLwq3LEUzGCmBv8Md9gWiMDCK78uLwyPjMMYPU/AMzQL9UG7UwPPgMIeyIXmbmndHH+SaAnDFzO6jvjuD+mvDTtGUBI1szWNJUEIJ5wQGps1b3futzafSI0W+IYD9WYkrTNB0wAWFsUQDyRIOeBtqk930Pyh62AGLC3lYAhv6HstgN+AXBZNoBwi5nPAbQqZf8xR6K+Xd83lhLvB7DGnhQDkwFDWWEHGADcaWcGugOG0tLpeb/ZCRqAIE44HPVm5kmbkPpBWJ+nYkM1FI8d8BnA9kwAIwoJjaqujJqCSxw8e3VyfzTk0bZAoK+AuNn5T6rh3WEBdMnaUwJO24YVhWOuQZ2qGzftoap3NUg4BwqLJxUeq4Zy1g44Q8CjrJIZUakiUScEO0sUBxGf8uu+ZxbAHQwujcsVZps2Zu01MMaAE8CGolsGfF1mVNW2YFvcAjAvNz3aYcHoLUEkn4tglg4GYnvN1U2erMcuLEfaGNxZDoRALX7D221Z9VxCITnSDnBHrgTygBMEvmJ/SXNWkBZIvqwkHoBpXZFqRljw+cC0ry+XX8EvM4i3LpfsPsHAMRDXgrEp+WUCo8QUERL3/tanXwRxaC5fEv/30y9n0PaYP3779xn1hlLmAAAAAElFTkSuQmCC");
+        }, 2200); // A imagem vai mudar após 2 segundos
+
+        return () => {
+            clearTimeout(timeout); // Limpeza do timeout
+            clearInterval(interval); // Limpeza do setInterval
+        };
     }, [navigate]);
 
-    return(
-
+    return (
         <div id='divGeral'>
-
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAi1JREFUSEu1lc1rE1EUxc8bapJm3sNFK3XhJLpwYUXxc1FErFs34kZwZd0JQlyI4KKLioLYbUVw0wr+A1JwrS4UK4KopIIutJNQREPA5L5gas2RKVFCM52ZDvTuhnfe+d17585chS0OtcX+iAVUjRkjOUFgH4DRbkKLABaV48x5jcZCVJIbAspARrvubaXUNQDOBiZ/QE43rZ3aD6yEaUIBb4BtI1ovEDjcvbQMYF6RL6jUoxCjV57ISQWsrj8LBfha3wIwuSYmH7az2asr9fqv7a472lHqbVimBG4WRaZiAUv5/FHlOK+DthCYKYqUfGMmQM4A0BH97jjkkV3WvuvV9FXgu+4slLoE4FNb5GDWmAsg5xJO24OCyOVIwJLWLxUwBvKOZ+1kReufMZn3+j0viIxHV6B1DcAQgfMAygooJ8weBL4XRUbiAC0Ag0lN1+laBRE3DuAD8FIByK8Fa/dEvwNjnijyTCoA8Lggci4SUDHmOsnpNAAFlDyRYJz/R9+YVo0Z6pDfAAxsEtIazOV27qjVmpGA4NDX+h6AK5sBKPKuZ+2N2C85ECwbM7xKfgQwnBDitzOZA3vr9UYiwFoV+fxxOM4zAPkoCIGmQ57wrP0QpovcB1XXPdRRaj5ibD93gLO7RYJqQyN24XwBcgPGlEhe7Fk470nO/rD2/jHgd1SFsYB/lytajxN4Gjwr4LQnErQvNhIDfK0Dw1Ndx76fWuoWxaYYI0hcQVrQX8hmwhn5tJpNAAAAAElFTkSuQmCC"/>
-
+            <img src={img} alt="Logo ou Confirmação" />
         </div>
-
-    )
-
+    );
 }

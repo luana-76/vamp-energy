@@ -59,7 +59,7 @@ export default function AppRoutes() {
       <Route path='/comprar' element={<ComprarProduto/>} />
       <Route path='/qrTeste' element={<PagamentoQr/>} />
       <Route path='/credito' element={<Credito/>} />
-      <Route path='/teste' element={<Confirmacao/>} />
+      <Route path='/confirmando' element={<Confirmacao/>} />
     </Routes>
   );
 }

@@ -313,7 +313,7 @@ export function ComprarProduto() {
                         <span><span className="bold">Desconto:</span> 10%</span>
                         <span><span className="bold">Frete:</span> R$20,0</span>
                         <h3 className="bold">Total: R${parseInt(preco) - (parseInt(preco) * (10 / 100)) + 20}</h3>
-                        <button id="confirmar"><Link to='/teste'>Confirmar</Link></button>
+                        <button id="confirmar"><Link to='/confirmando'>Confirmar</Link></button>
 
                     </div>
                 </div>
