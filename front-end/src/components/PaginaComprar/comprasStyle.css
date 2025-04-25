@@ -1,466 +1,239 @@
-
-/* Seta de voltar  */
-.comprar .seta{
-    
-    width: 2.3vw;
-    margin: 10vh 0;
-
-}
-
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-  }
-
+/* ===================== */
+/* Seta de Voltar       */
+/* ===================== */
 .comprar .seta {
+    width: 2.3vw;
+    margin: 10vh 0 0 20px;
     align-self: flex-start;
-    margin-left: 20px;
-}
-.seta{
-
-    animation: blink 1s infinite;
-
-}
-/* Seção principal */
- .comprar{
-
+  }
+  
+  /* ===================== */
+  /* Seção Principal       */
+  /* ===================== */
+  .comprar {
     height: 150vh;
     width: 100vw;
+    padding: 30vh 0;
+    background: rgb(17, 17, 17);
+    display: flex;
     flex-direction: column;
     align-items: center;
-    display: flex;
     justify-content: center;
-    padding: 30vh 0;
-    /*background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/src/assets/fundo.jpeg);
-    background-size: cover;
-    background-repeat: no-repeat;*/
-    background: rgb(17 17 17);;
-
- }
- 
- .imagemProduto{margin-right: 20px;}
- .imagemProduto img {
-   /*width: 20vw;*/
-   filter: drop-shadow(2px 4px 6px black);
-   height: 50vh;
-}
-
-/* Onde fica titulo e preco e imagem */
- .cabecalho{
-
+  }
+  
+  /* ===================== */
+  /* Cabeçalho             */
+  /* ===================== */
+  .cabecalho {
     display: flex;
-
- }
-
- .titu{
-
+  }
+  
+  .imagemProduto {
+    margin-right: 20px;
+  }
+  
+  .imagemProduto img {
+    height: 50vh;
+    filter: drop-shadow(2px 4px 6px black);
+  }
+  
+  .informacoesProduto {
     margin: 0;
     font-size: 1.8em;
-
- }
- .titu h1{
-
+  }
+  
+  .informacoesProduto h1 {
     font-size: 1.5em;
-
- }
-
- .preco{
-
+  }
+  
+  .preco {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: 20px;
-
- }
-
- /* divide cabeçalho do resto */
- .divisaoSetor{
-
+  }
+  
+  .divisaoSetor {
     display: flex;
     flex-direction: column;
-
- }
-
-/* imagens dos tipos de pagamentos */
- #tipoPagamento img{
-
-   width: 300px;
-   height: 100%;
-
- }
-
- /* Caixa onde vai ficar o endereço quando o usuario digitar um */
- .enderecoOpc{margin-bottom: 5px;}
-
-
- /* Botão de adicionar novo endereço */
- .endereco .adicionar{
-
+  }
+  
+  /* ===================== */
+  /* Tipo de Pagamento     */
+  /* ===================== */
+  #tipoPagamento {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-
- }
-
- /* Estilização das caixas ditas para endereço */
- .endereco .adicionar,  
- .endereco .enderecoOpc{
-
-   width: 50vw;
-   border-radius: 5px;
-   padding: 20px;
-   font-weight: 500;
-   background: #19191A;
-   border: 2px solid #414040;
-
- }
-
- /* Estrato onde resume a compra */
- #extrato{font-weight: 400;}
-
- /* Alinhando caixas de endereço e extrato */
- #extrato, 
- .enderecoOpc{
-
-   display: flex;
-   flex-direction: column;
-
- }
-
- /* Classe para pesar font de extrato */
- .bold{font-weight: 600;}
-
- /* Botão de comfirmar compra */
- #confirmar{
-    
-    margin-top: 20px;
-    background: #59138b;
-
-}
-
-/* Formulário */
- .formularioEndereco {
-   position: fixed;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   background-color: rgba(0, 0, 0, 0.5);
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   z-index: 9999;
-}
-
-.formularioEndereco h3{
-    
-    font-size: 2em;
-    margin-bottom: 10px;
-
-}
-
-.formButtons button{
-
-    background: #59138b;
-
-}
-
-.formularioContainer {
-   background-color: #efefef;
-   color: #000;
-   filter: drop-shadow(2px 4px 6px black);
-   padding: 20px;
-   border-radius: 8px;
-   width: 50%;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-}
-
-.inputEndereco {
-   width: 80%;
-   padding: 10px;
-   margin: 10px 0;
-   border: 1px solid #535252;
-   border-radius: 5px;
-}
-
-.formButtons {
-   display: flex;
-   justify-content: space-between;
-}
-
-.salvarEndereco, .cancelarEndereco {
-   padding: 10px 20px;
-   background-color: #2c1639;
-   color: white;
-   border: none;
-   border-radius: 4px;
-   cursor: pointer;
-}
-
-.salvarEndereco:hover, .cancelarEndereco:hover {
-   background-color: #65558f85;
-}
-
-.fundoEscurecido {
-   position: fixed;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   background-color: rgba(0, 0, 0, 0.7);
-   z-index: -999;
-}
-
-.caixaIcone{
-
+    gap: 10px;
+  }
+  
+  #tipoPagamento img {
+    width: 20px;
+    height: 100%;
+  }
+  
+  .caixaIcone {
     background: #1c1c1c;
     padding: 5px 10px;
     width: 20px;
     border-radius: 10px;
     cursor: pointer;
-
-}
-
-#tipoPagamento{
-
-    display: flex;
-    gap: 10px;
-
-}
-
-
-#tipoPagamento img{width: 20px;}
-
-.editarEndereco, .excluirEndereco{border-radius: 0;}
-
-.formButtons button{
-
-    width: 120px;
-
-}
-
-.editarEndereco:hover, 
-.excluirEndereco:hover,
-#confirmar:hover,
-.formButtons button:hover{
-
-    background: #65558f85;
-
-}
-.editarEndereco{
-    margin: 20px 0 10px 0;
-    background: #59138b;
-
-}
-.excluirEndereco{background:#b781d721;}
-
-.formButtons button, .editarEndereco, .excluirEndereco{
-    
-    position: initial !important;
-
-}
-
-/* Responsividade */
-
-@media (max-width: 1024px){
-
-.comprar .seta{width: 6vw;}
-.formButtons {
+  }
+  
+  /* ===================== */
+  /* Endereço              */
+  /* ===================== */
+  .enderecoOpc {
+    margin-bottom: 5px;
+  }
+  
+  .endereco .adicionar {
     display: flex;
     justify-content: space-between;
-}
-
-
-}
-@media (max-width: 1024px) and (min-width: 768px) {
-
-   .cabecalho {align-items: center;}
-
-   .titu h1 {font-size: 2em !important;}
-
-   .imagemProduto {
-     margin-right: auto;
-    }
-
-   .imagemProduto img {
-       width: 40vw;
-       height: 35vh;
-   }
-   .titu{font-size: 1.3em;}
-   .titu h1 {
-       font-size: 1.3em;
-   }
-
-   .preco {
-       flex-direction: row;
-       justify-content: space-between;
-   }
-
-   .endereco .adicionar,
-   .endereco .enderecoOpc {
-       width: 70%;
-       max-width: 600px;
-   }
-
-   .formularioContainer {
-       width: 70%;
-       max-width: 600px;
-   }
-
-   .inputEndereco {
-       width: 80%;
-   }
-
-   .formButtons {
-       flex-direction: row;
-       justify-content: space-between;
-   }
-
-   .editarEndereco, .excluirEndereco, #confirmar{
-      position: initial!important;
-
-   }
-   /*.salvarEndereco,
-   .cancelarEndereco {
-       width: 48%;
-       margin: 5px;
-   }*/
-
-   .comprar {
-      height: auto;
-      width: 100vw;
-      margin: 0;
-      padding: 5vh 0;
-  }
-}
-@media (max-height: 1024px) or (max-height: 1400px){
-
-    .imagemProduto {
-        margin-right: 50px;
-    }
-
-    .formButtons {
-        gap: 10px;
-   }
-
-}
-@media (max-width: 768px) {
-
-    .titu{font-size: 1.2em;}
-    .comprar .seta{
-        
-        width: 6vw;
-        margin: 5vh 0px;
-    
-    }
-
-   .editarEndereco, .excluirEndereco, #confirmar{
-      position: initial!important;
-
-   }
-   .comprar {
-      height: auto;
-      width: 100vw;
-      padding: 5vh 0;
-
-  }
-
-   .imagemProduto img {
-       
-        width: 40vw;
-        height: 40vh;
-   }
-
-   .titu h1 {
-       font-size: 1.2em;
-   }
-
-   /*.preco {
-       flex-direction: column;
-       /*align-items: center;
-   }*/
-
-   .endereco .adicionar,
-   .endereco .enderecoOpc {
-       width: 90%;
-   }
-
-   .formularioContainer {
-       width: 90%;
-       max-width: 400px;
-   }
-
-   .inputEndereco {
-       width: 90%;
-   }
-
-   .formButtons {
-        gap: 10px;
-
-   }
-
-   /*.salvarEndereco,
-   .cancelarEndereco {
-        width: 15%;
-       margin: 5px 0;
-   }*/
-}
-
-@media (max-width: 480px) {
-    .imagemProduto {
-        margin-right: 0;
-    }
-   .cabecalho {
-      flex-direction: column;
-      align-items: center;
-  }
-   .comprar {
-    
-       height: auto;
-   }
-
-   .imagemProduto img {
-       width: 80vw;
-       height: 400px;
-   }
-
-   .titu h1 {
-       font-size: 1.5em;
-   }
-
-   .preco {
-       font-size: 0.9em;
-       flex-direction: row;
-        align-items: center;
-   }
-
-   .formularioContainer {
-       width: 100%;
-       max-width: 350px;
-   }
-
-   .inputEndereco {
-       width: 90%;
-   }
-
-   .salvarEndereco,
-   .cancelarEndereco {
-       width: 100%;
-       margin: 5px 0;
-   }
-}
-
-/* Formulario */
-.formularioEndereco {
-    animation: fadeIn 0.3s ease-in-out;
+    align-items: center;
+    cursor: pointer;
   }
   
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
+  .endereco .adicionar,
+  .endereco .enderecoOpc {
+    width: 50vw;
+    padding: 20px;
+    font-weight: 500;
+    background: #19191A;
+    border: 2px solid #414040;
+    border-radius: 5px;
   }
   
-
+  #extrato {
+    font-weight: 400;
+  }
+  
+  .bold {
+    font-weight: 600;
+  }
+  
+  #extrato,
+  .enderecoOpc {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* ===================== */
+  /* Botão Confirmar       */
+  /* ===================== */
+  #confirmar {
+    margin-top: 20px;
+    background: #59138b;
+  }
+  
+  #confirmar:hover {
+    background: #65558f85;
+  }
+  
+  /* ===================== */
+  /* Formulário de Endereço*/
+  /* ===================== */
+  .formularioEndereco {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .formularioEndereco h3 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  .formularioContainer {
+    background-color: #efefef;
+    color: #000;
+    filter: drop-shadow(2px 4px 6px black);
+    padding: 20px;
+    border-radius: 8px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .inputEndereco {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #535252;
+    border-radius: 5px;
+  }
+  
+  .formButtons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .formButtons button {
+    background: #59138b;
+    width: 120px;
+    position: initial !important;
+  }
+  
+  .formButtons button:hover {
+    background: #65558f85;
+  }
+  
+  .salvarEndereco,
+  .cancelarEndereco {
+    padding: 10px 20px;
+    background-color: #2c1639;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    position: initial !important;
+  }
+  
+  .salvarEndereco:hover,
+  .cancelarEndereco:hover {
+    background-color: #65558f85;
+  }
+  
+  /* ===================== */
+  /* Botões Editar/Excluir */
+  /* ===================== */
+  .editarEndereco,
+  .excluirEndereco {
+    border-radius: 0;
+    position: initial !important;
+  }
+  
+  .editarEndereco {
+    margin: 20px 0 10px 0;
+    background: #59138b;
+  }
+  
+  .excluirEndereco {
+    background: #b781d721;
+  }
+  
+  .editarEndereco:hover,
+  .excluirEndereco:hover {
+    background: #65558f85;
+  }
+  
+  /* ===================== */
+  /* Fundo escurecido      */
+  /* ===================== */
+  .fundoEscurecido {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -999;
+  }
+  

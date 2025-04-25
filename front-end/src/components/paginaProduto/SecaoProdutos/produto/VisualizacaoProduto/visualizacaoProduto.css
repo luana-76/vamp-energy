@@ -1,4 +1,4 @@
-/* Seta de voltar */
+/* Seta de voltar */ 
 #close{
     
     align-self: flex-start;
@@ -6,6 +6,7 @@
 
 }
 
+/* Caixa que englobará tudo */
 #caixaPrincipal{
 
     display: flex;

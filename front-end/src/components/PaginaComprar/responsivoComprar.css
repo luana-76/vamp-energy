@@ -1,0 +1,187 @@
+/* ============================= */
+/* RESPONSIVIDADE                */
+/* ============================= */
+
+/* Tablets e telas até 1024px */
+@media (max-width: 1024px) {
+    .comprar {
+      height: auto;
+      padding: 5vh 0;
+      margin: 0;
+      width: 100vw;
+    }
+  
+    .comprar .seta {
+      width: 6vw;
+      margin: 5vh 0;
+    }
+  
+    .cabecalho {
+      align-items: center;
+    }
+  
+    .imagemProduto {
+      margin-right: auto;
+    }
+  
+    .imagemProduto img {
+      width: 40vw;
+      height: 35vh;
+    }
+  
+    .informacoesProduto {
+      font-size: 1.3em;
+      text-align: center;
+    }
+  
+    .informacoesProduto h1 {
+      font-size: 1.3em;
+    }
+  
+    .preco {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  
+    .endereco .adicionar,
+    .endereco .enderecoOpc,
+    .formularioContainer {
+      width: 70%;
+      max-width: 600px;
+    }
+  
+    .inputEndereco {
+      width: 80%;
+    }
+  
+    .formButtons {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 10px;
+    }
+  
+    .editarEndereco,
+    .excluirEndereco,
+    #confirmar {
+      position: initial !important;
+    }
+  }
+  
+  /* Ajustes por altura (ex: telas widescreen ou tablets em pé) */
+  @media (max-height: 1024px), (max-height: 1400px) {
+    .imagemProduto {
+      margin-right: 50px;
+    }
+  
+    .formButtons {
+      gap: 10px;
+    }
+  }
+  
+  /* Telas pequenas e celulares até 768px */
+  @media (max-width: 768px) {
+    .comprar {
+      height: auto;
+      padding: 5vh 0;
+      width: 100vw;
+    }
+  
+    .comprar .seta {
+      width: 6vw;
+      margin: 5vh 0;
+    }
+  
+    .cabecalho {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .imagemProduto {
+      margin-right: 0;
+    }
+  
+    .imagemProduto img {
+      width: 40vw;
+      height: 40vh;
+    }
+  
+    .informacoesProduto {
+      font-size: 1.2em;
+    }
+  
+    .informacoesProduto h1 {
+      font-size: 1.2em;
+    }
+  
+    .preco {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .endereco .adicionar,
+    .endereco .enderecoOpc,
+    .formularioContainer {
+      width: 90%;
+      max-width: 400px;
+    }
+  
+    .inputEndereco {
+      width: 90%;
+    }
+  
+    .formButtons {
+      gap: 10px;
+    }
+  
+    .editarEndereco,
+    .excluirEndereco,
+    #confirmar {
+      position: initial !important;
+    }
+  }
+  
+  /* Celulares pequenos até 480px */
+  @media (max-width: 480px) {
+    .imagemProduto img {
+      width: 80vw;
+      height: 400px;
+    }
+  
+    .informacoesProduto h1 {
+      font-size: 1.5em;
+    }
+  
+    .preco {
+      font-size: 0.9em;
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    .formularioContainer {
+      width: 100%;
+      max-width: 350px;
+    }
+  
+    .salvarEndereco,
+    .cancelarEndereco {
+      width: 100%;
+      margin: 5px 0;
+    }
+  }
+  
+  /* Animação de entrada do formulário */
+  .formularioEndereco {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  

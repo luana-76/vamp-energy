@@ -1,25 +1,31 @@
 import "./comprasStyle.css";
+import "./responsivoComprar.css";
+
+/* Imagens */
 import Boleto from "../../assets/produto/boleto.png";
-import CartaoCredito from "../../assets/produto/cartaoCredito.png"
-import Pix from "../../assets/produto/pix.png"
+import CartaoCredito from "../../assets/produto/cartaoCredito.png";
+import Pix from "../../assets/produto/pix.png";
 
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useState } from "react";
+import { useEffect } from 'react';
+
 import { PagamentoQr } from "./Qr/PagamentoQr";
 import Credito from "./CartaoCredito/Credito";
 
-import { useEffect } from 'react';
-
 export function ComprarProduto() {
+
     const navigate = useNavigate();
     const location = useLocation();
+
     const { nome, imagem, preco } = location.state || {};
 
-
-    const [mostrarPix, setMostrarPix] = useState(false);//Mostrar tela de pix ou não
+    //Mostrar caixa ou não
+    const [mostrarPix, setMostrarPix] = useState(false);
     const [mostrarCredito, setMostrarCredito] = useState(false);
 
-    //Formação do endereço
+    /* Parte de endereço */
+    //Endereço padrão de teste
     const [enderecos, setEnderecos] = useState([
         {
             rua: "Traversa Bernardo Reis",
@@ -70,6 +76,7 @@ export function ComprarProduto() {
 
     //Salvando
     const salvarEnderecoEditado = () => {
+
         if (!rua || !numero || !referencia || !cidade || !bairro) {
             alert("Por favor, preencha todos os campos.");
             return;
@@ -99,7 +106,7 @@ export function ComprarProduto() {
         setBairro("");
     };
 
-
+    /* Opção de gerar boleto (AINDA EM DESENVOLVIMENTO) */
     const gerarBoleto = async () => {
         try {
           const res = await fetch('http://localhost:3001/gerar-boleto', {
@@ -128,26 +135,35 @@ export function ComprarProduto() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);
       
-      
     return (
         <section className="comprar">
+
+            {/* Seta de fechamento */}
             <div id="close" onClick={() => navigate(-1)} style={{ cursor: 'pointer', marginLeft: "45px" }}>
-                <img className='seta' src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAANBJREFUSEvtlEEKwjAQRd8/hKB7Bc8ggrcQXAteR1wLHkbBO7hxL3iHaCCFUmsyKcmuXZbhvT+TTETlT5X5jILkhM0jcs5NgZ2kY5LaKjAJAvwKLICDpLNVkhQE+A2YA09gJelVRNCBP4BNDtyH+NuBc24C3ENyD19LeluTN3W9ggD3M19+D3YwvLeDDtwcWFJv2J+f1QU+ctURNTMpJYnuQYmblLto2buQFIQz8e9Q81TsJV2s18skCJIZsJV0ssKjm5wDidWaOxgqHAXJyX0AzWRKGaDSgDcAAAAASUVORK5CYII="/>
+                <img className='seta' src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAANBJREFUSEvtlEEKwjAQRd8/hKB7Bc8ggrcQXAteR1wLHkbBO7hxL3iHaCCFUmsyKcmuXZbhvT+TTETlT5X5jILkhM0jcs5NgZ2kY5LaKjAJAvwKLICDpLNVkhQE+A2YA09gJelVRNCBP4BNDtyH+NuBc24C3ENyD19LeluTN3W9ggD3M19+D3YwvLeDDtwcWFJv2J+f1QU+ctURNTMpJYnuQYmblLto2buQFIQz8e9Q81TsJV2s18skCJIZsJV0ssKjm5wDidWaOxgqHAXJyX0AzWRKGaDSgDcAAAAASUVORK5CYII=" alt='setaVoltar'/>
             </div>
+
             <div className="divisaoSetor">
+
                 <div className="cabecalho">
+
                     <div className="imagemProduto">
                         <img src={imagem} alt="produto" />
                     </div>
-                    <div className="titu">
+
+                    <div className="informacoesProduto">
+
                         <h1>{nome}</h1>
                         <div className="preco">
                             <span>R$ {preco} - <span style={{ color: "#C8A769" }}>10%</span></span>
                             <span>1x</span>
                         </div>
+
                     </div>
+
                 </div>
 
+                {/* Parte de pagamentos */}
                 <div className="pagamento">
 
                     <h2>Pagamento</h2>
@@ -168,9 +184,10 @@ export function ComprarProduto() {
                             <img src={CartaoCredito} className='icone' alt='cartão de credito'/>
 
                         </div>
-                        {/* Mostrando tela do pix */}
+
+                        {/* Mostrando tela do Cartão de credito */}
                         {mostrarCredito && (
-                            <Credito fechar={() => setMostrarCredito(false)} /> 
+                            <Credito fechar={() => setMostrarCredito(false)} />
                         )}
 
                         <div className='caixaIcone' onClick={() => setMostrarPix(true)}>
@@ -178,32 +195,47 @@ export function ComprarProduto() {
                             <img src={Pix} className='icone' alt='pix'/>
 
                         </div>
+
+                        {/* Mostrando tela do pix */}
+                        {mostrarPix && (
+                            <PagamentoQr fechar={() => setMostrarPix(false)} />
+                        )}
                     
                     </div>
+
                 </div>
-
-                {/* Mostrando tela do pix */}
-                {mostrarPix && (
-                    <PagamentoQr fechar={() => setMostrarPix(false)} />
-                )}
-
+                
+                {/* Parte do endereço */}
                 <div className="endereco">
+
                     <h2>Endereço</h2>
+
                     {enderecos.map((endereco, index) => (
+
                         <div key={index} className="enderecoOpc">
+                            
+                            {/* Renderizando endereço */}
                             {Object.keys(endereco).map((key) => (
                                 <div key={key}>{`${key.charAt(0).toUpperCase() + key.slice(1)}: ${endereco[key]}`}</div>
                             ))}
+
                             <button onClick={() => editarEndereco(index)} className="editarEndereco">Editar</button>
                             <button onClick={() => excluirEndereco(index)} className="excluirEndereco">Excluir</button>
+
                         </div>
+
                     ))}
 
+                    {/* Formulario de edição e de criação de endereço*/}
                     {formVisivel ? (
+
                         <div className="formularioEndereco">
+
                             <div className="formularioContainer">
+
                                 <h3>{editando !== null ? "Editar endereço" : "Preencha seu novo endereço"}</h3>
                                 <span style={{Color: "gray", marginBottom: '20px'}}>Preencha os dados corretamente</span>
+
                                 <input
                                     type="text"
                                     value={rua}
@@ -211,6 +243,7 @@ export function ComprarProduto() {
                                     placeholder="Rua"
                                     className="inputEndereco"
                                 />
+
                                 <input
                                     type="text"
                                     value={numero}
@@ -218,6 +251,7 @@ export function ComprarProduto() {
                                     placeholder="Número"
                                     className="inputEndereco"
                                 />
+
                                 <input
                                     type="text"
                                     value={referencia}
@@ -225,6 +259,7 @@ export function ComprarProduto() {
                                     placeholder="Referência"
                                     className="inputEndereco"
                                 />
+
                                 <input
                                     type="text"
                                     value={cidade}
@@ -232,6 +267,7 @@ export function ComprarProduto() {
                                     placeholder="Cidade"
                                     className="inputEndereco"
                                 />
+
                                 <input
                                     type="text"
                                     value={bairro}
@@ -239,15 +275,22 @@ export function ComprarProduto() {
                                     placeholder="Bairro"
                                     className="inputEndereco"
                                 />
+
                                 <div className="formButtons">
+
                                     <button onClick={editando !== null ? salvarEnderecoEditado : adicionarEndereco} className="salvarEndereco">
                                         {editando !== null ? "Salvar" : "Salvar"}
                                     </button>
+
                                     <button onClick={() => setFormVisivel(false)} className="cancelarEndereco">Cancelar</button>
+
                                 </div>
+                                
                             </div>
                         </div>
+
                     ) : (
+
                         <div className="adicionar" onClick={() => {
                             setFormVisivel(true);
                             limparCampos(); // Limpa os campos antes de adicionar um novo endereço
@@ -255,22 +298,31 @@ export function ComprarProduto() {
 
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAARRJREFUSEvtlLFOwzAURc/9CgaGAoIFhJAYixi7deRz2PmZrmxsFUxILC0SQoJ26NCveMiRE6XBjZ8R3eolSvR8jp99HbHjoR3zcQvM7AB4BAwYS1p7FucSRPgLcBKhX8DQI8kKInwKnAHLKBgAn8BtTtIr6Kx8BdxEwTNwCGQ72SpIwSVVHZhZ6MAlSQr64PXBeiW/BB54iWRDUAL3ShpBJy1h/rGkhSfrZnYEfMfajXRVAjMLzzfgqgZKyka4LTezcAHrMZN0GV7aglfg+p8ET5JGjSC1kr920J2XSlHV6l7QnGU3hnUa9lvUt0Vz4NxzgxM175Iu2t9TMb0DHoDTQskHcC9p0isohGbLi/43WVqi4AcdgqsZWC8YwQAAAABJRU5ErkJggg=="/>
                         </div>
+
                     )}
                 </div>
-
+                
+                {/* Parte do resumo da compra */}
                 <div className="resumo">
+
                     <h2>Resumo</h2>
+
                     <div id="extrato">
+
                         <span><span className="bold">Valor do produto:</span> R$ {preco}</span>
                         <span><span className="bold">Desconto:</span> 10%</span>
                         <span><span className="bold">Frete:</span> R$20,0</span>
                         <h3 className="bold">Total: R${parseInt(preco) - (parseInt(preco) * (10 / 100)) + 20}</h3>
                         <button id="confirmar">Confirmar</button>
+
                     </div>
                 </div>
-            </div>
 
+            </div>
+            
+            {/* Quando o formulário aparecer, o fundo ficará escuro */}
             {formVisivel && <div className="fundoEscurecido"></div>}
+
         </section>
     );
 }
