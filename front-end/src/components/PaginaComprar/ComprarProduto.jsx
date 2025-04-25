@@ -7,8 +7,8 @@ import CartaoCredito from "../../assets/produto/cartaoCredito.png";
 import Pix from "../../assets/produto/pix.png";
 
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useState } from "react";
-import { useEffect } from 'react';
+import { useState, useEffect } from "react";
+import { Link} from "react-router-dom";
 
 import { PagamentoQr } from "./Qr/PagamentoQr";
 import Credito from "./CartaoCredito/Credito";
@@ -313,7 +313,7 @@ export function ComprarProduto() {
                         <span><span className="bold">Desconto:</span> 10%</span>
                         <span><span className="bold">Frete:</span> R$20,0</span>
                         <h3 className="bold">Total: R${parseInt(preco) - (parseInt(preco) * (10 / 100)) + 20}</h3>
-                        <button id="confirmar">Confirmar</button>
+                        <Link to='/teste'><button id="confirmar">Confirmar</button></Link>
 
                     </div>
                 </div>

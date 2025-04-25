@@ -10,6 +10,7 @@ import { VisualizacaoProduto } from "./components/paginaProduto/SecaoProdutos/pr
 import { ComprarProduto } from "./components/PaginaComprar/ComprarProduto";
 import { PagamentoQr } from "./components/PaginaComprar/Qr/PagamentoQr";
 import Credito from "./components/PaginaComprar/CartaoCredito/Credito";
+import { Confirmacao } from "./components/ConfimacaoCompra/Confirmacao";
 
 export default function AppRoutes() {
 
@@ -58,6 +59,7 @@ export default function AppRoutes() {
       <Route path='/comprar' element={<ComprarProduto/>} />
       <Route path='/qrTeste' element={<PagamentoQr/>} />
       <Route path='/credito' element={<Credito/>} />
+      <Route path='/teste' element={<Confirmacao/>} />
     </Routes>
   );
 }

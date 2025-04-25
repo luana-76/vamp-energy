@@ -1,0 +1,18 @@
+#divGeral{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #000;
+    
+}
+
+#divGeral img{
+
+    width: 40px;
+    animation: blink 1s infinite;
+    
+}
+
+
