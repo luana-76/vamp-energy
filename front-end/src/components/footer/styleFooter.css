@@ -1,0 +1,70 @@
+footer{
+
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    background-color: #59138B;
+    mask-image: linear-gradient(to top, #59138B 0%, #59138B 30%, black 70%, transparent 100%);
+    position: relative;
+    bottom: 0;
+    padding: 15px;
+    z-index: 999;
+
+}
+
+/* Tamanho da imagem */
+#campoImagem img{width: 8vw;}
+
+/* Lista de contatos */
+#contatosDev ul{
+
+    margin: 0;
+    padding: 0;
+
+}
+#contatosDev li:first-child{margin-bottom: 10px;}
+
+/* Navegação de rede social */
+#navegacaoExternaSocial{
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px
+
+}
+
+@media screen and (max-width:667px){
+
+    footer{
+
+        flex-direction: column;
+        align-items: initial;
+
+    }
+
+    #campoImagem img{width: 15vw;}
+
+    #campoInformacao{
+
+        margin-left: 20vw;
+        position: relative;
+        top: -40px;
+
+    }
+
+    #contatosDev{
+
+        margin-left: 20vw;
+        position: relative;
+        top: -40px;
+
+    }
+
+    #navegacaoExternaSocial{
+
+        position: absolute;
+        right: 20px;
+
+    }
+
+}
