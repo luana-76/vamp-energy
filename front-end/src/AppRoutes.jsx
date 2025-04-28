@@ -11,7 +11,6 @@ import { ComprarProduto } from "./components/PaginaComprar/ComprarProduto";
 import { PagamentoQr } from "./components/PaginaComprar/Qr/PagamentoQr";
 import Credito from "./components/PaginaComprar/CartaoCredito/Credito";
 import { Confirmacao } from "./components/ConfimacaoCompra/Confirmacao";
-import { FooterPag } from "./components/footer/FooterPag";
 
 export default function AppRoutes() {
 
@@ -51,6 +50,7 @@ export default function AppRoutes() {
 
   return (
     <Routes>
+
       <Route path="/" element={<Principal />} />
       <Route path="/login" element={<Login />} />
       <Route path="/cadastro" element={<Cadastro/>} />
@@ -61,7 +61,6 @@ export default function AppRoutes() {
       <Route path='/qrTeste' element={<PagamentoQr/>} />
       <Route path='/credito' element={<Credito/>} />
       <Route path='/confirmando' element={<Confirmacao/>} />
-      <Route path='/footer' element={<FooterPag/>} />
 
     </Routes>
   );
