@@ -4,14 +4,15 @@ footer{
     align-items: center;
     justify-content:space-around;
     background-color: #59138B;
-    mask-image: linear-gradient(to top, #59138B 0%, #59138B 30%, black 70%, transparent 100%);
+    mask-image: linear-gradient(to top, #59138B 0%, #59138B 30%, #59138B 70%, transparent 130%);
     position: relative;
-    bottom: 0;
+    bottom: -350px !important;
     padding: 15px;
     z-index: 999;
 
 }
 
+footer a{font-weight: 500;}
 /* Tamanho da imagem */
 #campoImagem img{width: 8vw;}
 
@@ -33,7 +34,16 @@ footer{
 
 }
 
+@media screen and (min-width: 1366px), screen and (min-height: 1024px) {
+    .footerCadastro {
+        bottom: -25vh;
+    }
+}
+
+
 @media screen and (max-width:667px){
+    
+    .footerCadastro{bottom: -300px !important;}
 
     footer{
 

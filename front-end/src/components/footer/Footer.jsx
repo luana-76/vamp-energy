@@ -1,12 +1,18 @@
 import './styleFooter.css';
 
 import Logo from '../../assets/logo.png';
+import { useLocation } from 'react-router-dom';
 
 export function Footer(){
 
+    const location = useLocation();
+
+    // Verifica se estamos na rota de cadastro
+    const isCadastroPage = location.pathname === '/cadastro'; 
+
     return(
 
-        <footer>
+        <footer className={isCadastroPage ? 'footerCadastro' : ''}>
 
             <div id='campoImagem'>
 
@@ -17,7 +23,7 @@ export function Footer(){
             <div id='campoInformacao'>
 
                 <h3>Informações</h3>
-                <p>Saiba sobre o projeto</p>
+                <a href=''>Saiba sobre o projeto</a>
                 
             </div>
 
