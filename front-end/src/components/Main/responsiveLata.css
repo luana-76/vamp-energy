@@ -29,7 +29,7 @@
     .seguraBorda:nth-child(2){/* parte da lata */
 
         position: relative;
-        bottom: 15%;
+        bottom: 100px;
 
     }
 
