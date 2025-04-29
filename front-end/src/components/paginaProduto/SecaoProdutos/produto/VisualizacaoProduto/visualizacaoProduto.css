@@ -65,6 +65,13 @@
     width: 220px;
 
 }
+.botaoFrete {
+    position: relative;
+    left: 217px;
+    padding: 8px;
+    width: 100px;
+    margin: -36px 0 0 0;
+}
 
 .visualizacaoPreco{
     

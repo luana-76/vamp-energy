@@ -104,8 +104,9 @@ export function Header() {
             className="login-container"
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
           >
+
             <img
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAWVJREFUSEvFlM8rRFEUxz/fZI2wsJxkZaPYytKGmqLY2NjZWPi1tFFKiaT8CbKRX9n4ByjJQrMiS1JYoJTimJnmTePNe3Nf983k7t6793w+59zOuaLBSw3mk0hgZkPAKtBbSugGWJJ07krQKTCzSWAXqpL5AbKSTmpJagrMrBW4B9piII9At6TPOIlLkAUOHNcwLOnMVzAPrDsEc5I2fQWjwLFDMCLp1FfQAtwBHTGAJ6BH0ruXoBBkZhPAXgSg0EVjkg69uygINLNBYK00B99ADliUdJF6DlwA175z0FwA136swMw6gQWgH+gD2kOwF+AauAQ2JD1HySIFZjaVB24DhS5Ksl6BaUlH4cNVAjObzT8NW0moEWfGJe1X/v8jMLMMcAs0eQo+gEzldYUFO8CMJzwIW5a0EnyEBQ9AV0rBlaSBOMEX0JxS8JZ//MrNEa7AUsKL4ZLK3P8btHpUUqymXqA4zi95YmAZ3ClLGQAAAABJRU5ErkJggg=="
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAGtJREFUSEvtkjEOgDAMA22J/3+YwYiKdukQg0iHKpmd2vWFSB4mv48yCBteX5Ek3bFINnNJJ4AjjPoI+l7XTz9IN3CTurr1DNxkrs5h0KC78wXyvwZuUldXkKemCrJ7PEO34RW97iBYSK/oAuJmMBkWf0aJAAAAAElFTkSuQmCC"
               style={{
                 filter: isDropdownOpen
                   ? "drop-shadow(0px 0px 10px #ffffff)"
