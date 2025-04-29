@@ -18,7 +18,7 @@ export function ComprarProduto() {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const { nome, imagem, preco } = location.state || {};
+    const { nome, imagem, preco, frete } = location.state || {};
 
     //Mostrar caixa ou não
     const [mostrarPix, setMostrarPix] = useState(false);
@@ -311,7 +311,7 @@ export function ComprarProduto() {
 
                         <span><span className="bold">Valor do produto:</span> R$ {preco}</span>
                         <span><span className="bold">Desconto:</span> 10%</span>
-                        <span><span className="bold">Frete:</span> R$20,0</span>
+                        <span><span className="bold">Frete:</span> R${frete}</span>
                         <h3 className="bold">Total: R${parseInt(preco) - (parseInt(preco) * (10 / 100)) + 20}</h3>
                         <button id="confirmar"><Link to='/confirmando'>Confirmar</Link></button>
 

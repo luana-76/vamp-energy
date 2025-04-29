@@ -77,7 +77,8 @@ export function VisualizacaoProduto() {
                                 state={{
                                     nome: nome,
                                     imagem: imagem,
-                                    preco: preco
+                                    preco: preco,
+                                    frete: frete
                                 }}
                             >
                                 <button>Comprar</button>
