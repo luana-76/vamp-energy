@@ -6,13 +6,13 @@ footer{
     background-color: #59138B;
     mask-image: linear-gradient(to top, #59138B 0%, #59138B 30%, #59138B 70%, transparent 130%);
     position: relative;
-    bottom: -350px !important;
     padding: 15px;
     z-index: 999;
 
 }
 
-footer a{font-weight: 500;}
+footer a{font-weight: 500;}/* Para todos os links de footer */
+
 /* Tamanho da imagem */
 #campoImagem img{width: 8vw;}
 
@@ -34,15 +34,23 @@ footer a{font-weight: 500;}
 
 }
 
+/* Para que em dispositivos maiores, o height seja automático */
+@media screen and (min-width: 1024px){
+
+    #mainPrincipal{height: auto;}
+
+}
+
 @media screen and (min-width: 1366px), screen and (min-height: 1024px) {
-    .footerCadastro {
-        bottom: -25vh;
-    }
+
+    .footerCadastro {bottom: -350px;}
+
 }
 
 
 @media screen and (max-width:667px){
     
+    /* Para quando estiver na tela de cadastro */
     .footerCadastro{bottom: -300px !important;}
 
     footer{
