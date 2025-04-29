@@ -1,14 +1,15 @@
-import CaixaProduto from './produto/CaixaProduto';
+
 import './ContainerProduto.css'; 
 
 import { Link } from "react-router-dom";
+import { CaixaDoProduto } from './produto/CaixaDoProduto';
 
 export function ContainerDeProduto(prop){
 
     return(
 
         <section id='tagSection'>
-
+            
             <div className='titulo'>
 
                 <h2>{prop.nomeSecao}</h2>
@@ -28,7 +29,7 @@ export function ContainerDeProduto(prop){
                     }}
                 >
 
-                    <CaixaProduto 
+                    <CaixaDoProduto 
                         imagem={prop.imagem1}
                         descricao={prop.descricao1}
                         nomeProduto={prop.nomeProduto1}
@@ -46,7 +47,7 @@ export function ContainerDeProduto(prop){
                         preco: prop.preco2
                     }}
                 >
-                    <CaixaProduto
+                    <CaixaDoProduto
                         imagem={prop.imagem2}
                         descricao={prop.descricao2}
                         nomeProduto={prop.nomeProduto2}
@@ -65,7 +66,7 @@ export function ContainerDeProduto(prop){
                     }}
                 >
 
-                    <CaixaProduto 
+                    <CaixaDoProduto 
                         imagem={prop.imagem3}
                         descricao={prop.descricao3}
                         nomeProduto={prop.nomeProduto3}
@@ -84,7 +85,7 @@ export function ContainerDeProduto(prop){
                     }}
                 >
 
-                    <CaixaProduto
+                    <CaixaDoProduto
                         imagem={prop.imagem4}
                         descricao={prop.descricao4}
                         nomeProduto={prop.nomeProduto4}
@@ -103,7 +104,7 @@ export function ContainerDeProduto(prop){
                     }}
                 >
                     
-                    <CaixaProduto
+                    <CaixaDoProduto
                         imagem={prop.imagem5}
                         descricao={prop.descricao5}
                         nomeProduto={prop.nomeProduto5}

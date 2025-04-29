@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./estiloCaixaProduto.css";
 
-export function CaixaProduto(prop){
+export function CaixaDoProduto(prop){
 
     return(
  
