@@ -1,0 +1,146 @@
+#mainCarrinho{
+
+    padding: 10vw;
+
+
+}
+
+/* Lista de titulos */
+.titulosDoCarrinho ul{
+
+    display: flex;
+    justify-content: space-evenly;
+    font-weight: bold;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+
+}
+
+.titulosDoCarrinho ul li:first-child{
+    margin-right: 12vw;
+    margin-left: inherit;
+
+}/* Primeiro elemento da lista*/
+
+.titulosDoCarrinho ul li:last-child{margin-left: 2vw;}
+
+/* Produtos e informações */
+.produtoCarrinho,
+.resumoProdutos,
+.botaoQuantidade{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+.produtoCarrinho img{
+
+    margin: 0 1vw 0 1vw;
+    width: 10vw;
+
+}
+
+/* Consertar, pq tem uma pag que pega check geral */
+.checkProduto{
+
+    height: auto !important;
+    width: auto !important;
+    visibility: initial !important;
+
+}
+
+/* Botões de quantidade */
+
+.botaoQuantidade button{
+
+    position: inherit;
+    border-radius: 0;
+
+}
+
+.botaoQuantidade div{padding: 1.1em 1.2em;}
+
+
+/* Finalização */
+
+.resumoFinalizacao{
+    
+    margin-top: 20vh;
+    margin: 20vh 0  0 10vw;
+
+}
+
+/* Parte do cupom */
+
+.resumoFinalizacao label{
+
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-right: 1vw;
+
+}
+
+.resumoFinalizacao input{
+
+    background: #757373;
+    border: 2px solid #F7F3F0;
+
+}
+
+.resumoFinalizacao button{
+
+    padding: 9px;
+    color: #452E73;
+    background: #F7F3F0;
+    font-weight: 700;
+
+}
+
+/* Resumo */
+
+#resumo{
+
+    background: #202020;
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    border-radius: 15px;
+    box-shadow: 4px 4px 4px 0px #fff6f62e;
+    font-weight: bold;
+    padding: 20px;
+    margin-top: 50px;
+
+}
+
+#resumo h3{
+    
+    font-size: 1.2em;
+    margin: 10px 0;
+
+}
+
+#resumo span{
+
+    margin-bottom: 5px;
+    font-size: 0.9em;
+
+}
+
+#resumo #total{
+
+    font-size: 1.3em;
+    position: relative;
+    padding-top: 10px;
+
+}
+
+#resumo #total::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 5px;
+    width: 80%;
+    background: linear-gradient(90deg, rgba(101, 85, 143, 1) 0%, rgba(114, 34, 61, 1) 75%);
+  }

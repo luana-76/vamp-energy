@@ -11,6 +11,7 @@ import { ComprarProduto } from "./components/PaginaComprar/ComprarProduto";
 import { PagamentoQr } from "./components/PaginaComprar/Qr/PagamentoQr";
 import Credito from "./components/PaginaComprar/CartaoCredito/Credito";
 import { Confirmacao } from "./components/ConfimacaoCompra/Confirmacao";
+import { Carrinho } from "./components/CarrinhoDeCompras/Carrinho";
 
 export default function AppRoutes() {
 
@@ -61,6 +62,7 @@ export default function AppRoutes() {
       <Route path='/qrTeste' element={<PagamentoQr/>} />
       <Route path='/credito' element={<Credito/>} />
       <Route path='/confirmando' element={<Confirmacao/>} />
+      <Route path='/carrinho' element={<Carrinho/>} />
 
     </Routes>
   );
