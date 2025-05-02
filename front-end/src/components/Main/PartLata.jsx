@@ -6,7 +6,6 @@ import Misterioso from "../../assets/misterioso.png";
 import { useState, useEffect } from "react";
 import { CampText } from "./TextDoMain/campText";
 import { motion } from "framer-motion";
-import teste from "../../assets/teste.gif"
 
 export function Main() {
   const [currentImage, setCurrentImage] = useState(Tradicional); // Estado inicial com a imagem preta

@@ -1,6 +1,10 @@
-import Creatina from '../../assets/produto/teste0.webp'
 import './carrinhoDeCompras.css';
+
+import { Link } from "react-router-dom";
+import { ProdutoCarrinho } from './ProdutoCarrinho/ProdutoCarrinho';
+
 export function Carrinho(){
+
 
     return(
 
@@ -19,7 +23,6 @@ export function Carrinho(){
                             <li>Produto</li>
                             <li>Preço</li>
                             <li>Quantidade</li>
-                            <li>Valor</li>
 
                         </ul>
 
@@ -29,38 +32,7 @@ export function Carrinho(){
 
             </section>
 
-            <section className="resumoProdutos">
-
-                <div className='produtoCarrinho'>
-
-                    <input type='checkbox' className='checkProduto'/>
-                    <img src={Creatina} alt='produto'/>
-                    <h2>Creatina</h2>
-
-                </div>
-                <div className='preco'>
-
-                    <span>R$ 50</span>
-
-                </div>
-
-                <div className='quantidade'>
-
-                    <div className='botaoQuantidade'>
-                        <button>+</button>
-                        <div>0</div>
-                        <button>-</button>
-                    </div>
-
-                </div>
-
-                <div className='valor'>
-
-                    <span>R$ 50</span>
-
-                </div>
-
-            </section>
+            <ProdutoCarrinho/>
 
             <section className="resumoFinalizacao">
 
@@ -84,7 +56,7 @@ export function Carrinho(){
 
                 <div id='botoesCarrinho'>
 
-                    <button>Continuar comprando</button>
+                <   Link to='/produtos'><button>Continuar comprando</button></Link>
                     <button>Finalizar  compra</button>
 
                 </div>

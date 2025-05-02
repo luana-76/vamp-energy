@@ -78,11 +78,13 @@
   
   .botaoQuantidade button {
     transition: transform 0.2s ease, background-color 0.2s ease;
+    border-radius: 5px;
   }
   
   .botaoQuantidade button:hover {
     transform: scale(1.1);
-    background-color: #e6e6e6;
+    background-color: #D51919;
+    outline: none;
   }
   
 
@@ -109,17 +111,45 @@
 
     background: #757373;
     border: 2px solid #F7F3F0;
+    outline: none;
+    width: 100px;
+    padding: 3px;
 
 }
 
-.resumoFinalizacao button{
+#caixaDoCupom button{
 
-    padding: 9px;
-    color: #452E73;
-    background: #F7F3F0;
-    font-weight: 700;
+  padding: 4.3px;
+  color: #452E73;
+  background: #F7F3F0;
+  font-weight: 700;
+  font-size: 13px;
 
 }
+
+#botoesCarrinho button {
+  padding: 10px 20px;
+  color: #452E73;
+  background-color: #F7F3F0;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#botoesCarrinho button:hover {
+  background-color: #eae3dd;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+#botoesCarrinho button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(69, 46, 115, 0.3);
+}
+
 
 /* Resumo */
 
@@ -186,8 +216,10 @@
 
   @media (max-width: 1200px){
 
-    .resumoFinalizacao {margin: 20vh 0 0 4vw;}
+    .resumoFinalizacao {margin: 20vh 0 0 0vw;}
 
+    .botaoQuantidade button {position: inherit;}
+  
   }
 
   @media (max-width: 768px){
@@ -226,10 +258,32 @@
 
     }
 
-    .resumoFinalizacao button {
+    .resumoFinalizacao label{
+
+      display: block;
+      margin-bottom: 7px;
+  
+    }
+
+    /*.resumoFinalizacao button {
         padding: 4px;
         font-size: 0.9em;
+    }*/
+
+    #botoesCarrinho {
+      flex-direction: column;
+      align-items: stretch;
     }
+
+    #botoesCarrinho button {
+        width: 100%;
+    }
+    #botoesCarrinho button:first-child{
+
+      margin-bottom: 20px;
+
+    }
+    
 
   }
 
