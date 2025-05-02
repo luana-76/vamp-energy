@@ -4,7 +4,22 @@
 
 
 }
-
+@keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  #mainCarrinho > section {
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
+  }
+  
 /* Lista de titulos */
 .titulosDoCarrinho ul{
 
@@ -52,15 +67,24 @@
 
 /* Botões de quantidade */
 
-.botaoQuantidade button{
-
-    position: inherit;
-    border-radius: 0;
-
-}
-
-.botaoQuantidade div{padding: 1.1em 1.2em;}
-
+.botaoQuantidade {
+    gap: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .botaoQuantidade:hover {
+    transform: scale(1.03);
+  }
+  
+  .botaoQuantidade button {
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+  
+  .botaoQuantidade button:hover {
+    transform: scale(1.1);
+    background-color: #e6e6e6;
+  }
+  
 
 /* Finalização */
 
@@ -109,7 +133,7 @@
     box-shadow: 4px 4px 4px 0px #fff6f62e;
     font-weight: bold;
     padding: 20px;
-    margin-top: 50px;
+    margin: 50px 0 140px 0;
 
 }
 
@@ -144,3 +168,69 @@
     width: 80%;
     background: linear-gradient(90deg, rgba(101, 85, 143, 1) 0%, rgba(114, 34, 61, 1) 75%);
   }
+
+  /* Boões */
+
+  #botoesCarrinho button{
+
+    position: initial;
+    border-radius: 5px;
+
+  }
+
+  #botoesCarrinho button:first-child{
+
+    margin-right: 30px;
+
+  }
+
+  @media (max-width: 1200px){
+
+    .resumoFinalizacao {margin: 20vh 0 0 4vw;}
+
+  }
+
+  @media (max-width: 768px){
+
+    .seguraProdutos h1{font-size: 2em;}
+
+    #mainCarrinho {padding:  20vw 5vw;}
+
+    .produtoCarrinho h2{font-size: 1em;}
+    .botaoQuantidade button,
+    .botaoQuantidade div{
+
+        padding: 5px;
+        position: inherit;
+    }
+
+    .titulosDoCarrinho ul li{margin: 0 5px;}
+
+    .titulosDoCarrinho ul li:first-child {
+        margin-right: 15vw;
+    }
+
+    .titulosDoCarrinho ul{padding: 0;}
+
+    .resumoProdutos, .botaoQuantidade, .titulosDoCarrinho ul {
+        justify-content: space-between;
+    }
+
+    #resumo {
+        width: 60vw;
+    }
+    .caixaDoCupom input{
+
+        padding: 3px;
+        width: 130px;
+
+    }
+
+    .resumoFinalizacao button {
+        padding: 4px;
+        font-size: 0.9em;
+    }
+
+  }
+
+  

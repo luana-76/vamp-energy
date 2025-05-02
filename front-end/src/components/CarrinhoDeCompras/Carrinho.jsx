@@ -82,6 +82,13 @@ export function Carrinho(){
 
                 </div>
 
+                <div id='botoesCarrinho'>
+
+                    <button>Continuar comprando</button>
+                    <button>Finalizar  compra</button>
+
+                </div>
+
             </section>
 
         </main>
