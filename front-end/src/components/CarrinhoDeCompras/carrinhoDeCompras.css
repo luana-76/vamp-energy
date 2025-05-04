@@ -20,6 +20,14 @@
     opacity: 0;
   }
   
+.resumoProdutos{
+  
+  background: #1e0f1e;
+  padding: 10px 0;
+  margin: 20px 0;
+
+}
+
 /* Lista de titulos */
 .titulosDoCarrinho ul{
 
@@ -119,11 +127,14 @@
 
 #caixaDoCupom button{
 
-  padding: 4.3px;
+  padding: 8px;
   color: #452E73;
   background: #F7F3F0;
   font-weight: 700;
   font-size: 13px;
+  position: initial;
+  margin-left: 10px;
+  border-radius: 5px;
 
 }
 

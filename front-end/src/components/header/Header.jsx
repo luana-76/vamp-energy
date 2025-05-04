@@ -33,6 +33,7 @@ export function Header() {
     <header
       style={
         location.pathname === "/produtos" || location.pathname === "/comprar"
+        || location.pathname === "/carrinho"
           ? {
               background: "linear-gradient(rgba(17, 17, 17) 70%, #00000000)",
               zIndex: "9999",
