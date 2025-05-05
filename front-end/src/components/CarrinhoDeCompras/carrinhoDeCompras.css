@@ -1,6 +1,9 @@
 #mainCarrinho{
 
     padding: 10vw;
+    background: linear-gradient(rgb(0 0 0 / 19%), rgb(0 0 0 / 31%)),
+    url(../../assets/fundoCarrinho.png);
+    background-size: 100% 100%;
 
 
 }
@@ -18,13 +21,14 @@
   #mainCarrinho > section {
     animation: fadeUp 0.8s ease forwards;
     opacity: 0;
+    margin-bottom: 30px;
   }
   
 .resumoProdutos{
   
-  background: #1e0f1e;
+  background: #141314;
   padding: 10px 0;
-  margin: 20px 0;
+  margin: 20px 0 0 0;
 
 }
 
@@ -91,7 +95,7 @@
   
   .botaoQuantidade button:hover {
     transform: scale(1.1);
-    background-color: #D51919;
+    background-color: #990f0f;
     outline: none;
   }
   
@@ -109,7 +113,7 @@
 
 .resumoFinalizacao label{
 
-    font-weight: bold;
+    font-weight: 500;
     font-size: 1.1em;
     margin-right: 1vw;
 
@@ -120,7 +124,7 @@
     background: #757373;
     border: 2px solid #F7F3F0;
     outline: none;
-    width: 100px;
+    width: 140px;
     padding: 3px;
 
 }
@@ -225,6 +229,40 @@
 
   }
 
+  /* Botão de excluir produto do carrinho */
+.botaoExcluir button {
+  position: inherit;
+  width: 100%;
+  border-radius: 0;
+  background: #a12c2c;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
+}
+
+.botaoExcluir button:hover {
+  background: #c51919;
+  transform: scale(1.02); /* Leve crescimento ao passar o mouse */
+}
+
+.botaoExcluir button:active {
+  transform: scale(0.95); /* Encolhe levemente quando clicado */
+}
+
+/* Erro de carrinho vazio */
+
+.avisoCarrinho{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+
+}
+
   @media (max-width: 1200px){
 
     .resumoFinalizacao {margin: 20vh 0 0 0vw;}
@@ -257,6 +295,7 @@
 
     .resumoProdutos, .botaoQuantidade, .titulosDoCarrinho ul {
         justify-content: space-between;
+        padding: 10px;
     }
 
     #resumo {
