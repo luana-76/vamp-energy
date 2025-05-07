@@ -1,9 +1,9 @@
 import { useState} from "react";
 import PropTypes from 'prop-types';
 
-export function ProdutoCarrinho({nome, preco, imagem, onExcluir }){
+export function ProdutoCarrinho({nome, preco, imagem, onExcluir, selecionado, onChange }){
     
-    const [contador, setContador] = useState(0);
+    const [contador, setContador] = useState(1)
 
     return(
 
@@ -11,14 +11,20 @@ export function ProdutoCarrinho({nome, preco, imagem, onExcluir }){
             <div className="resumoProdutos">
                 <div className='produtoCarrinho'>
         
-                    <input type='checkbox' className='checkProduto'/>
+                    <input
+                        type='checkbox'
+                        className='checkProduto'
+                        onChange={onChange}
+                        checked={selecionado}
+                    />
+
                     <img src={imagem} alt='produto'/>
                     <h2>{nome}</h2>
         
                 </div>
                 <div className='preco'>
         
-                    <span>R$ {preco}</span>
+                    <span>R$ {parseInt(preco) * contador.toFixed(2)}</span>
         
                 </div>
         
@@ -27,7 +33,7 @@ export function ProdutoCarrinho({nome, preco, imagem, onExcluir }){
                     <div className='botaoQuantidade'>
                         
                         {/* Faz o contador somar um */}
-                        <button onClick={() => setContador(contador + 1)}>+</button>
+                        <button onClick={() =>setContador(contador + 1)}>+</button>
 
                         <div>{contador}</div>
 
@@ -37,6 +43,7 @@ export function ProdutoCarrinho({nome, preco, imagem, onExcluir }){
                             onClick={() => {
                                 if (contador > 0) {
                                     setContador(contador - 1);
+                                    
                                 }
                             }}
                         >-</button>
@@ -64,4 +71,6 @@ ProdutoCarrinho.propTypes = {
     preco: PropTypes.number.isRequired,
     imagem: PropTypes.string.isRequired,
     onExcluir: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
+    selecionado: PropTypes.bool.isRequired
 };

@@ -1,8 +1,9 @@
 #mainCarrinho{
 
     padding: 10vw;
-    background: linear-gradient(rgb(0 0 0 / 19%), rgb(0 0 0 / 31%)),
-    url(../../assets/fundoCarrinho.png);
+    /*background: linear-gradient(rgb(0 0 0 / 19%), rgb(0 0 0 / 31%)),
+    url(../../assets/fundoCarrinho.png);*/
+    background:linear-gradient(rgb(0 0 0 / 19%), rgb(0 0 0 / 31%)), url(../../assets/div.png);
     background-size: 100% 100%;
 
 

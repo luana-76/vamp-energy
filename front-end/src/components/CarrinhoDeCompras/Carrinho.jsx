@@ -9,10 +9,37 @@ export function Carrinho(){
     const [produtos, setProdutos] = useState([]);
 
     useEffect(() => {
+
+        // Recupera os itens salvos no localStorage com a chave 'carrinho'
         const itens = JSON.parse(localStorage.getItem('carrinho')) || [];
-        setProdutos(itens);
+
+        // Adiciona a propriedade 'selecionado: false' a cada item (para controle do checkbox)
+        const itensComSelecionado = itens.map(item => ({ ...item, selecionado: false }));
+
+        // Define o estado com os itens atualizados
+        setProdutos(itensComSelecionado);
+
     }, []);
 
+    // Função para alternar o valor do checkbox de um produto específico
+    function alternarSelecionado(index) {
+
+        // Cria uma cópia dos produtos atuais
+        const novosProdutos = [...produtos];
+
+         // Inverte o valor de 'selecionado' no produto com o índice fornecido
+        novosProdutos[index].selecionado = !novosProdutos[index].selecionado;
+
+        // Atualiza o estado com os novos valores
+        setProdutos(novosProdutos);
+    }
+
+    // Calcula o total dos produtos que estão selecionados (checkbox marcado)
+    const totalSelecionado = produtos
+    .filter(p => p.selecionado)// Filtra só os produtos marcados
+    .reduce((soma, p) => soma + parseFloat(p.preco), 0);// Soma os preços desses produtos
+
+    
     /* Botão de excluir */
     function excluirProduto(index) {
         const novosProdutos = produtos.filter((_, i) => i !== index);
@@ -60,6 +87,8 @@ export function Carrinho(){
                     preco={produto.preco}
                     imagem={produto.imagem}
                     onExcluir={() => excluirProduto(index)}
+                    selecionado={produto.selecionado}
+                    onChange={() => alternarSelecionado(index)}
                 />
             ))}
 
@@ -76,10 +105,10 @@ export function Carrinho(){
                 <div id='resumo'>
                     
                     <h3>Revisão</h3>
-                    <span>Subtotal: R$ 50</span>
+                    <span>Subtotal: R$ {totalSelecionado.toFixed(2)}</span>
                     <span>Cupom: R$ 0</span>
                     <span>Desconto: R$ 10</span>
-                    <span id='total'>TOTAL: R$ 20</span>
+                    <span id='total'>TOTAL: R$ {(totalSelecionado - (totalSelecionado * 10) / 100).toFixed(2)}</span>
 
                 </div>
 
