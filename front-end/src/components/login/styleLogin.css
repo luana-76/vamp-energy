@@ -113,9 +113,9 @@ button{
 }
 
 .toggle-container span{margin-left: 10px;}
-input[type=checkbox]:not(#checkCadastro){
+#switch:not(#checkCadastro){
     height: 0;
-    width: 0;
+    width: 0; 
     visibility: hidden;
 }
 

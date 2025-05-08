@@ -1,4 +1,5 @@
 import './carrinhoDeCompras.css';
+import './responsivoCarrinho.css';
 
 import { Link } from "react-router-dom";
 import { ProdutoCarrinho } from './ProdutoCarrinho/ProdutoCarrinho';
@@ -14,12 +15,19 @@ export function Carrinho(){
         const itens = JSON.parse(localStorage.getItem('carrinho')) || [];
 
         // Adiciona a propriedade 'selecionado: false' a cada item (para controle do checkbox)
-        const itensComSelecionado = itens.map(item => ({ ...item, selecionado: false }));
+        const itensComSelecionado = itens.map(item => ({ ...item, selecionado: false, quantidade: 1 }));
 
         // Define o estado com os itens atualizados
         setProdutos(itensComSelecionado);
 
     }, []);
+
+    /* Atualiza quantidade de produtos */
+    function atualizarQuantidade(index, novaQuantidade) {
+        const novosProdutos = [...produtos];
+        novosProdutos[index].quantidade = novaQuantidade;
+        setProdutos(novosProdutos);
+    }    
 
     // Função para alternar o valor do checkbox de um produto específico
     function alternarSelecionado(index) {
@@ -36,9 +44,9 @@ export function Carrinho(){
 
     // Calcula o total dos produtos que estão selecionados (checkbox marcado)
     const totalSelecionado = produtos
-    .filter(p => p.selecionado)// Filtra só os produtos marcados
-    .reduce((soma, p) => soma + parseFloat(p.preco), 0);// Soma os preços desses produtos
-
+    .filter(p => p.selecionado)
+    .reduce((soma, p) => soma + (parseFloat(p.preco) * parseFloat(p.quantidade)), 0);
+  
     
     /* Botão de excluir */
     function excluirProduto(index) {
@@ -79,7 +87,6 @@ export function Carrinho(){
                 </section>
             )}
 
-
             {produtos.map((produto, index) => (
                 <ProdutoCarrinho
                     key={index}
@@ -89,6 +96,8 @@ export function Carrinho(){
                     onExcluir={() => excluirProduto(index)}
                     selecionado={produto.selecionado}
                     onChange={() => alternarSelecionado(index)}
+                    quantidade={produto.quantidade}
+                    onQuantidadeChange={(novaQtd) => atualizarQuantidade(index, novaQtd)}
                 />
             ))}
 
