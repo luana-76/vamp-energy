@@ -1,81 +1,72 @@
 @media (max-width: 1200px){
 
-    .resumoFinalizacao {margin: 20vh 0 0 0vw;}
+  .resumoProdutos,
+  .titulosDoCarrinho ul{justify-content: space-around !important;}
+  .titulosDoCarrinho ul li:first-child {margin-right: 21vw !important;}
 
-    .botaoQuantidade button {position: inherit;}
+  .botaoQuantidade button {position: inherit;}
+  .resumoFinalizacao {margin: 20vh 0 0 0vw;}
+  
+}
+
+@media (max-width: 768px){
+
+  #mainCarrinho{width: 100vw;}
+
+  .seguraProdutos{padding-top: 50px;}
+  .seguraProdutos h1{font-size: 2em;}
+
+  .resumoProdutos, 
+  .botaoQuantidade, 
+  .titulosDoCarrinho ul {
+
+    justify-content: space-between;
+    padding: 10px;
+
+  }
+
+  .titulosDoCarrinho ul{padding: 0;}
+  .titulosDoCarrinho ul li{margin: 0 5px;}
+  .titulosDoCarrinho ul li:first-child {margin-right: 27vw;}
+
+  .produtoCarrinho h2{font-size: 0.8em;}
+
+  .botaoQuantidade button,
+  .botaoQuantidade div{
+
+    padding: 5px;
+    position: inherit;
+  }
+
+  .checkbox-wrapper-30 .checkbox svg,
+  .checkbox-wrapper-30 .checkbox input {
+    height: 70%;
+    width: 70%;
+  }
+
+  #resumo {width: 60vw;}
+  .caixaDoCupom input{
+
+    padding: 3px;
+    width: 130px;
+
+  }
+
+  .resumoFinalizacao label{
+
+    display: block;
+    margin-bottom: 7px;
   
   }
 
-  @media (max-width: 768px){
+  #botoesCarrinho {
 
-    #mainCarrinho{width: 100vw;}
-
-    .seguraProdutos h1{font-size: 2em;}
-
-    .seguraProdutos{padding-top: 50px;}
-
-    .produtoCarrinho h2{font-size: 0.8em;}
-    .botaoQuantidade button,
-    .botaoQuantidade div{
-
-        padding: 5px;
-        position: inherit;
-    }
-
-    .checkbox-wrapper-30 .checkbox svg,
-    .checkbox-wrapper-30 .checkbox input {
-      height: 70%;
-      width: 70%;
-    }
-
-    .titulosDoCarrinho ul li{margin: 0 5px;}
-
-    .titulosDoCarrinho ul li:first-child {
-        margin-right: 15vw;
-    }
-
-    .titulosDoCarrinho ul{padding: 0;}
-
-    .resumoProdutos, .botaoQuantidade, .titulosDoCarrinho ul {
-        justify-content: space-between;
-        padding: 10px;
-    }
-
-    #resumo {
-        width: 60vw;
-    }
-    .caixaDoCupom input{
-
-        padding: 3px;
-        width: 130px;
-
-    }
-
-    .resumoFinalizacao label{
-
-      display: block;
-      margin-bottom: 7px;
-  
-    }
-
-    /*.resumoFinalizacao button {
-        padding: 4px;
-        font-size: 0.9em;
-    }*/
-
-    #botoesCarrinho {
-      flex-direction: column;
-      align-items: stretch;
-    }
-
-    #botoesCarrinho button {
-        width: 100%;
-    }
-    #botoesCarrinho button:first-child{
-
-      margin-bottom: 20px;
-
-    }
+    flex-direction: column;
+    align-items: stretch;
     
-
   }
+
+  #botoesCarrinho button {width: 100%;}
+  #botoesCarrinho button:first-child{margin-bottom: 20px;}
+    
+}

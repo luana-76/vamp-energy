@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import './produtoCarrinho.css';
 
 export function ProdutoCarrinho({
     nome, preco, imagem, quantidade,
