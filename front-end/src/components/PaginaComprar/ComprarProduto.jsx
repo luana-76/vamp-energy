@@ -109,26 +109,33 @@ export function ComprarProduto() {
     /* Opção de gerar boleto (AINDA EM DESENVOLVIMENTO) */
     const gerarBoleto = async () => {
         try {
-          const res = await fetch('http://localhost:3001/gerar-boleto', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          });
-      
-          if (!res.ok) throw new Error('Erro ao gerar boleto');
-      
-          const blob = await res.blob();
-          const url = window.URL.createObjectURL(blob);
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = 'boleto.pdf'; // Nome do arquivo
-          a.click();
-          window.URL.revokeObjectURL(url);
+            const res = await fetch('http://localhost:3001/gerar-boleto', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+    
+            if (!res.ok) throw new Error('Erro ao gerar boleto');
+    
+            // Cria um Blob a partir da resposta do servidor
+            const blob = await res.blob();
+            const url = window.URL.createObjectURL(blob);
+    
+            // Cria um link para download do PDF
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'boleto.pdf'; // Nome do arquivo
+            a.click();
+    
+            // Libera o URL criado
+            window.URL.revokeObjectURL(url);
         } catch (err) {
-          console.error('Erro ao baixar boleto:', err);
+            console.error('Erro ao baixar boleto:', err);
         }
-      };
+    };
+    
+      
 
     /* Rolando página pro início */
     useEffect(() => {
