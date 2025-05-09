@@ -34,7 +34,7 @@
   object-fit: 100% 100%; /* Força o preenchimento completo */
   filter: brightness(50%); /* Escurece a imagem */
   -webkit-mask-image: linear-gradient(to top, transparent 0%, black 30%, black 70%, transparent 100%);
-  mask-image: linear-gradient(to top, transparent 0%, black 30%, black 70%, transparent 100%);
+  mask-image: linear-gradient(to top, #00000000 0%, #00000021 30%, black 70%, #00000000 100%);
 }
 
 /* Animação que move o carrossel para a esquerda */
