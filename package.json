@@ -2,7 +2,7 @@
   "main": "back-end/Boleto/index.js",
   "scripts": {
     "start": "node back-end/Boleto/index.jsx"
-  },
+  }, 
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.1.0",
