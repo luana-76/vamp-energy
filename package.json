@@ -1,4 +1,8 @@
 {
+  "main": "back-end/Boleto/index.js",
+  "scripts": {
+    "start": "node back-end/Boleto/index.js"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.1.0",
@@ -9,3 +13,4 @@
     "puppeteer": "^24.8.2"
   }
 }
+
