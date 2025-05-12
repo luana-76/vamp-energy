@@ -1,7 +1,7 @@
 import './carrinhoDeCompras.css';
 import './responsivoCarrinho.css';
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ProdutoCarrinho } from './ProdutoCarrinho/ProdutoCarrinho';
 import { useEffect, useState } from "react";
 
@@ -55,9 +55,15 @@ export function Carrinho(){
         localStorage.setItem('carrinho', JSON.stringify(novosProdutos));
     }
 
+    const navigate = useNavigate();
+
     return(
 
         <main id='mainCarrinho'>
+
+            <div id="close" onClick={() => navigate(-1)} style={{ cursor: 'pointer'}}>
+                <img className='seta' src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAANBJREFUSEvtlEEKwjAQRd8/hKB7Bc8ggrcQXAteR1wLHkbBO7hxL3iHaCCFUmsyKcmuXZbhvT+TTETlT5X5jILkhM0jcs5NgZ2kY5LaKjAJAvwKLICDpLNVkhQE+A2YA09gJelVRNCBP4BNDtyH+NuBc24C3ENyD19LeluTN3W9ggD3M19+D3YwvLeDDtwcWFJv2J+f1QU+ctURNTMpJYnuQYmblLto2buQFIQz8e9Q81TsJV2s18skCJIZsJV0ssKjm5wDidWaOxgqHAXJyX0AzWRKGaDSgDcAAAAASUVORK5CYII=" alt='setaVoltar'/>
+            </div>
 
             <section className='seguraProdutos'>
 

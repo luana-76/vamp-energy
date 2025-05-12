@@ -1,5 +1,8 @@
 @media (max-width: 1200px){
 
+  #mainCarrinho #close{margin-top: 10vw;}
+  #mainCarrinho #close img{width: 5vw;}
+
   .resumoProdutos,
   .titulosDoCarrinho ul{justify-content: space-around !important;}
   .titulosDoCarrinho ul li:first-child {margin-right: 21vw !important;}
