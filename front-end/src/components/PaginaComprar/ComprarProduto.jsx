@@ -116,7 +116,7 @@ export function ComprarProduto() {
         setBackBoleto("#ffffff");
 
         try {
-            const res = await fetch('vamp-energy-production.up.railway.app/gerar-boleto', {
+            const res = await fetch('vamp-energy-production.up.railway.app', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
