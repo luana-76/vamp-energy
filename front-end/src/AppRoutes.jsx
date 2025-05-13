@@ -12,6 +12,7 @@ import { PagamentoQr } from "./components/PaginaComprar/Qr/PagamentoQr";
 import Credito from "./components/PaginaComprar/CartaoCredito/Credito";
 import { Confirmacao } from "./components/ConfimacaoCompra/Confirmacao";
 import { Carrinho } from "./components/CarrinhoDeCompras/Carrinho";
+import { PagInformacoes } from "./components/pagInformacoes/PagInformacoes";
 
 export default function AppRoutes() {
 
@@ -52,18 +53,19 @@ export default function AppRoutes() {
   return (
     <Routes>
 
-      <Route path="/" element={<Principal />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/cadastro" element={<Cadastro/>} />
-      <Route path="/erro" element={<ErroInputVazio/>} />
-      <Route path='/produtos' element={<MainProduto/>} />
-      <Route path='/secaoProduto' element={<VisualizacaoProduto/>} />
-      <Route path='/comprar' element={<ComprarProduto/>} />
-      <Route path='/qrTeste' element={<PagamentoQr/>} />
-      <Route path='/credito' element={<Credito/>} />
-      <Route path='/confirmando' element={<Confirmacao/>} />
-      <Route path='/carrinho' element={<Carrinho/>} />
-
+        <Route path="/" element={<Principal />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/cadastro" element={<Cadastro/>} />
+        <Route path="/erro" element={<ErroInputVazio/>} />
+        <Route path='/produtos' element={<MainProduto/>} />
+        <Route path='/secaoProduto' element={<VisualizacaoProduto/>} />
+        <Route path='/comprar' element={<ComprarProduto/>} />
+        <Route path='/qrTeste' element={<PagamentoQr/>} />
+        <Route path='/credito' element={<Credito/>} />
+        <Route path='/confirmando' element={<Confirmacao/>} />
+        <Route path='/carrinho' element={<Carrinho/>} />
+        <Route path='/informacoes' element={<PagInformacoes/>} />
+        
     </Routes>
   );
 }
