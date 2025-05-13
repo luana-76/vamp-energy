@@ -7,7 +7,12 @@ const stream = require('stream');
 const app = express();
 const port = 3001;
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://vamp-energy.vercel.app/',
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type']
+}));
+
 app.use(express.json());
 
 app.post('/gerar-boleto', (req, res) => {
