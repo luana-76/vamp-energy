@@ -3,7 +3,8 @@
     width: 100vw;
     height: 300vh;
     background: url('../../assets/fundoInformacoes.png');
-    background-size: cover;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 
 }
 
@@ -60,17 +61,40 @@
 #produtoInfo{
 
     background: #EEEEF0;
-    position: relative;
-    bottom: -40vw;
+    margin: 80vh 0;
     border-radius: 30px 50px 0 0;
     filter: drop-shadow(2px 4px 6px black);
 
 }
 
-#produtoInfo div, #produtoInfo div a{
+#titulosBebidasInfo h3{font-size: 2em;}
+#produtoInfo div, #produtoInfo div a{color: #000;}
 
-    color: #000;
+#produtoInfo div a::after{
 
+    content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEpElEQVR4nO1a3W9URRQfQhUNRi1Q9p5pLWp4QY2a+D+oxA/UN/x4g8iL2KivsD778YCR6p7ZpgHf+qhpjBoxJmqoYAVD7AcSU2z3nKulPlklaK45c2d2m+wu7d7O7l4Iv+Qm287cmTvne34zSt3AdYoBc3ELlPkZQHobkMcBeRoMLwHyZfsYXtKGp9I222fP4PBcr8oDdoz+ektUjl/SSJ9rQ/9pw0lLD9K/GumzyPCLO4/Mbur4AgbevXirNvw6GKr4jwLD/wDyCW34kGgmMpVdIvFHSslN8shv+Z+0acOHAfkreaf6PtKCRn5NhNORRfSX6QmNdKEmVT4FhvfdW1q6o9Wxdoz+eScg79eGT9cEQr9EpcrutpoRIH24wjR+gHL8aKjxIxM/DoZ+XKHho8G10zcaR/LhbpK/AOkVNZZsVKExlmyEEr8Khpe9trcbLgQZu4B0j6jbLWKqUKYHVJvRb/hBMDTjfOe8fMO6BoxGKn1+QG34eygtbFMdwuDwXK9G+sZFtwtiFZkGEvv05gRI3xWO02bVYRSO02YwfNKbWSafWeHYU5LsVJegj81vrZqZ4aOth1jn2J3wibX5DNsAINFt7cnO5QkbnXICQB7yzr8mE9Pl+A2fJ7KGWECaBEM/ZXbQRigmPYB0Jl0MD6lVk54rO9aT7ADprPevkIuJSpXdLvvPX7U2k+LNR4gACXQq+GKSZEM1khp+vmk/MPSF67RvvXMWhmm7NnzOSXDmrvIfWgVAZPhll1s+bdhBQqyU1VKRZikAO6WZweG5XtnfaENXGn4nID/rtPGlCoh2aEYjf50Kh56qawSkd5zkDqnACK0ZMPSmE/pb9Y3I43aiEj+t2oCQmgFvPcgf1zcamk0zZ2WXahNCaaaAdL9byHRdIyBfksZ211UhNAOlhW0uTfxe32gjASf3jZ27WbUZKzUjybPV93cemd3keYI8LeRM6IVc6oRpyda1alrI01lMKxqp9DU3revI2cdd4x6VU014RCZ+rnn4rSXEw+qaTohlywDKKk+onGqirkRBelI1YS1s0SgMoMpp0TggZLkrGrd8tHh7w05CKDvJ7c+jJgQa+YAbc1w1AyC/4KR3WuV0YwVIk24he1fjdxfSjvFjedvq9jt2Bwz/tuoxhFD7LuNOZicfeEII6TaQD2ddjXZw1f6OgLBcrxDKKifQXsCGZtZ8KFRjK3hZyDHVZWiMHwbkvzOxO0JPegkIbam6hEiIdKTzzufey0ZiI59ymjnZDRK77/34NvE3F6UmMp8zptLgaX+sIH+rDmFAEp+hb/1x3LoPfOxBj1OtmFn/SPyQ6ohPkJ9ztvAB3R1kYJula2a2bLnXYtKjQqOY9Eh0qjo28oRsjYPOkYblNAD4nV2w09ck2SDJDmqJ1Dp2W8/e7elrLYpY1l5ozCy3GFJ2kw/4skM7Uwp5WnxVpKUMDwkrXtMQX7blNXJReCe7izs2v1U4AHnktxwa2U0RclH6ep7Alx1g6GBXbkDIpMKKC6Fsr2O0eoXD0BV3b2VvVxbQCEIoCxcruzYw/Im7QLNYvVSDvKiRf5btqfSRvk33Ezegrn38D44JwutFPtMRAAAAAElFTkSuQmCC");
+    display: inline-block;
+    transform: scale(0.5);
+    vertical-align: middle;
+
+}
+
+#produtoInfo div a:hover{
+
+    font-size: 1.1em;
+    color: #4aaeea;
+    font-weight: 600;
+    transition: font-size 0.3s ease;
+
+}
+
+#produtoInfo div a::after {
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+
+#produtoInfo div a:hover::after {
+  transform: scale(0.6) translateX(5px);
 }
 
 #produtoInfo div{
@@ -91,21 +115,20 @@
     flex-direction: column;
 }
 
-#produtosCaixasInfo{
+#produtosCaixasInfo{width: 100vw;}
 
-    width: 100vw;
-
-}
-
-.caixaLata h2{
+#produtoInfo #titulosBebidasInfo{
     
-    text-align: center;
+    width: 100vw;
+    padding: 20px;
 
 }
+
+.caixaLata h2{text-align: center;}
 
 .caixaLata img{
 
-    width: 50%;
+    width: 40%;
     filter: drop-shadow(2px 4px 6px black);
 
 }
@@ -114,5 +137,36 @@
 
     background: #3D9445;
     color: #fff;
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
 
+}
+
+.caixaLata:hover, #produtoLimao:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.secaoAnimada {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.secaoAnimada.visible {
+  opacity: 1;
+  transform: translateY(0);
 }

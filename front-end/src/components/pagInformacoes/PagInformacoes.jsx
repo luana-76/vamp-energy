@@ -1,24 +1,52 @@
 import './informacoes.css';
+import './responsivoInformacoes.css';
 
 import Logo from '../../assets/l.png';
 import Tradicional from '../../assets/tradicionalInfo.png';
 import Limao from '../../assets/limaoInfo.png';
 import Misterioso from '../../assets/misteriosoInfo.png';
 
+import { useEffect } from 'react';
+import { Link } from "react-router-dom";
+
 export function PagInformacoes(){
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                }
+            });
+            },
+            { threshold: 0.1 }
+        );
+
+        const sections = document.querySelectorAll('.secaoAnimada');
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        return () => {
+            sections.forEach(section => {
+            observer.unobserve(section);
+            });
+        };
+    }, []);
 
     return(
 
         <main id='mainInformacoes'>
 
-            <section className='secaoTitulo'>
+            <section className='secaoTitulo secaoAnimada'>
 
                 <img src={Logo} alt='logo'/>
                 <h1>DANDO ENERGIA A QUEM VIVE <span style={{color:'#E1660C'}}>INTENSAMENTE.</span></h1>
 
             </section>
 
-            <section className='secoesTexto historia'>
+            <section className='secoesTexto historia secaoAnimada'>
 
                 <h2>NOSSA HISTÓRIA</h2>
                 <div>
@@ -39,7 +67,7 @@ export function PagInformacoes(){
 
             </section>
 
-            <section className='secoesTexto'>
+            <section className='secoesTexto secaoAnimada'>
 
                 <h2>PRESENÇA GLOBAL</h2>
                 <h4>Países Atendidos: 10</h4>
@@ -47,7 +75,7 @@ export function PagInformacoes(){
 
             </section>
 
-            <section className='secoesTexto'>
+            <section className='secoesTexto secaoAnimada'>
 
                 <h2>SUSTENTABILIDADE</h2>
                 <p>Na VAMP, nos preocupamos com o planeta.<br/>
@@ -56,7 +84,7 @@ export function PagInformacoes(){
 
             </section>
 
-            <div id='blocoTexto'>
+            <div id='blocoTexto' className='secaoAnimada'>
 
                 <section className='secoesTexto'>
 
@@ -78,10 +106,10 @@ export function PagInformacoes(){
 
             <section id='produtoInfo'>
 
-                <div>
+                <div id='titulosBebidasInfo'>
 
                     <h3>Bebidas</h3>
-                    <a href=''>Ver todos os produtos</a>
+                    <Link to='/produtos'>Ver todos os produtos</Link>
 
                 </div>
 
@@ -92,7 +120,7 @@ export function PagInformacoes(){
                         <div className='caixaLata'>
 
                             <h2>Vamp<br/>Tradicional</h2>
-                            <img src={Tradicional} alt=''/>
+                            <img src={Tradicional} alt='vamp tradicional'/>
 
                         </div>
 
@@ -103,7 +131,7 @@ export function PagInformacoes(){
                         <div className='caixaLata'>
 
                             <h2>Vamp<br/>Limão</h2>
-                            <img src={Limao} alt=''/>
+                            <img src={Limao} alt='vamp limão'/>
 
                         </div>
 
@@ -114,7 +142,7 @@ export function PagInformacoes(){
                         <div className='caixaLata'>
 
                             <h2>Vamp<br/>Mistérioso</h2>
-                            <img src={Misterioso} alt=''/>
+                            <img src={Misterioso} alt='vamp mistérioso'/>
 
                         </div>
 
@@ -125,7 +153,5 @@ export function PagInformacoes(){
             </section>
 
         </main>
-
     )
-
 }

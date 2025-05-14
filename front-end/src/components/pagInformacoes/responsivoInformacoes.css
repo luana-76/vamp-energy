@@ -1,0 +1,70 @@
+@media (max-width: 1024px) {
+
+    #mainInformacoes{height: auto;}
+
+    #mainInformacoes .secaoTitulo h1 {
+        font-size: 3em;
+        width: 80vw;
+    }
+
+    .caixaLata {
+        width: 40vw;
+        height: auto;
+        margin: 20px 0;
+    }
+
+    /* Bloco que tem um alinhamento de texto diferente */
+    #blocoTexto {
+        float: none;
+        left: 0;
+        padding: 0 20px;
+        position: static;
+    }
+
+    #produtoInfo #produtosCaixasInfo {flex-wrap: wrap;}
+
+    /* Parte do produto */
+
+    #produtoInfo {margin: 100px 0 0 0;}
+    #produtoInfo #titulosBebidasInfo {width: auto;}
+
+}
+
+@media (max-width: 600px) {
+
+    #mainInformacoes{height:auto;}
+
+    #mainInformacoes .secaoTitulo {padding-left: 20px;}
+    #mainInformacoes .secaoTitulo h1 {font-size: 2em;}
+
+    .secoesTexto {padding-left: 20px;}
+    .secoesTexto p {font-size: 1em;}
+
+    #blocoTexto {
+
+        float: none;
+        left: 0;
+        padding: 0;
+        position: static;
+
+    }
+
+
+    /* Seção produto */
+
+    #produtoInfo {margin: 70px 0 0 0;}
+
+    .produtoInfo div {flex-direction: column;}
+
+    #produtoInfo #titulosBebidasInfo {
+        
+        flex-direction: column;
+        padding: 10px;
+    
+    }
+
+    #mainInformacoes .secaoTitulo img {width: 50vw;}
+
+    .caixaLata { width: 80vw;}
+
+}
