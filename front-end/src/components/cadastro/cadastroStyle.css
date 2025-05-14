@@ -1,8 +1,3 @@
-.mainCadastro{
-
-    height: auto !important;
-
-}
 
 .caixaSegurar{
 
@@ -11,6 +6,10 @@
     bottom: -300px;
     padding-top: 20px;
 
+}
+.formCadastro {
+    height: 60vh !important;
+    position: inherit;
 }
 
 .caixaSegurar h1{

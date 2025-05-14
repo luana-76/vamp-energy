@@ -146,7 +146,7 @@ export function Cadastro() {
     return (
         <main id="mainLogin" className="mainCadastro">
 
-            <div id="caixaForm" className="caixaSegurar">
+            <div id="caixaForm" className="caixaSegurar formCadastro">
                 <h1>Cadastro</h1>
 
                 <form id="formLogin">

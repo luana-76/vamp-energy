@@ -1,3 +1,11 @@
+@media screen and (min-height:768px){
+
+    #mainPrincipal{height: 90vh;
+
+}
+
+}
+
 @media screen and (min-width:1024px){
 
     #sepTextButtons{width: 600px;}
@@ -5,13 +13,12 @@
 }
 
 /* Para tablets */
-@media screen and (max-width:1025px) {
+@media screen and (max-width:1182px) {
 
     #mainPrincipal{
 
         flex-direction: column;
         align-items: center;
-        height: 90vh;
         margin: 0;
 
     }
@@ -41,6 +48,7 @@
 
     #mainPrincipal{
         width:auto;
+        height: 90vh;
         padding-top: 50px;
         justify-content: center;
 

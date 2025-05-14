@@ -53,7 +53,7 @@ export function Header() {
         {/* Para quando estiver no mobile */}
         {!isMobile && (
           <ul id="listaInterna">
-            {["Início", "Informações", "Produtos", "Surgimento", "Rodapé"].map(
+            {["Início", "Informações", "Produtos"].map(
               (item, index) => (
                 <motion.li
                   key={index}
@@ -70,10 +70,6 @@ export function Header() {
                         ? "/informacoes"
                         : item === "Produtos"
                         ? "/produtos"
-                        : item === "Surgimento"
-                        ? "/surgimento"
-                        : item === "Rodapé"
-                        ? "/rodape"
                         : "#"
                     }
                     style={{
@@ -132,7 +128,7 @@ export function Header() {
             transition={{ duration: 0.3 }}
             
           >
-            {["Início", "Informações", "Produtos", "Surgimento", "Rodapé"].map(
+            {["Início", "Informações", "Produtos"].map(
               (item, index) => (
                 <motion.div
                   key={index}
@@ -149,10 +145,6 @@ export function Header() {
                         ? "/informacoes"
                         : item === "Produtos"
                         ? "/produtos"
-                        : item === "Surgimento"
-                        ? "/surgimento"
-                        : item === "Rodapé"
-                        ? "/rodape"
                         : "#"
                     }
                     onClick={() => {
