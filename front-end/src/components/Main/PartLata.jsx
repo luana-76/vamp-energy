@@ -28,10 +28,27 @@ export function Main() {
       {isMobile ? (
         <div>
 
+          <CampText />
           <div id='vampImagem'>
 
+            <div className='caixaLata mobileCaixa' style={{background:'#2B2B2B'}}>
+
+              <img src={Tradicional} alt='tradicional'/>
+
+            </div>
+            <div className='caixaLata mobileCaixa' style={{background:'#013501', margin: '0 10px'}}>
+
+              <img src={Limao} className='latasMenores' alt=''/>
+
+            </div>
+            <div className='caixaLata mobileCaixa' style={{background:'#D9D9D9'}}>
+
+              <img src={Misterioso} className='latasMenores' alt=''/>
+
+            </div>
+
           </div>
-          <CampText />
+
         </div>
         
       ) : (

@@ -1,6 +1,12 @@
 @media (max-width: 1024px) {
 
-    #mainInformacoes{height: auto;}
+    #mainInformacoes{
+        
+        background: url('../../assets/fundoMobile.jpeg');
+        background-size: auto;
+        height: auto;
+    
+    }
 
     #mainInformacoes .secaoTitulo h1 {
         font-size: 3em;
@@ -32,7 +38,12 @@
 
 @media (max-width: 600px) {
 
-    #mainInformacoes{height:auto;}
+    #mainInformacoes{
+        
+        height:auto;
+        background-size: cover;
+    
+    }
 
     #mainInformacoes .secaoTitulo {padding-left: 20px;}
     #mainInformacoes .secaoTitulo h1 {font-size: 2em;}

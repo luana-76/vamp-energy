@@ -23,6 +23,25 @@
 
     }
 
+    .caixaLata {
+        width: 25vw !important;
+        height: 15vh !important;
+    }
+    
+    .caixaLata img {
+        bottom: 230px;
+        position: absolute;
+    }
+
+    img[alt='tradicional']{width: 12% !important;}
+
+    .latasMenores{width: 14vh !important;}
+  
+    #vampImagem{
+
+        flex-direction: row !important;
+    }
+
     #sepTextButtons p{font-size: 1.3em;}
 
     .seguraBorda {height: auto;}/*div de texto e lata*/
@@ -53,6 +72,8 @@
         justify-content: center;
 
     }
+
+    .caixaLata img {bottom: 5%;}
 
     #mainPrincipal div {gap: initial !important;}/* Separação dos elementos da #mainPrincipal */
 

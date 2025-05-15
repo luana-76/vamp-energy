@@ -33,13 +33,14 @@
 .secoesTexto{
 
     padding-left: 80px;
-    margin: 25px 0;
+    margin: 50px 0;
 
 }
 .secoesTexto h2{
     
     color: #E1660C;
     font-size: 2em;
+    margin-bottom: 0;
 
 }
 
