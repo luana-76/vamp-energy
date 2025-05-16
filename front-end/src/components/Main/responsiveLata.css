@@ -1,19 +1,19 @@
-/* Altura mínima */
+/* === Altura mínima === */
 @media screen and (min-height: 768px) {
   #mainPrincipal {
     height: 90vh;
   }
 }
 
-/* Desktop - a partir de 1024px */
+/* === Desktop (>= 1024px) === */
 @media screen and (min-width: 1024px) {
   #sepTextButtons {
     width: 600px;
   }
 }
 
-/* Tablets e laptops pequenos (<= 1024px) */
-@media screen and (max-width: 1024px) {
+/* === Tablets e laptops pequenos (<= 1024px) === */
+@media screen and (max-width: 1270px) {
   #mainPrincipal {
     flex-direction: column;
     align-items: center;
@@ -26,11 +26,21 @@
     text-align: center;
   }
 
+  #sepTextButtons p {
+    font-size: 1.3em;
+  }
+
   .seguraBorda {
     height: auto;
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+    z-index: 0; /* z-index: -0 não existe */
+  }
+
+  .seguraBorda:nth-child(2) {
+    position: relative;
+    bottom: 100px;
   }
 
   #buttons,
@@ -45,11 +55,40 @@
     margin: 50px 0;
   }
 
+  #vampImagem img {
+    filter: drop-shadow(2px 4px 6px black);
+  }
+
+  #vampImagem .latasMenores:hover {
+    width: 120% !important;
+  }
+
   .mobileCaixa {
     width: 25vw !important;
     height: 15vh !important;
-    border-radius: 10px 10px 0 0;
+    border-radius: 20px 20px 0 0;
     margin: 5px;
+    background: #2B2B2B;
+    transition: background 0.5s ease;
+    filter: brightness(0.5);
+  }
+
+  .mobileCaixa:hover {
+    background: #020202;
+    filter: drop-shadow(2px 4px 6px black);
+    border: 1px solid #797878;
+  }
+
+  .mobileCaixa img {
+    position: absolute;
+    bottom: 0;
+    width: 60%;
+    transition: bottom 0.3s ease, width 0.3s ease;
+  }
+
+  .mobileCaixa img:hover {
+    bottom: 50px;
+    width: 70% !important;
   }
 
   .latasMenores {
@@ -64,21 +103,12 @@
     width: 220px !important;
   }
 
-  #sepTextButtons p {
-    font-size: 1.3em;
-  }
-
   #lata {
     left: 22%;
   }
-
-  .seguraBorda:nth-child(2) {
-    position: relative;
-    bottom: 100px;
-  }
 }
 
-/* Tablet específico: iPad (768x1024) */
+/* === iPad específico (768x1024) === */
 @media screen and (max-width: 768px) and (max-height: 1024px) {
   #mainPrincipal div {
     display: flex;
@@ -97,7 +127,7 @@
   }
 }
 
-/* Celular (<= 667px) */
+/* === Celulares (<= 667px) === */
 @media screen and (max-width: 667px) {
   #mainPrincipal {
     flex-direction: column;
@@ -156,7 +186,7 @@
   }
 
   .latasMenores {
-    width: 9vh !important;
+    width: 11vh !important;
   }
 
   #logoCentral {
