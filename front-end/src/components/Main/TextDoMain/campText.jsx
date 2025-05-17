@@ -4,12 +4,14 @@ import { motion } from "framer-motion";
 
 export function CampText() {
   return (
+
     <motion.div
       className="seguraBorda"
       initial={{ x: -300, opacity: 0 }} // Começa fora da tela (esquerda)
       animate={{ x: 0, opacity: 1 }} // Vem para posição normal e fica visível
       transition={{ duration: 1, ease: "easeOut" }} // Tempo e suavidade
     >
+
       <img id="logoCentral" src={LogoCentral} alt="logo vamp energy" />
 
       <p>
@@ -48,7 +50,10 @@ export function CampText() {
             </filter>
           </defs>
         </svg>
+
       </div>
+
     </motion.div>
+    
   );
 }

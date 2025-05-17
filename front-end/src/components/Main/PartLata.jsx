@@ -33,17 +33,19 @@ export function Main() {
 
             <div className='mobileCaixa'>
 
-              <img src={Tradicional} alt='tradicional' id='imgLataMobile'/>
+              <img src={Tradicional} alt='vamp tradicional' id='imgLataMobile'/>
 
             </div>
+
             <div className='mobileCaixa' style={{margin: '0 10px'}}>
 
-              <img src={Limao} className='latasMenores' alt='' id='imgLataMobile'/>
+              <img src={Limao} className='latasMenores' alt='Vamp Limão' id='imgLataMobile'/>
 
             </div>
+
             <div className='mobileCaixa'>
 
-              <img src={Misterioso} className='latasMenores' alt='' id='imgLataMobile'/>
+              <img src={Misterioso} className='latasMenores' alt='Vamp Mistérioso' id='imgLataMobile'/>
 
             </div>
 
@@ -52,8 +54,10 @@ export function Main() {
         </div>
         
       ) : (
+        
         <>
           <div id="sepTextButtons">
+            
             <CampText />
 
             {/* Botões para mudar a lata de cor */}
@@ -78,19 +82,22 @@ export function Main() {
 
           {/* Animação da lata */}
           <div className="seguraBorda">
-          <motion.img
-            id="lata"
-            src={currentImage}
-            alt="Lata Vamp"
-            initial={{ opacity: 0, scale: 1 }}
-            animate={{
-              opacity: 1,
-              width: currentImage === Limao || currentImage === Misterioso  ? 310 : 210, // aumenta se for diferente do tradicional
-            }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-          />
+
+            <motion.img
+              id="lata"
+              src={currentImage}
+              alt="Lata Vamp"
+              initial={{ opacity: 0, scale: 1 }}
+              animate={{
+                opacity: 1,
+                width: currentImage === Limao || currentImage === Misterioso  ? 310 : 210, // aumenta se for diferente do tradicional
+              }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+            />
             <div className="borda"></div>
+
           </div>
+
         </>
       )}
     </main>
