@@ -1,9 +1,8 @@
 #mainInformacoes{
 
     width: 100vw;
-    /*height: 300vh;*/
     background: url('../../assets/fundoInformacoes.png');
-    background-size: 100% 100%;
+    background-size: cover;
     background-repeat: no-repeat;
 
 }
@@ -149,6 +148,7 @@
   cursor: pointer;
 }
 
+/* Parte da animação de seção */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -159,7 +159,6 @@
     transform: translateY(0);
   }
 }
-
 
 .secaoAnimada {
   opacity: 0;

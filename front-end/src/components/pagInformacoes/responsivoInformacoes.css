@@ -48,7 +48,9 @@
     #mainInformacoes .secaoTitulo {padding-left: 20px;}
     #mainInformacoes .secaoTitulo h1 {font-size: 2em;}
 
+    .secoesTexto h2 {font-size: 1.6em;}
     .secoesTexto {padding-left: 20px;}
+    .secoesTexto h3 {font-size: 1.2em;}
     .secoesTexto p {font-size: 1em;}
 
     #blocoTexto {

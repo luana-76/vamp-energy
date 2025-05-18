@@ -44,8 +44,6 @@ header nav:first-child {
     
 }
 
-/* Ícone do usuário */
-#log img {
-    width: 40px;
-    margin-right: 15px;
-}
+/* Crrinho do header */
+#carrinhoHeader{margin-left: 20px;}
+#carrinhoHeader img{width: 34px;}

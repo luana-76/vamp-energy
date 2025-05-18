@@ -14,7 +14,7 @@
 
 @media (max-width: 768px){
 
-  #mainCarrinho{width: 100vw;}
+  /*#mainCarrinho{width: 100vw;}*/
 
   .seguraProdutos{padding-top: 50px;}
   .seguraProdutos h1{font-size: 2em;}

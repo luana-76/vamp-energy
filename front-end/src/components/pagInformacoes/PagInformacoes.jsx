@@ -12,13 +12,17 @@ import { Link } from "react-router-dom";
 export function PagInformacoes(){
 
     useEffect(() => {
+
         const observer = new IntersectionObserver(
+
             (entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                }
-            });
+                
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    }
+                });
+
             },
             { threshold: 0.1 }
         );
