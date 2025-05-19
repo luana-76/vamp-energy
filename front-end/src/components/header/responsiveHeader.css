@@ -1,20 +1,28 @@
 @media screen and (max-width:1024px){
 
-    .login-container, #dropdownMenu{z-index: 100;}/* Faz o dropDown ficar a cima de todos os elementos*/
+    .login-container,
+    #dropdownMenu{z-index: 100;}/* Faz o dropDown ficar a cima de todos os elementos*/
 
     /* Estilização do dropdown*/
     #log {
 
-        flex-direction: column;
         width: 15%;
         margin-top: 20px;
         font-size: 1.5em;
+        flex-direction: row;
+        gap: 15%;
     
     }
 
-    #log img {width: 150%;}
+    #log img {width: 180%;}
 
-    #dropdownMenu{margin-top: 30px;}
+    #dropdownMenu {
+
+        margin-top: 30px;
+        position: absolute;
+        top: 50%;
+        
+    }
 
     /* separação do dropdown */
     .bordaSeparatoria{
@@ -32,12 +40,12 @@
     /* Estilização da parte do dropDown */
     #log{
 
-        margin: 10px 5% 0 0;
+        margin: 10px 10% 0 0;
         font-size: 1em;
 
     }
 
-    #log img {width: 90%;}
+    #log img {width: 25px;}
 
 }
 
