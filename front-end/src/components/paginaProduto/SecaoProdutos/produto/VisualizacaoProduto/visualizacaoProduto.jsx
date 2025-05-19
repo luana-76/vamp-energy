@@ -1,5 +1,5 @@
 import './visualizacaoProduto.css';
-import './ResponsiveVisualizacao.css';
+import './responsiveVisualizacao.css';
 
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
