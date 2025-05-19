@@ -3,6 +3,11 @@
   #mainCarrinho #close{margin-top: 10vw;}
   #mainCarrinho #close img{width: 5vw;}
 
+  .produtoETitulo{
+    display: flex;
+    align-items: center;
+  }
+
   .resumoProdutos,
   .titulosDoCarrinho ul{justify-content: space-around !important;}
   .titulosDoCarrinho ul li:first-child {margin-right: 21vw !important;}
@@ -14,10 +19,13 @@
 
 @media (max-width: 768px){
 
-  /*#mainCarrinho{width: 100vw;}*/
-
   .seguraProdutos{padding-top: 50px;}
   .seguraProdutos h1{font-size: 2em;}
+
+  .produtoETitulo{
+    flex-direction: column;
+    align-items: center;
+  }
 
   .resumoProdutos, 
   .botaoQuantidade, 
@@ -30,7 +38,7 @@
 
   .titulosDoCarrinho ul{padding: 0;}
   .titulosDoCarrinho ul li{margin: 0 5px;}
-  .titulosDoCarrinho ul li:first-child {margin-right: 27vw;}
+  .titulosDoCarrinho ul li:first-child {margin-right: 10vw !important;}
 
   .produtoCarrinho h2{font-size: 0.8em;}
 

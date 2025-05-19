@@ -30,8 +30,13 @@ export function ProdutoCarrinho({
                                 </symbol>
                             </svg>
                         </div>
-                      <img src={imagem} alt='produto'/>
-                      <h2>{nome}</h2>
+                        <div className='produtoETitulo'>
+
+                            <img src={imagem} alt='produto'/>
+                            <h2>{nome}</h2>
+
+                        </div>
+                
                   </div>
   
                   <div className='preco'>
