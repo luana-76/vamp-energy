@@ -119,16 +119,16 @@ export function VisualizacaoProduto() {
                             >
                                 Calcular
                             </button>
-                        </div>
 
-                        {/* Exibição do valor ou mensagem do frete */}
-                        {frete !== null && (
-                            <div className='freteResultado'>
-                                {typeof frete === 'number'
-                                    ? `Frete estimado: R$ ${frete},00`
-                                    : frete}
-                            </div>
-                        )}
+                            {/* Exibição do valor ou mensagem do frete */}
+                            {frete !== null && (
+                                <div className='freteResultado'>
+                                    {typeof frete === 'number'
+                                        ? `Frete estimado: R$ ${frete},00`
+                                        : frete}
+                                </div>
+                            )}
+                        </div>
 
                         {/* Botões: Comprar e Adicionar ao Carrinho */}
                         <div className='caixaDeBotoes'>

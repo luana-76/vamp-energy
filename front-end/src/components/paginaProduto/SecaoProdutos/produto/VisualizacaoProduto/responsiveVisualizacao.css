@@ -6,6 +6,7 @@
     #caixaPrincipal {
         flex-direction: column;
         height: auto;
+        padding:0;
     }
 
     .conteudoProduto {

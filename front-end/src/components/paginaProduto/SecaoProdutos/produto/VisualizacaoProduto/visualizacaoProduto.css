@@ -6,6 +6,7 @@
     align-items: center;
     height: 100vh;
     background: #141318;
+    padding: 20px 0;
 }
 
 #close {
@@ -66,7 +67,7 @@
     border: 2px solid #D72020;
     width: 220px;
 }
-
+.freteResultado{margin-top: 10px;}
 /* ---------------------------- FORMULÁRIO E CEP ---------------------------- */
 
 .caixaDoForm {
