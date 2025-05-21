@@ -67,7 +67,7 @@ export function Carrinho(){
 
             <section className='seguraProdutos'>
 
-                <h1>Carrinho De Compras</h1>
+                <h1>Carrinho De<br/> Compras</h1>
 
                 <div className='separatoriaProduto'>
 

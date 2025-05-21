@@ -1,7 +1,12 @@
 @media (max-width: 1200px){
 
-  #mainCarrinho #close{margin-top: 10vw;}
-  #mainCarrinho #close img{width: 5vw;}
+  #mainCarrinho #close{
+    
+    padding-top: 20px;
+    margin-top: 10vw;
+  
+  }
+  #mainCarrinho #close img{width: 4vw;}
 
   .produtoETitulo{
     display: flex;
@@ -19,7 +24,6 @@
 
 @media (max-width: 768px){
 
-  .seguraProdutos{padding-top: 50px;}
   .seguraProdutos h1{font-size: 2em;}
 
   .produtoETitulo{

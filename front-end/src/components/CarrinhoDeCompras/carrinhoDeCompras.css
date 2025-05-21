@@ -1,8 +1,23 @@
 #mainCarrinho{
 
     padding: 10vw;
-    background:linear-gradient(rgb(0 0 0 / 19%), rgb(0 0 0 / 31%)), url(../../assetsfundo.jpeg);
+    background: #0d0615;
     background-size: 100% 100%;
+
+}
+
+.seguraProdutos{border-radius: 0 0 10px 10px;}
+#mainCarrinho #close{border-radius: 10px 10px 0 0;}
+.seguraProdutos, #mainCarrinho #close{
+
+  background: #34016b;
+
+
+}
+#mainCarrinho h1, #mainCarrinho #close{
+  
+  margin-top: 0;
+  padding: 0 15px;
 
 }
 
