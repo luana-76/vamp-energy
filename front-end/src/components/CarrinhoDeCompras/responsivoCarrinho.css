@@ -6,6 +6,12 @@
     margin-top: 10vw;
   
   }
+
+  .checkbox input {
+        height: 80% !important;
+        width: 80% !important;
+    }
+
   #mainCarrinho #close img{width: 4vw;}
 
   .produtoETitulo{
@@ -18,11 +24,20 @@
   .titulosDoCarrinho ul li:first-child {margin-right: 21vw !important;}
 
   .botaoQuantidade button {position: inherit;}
-  .resumoFinalizacao {margin: 20vh 0 0 0vw;}
+  .resumoFinalizacao {margin: 10vh 0 0 0vw;}
   
 }
 
 @media (max-width: 768px){
+
+  .checkbox input {
+    height: 60% !important;
+    width: 60% !important;
+  }
+
+      #mainCarrinho #close img {
+        width: 5vw
+      }
 
   .seguraProdutos h1{font-size: 2em;}
 
