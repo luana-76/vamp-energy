@@ -1,102 +1,118 @@
-@media (max-width: 1200px){
+/* Responsividade até 1200px */
+@media (max-width: 1200px) {
 
-  #mainCarrinho #close{
-    
-    padding-top: 20px;
-    margin-top: 10vw;
-  
-  }
-
-  .checkbox input {
-        height: 80% !important;
-        width: 80% !important;
+    #mainCarrinho #close {
+        padding-top: 20px;
+        margin-top: 10vw;
     }
 
-  #mainCarrinho #close img{width: 4vw;}
+    .checkbox input {
+        height: 80%;
+        width: 80%;
+    }
 
-  .produtoETitulo{
-    display: flex;
-    align-items: center;
-  }
+    #mainCarrinho #close img {
+        width: 4vw;
+    }
 
-  .resumoProdutos,
-  .titulosDoCarrinho ul{justify-content: space-around !important;}
-  .titulosDoCarrinho ul li:first-child {margin-right: 21vw !important;}
+    .produtoETitulo {
+        display: flex;
+        align-items: center;
+    }
 
-  .botaoQuantidade button {position: inherit;}
-  .resumoFinalizacao {margin: 10vh 0 0 0vw;}
-  
+    .resumoProdutos,
+    .titulosDoCarrinho ul {
+        justify-content: space-around;
+    }
+
+    .titulosDoCarrinho ul li:first-child {
+        margin-right: 21vw;
+    }
+
+    .botaoQuantidade button {
+        position: inherit;
+    }
+
+    .resumoFinalizacao {
+        margin: 10vh 0 0 0vw;
+    }
 }
 
-@media (max-width: 768px){
+/* Responsividade até 768px */
+@media (max-width: 768px) {
 
-  .checkbox input {
-    height: 60% !important;
-    width: 60% !important;
-  }
+    .checkbox-wrapper-30 .checkbox svg,
+    .checkbox-wrapper-30 .checkbox input {
+        height: 70% !important;
+        width: 70% !important;
+    }
 
-      #mainCarrinho #close img {
-        width: 5vw
-      }
+    #mainCarrinho #close img {
+        width: 5vw;
+    }
 
-  .seguraProdutos h1{font-size: 2em;}
+    .seguraProdutos h1 {
+        font-size: 2em;
+    }
 
-  .produtoETitulo{
-    flex-direction: column;
-    align-items: center;
-  }
+    .produtoETitulo {
+        flex-direction: column;
+        align-items: center;
+    }
 
-  .resumoProdutos, 
-  .botaoQuantidade, 
-  .titulosDoCarrinho ul {
+    .resumoProdutos,
+    .botaoQuantidade,
+    .titulosDoCarrinho ul {
+        justify-content: space-between;
+        padding: 10px;
+    }
 
-    justify-content: space-between;
-    padding: 10px;
+    .titulosDoCarrinho ul {
+        padding: 0;
+    }
 
-  }
+    .titulosDoCarrinho ul li {
+        margin: 0 5px;
+    }
 
-  .titulosDoCarrinho ul{padding: 0;}
-  .titulosDoCarrinho ul li{margin: 0 5px;}
-  .titulosDoCarrinho ul li:first-child {margin-right: 10vw !important;}
+    .titulosDoCarrinho ul li:first-child {
+        margin-right: 10vw !important;
+    }
 
-  .produtoCarrinho h2{font-size: 0.8em;}
+    .produtoCarrinho h2 {
+        font-size: 0.8em;
+    }
 
-  .botaoQuantidade button,
-  .botaoQuantidade div{
+    .botaoQuantidade button,
+    .botaoQuantidade div {
+        padding: 5px;
+        position: inherit;
+    }
 
-    padding: 5px;
-    position: inherit;
-  }
+    #resumo {
+        width: 60vw;
+    }
 
-  .checkbox-wrapper-30 .checkbox svg,
-  .checkbox-wrapper-30 .checkbox input {
-    height: 70%;
-    width: 70%;
-  }
+    .caixaDoCupom input {
+        padding: 3px;
+        width: 130px;
+    }
 
-  #resumo {width: 60vw;}
-  .caixaDoCupom input{
+    .resumoFinalizacao label {
+        display: block;
+        margin-bottom: 7px;
+    }
 
-    padding: 3px;
-    width: 130px;
+    #botoesCarrinho {
+        flex-direction: column;
+        align-items: stretch;
+    }
 
-  }
+    #botoesCarrinho button {
+        width: 100%;
+    }
 
-  .resumoFinalizacao label{
-
-    display: block;
-    margin-bottom: 7px;
-  
-  }
-
-  #botoesCarrinho {
-
-    flex-direction: column;
-    align-items: stretch;
-    
-  }
-
-  #botoesCarrinho button {width: 100%;}
-  #botoesCarrinho button:first-child{margin-bottom: 20px;}
-    
+    #botoesCarrinho button:first-child {
+        margin-bottom: 20px;
+    }
 }

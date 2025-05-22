@@ -1,106 +1,112 @@
-#mainCarrinho{
-
+/* Área principal do carrinho */
+#mainCarrinho {
     padding: 10vw;
     background: #0d0615;
     background-size: 100% 100%;
-
 }
 
-.produtoETitulo{
-
-  display: flex;
-  align-items: center;
-
+/* Container para título e produto lado a lado */
+.produtoETitulo {
+    display: flex;
+    align-items: center;
 }
 
-.seguraProdutos{border-radius: 0 0 10px 10px;}
-#mainCarrinho #close{border-radius: 10px 10px 0 0;}
-.seguraProdutos, #mainCarrinho #close{
-
-  background: #34016b;
-
-
-}
-#mainCarrinho h1, #mainCarrinho #close{
-  
-  margin-top: 0;
-  padding: 20px 15px 0 15px;
-
+/* Estilização dos containers superiores e inferiores do carrinho */
+.seguraProdutos {
+    border-radius: 0 0 10px 10px;
 }
 
+#mainCarrinho #close {
+    border-radius: 10px 10px 0 0;
+}
+
+/* Fundo dos containers do carrinho */
+.seguraProdutos,
+#mainCarrinho #close {
+    background: #34016b;
+}
+
+/* Estilo para título e botão de fechar */
+#mainCarrinho h1,
+#mainCarrinho #close {
+    margin-top: 0;
+    padding: 20px 15px 0 15px;
+}
+
+/* Animação de entrada (fade e subir) */
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Produtos e informações */
+/* Layout flexível para produtos, resumo e quantidade */
 .produtoCarrinho,
 .resumoProdutos,
-.botaoQuantidade{
-
+.botaoQuantidade {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-
 }
 
-/* Todas sessões */
+/* Animação aplicada nas seções do carrinho */
 #mainCarrinho > section {
     animation: fadeUp 0.8s ease forwards;
     opacity: 0;
     margin-bottom: 15px;
 }
 
+/* Título do produto */
 .produtoCarrinho h2 {
     margin-top: 5px;
 }
-  
-.produtoCarrinho img{
 
-    margin: 0 1vw 0 1vw;
+/* Imagem dos produtos no carrinho */
+.produtoCarrinho img {
+    margin: 0 1vw;
     width: 15vw;
     border: 1px solid #fff;
     border-radius: 5px;
-
 }
 
-/* Finalização */
-
-.resumoFinalizacao{
-    
-    margin-top: 20vh;
-    margin: 20vh 0  0 10vw;
-
+/* Container da finalização */
+.resumoFinalizacao {
+    margin: 20vh 0 0 10vw;
 }
 
-/* Parte do cupom */
-
-.resumoFinalizacao label{
-
-    font-weight: 500;
+/* Estilo do label na área de cupom */
+.resumoFinalizacao label {
+    font-weight: 600;
     font-size: 1.1em;
     margin-right: 1vw;
-
 }
 
-.resumoFinalizacao input{
-
+/* Input do cupom */
+.resumoFinalizacao input {
     background: #757373;
     border: 2px solid #F7F3F0;
     outline: none;
     width: 140px;
     padding: 3px;
-
+    vertical-align: bottom;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+.resumoFinalizacao input:focus {
+    border-color: #452E73; /* muda borda para roxo escuro */
+    box-shadow: 0 0 8px 2px rgba(69, 46, 115, 0.6); /* brilho roxo suave */
+}
+
+
+/* Botão de aplicar cupom */
 #caixaDoCupom button {
-    padding: 5px;
+    padding: 3px;
+    border: 1px solid #fff;
     border-radius: 0 5px 5px 0;
     color: #452E73;
     background: #F7F3F0;
@@ -108,13 +114,24 @@
     font-size: 13px;
     top: 0;
     position: initial;
-
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Resumo */
+#caixaDoCupom button:hover {
+    background-color: #dcd6cf;  /* fundo levemente mais escuro */
+    border-color: #452E73;       /* borda muda para a cor do texto */
+    transform: scale(1.05);      /* leve zoom */
+}
 
-#resumo{
+#caixaDoCupom button:active {
+    transform: scale(0.95);      /* efeito de pressionar */
+    transition: transform 0.1s ease;
+}
 
+
+/* Caixa de resumo do pedido */
+#resumo {
     background: #202020;
     display: flex;
     flex-direction: column;
@@ -124,31 +141,28 @@
     font-weight: bold;
     padding: 20px;
     margin: 50px 0 140px 0;
-
 }
 
-#resumo h3{
-    
+/* Títulos dentro do resumo */
+#resumo h3 {
     font-size: 1.2em;
     margin: 10px 0;
-
 }
 
-#resumo span{
-
+/* Texto das informações no resumo */
+#resumo span {
     margin-bottom: 5px;
     font-size: 0.9em;
-
 }
 
-#resumo #total{
-
+/* Valor total destacado */
+#resumo #total {
     font-size: 1.3em;
     position: relative;
     padding-top: 10px;
-
 }
 
+/* Linha decorativa antes do total */
 #resumo #total::before {
     content: "";
     position: absolute;
@@ -159,40 +173,42 @@
     background: linear-gradient(90deg, rgba(101, 85, 143, 1) 0%, rgba(114, 34, 61, 1) 75%);
 }
 
-/* Botões do final da página */
+/* Botões de finalizar e continuar comprando */
 #botoesCarrinho button {
-  padding: 10px 20px;
-  color: #452E73;
-  background-color: #F7F3F0;
-  font-weight: 700;
-  font-size: 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  position: initial;
+    padding: 10px 20px;
+    color: #452E73;
+    background-color: #F7F3F0;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    position: initial;
 }
 
+/* Efeito hover nos botões */
 #botoesCarrinho button:hover {
-  background-color: #eae3dd;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    background-color: #adaba8;
+    filter: drop-shadow(1px 2px 4px rgba(0, 0, 0, 0.3));
 }
 
+/* Foco nos botões */
 #botoesCarrinho button:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(69, 46, 115, 0.3);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(69, 46, 115, 0.3);
 }
 
-#botoesCarrinho button:first-child{margin-right: 30px;}
+/* Espaçamento entre os botões */
+#botoesCarrinho button:first-child {
+    margin-right: 30px;
+}
 
-/* Erro de carrinho vazio */
-
-.avisoCarrinho{
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 500;
-
+/* Mensagem de carrinho vazio */
+.avisoCarrinho {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
 }

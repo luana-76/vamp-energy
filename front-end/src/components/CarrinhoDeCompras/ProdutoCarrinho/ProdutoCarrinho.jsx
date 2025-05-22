@@ -6,19 +6,19 @@ export function ProdutoCarrinho({
     onExcluir, selecionado, onChange, onQuantidadeChange
   }) {
 
-      return (
-          <section>
-              <div className="resumoProdutos">
+    return (
+        <section>
+            <div className="resumoProdutos">
                 
-                  <div className='produtoCarrinho'>
+                <div className='produtoCarrinho'>
                         
                     <div className="checkbox-wrapper-30">
-                            <span className="checkbox">
-                                <input
-                                    type="checkbox"
-                                    onChange={onChange}
-                                    checked={selecionado}
-                                />
+                        <span className="checkbox">
+                            <input
+                                type="checkbox"
+                                onChange={onChange}
+                                checked={selecionado}
+                            />
                                 <svg>
                                 <use xlinkHref="#checkbox-30" className="checkbox"></use>
                                 </svg>
@@ -37,33 +37,32 @@ export function ProdutoCarrinho({
 
                         </div>
                 
-                  </div>
+                    </div>
   
-                  <div className='preco'>
+                    <div className='preco'>
                       <span>R$ {(parseInt(preco) * parseInt(quantidade)).toFixed(2)}</span>
-                  </div>
+                    </div>
   
-                  <div className='quantidade'>
-                      <div className='botaoQuantidade'>
-                          <button onClick={() => onQuantidadeChange(parseInt(quantidade) + 1)}>+</button>
-                          <div>{parseInt(quantidade)}</div>
-                          <button onClick={() => {
+                    <div className='quantidade'>
+                        <div className='botaoQuantidade'>
+                            <button onClick={() => onQuantidadeChange(parseInt(quantidade) + 1)}>+</button>
+                            <div>{parseInt(quantidade)}</div>
+                            <button onClick={() => {
 
-                              if (parseInt(quantidade) > 1) {
-                                  onQuantidadeChange(parseInt(quantidade) - 1);
-                              }
+                                if (parseInt(quantidade) > 1) {
+                                    onQuantidadeChange(parseInt(quantidade) - 1);
+                                }
                               
-                          }}>-</button>
-                      </div>
-                  </div>
-              </div>
+                            }}>-</button>
+                        </div>
+                    </div>
+                </div>
   
               <div className="botaoExcluir">
                   <button onClick={onExcluir}>Excluir Produto</button>
               </div>
           </section>
       );
-
   }
   
 // Declaração das props esperadas
@@ -79,7 +78,3 @@ ProdutoCarrinho.propTypes = {
     onQuantidadeChange: PropTypes.func.isRequired
     
 };
-
-
-
-

@@ -129,7 +129,11 @@ export function Carrinho(){
 
                 <div id='botoesCarrinho'>
 
-                    <Link to='/produtos'><button>Continuar comprando</button></Link>
+                    <Link to='/produtos'>
+                    
+                        <button>Continuar comprando</button>
+                        
+                    </Link>
                     <button>Finalizar  compra</button>
 
                 </div>

@@ -1,60 +1,53 @@
-.resumoProdutos{
-  
+/* Resumo Produtos */
+.resumoProdutos {
     background: #16151a;
     padding: 10px;
     margin: 20px 0 0 0;
-  
-  }
+}
 
-/* Lista de titulos */
-.titulosDoCarrinho ul{
-
+/* Títulos da Lista Carrinho */
+.titulosDoCarrinho ul {
     display: flex;
     justify-content: space-evenly;
     font-weight: 600;
     border-bottom: 1px solid #e0e0e0;
     padding-bottom: 10px;
-
 }
 
-/* Primeiro elemento da lista*/
-.titulosDoCarrinho ul li:first-child{
+.titulosDoCarrinho ul li:first-child {
     margin-right: 22vw;
-    margin-left: inherit;
-
 }
 
-/* último elemento da lista*/
-.titulosDoCarrinho ul li:last-child{margin-left: 2vw;}
+.titulosDoCarrinho ul li:last-child {
+    margin-left: 2vw;
+}
 
-
-/* Checkbox */
+/* Checkbox Customizado */
 .checkbox-wrapper-30 .checkbox {
     --bg: #fff;
     --brdr: #d1d6ee;
     --brdr-actv: #1e2235;
     --brdr-hovr: #bbc1e1;
-    --dur: calc((var(--size, 2)/2) * 0.6s);
+    --dur: calc((var(--size, 2) / 2) * 0.6s);
+
     display: inline-block;
     width: calc(var(--size, 1) * 22px);
-    height:auto;
     position: relative;
-    visibility: inherit;
-  
 }
+
 .checkbox-wrapper-30 .checkbox:after {
     content: "";
     width: 100%;
     padding-top: 100%;
     display: block;
 }
+
 .checkbox-wrapper-30 .checkbox > * {
     position: absolute;
 }
+
 .checkbox-wrapper-30 .checkbox input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -webkit-tap-highlight-color: transparent;
+    appearance: none;
     cursor: pointer;
     background-color: var(--bg);
     border-radius: calc(var(--size, 1) * 4px);
@@ -66,21 +59,26 @@
     transition: all calc(var(--dur) / 3) linear;
     background: #000;
 }
+
 .checkbox-wrapper-30 .checkbox input:hover,
 .checkbox-wrapper-30 .checkbox input:checked {
     --newBrdr: calc(var(--size, 1) * 2);
 }
+
 .checkbox-wrapper-30 .checkbox input:hover {
     --newBrdrClr: var(--brdr-hovr);
 }
+
 .checkbox-wrapper-30 .checkbox input:checked {
     --newBrdrClr: var(--brdr-actv);
-    transition-delay: calc(var(--dur) /1.3);
+    transition-delay: calc(var(--dur) / 1.3);
 }
+
 .checkbox-wrapper-30 .checkbox input:checked + svg {
     --dashArray: 16 93;
     --dashOffset: 109;
 }
+
 .checkbox-wrapper-30 .checkbox svg {
     fill: none;
     left: 0;
@@ -92,8 +90,11 @@
     stroke-linejoin: round;
     stroke-width: 2px;
     top: 0;
-    transition: stroke-dasharray var(--dur), stroke-dashoffset var(--dur);
+    transition: 
+        stroke-dasharray var(--dur), 
+        stroke-dashoffset var(--dur);
 }
+
 .checkbox-wrapper-30 .checkbox svg,
 .checkbox-wrapper-30 .checkbox input {
     display: block;
@@ -101,27 +102,28 @@
     width: 100%;
 }
 
-/* Botão de quantidade */
-
+/* Botões de Quantidade */
 .botaoQuantidade {
     gap: 10px;
     transition: transform 0.3s ease;
 }
-  
-.botaoQuantidade:hover {transform: scale(1.03);}
-  
+
+.botaoQuantidade:hover {
+    transform: scale(1.03);
+}
+
 .botaoQuantidade button {
     transition: transform 0.2s ease, background-color 0.2s ease;
     border-radius: 5px;
 }
-  
+
 .botaoQuantidade button:hover {
     transform: scale(1.1);
     background-color: #3a2c4d;
     outline: none;
 }
 
-/* Botão de excluir produto do carrinho */
+/* Botão Excluir Produto */
 .botaoExcluir button {
     position: inherit;
     width: 100%;
