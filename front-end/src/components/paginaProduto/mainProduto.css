@@ -19,7 +19,7 @@
   overflow: hidden; /* Esconde partes que saem do container */
   width: 100vw;
   height: 100vh;
-  margin-top: 80px;
+  /*margin-top: 80px;*/
 }
 
 /* Container interno do carrossel com animação de slide horizontal */

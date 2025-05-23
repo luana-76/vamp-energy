@@ -1,114 +1,82 @@
 #mainLogin{
 
-    width: 100vw;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    /*background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url(../../assets/fundoLogin.webp);*/
-    background-size: 100%;
-    background-repeat: no-repeat;
-
-}
-#mainLogin #caixaForm{
-
-    background: #2D2D2D;
-    border-radius: 7px;
-    width: 35%;
-    height: 60vh;
-    padding-bottom: 20px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    filter: drop-shadow(1px 2px 40px #541382);
-}
-
-#mainLogin h1{
-
-    position: absolute;
-    top: -16%;
-    margin-left: 25px;
-
-}
-
-#formLogin{
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    position:relative;
-    bottom: -40px;
-    gap: 10px;
-    margin-bottom: 40px;
-    filter: drop-shadow(2px 4px 6px black);
 }
 
-#formLogin span{margin-top: 10px;}
+#caixaForm{
 
-#formLogin input[type=text],
-#formLogin input[type=password],
-#formLogin input[type=tel],
-#formLogin input[type=date],
-#formLogin input[type=email]{
+    width: 50vw;
+    background: #373434;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+}
 
+#caixaForm h1{margin-top: 10px;}
+
+#formLogin{
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     width: 70%;
-    height: 40px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    border: none;
-    padding: 0 10px;
-}
-
-.password-container input[type=password],
-.password-container input[type=text]{
-    
-    border-radius:  8px 0px 0px 8px !important;
-    width: 80% !important;
-
-}
-button {
-    
-    padding: 0.6em 1.2em;
-
-}
-button{
-    
-    border-radius:  0px 8px 8px 0px;
 
 }
 
-.password-container{width: 74%;}
+#formLogin input[placeholder='email']{width: 100%;}
 
-#formLogin input[type=submit]{
+/* Senha */
+.password-container{width: 100%;}
 
-    width: 85px;
-    height: 40px;
-    border-radius: 20px;
-    border: 0;
-    background: #65558F;
+.password-container {
+    display: flex;
+    width: 100%;
+}
+
+.password-container input {
+    flex: 1;
+    border: 1px solid #858585;
+    border-right: none;
+    border-radius: 5px 0 0 5px;
+    padding: 10px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.toggle-password {
+    border: 1px solid #858585;
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+    color: white;
     cursor: pointer;
-    margin: 15px 0;
-
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    transition: background-color 0.3s;
 }
 
-#formLogin input[type=submit]:hover{
-
-    background: #4d358d;
-
+.toggle-password:hover {
+    background-color: #777;
 }
 
-/* Botão lifar e desigar */
+
+/* Botão ligar e desligar */
 
 .toggle-container {
     display: flex;
     align-items: center;
     justify-content: center;
     align-self: flex-start;
-    margin-left: 12%;
    
 }
 
@@ -165,3 +133,9 @@ input:checked + .toggle-label::after {
     margin: 0 !important;
 
 }
+
+/* span de questionamento */
+#formLogin span{text-align: center;}
+
+/* Botão de enviar */
+#formLogin input[type='submit']{margin-top: 30px;}
