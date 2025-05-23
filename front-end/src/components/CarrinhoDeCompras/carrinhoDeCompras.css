@@ -93,7 +93,7 @@
     outline: none;
     width: 140px;
     padding: 3px;
-    vertical-align: bottom;
+    vertical-align: top;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -114,6 +114,7 @@
     font-size: 13px;
     top: 0;
     position: initial;
+    vertical-align: top;
     cursor: pointer;
     transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 }
