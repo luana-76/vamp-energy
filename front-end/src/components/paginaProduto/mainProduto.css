@@ -1,5 +1,10 @@
 /* === Seção principal de produtos === */
-#mainProduto {margin-bottom: 50px;}
+#mainProduto {
+  
+  padding-bottom: 50px;
+  background: #0d0615;
+
+}
 
 /* Adiciona uma imagem decorativa à esquerda da seção */
 #mainProduto::before {
@@ -33,8 +38,7 @@
   border-radius: 15px;
   object-fit: 100% 100%; /* Força o preenchimento completo */
   filter: brightness(50%); /* Escurece a imagem */
-  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 30%, black 70%, transparent 100%);
-  mask-image: linear-gradient(to top, #00000000 0%, #00000021 30%, black 70%, #00000000 100%);
+  mask-image: linear-gradient(to top, #00000000 0%, #00000021 10%, black 30%, #00000000 100%);
 }
 
 /* Animação que move o carrossel para a esquerda */

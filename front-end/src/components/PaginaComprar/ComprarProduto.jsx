@@ -175,7 +175,7 @@ export function ComprarProduto() {
                         <div className="informacoesProduto">
 
                             <h1>{nome}</h1>
-                            <div className="preco">
+                            <div className="precoComprar">
                                 <span>R$ {preco} - <span style={{ color: "#C8A769" }}>10%</span></span>
                                 <span>1x</span>
                             </div>

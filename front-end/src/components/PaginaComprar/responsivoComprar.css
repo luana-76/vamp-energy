@@ -38,7 +38,7 @@
       font-size: 1.3em;
     }
   
-    .preco {
+    .precoComprar{
       flex-direction: row;
       justify-content: space-between;
     }
@@ -113,7 +113,7 @@
       font-size: 1.2em;
     }
   
-    .preco {
+    .precoComprar {
       flex-direction: column;
       align-items: center;
     }
@@ -151,7 +151,7 @@
       font-size: 1.5em;
     }
   
-    .preco {
+    .precoComprar{
       font-size: 0.9em;
       flex-direction: row;
       align-items: center;

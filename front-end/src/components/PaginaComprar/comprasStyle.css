@@ -13,8 +13,7 @@
 
   #mainCompra{
 
-    background:linear-gradient(rgb(0 0 0 / 19%), rgb(0 0 0 / 31%)), url(../../assets/div.png);
-    background-size: 100% 100%;
+    background: #0d0615;
 
   }
   .comprar {
@@ -52,7 +51,7 @@
     font-size: 1.5em;
   }
   
-  .preco {
+  .precoComprar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
