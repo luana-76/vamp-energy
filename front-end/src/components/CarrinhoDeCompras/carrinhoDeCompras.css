@@ -89,10 +89,10 @@
 /* Input do cupom */
 .resumoFinalizacao input {
     background: #757373;
-    border: 2px solid #F7F3F0;
+    border: 1px solid #F7F3F0;
     outline: none;
     width: 140px;
-    padding: 3px;
+    padding: 4px;
     vertical-align: top;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
