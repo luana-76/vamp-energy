@@ -106,7 +106,7 @@
 /* Botão de aplicar cupom */
 #caixaDoCupom button {
     padding: 3px;
-    border: 1px solid #fff;
+    border:2px solid #fff;
     border-radius: 0 5px 5px 0;
     color: #452E73;
     background: #F7F3F0;
