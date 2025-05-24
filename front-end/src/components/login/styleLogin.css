@@ -133,19 +133,12 @@ input:checked + .toggle-label::after {
 
 }
 
-.nsm7Bb-HzV7m-LgbsSe {
+.google-btn-container {
     width: 100%;
     display: flex;
     justify-content: center;
-    box-sizing: border-box;
+    margin-top: 10px;
 }
-
-.nsm7Bb-HzV7m-LgbsSe-MJoBVe {
-    width: 100%;
-    justify-content: center;
-  
-}
-
 
 /* span de questionamento */
 #formLogin span{text-align: center;}

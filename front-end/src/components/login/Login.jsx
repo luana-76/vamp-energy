@@ -79,8 +79,13 @@ export function Login(){
                     
                     <input type='submit' onClick={enviar}/>
                     {erro && <ErroInputVazio/>}
+                    
+                    <div className="google-btn-container">
+                    
+                        <Raiz/>
 
-                    <Raiz/>
+                    </div>
+                    
                     <span>Não tem uma conta?<Link to='/cadastro'> Cadastre-se</Link></span>
                 </form>
             </div>
