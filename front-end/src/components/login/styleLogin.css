@@ -1,23 +1,34 @@
-#mainLogin{
-
+#mainLogin {
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index: 1;
+}
 
+#fundoVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
 }
 
 #caixaForm{
 
     width: 50vw;
-    background: #373434;
+    background: #0c0c0cf7;
     border-radius: 10px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-  
+    border-right: 2px solid #fff;
+    border-left: 2px solid #fff;
 }
 
 #caixaForm h1{margin-top: 10px;}
@@ -34,6 +45,7 @@
 #formLogin input[placeholder='email']{width: 100%;}
 
 /* Senha */
+
 .password-container{width: 100%;}
 
 .password-container {
@@ -69,7 +81,6 @@
     background-color: #777;
 }
 
-
 /* Botão ligar e desligar */
 
 .toggle-container {
@@ -81,6 +92,7 @@
 }
 
 .toggle-container span{margin-left: 10px;}
+span a:hover{text-decoration: underline;}
 #switch:not(#checkCadastro){
     height: 0;
     width: 0; 
@@ -144,4 +156,18 @@ input:checked + .toggle-label::after {
 #formLogin span{text-align: center;}
 
 /* Botão de enviar */
-#formLogin input[type='submit']{margin-top: 30px;}
+#formLogin input[type='submit'] {
+    margin-top: 30px;
+    background: #f0f8ff;
+    color: #444444;
+    font-weight: 600;
+    transition: background 400ms;
+    border: 0;
+    cursor: pointer;
+}
+
+#formLogin input[type='submit']:hover {
+    background: #444749;
+    color: #fff;
+    filter: drop-shadow(2px 4px 6px black);
+}

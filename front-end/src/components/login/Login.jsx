@@ -1,5 +1,6 @@
 import './styleLogin.css';
 import './responsive.css';
+import videoFundo from '../../assets/fundoLogin.mp4';
 import { useState } from "react";
 import { Raiz } from '../google/Raiz';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -33,6 +34,12 @@ export function Login(){
 
     return(
         <main id='mainLogin'>
+
+            <video id='fundoVideo' autoPlay loop muted>
+                <source src={videoFundo} type="video/mp4"/>
+                Seu navegador não suporta a tag de vídeo.
+            </video>
+
             <div id='caixaForm'>
                 <h1>Entrar</h1>
                 <form id='formLogin'>
