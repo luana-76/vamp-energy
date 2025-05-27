@@ -6,6 +6,8 @@ import { Autenticacao } from './autenticacao.js';
 import { Link } from "react-router-dom";
 import { ErroInputVazio } from '../ErroVazio/ErroInpuVazio.jsx';
 
+import videoFundo from '../../assets/login.mp4';
+
 export function Cadastro() {
 
     const validacao = new Autenticacao();//Importando as válidações
@@ -146,6 +148,10 @@ export function Cadastro() {
     return (
         <main id="mainLogin" className="mainCadastro">
 
+            <video id='fundoVideo' autoPlay loop muted>
+                <source src={videoFundo} type="video/mp4"/>
+                Seu navegador não suporta a tag de vídeo.
+            </video>    
             <div id="caixaForm" className="caixaSegurar formCadastro">
                 <h1>Cadastro</h1>
 

@@ -1,0 +1,16 @@
+.mainCadastro{
+
+    height: auto;
+    padding: 20vh 0;
+
+}
+
+#fundoVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
