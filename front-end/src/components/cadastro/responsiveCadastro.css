@@ -1,6 +1,10 @@
 /* Cadastro Responsivo */
 
 @media screen and (max-width: 1200px) {
+
+    .mainCadastro{padding: 10vh 0 10vh 0;}
+    .mainCadastro #fundoVideo {height: calc(100vh + 20vh);}
+
     #caixaForm {
         width: 60vw;
     }

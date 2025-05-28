@@ -17,12 +17,13 @@
     height: 100vh;
     object-fit: cover;
     z-index: -1;
+    filter: brightness(0.5);
 }
 
 #caixaForm{
 
     width: 50vw;
-    background: #0c0c0cc4;
+    background: #34016bcf;
     border-radius: 10px;
     padding: 20px;
     display: flex;
