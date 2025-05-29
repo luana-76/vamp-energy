@@ -30,23 +30,24 @@
 
     position: initial;
     border-radius: 100px;
-    background: #59138b;
+    background: #dcdde1;
     padding: 5px;
     width: 50%;
     margin: 13px auto 0 auto;
 
 }
 
+.produto button a{color: #e74c3c;}
+
 .produto button:hover{
 
-  background:#65558f85;
-  border: 1px solid #fff;
+  background:#b2b3b5;
 
 }
 
 .produto {
 
-  background: #aba8a8;
+  background: #e74c3c;
   display: flex;
   flex-direction: column;
   padding-bottom: 30px;
@@ -65,7 +66,11 @@
 }
 
 .caixaProduto img {
+
   width: 180px;
+  border-radius: 10px 10px 0 0;
+  filter: opacity(0.7);
+
 }
 
 
@@ -94,7 +99,7 @@
 
   .caixaProduto img {
     width: 217px;
-    max-width: auto;
+    border-radius: 10px 0 0 10px;
   }
 
   .produto h3 {font-size: 2em;}
