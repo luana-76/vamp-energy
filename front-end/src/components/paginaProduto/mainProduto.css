@@ -37,7 +37,7 @@
   height: 90vh;
   border-radius: 15px;
   object-fit: 100% 100%; /* Força o preenchimento completo */
-  filter: brightness(50%); /* Escurece a imagem */
+  filter: brightness(80%); /* Escurece a imagem */
   mask-image: linear-gradient(to top, #00000000 0%, #00000021 10%, black 30%, #00000000 100%);
 }
 

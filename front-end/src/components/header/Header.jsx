@@ -25,14 +25,30 @@ export function Header() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const [cor, setCor] = useState("transparent");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (window.scrollY === 0) {
+        setCor("transparent");
+      } else {
+        setCor("linear-gradient(rgba(17, 17, 17) 70%, #00000000)");
+      }
+    }, 1000);
+
+    // Limpa o intervalo quando desmontar
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <header
       style={
-        ["/produtos", "/comprar", "/carrinho", "/informacoes"].includes(location.pathname)
-          ? { background: "linear-gradient(rgba(17, 17, 17) 70%, #00000000)", zIndex: "9999" }
+        ["/produtos", "/comprar", "/carrinho", "/informacoes", "/login", "/cadastro", "/"].includes(location.pathname)
+          ? { background: cor, zIndex: "9999"}
           : {}
       }
     >
+
       {/* Navegação principal com animação */}
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
