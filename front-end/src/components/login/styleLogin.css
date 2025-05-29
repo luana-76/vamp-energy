@@ -83,6 +83,12 @@
     background-color: #777;
 }
 
+.esquecimentoSenha{
+
+    float: left;
+
+}
+
 /* Botão ligar e desligar */
 
 .toggle-container {

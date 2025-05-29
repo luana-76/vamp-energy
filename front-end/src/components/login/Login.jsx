@@ -71,6 +71,12 @@ export function Login(){
                         </button>
 
                     </div>
+
+                    <div className='esquecimentoSenha'>
+
+                        <Link to=''>Esqueceu a senha?</Link>
+
+                    </div>
                     
                     {/* Botão de ligar e desligar */}
                     <div className="toggle-container">
