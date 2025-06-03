@@ -36,7 +36,7 @@
 }
 
 /* Tablets e laptops pequenos (<= 1270px) */
-@media screen and (max-width: 1270px) {
+@media screen and (max-width: 1024px) {
 
   #mainPrincipal {
     flex-direction: column;

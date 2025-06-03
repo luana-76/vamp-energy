@@ -15,7 +15,7 @@ export function Login(){
     const [login, setLogin] = useState('');
     const [senha, setSenha] = useState('');
     const [erro, setErro] = useState(false);
-    const enviar = (e)=>{
+    /*const enviar = (e)=>{
 
         if(login == '' || senha == ''){
 
@@ -30,7 +30,42 @@ export function Login(){
 
         }
 
-    }
+    }*/
+
+    const enviarDados = async (e) => {
+        e.preventDefault(); // prevenir reload da página
+
+        if (login === '' || senha === '') {
+            setErro(true);
+            setTimeout(() => setErro(false), 2000);
+            return;
+        }
+
+        try {
+            const response = await fetch('http://localhost:3000/usuarios', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: login, senha })
+            });
+
+            if (!response.ok) {
+                // tratar erro
+                const errorData = await response.json();
+                alert('Erro: ' + errorData.error);
+                return;
+            }
+
+            const data = await response.json();
+            alert(data.message);
+            // opcional: limpar campos
+            setLogin('');
+            setSenha('');
+        } catch (error) {
+            alert('Erro ao enviar dados: ' + error.message);
+        }
+    };
 
     return(
         <main id='mainLogin'>
@@ -42,7 +77,7 @@ export function Login(){
 
             <div id='caixaForm'>
                 <h1>Entrar</h1>
-                <form id='formLogin'>
+                <form id='formLogin' onSubmit={enviarDados}>
                     
                     <input
                     type='text'
@@ -90,7 +125,7 @@ export function Login(){
                         <span>Logar automático</span>
                     </div>
                     
-                    <input type='submit' onClick={enviar}/>
+                    <input type='submit'/>
                     {erro && <ErroInputVazio/>}
                     
                     <div className="google-btn-container">
