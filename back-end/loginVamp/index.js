@@ -42,6 +42,39 @@ app.post('/usuarios', (req, res) => {
   });
 });
 
+app.post('/cadastrandoUsuarios', (req, res) => {
+  console.log('Recebido no backend:', req.body);
+  
+  let { nome, data_nascimento, telefone, nome_empresa, tem_empresa, email, senha } = req.body;
+
+  if (!nome || !data_nascimento || !telefone || !email || !senha) {
+    return res.status(400).json({ error: 'Campos obrigatórios faltando' });
+  }
+
+  // Convertendo data para formato YYYY-MM-DD (MySQL DATE)
+  dataNascimento = new Date(data_nascimento).toISOString().slice(0, 10);
+
+  const sql = `INSERT INTO novousuario 
+    (nome, data_nascimento, telefone, nome_empresa, tem_empresa, email, senha) 
+    VALUES (?, ?, ?, ?, ?, ?, ?)`;
+
+  db.query(sql, [
+    nome,
+    data_nascimento,
+    telefone,
+    nome_empresa || null,
+    tem_empresa ? 1 : 0,
+    email,
+    senha
+  ], (err, result) => {
+    if (err) {
+      console.error('Erro no cadastro:', err);
+      return res.status(500).json({ error: err.message });
+    }
+    res.json({ message: 'Usuário cadastrado com sucesso!', id: result.insertId });
+  });
+});
+
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
 });

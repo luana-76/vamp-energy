@@ -145,6 +145,71 @@ export function Cadastro() {
         }
 
     }
+
+    const enviarDados = async (e) => {
+        e.preventDefault();
+
+        // Validação simples de campos vazios
+        if (
+            nome === '' || data === '' ||
+            tel === '' || email === '' ||
+            (!isChecked && empresa === '') ||
+            password === '' || confirmPassword === ''
+        ) {
+            setErro(true);
+            setTimeout(() => setErro(false), 2000);
+            return;
+        }
+
+        if (!passwordMatch) {
+            alert('As senhas não coincidem!');
+            return;
+        }
+
+        const dados = {
+            nome: nome,
+            data_nascimento: data,
+            telefone: tel,
+            nome_empresa: empresa,
+            tem_empresa: !isChecked,
+            email: email,
+            senha: password
+        };
+
+        try {
+            const response = await fetch('http://localhost:3000/cadastrandoUsuarios', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(dados),
+            });
+
+            if (response.ok) {
+                const resultado = await response.json();
+                console.log(resultado);
+                alert('Usuário cadastrado com sucesso!');
+                // Limpa os campos após cadastrar
+                setNome('');
+                setData('');
+                setTel('');
+                setEmpresa('');
+                setEmail('');
+                setPassword('');
+                setConfirmPassword('');
+                setIsChecked(false);
+            } else {
+                const erro = await response.json();
+                console.error('Erro:', erro);
+                alert('Erro ao cadastrar usuário.');
+            }
+        } catch (error) {
+            console.error('Erro na requisição:', error);
+            alert('Erro de conexão com o servidor.');
+        }
+    };
+
+    
     return (
         <main id="mainLogin" className="mainCadastro">
 
@@ -155,7 +220,7 @@ export function Cadastro() {
             <div id="caixaForm" className="caixaSegurar formCadastro">
                 <h1>Cadastro</h1>
 
-                <form id="formLogin">
+                <form id="formLogin" onSubmit={enviarDados}>
 
                     {/* Parte do nome */}
                     <input
