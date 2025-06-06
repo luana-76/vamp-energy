@@ -208,8 +208,7 @@ export function Cadastro() {
             alert('Erro de conexão com o servidor.');
         }
     };
-
-    
+  
     return (
         <main id="mainLogin" className="mainCadastro">
 
