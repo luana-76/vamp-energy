@@ -76,6 +76,39 @@ app.post('/cadastrandoUsuarios', (req, res) => {
   });
 });
 
+//Procurando se o usuário existe
+app.post('/usuarios', (req, res) => {
+  const { email, senha } = req.body;
+
+  if (!email || !senha) {
+    return res.status(400).json({ error: 'Email e senha são obrigatórios' });
+  }
+
+  // Procura na tabela usuario, mas também junta com novousuario se quiser mais info
+  const sql = `
+    SELECT u.*, n.nome 
+    FROM usuario u
+    JOIN novousuario n ON u.novousuario_id = n.id
+    WHERE u.email = ? AND u.senha = ?
+
+  `;//o ? é para entrada de usuário
+
+  db.query(sql, [email, senha], (err, results) => {
+    if (err) {
+      console.error('Erro ao buscar usuário:', err);
+      return res.status(500).json({ error: 'Erro no servidor' });
+    }
+
+    if (results.length === 0) {
+      return res.status(401).json({ error: 'Email ou senha inválidos' });
+    }
+
+    // Aqui você pode devolver nome ou outros dados se quiser
+    res.json({ message: 'Login realizado com sucesso!', usuario: results[0] });
+  });
+});
+
+
 //Define a porta (Sem ela pode dá errado)
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
