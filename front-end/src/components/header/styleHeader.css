@@ -8,6 +8,13 @@ header {
     z-index: 1000;
 }
 
+#imagemPerfil{
+
+    width: 40px;
+    border-radius: 100px;
+
+}
+
 /* Navbar principal */
 header nav:first-child {
 

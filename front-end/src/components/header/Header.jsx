@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
+import Perfil from '../../assets/perfil.png'
+
 export function Header() {
   const [activeLink, setActiveLink] = useState("Início"); // Link ativo da navegação
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Estado do menu dropdown
@@ -204,7 +206,7 @@ export function Header() {
 
             {usuarioLogado ? (
 
-              <img src="https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-High-Quality-Image.png" alt="test-account"/>
+              <img src={Perfil} alt="test-account" id='imagemPerfil'/>
               
             ) : (
 
@@ -219,6 +221,7 @@ export function Header() {
             <div className="desktop-links">
               {usuarioLogado ? (
                 <>
+
                   <span style={{ color: "#fff" }}>Olá, usuário!</span>
                   <button
                     onClick={() => {
@@ -229,12 +232,14 @@ export function Header() {
                   >
                     Sair
                   </button>
+
                 </>
               ) : (
                 <>
                   <Link to="/login">Entrar</Link>
                   <Link to="/cadastro">Cadastrar</Link>
                 </>
+                  
               )}
             </div>
 
