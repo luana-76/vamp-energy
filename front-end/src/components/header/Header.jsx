@@ -40,6 +40,15 @@ export function Header() {
     return () => clearInterval(interval);
   }, []);
 
+  //Muda o header, essa linha define se o usuário está logado ou não
+  const [usuarioLogado, setUsuarioLogado] = useState(false);
+
+  useEffect(() => {
+    const estaLogado = localStorage.getItem("usuarioLogado") === "true";
+    setUsuarioLogado(estaLogado);
+  }, [location.pathname]);
+
+
   return (
     <header
       style={
@@ -192,16 +201,43 @@ export function Header() {
         {/* Entrar / Cadastrar e carrinho (desktop) */}
         {!isMobile && (
           <div className="auth-desktop" style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-            <img
+
+            {usuarioLogado ? (
+
+              <img src="https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-High-Quality-Image.png" alt="test-account"/>
+              
+            ) : (
+
+              <img
               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAWVJREFUSEvFlM8rRFEUxz/fZI2wsJxkZaPYytKGmqLY2NjZWPi1tFFKiaT8CbKRX9n4ByjJQrMiS1JYoJTimJnmTePNe3Nf983k7t6793w+59zOuaLBSw3mk0hgZkPAKtBbSugGWJJ07krQKTCzSWAXqpL5AbKSTmpJagrMrBW4B9piII9At6TPOIlLkAUOHNcwLOnMVzAPrDsEc5I2fQWjwLFDMCLp1FfQAtwBHTGAJ6BH0ruXoBBkZhPAXgSg0EVjkg69uygINLNBYK00B99ADliUdJF6DlwA175z0FwA136swMw6gQWgH+gD2kOwF+AauAQ2JD1HySIFZjaVB24DhS5Ksl6BaUlH4cNVAjObzT8NW0moEWfGJe1X/v8jMLMMcAs0eQo+gEzldYUFO8CMJzwIW5a0EnyEBQ9AV0rBlaSBOMEX0JxS8JZ//MrNEa7AUsKL4ZLK3P8btHpUUqymXqA4zi95YmAZ3ClLGQAAAABJRU5ErkJggg=="
               alt="ícone"
               style={{ width: "30px", height: "30px" }}
             />
 
+            )}
+
             <div className="desktop-links">
-              <Link to="/login">Entrar</Link>
-              <Link to="/cadastro">Cadastrar</Link>
+              {usuarioLogado ? (
+                <>
+                  <span style={{ color: "#fff" }}>Olá, usuário!</span>
+                  <button
+                    onClick={() => {
+                      localStorage.removeItem("usuarioLogado");
+                      window.location.reload();
+                    }}
+                    style={{ color: "#ff4141", background: "transparent", border: "none", cursor: "pointer" }}
+                  >
+                    Sair
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link to="/login">Entrar</Link>
+                  <Link to="/cadastro">Cadastrar</Link>
+                </>
+              )}
             </div>
+
 
             <div id="carrinhoHeader">
               <Link to="/carrinho">

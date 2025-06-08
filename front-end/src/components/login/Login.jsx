@@ -7,6 +7,8 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { ErroInputVazio } from '../ErroVazio/ErroInpuVazio';
 
+import { useNavigate } from "react-router-dom";
+
 export function Login(){
 
     const [isChecked, setIsChecked] = useState(false);
@@ -32,6 +34,7 @@ export function Login(){
 
     }*/
 
+    const navigate = useNavigate();
     const enviarDados = async (e) => {
         e.preventDefault(); // prevenir reload da página
 
@@ -49,7 +52,7 @@ export function Login(){
                 },
                 body: JSON.stringify({ email: login, senha })
             });
-
+            
             if (!response.ok) {
                 // tratar erro
                 const errorData = await response.json();
@@ -59,12 +62,19 @@ export function Login(){
 
             const data = await response.json();
             alert(data.message);
+
+            //Salva os dados se o usuário conseguir logar
+            localStorage.setItem("usuarioLogado", "true");
+            navigate("/"); // Redirecionar após login
+
             // opcional: limpar campos
             setLogin('');
             setSenha('');
+            
         } catch (error) {
             alert('Erro ao enviar dados: ' + error.message);
         }
+        
     };
 
     return(
