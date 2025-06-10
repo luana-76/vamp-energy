@@ -44,10 +44,17 @@ export function Header() {
 
   //Muda o header, essa linha define se o usuário está logado ou não
   const [usuarioLogado, setUsuarioLogado] = useState(false);
-
+  const [nomeUsuario, setNomeUsuario] = useState('');
   useEffect(() => {
     const estaLogado = localStorage.getItem("usuarioLogado") === "true";
     setUsuarioLogado(estaLogado);
+
+    if (estaLogado) {
+      const nome = localStorage.getItem("nomeUsuario") || "";
+      setNomeUsuario(nome);
+    } else {
+      setNomeUsuario('');
+    }
   }, [location.pathname]);
 
 
@@ -220,12 +227,13 @@ export function Header() {
 
             <div className="desktop-links">
               {usuarioLogado ? (
-                <>
+                <div className="logadoUsu">
 
-                  <span style={{ color: "#fff" }}>Olá, usuário!</span>
+                  <span style={{ color: "#fff" }}>Olá, {nomeUsuario.split(" ")[0]}!</span>
                   <button
                     onClick={() => {
                       localStorage.removeItem("usuarioLogado");
+                      localStorage.removeItem("nomeUsuario"); 
                       window.location.reload();
                     }}
                     style={{ color: "#ff4141", background: "transparent", border: "none", cursor: "pointer" }}
@@ -233,7 +241,7 @@ export function Header() {
                     Sair
                   </button>
 
-                </>
+                </div>
               ) : (
                 <>
                   <Link to="/login">Entrar</Link>

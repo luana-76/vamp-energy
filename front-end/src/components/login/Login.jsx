@@ -52,6 +52,8 @@ export function Login(){
                 },
                 body: JSON.stringify({ email: login, senha })
             });
+
+
             
             if (!response.ok) {
                 // tratar erro
@@ -65,6 +67,8 @@ export function Login(){
 
             //Salva os dados se o usuário conseguir logar
             localStorage.setItem("usuarioLogado", "true");
+            localStorage.setItem("nomeUsuario", data.usuario.nome);
+            
             navigate("/"); // Redirecionar após login
 
             // opcional: limpar campos
