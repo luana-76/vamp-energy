@@ -13,6 +13,7 @@ import Credito from "./components/PaginaComprar/CartaoCredito/Credito";
 import { Confirmacao } from "./components/ConfimacaoCompra/Confirmacao";
 import { Carrinho } from "./components/CarrinhoDeCompras/Carrinho";
 import { PagInformacoes } from "./components/pagInformacoes/PagInformacoes";
+import { Redefinicao } from "./components/redefinirSenha/redefinicao";
 
 export default function AppRoutes() {
 
@@ -65,6 +66,7 @@ export default function AppRoutes() {
         <Route path='/confirmando' element={<Confirmacao/>} />
         <Route path='/carrinho' element={<Carrinho/>} />
         <Route path='/informacoes' element={<PagInformacoes/>} />
+        <Route path='/redefinicao' element={<Redefinicao/>} />
         
     </Routes>
   );

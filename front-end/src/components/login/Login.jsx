@@ -68,7 +68,7 @@ export function Login(){
             //Salva os dados se o usuário conseguir logar
             localStorage.setItem("usuarioLogado", "true");
             localStorage.setItem("nomeUsuario", data.usuario.nome);
-            
+            localStorage.setItem("fotoUsuario", data.usuario.foto);
             navigate("/"); // Redirecionar após login
 
             // opcional: limpar campos
@@ -123,7 +123,7 @@ export function Login(){
 
                     <div className='esquecimentoSenha'>
 
-                        <Link to=''>Esqueceu a senha?</Link>
+                        <Link to='/redefinicao'>Esqueceu a senha?</Link>
 
                     </div>
                     

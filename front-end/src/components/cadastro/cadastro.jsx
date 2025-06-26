@@ -146,10 +146,10 @@ export function Cadastro() {
 
     }
 
+    const [foto, setFoto] = useState(null);
     const enviarDados = async (e) => {
         e.preventDefault();
 
-        // Validação simples de campos vazios
         if (
             nome === '' || data === '' ||
             tel === '' || email === '' ||
@@ -166,30 +166,28 @@ export function Cadastro() {
             return;
         }
 
-        const dados = {
-            nome: nome,
-            data_nascimento: data,
-            telefone: tel,
-            nome_empresa: empresa,
-            tem_empresa: !isChecked,
-            email: email,
-            senha: password
-        };
+        const formData = new FormData();
+        formData.append('nome', nome);
+        formData.append('data_nascimento', data);
+        formData.append('telefone', tel);
+        formData.append('nome_empresa', empresa);
+        formData.append('tem_empresa', !isChecked);
+        formData.append('email', email);
+        formData.append('senha', password);
+        if (foto) {
+            formData.append('foto', foto);
+        }
 
         try {
             const response = await fetch('http://localhost:3000/cadastrandoUsuarios', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(dados),
+                body: formData,
             });
 
             if (response.ok) {
                 const resultado = await response.json();
                 console.log(resultado);
                 alert('Usuário cadastrado com sucesso!');
-                // Limpa os campos após cadastrar
                 setNome('');
                 setData('');
                 setTel('');
@@ -198,6 +196,7 @@ export function Cadastro() {
                 setPassword('');
                 setConfirmPassword('');
                 setIsChecked(false);
+                setFoto(null);
             } else {
                 const erro = await response.json();
                 console.error('Erro:', erro);
@@ -208,6 +207,7 @@ export function Cadastro() {
             alert('Erro de conexão com o servidor.');
         }
     };
+
   
     return (
         <main id="mainLogin" className="mainCadastro">
@@ -285,6 +285,9 @@ export function Cadastro() {
                         <label htmlFor="switch"></label>
                         <span>Não tenho uma empresa</span>
                     </div>
+
+                    {/* Inserindo imagem do usuário */}
+                    <input type='file' onChange={(e) => setFoto(e.target.files[0])}/>
 
                     {/* Parte do email*/}
                     <input

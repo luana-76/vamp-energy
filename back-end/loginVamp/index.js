@@ -1,46 +1,72 @@
 const express = require('express');
 const mysql = require('mysql2');
+const cors = require('cors');
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
 
 const app = express();
 app.use(express.json());
-
-const cors = require('cors');
 app.use(cors());
 
-// Acessando o meu banco
+// Cria a pasta uploads se não existir
+const uploadDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir);
+
+// Configuração do multer para armazenar a imagem
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/');
+  },
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname);
+    const filename = Date.now() + ext;
+    cb(null, filename);
+  }
+});
+const upload = multer({ storage });
+
+// Servir imagens estaticamente da pasta uploads
+app.use('/uploads', express.static('uploads', {
+  setHeaders: (res) => {
+    res.setHeader("Cross-Origin-Resource-Policy", "same-origin"); // ou "cross-origin" se necessário
+  }
+}));
+
+// Conexão com o banco
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'lua56sol2003',
-    database: 'usuariovamp'
+  host: 'localhost',
+  user: 'root',
+  password: 'lua56sol2003',
+  database: 'usuariovamp'
 });
 
-//Testando conexão
 db.connect((err) => {
-    if (err) {
-        console.error('Erro ao conectar no banco:', err);
-    } else {
-        console.log('Conectado ao MySQL!');
-    }
+  if (err) {
+    console.error('Erro ao conectar no banco:', err);
+  } else {
+    console.log('Conectado ao MySQL!');
+  }
 });
 
-//Estamos ligando as tabelas com chave estrangeira, pelo id
-app.post('/cadastrandoUsuarios', (req, res) => {
+// Rota de cadastro com foto
+app.post('/cadastrandoUsuarios', upload.single('foto'), (req, res) => {
   console.log('Recebido no backend:', req.body);
-  
-  let { nome, data_nascimento, telefone, nome_empresa, tem_empresa, email, senha } = req.body;
+
+  const { nome, data_nascimento, telefone, nome_empresa, tem_empresa, email, senha } = req.body;
+  const fotoPath = req.file ? req.file.filename : null;
 
   if (!nome || !data_nascimento || !telefone || !email || !senha) {
     return res.status(400).json({ error: 'Campos obrigatórios faltando' });
   }
 
-  // Converter data para formato YYYY-MM-DD
   const dataNascimento = new Date(data_nascimento).toISOString().slice(0, 10);
 
-  // Primeiro insere na tabela novousuario
-  const sqlNovoUsuario = `INSERT INTO novousuario 
-    (nome, data_nascimento, telefone, nome_empresa, tem_empresa, email, senha) 
-    VALUES (?, ?, ?, ?, ?, ?, ?)`;
+  const sqlNovoUsuario = `
+    INSERT INTO novousuario 
+    (nome, data_nascimento, telefone, nome_empresa, tem_empresa, email, senha, foto) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+  `;
 
   db.query(sqlNovoUsuario, [
     nome,
@@ -49,7 +75,8 @@ app.post('/cadastrandoUsuarios', (req, res) => {
     nome_empresa || null,
     tem_empresa ? 1 : 0,
     email,
-    senha
+    senha,
+    fotoPath
   ], (err, result) => {
     if (err) {
       console.error('Erro no cadastro:', err);
@@ -58,25 +85,25 @@ app.post('/cadastrandoUsuarios', (req, res) => {
 
     const novoUsuarioId = result.insertId;
 
-    // Agora insere na tabela usuario com o id do novousuario
     const sqlUsuario = `INSERT INTO usuario (novousuario_id, email, senha) VALUES (?, ?, ?)`;
 
-    db.query(sqlUsuario, [
-      novoUsuarioId,
-      email,
-      senha
-    ], (err2, result2) => {
+    db.query(sqlUsuario, [novoUsuarioId, email, senha], (err2, result2) => {
       if (err2) {
         console.error('Erro ao inserir na tabela usuario:', err2);
         return res.status(500).json({ error: err2.message });
       }
 
-      res.json({ message: 'Usuário cadastrado com sucesso em ambas as tabelas!', id: novoUsuarioId });
+      res.json({
+      message: 'Usuário cadastrado com sucesso!',
+      id: novoUsuarioId,
+      foto: fotoPath ? `http://localhost:3000/uploads/${fotoPath}` : null
+    });
+
     });
   });
 });
 
-//Procurando se o usuário existe
+// Rota de login
 app.post('/usuarios', (req, res) => {
   const { email, senha } = req.body;
 
@@ -84,14 +111,12 @@ app.post('/usuarios', (req, res) => {
     return res.status(400).json({ error: 'Email e senha são obrigatórios' });
   }
 
-  // Procura na tabela usuario, mas também junta com novousuario se quiser mais info
   const sql = `
-    SELECT u.*, n.nome 
+    SELECT u.*, n.nome, n.foto 
     FROM usuario u
     JOIN novousuario n ON u.novousuario_id = n.id
     WHERE u.email = ? AND u.senha = ?
-
-  `;//o ? é para entrada de usuário
+  `;
 
   db.query(sql, [email, senha], (err, results) => {
     if (err) {
@@ -103,13 +128,59 @@ app.post('/usuarios', (req, res) => {
       return res.status(401).json({ error: 'Email ou senha inválidos' });
     }
 
-    // Aqui você pode devolver nome ou outros dados se quiser
-    res.json({ message: 'Login realizado com sucesso!', usuario: results[0] });
+    // Retorna também o caminho da imagem, se tiver
+    const usuario = results[0];
+    const fotoUrl = usuario.foto ? `http://localhost:3000/uploads/${usuario.foto}` : null;
+
+    res.json({
+      message: 'Login realizado com sucesso!',
+      usuario: {
+        id: usuario.id,
+        nome: usuario.nome,
+        email: usuario.email,
+        foto: fotoUrl
+      }
+    });
+  });
+});
+
+app.post('/redefinirSenha', (req, res) => {
+  const { email, novaSenha } = req.body;
+
+  if (!email || !novaSenha) {
+    return res.status(400).json({ error: 'Email e nova senha são obrigatórios' });
+  }
+
+  const sqlUsuario = `UPDATE usuario SET senha = ? WHERE email = ?`;
+  const sqlNovoUsuario = `UPDATE novousuario SET senha = ? WHERE email = ?`;
+
+  db.query(sqlUsuario, [novaSenha, email], (err1, result1) => {
+    if (err1) {
+      console.error('Erro ao atualizar senha na tabela usuario:', err1);
+      return res.status(500).json({ error: 'Erro ao redefinir senha' });
+    }
+
+    db.query(sqlNovoUsuario, [novaSenha, email], (err2, result2) => {
+      if (err2) {
+        console.error('Erro ao atualizar senha na tabela novousuario:', err2);
+        return res.status(500).json({ error: 'Erro ao redefinir senha' });
+      }
+
+      // ✅ Verifica se ao menos uma tabela atualizou algum registro
+      const atualizou =
+        result1.affectedRows > 0 || result2.affectedRows > 0;
+
+      if (!atualizou) {
+        return res.status(404).json({ error: 'Email não encontrado.' });
+      }
+
+      return res.json({ message: 'Senha redefinida com sucesso!' });
+    });
   });
 });
 
 
-//Define a porta (Sem ela pode dá errado)
+// Porta do servidor
 app.listen(3000, () => {
-    console.log('Servidor rodando na porta 3000');
+  console.log('Servidor rodando na porta 3000');
 });

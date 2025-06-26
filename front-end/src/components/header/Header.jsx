@@ -45,6 +45,7 @@ export function Header() {
   //Muda o header, essa linha define se o usuário está logado ou não
   const [usuarioLogado, setUsuarioLogado] = useState(false);
   const [nomeUsuario, setNomeUsuario] = useState('');
+  const [fotoUsuario, setFotoUsuario] = useState('');
   useEffect(() => {
     const estaLogado = localStorage.getItem("usuarioLogado") === "true";
     setUsuarioLogado(estaLogado);
@@ -52,8 +53,11 @@ export function Header() {
     if (estaLogado) {
       const nome = localStorage.getItem("nomeUsuario") || "";
       setNomeUsuario(nome);
+      const foto = localStorage.getItem("fotoUsuario") || "";
+      setFotoUsuario(foto);
     } else {
       setNomeUsuario('');
+      setFotoUsuario('');
     }
   }, [location.pathname]);
 
@@ -213,15 +217,19 @@ export function Header() {
 
             {usuarioLogado ? (
 
-              <img src={Perfil} alt="test-account" id='imagemPerfil'/>
+              <Link to=''><img src={Perfil} alt="test-account" id='imagemPerfil'/></Link>
               
             ) : (
+              
+              <Link to='/login'>
 
-              <img
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAWVJREFUSEvFlM8rRFEUxz/fZI2wsJxkZaPYytKGmqLY2NjZWPi1tFFKiaT8CbKRX9n4ByjJQrMiS1JYoJTimJnmTePNe3Nf983k7t6793w+59zOuaLBSw3mk0hgZkPAKtBbSugGWJJ07krQKTCzSWAXqpL5AbKSTmpJagrMrBW4B9piII9At6TPOIlLkAUOHNcwLOnMVzAPrDsEc5I2fQWjwLFDMCLp1FfQAtwBHTGAJ6BH0ruXoBBkZhPAXgSg0EVjkg69uygINLNBYK00B99ADliUdJF6DlwA175z0FwA136swMw6gQWgH+gD2kOwF+AauAQ2JD1HySIFZjaVB24DhS5Ksl6BaUlH4cNVAjObzT8NW0moEWfGJe1X/v8jMLMMcAs0eQo+gEzldYUFO8CMJzwIW5a0EnyEBQ9AV0rBlaSBOMEX0JxS8JZ//MrNEa7AUsKL4ZLK3P8btHpUUqymXqA4zi95YmAZ3ClLGQAAAABJRU5ErkJggg=="
-              alt="ícone"
-              style={{ width: "30px", height: "30px" }}
-            />
+                 <img
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAWVJREFUSEvFlM8rRFEUxz/fZI2wsJxkZaPYytKGmqLY2NjZWPi1tFFKiaT8CbKRX9n4ByjJQrMiS1JYoJTimJnmTePNe3Nf983k7t6793w+59zOuaLBSw3mk0hgZkPAKtBbSugGWJJ07krQKTCzSWAXqpL5AbKSTmpJagrMrBW4B9piII9At6TPOIlLkAUOHNcwLOnMVzAPrDsEc5I2fQWjwLFDMCLp1FfQAtwBHTGAJ6BH0ruXoBBkZhPAXgSg0EVjkg69uygINLNBYK00B99ADliUdJF6DlwA175z0FwA136swMw6gQWgH+gD2kOwF+AauAQ2JD1HySIFZjaVB24DhS5Ksl6BaUlH4cNVAjObzT8NW0moEWfGJe1X/v8jMLMMcAs0eQo+gEzldYUFO8CMJzwIW5a0EnyEBQ9AV0rBlaSBOMEX0JxS8JZ//MrNEa7AUsKL4ZLK3P8btHpUUqymXqA4zi95YmAZ3ClLGQAAAABJRU5ErkJggg=="
+                  alt="ícone"
+                  style={{ width: "30px", height: "30px" }}
+                />
+
+              </Link>
 
             )}
 
