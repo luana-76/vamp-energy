@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './redefinicaoSenha.css';
+import './responsiveSenha.css';
 import adolescente from '../../assets/produto/adolescentes.png'
 import tradicional from '../../assets/tradicional.png'
 

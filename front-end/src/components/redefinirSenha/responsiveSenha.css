@@ -1,0 +1,39 @@
+@media screen and (max-width:1180px){
+
+    #mainRedefinicao {
+        height: 100vh;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }   
+    
+    .formRedefinicao {
+        height: auto;
+        width: 60vw;
+    }
+
+    #imagemPart {margin: 0 0 60px 0;}
+
+    #imagemPart img[alt='imagemAdo'] {
+        width: 70vw;
+    }
+    #imagemPart img[alt='imagemTradi'] {
+        width: 24vw;
+        right: 35%;
+    }
+}
+
+@media screen and (max-width:667px){
+
+   .formRedefinicao input {
+        width: 100%;
+   }
+
+   .formRedefinicao h1 {
+        font-size: 27px;
+    }
+
+    .formRedefinicao input[type='button'] {
+        width: auto;
+    }
+}
