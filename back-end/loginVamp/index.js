@@ -7,7 +7,21 @@ const fs = require('fs');
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+const allowedOrigins = ['https://vamp-energy.vercel.app'];
+
+app.use(cors({
+  origin: function(origin, callback) {
+    // Permite requests sem origin (ex: Postman)
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('CORS não permitido para essa origem: ' + origin));
+    }
+  }
+}));
+
 
 // Cria a pasta uploads se não existir
 const uploadDir = path.join(__dirname, 'uploads');
