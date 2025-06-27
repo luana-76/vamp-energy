@@ -16,7 +16,7 @@ export function Redefinicao() {
       return;
     }
 
-    fetch('http://localhost:3000/redefinirSenha', {
+    fetch('https://vamp-energy.onrender.com/redefinirSenha', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

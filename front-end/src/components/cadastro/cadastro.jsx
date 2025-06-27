@@ -179,7 +179,7 @@ export function Cadastro() {
         }
 
         try {
-            const response = await fetch('http://localhost:3000/cadastrandoUsuarios', {
+            const response = await fetch('https://vamp-energy.onrender.com/cadastrandoUsuarios', {
                 method: 'POST',
                 body: formData,
             });

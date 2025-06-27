@@ -45,7 +45,7 @@ export function Login(){
         }
 
         try {
-            const response = await fetch('http://localhost:3000/usuarios', {
+            const response = await fetch('https://vamp-energy.onrender.com/usuarios', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
