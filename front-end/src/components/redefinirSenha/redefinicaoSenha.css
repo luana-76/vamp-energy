@@ -14,13 +14,15 @@
     margin-right: 14vw;
 
 }
-#imagemPart img[alt='imagemAdo']{
+
+#imagemPart img[alt='imagemAdolescente']{
 
     width: 30vw;
     filter: drop-shadow(2px 4px 6px black);
 
 }
-#imagemPart img[alt='imagemTradi']{
+
+#imagemPart img[alt='lataTradicional']{
 
     width: 10vw;
     position: absolute;
@@ -34,6 +36,7 @@
     font-size: 32px;
 
 }
+
 .formRedefinicao{
 
     display: flex;
@@ -49,11 +52,7 @@
 
 }
 
-.formRedefinicao label, .formRedefinicao h1{
-
-    margin: 0 0 0 1vw;
-
-}
+.formRedefinicao label, .formRedefinicao h1{margin: 0 0 0 1vw;}
 
 .formRedefinicao input{
 

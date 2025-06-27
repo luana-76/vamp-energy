@@ -1,4 +1,4 @@
-@media screen and (max-width:1180px){
+@media screen and (max-width:900px){
 
     #mainRedefinicao {
         height: 100vh;
@@ -14,26 +14,21 @@
 
     #imagemPart {margin: 0 0 60px 0;}
 
-    #imagemPart img[alt='imagemAdo'] {
-        width: 70vw;
-    }
-    #imagemPart img[alt='imagemTradi'] {
+    #imagemPart img[alt='imagemAdolescente'] {width: 70vw;}
+    #imagemPart img[alt='lataTradicional'] {
+
         width: 24vw;
         right: 35%;
+
     }
 }
 
 @media screen and (max-width:667px){
 
-   .formRedefinicao input {
-        width: 100%;
-   }
+    .formRedefinicao input {width: 100%;}
 
-   .formRedefinicao h1 {
-        font-size: 27px;
-    }
+    .formRedefinicao h1 {font-size: 27px;}
 
-    .formRedefinicao input[type='button'] {
-        width: auto;
-    }
+    .formRedefinicao input[type='button'] {width: auto}
+
 }
