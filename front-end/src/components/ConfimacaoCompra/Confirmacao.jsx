@@ -22,8 +22,8 @@ export function Confirmacao() {
         }, 2200); // A imagem vai mudar após 2 segundos
 
         return () => {
-            clearTimeout(timeout); // Limpeza do timeout
-            clearInterval(interval); // Limpeza do setInterval
+            clearTimeout(timeout);
+            clearInterval(interval);
         };
     }, [navigate]);
 

@@ -5,12 +5,15 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import Perfil from '../../assets/perfil.png'
-
 export function Header() {
   const [activeLink, setActiveLink] = useState("Início"); // Link ativo da navegação
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Estado do menu dropdown
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024); // Define se está em modo mobile
+
+  //Muda o header, essa linha define se o usuário está logado ou não
+  const [usuarioLogado, setUsuarioLogado] = useState(false);
+  const [nomeUsuario, setNomeUsuario] = useState('');
+  const [fotoUsuario, setFotoUsuario] = useState('');
 
   const location = useLocation();
 
@@ -41,25 +44,27 @@ export function Header() {
     // Limpa o intervalo quando desmontar
     return () => clearInterval(interval);
   }, []);
-
-  //Muda o header, essa linha define se o usuário está logado ou não
-  const [usuarioLogado, setUsuarioLogado] = useState(false);
-  const [nomeUsuario, setNomeUsuario] = useState('');
-  const [fotoUsuario, setFotoUsuario] = useState('');
+  
   useEffect(() => {
-    const estaLogado = localStorage.getItem("usuarioLogado") === "true";
-    setUsuarioLogado(estaLogado);
 
-    if (estaLogado) {
-      const nome = localStorage.getItem("nomeUsuario") || "";
-      setNomeUsuario(nome);
-      const foto = localStorage.getItem("fotoUsuario") || "";
-      setFotoUsuario(foto);
-    } else {
-      setNomeUsuario('');
-      setFotoUsuario('');
-    }
-  }, [location.pathname]);
+  const estaLogado = localStorage.getItem("usuarioLogado") === "true";
+  setUsuarioLogado(estaLogado);
+
+  if (estaLogado) {
+
+    const nome = localStorage.getItem("nomeUsuario") || "";
+    const foto = (localStorage.getItem("fotoUsuario") || "").trim();
+
+    setNomeUsuario(nome);
+    setFotoUsuario(foto);
+
+  } else {
+
+    setNomeUsuario('');
+    setFotoUsuario('');
+
+  }
+}, [location.pathname]);
 
 
   return (
@@ -217,7 +222,11 @@ export function Header() {
 
             {usuarioLogado ? (
 
-              <Link to=''><img src={Perfil} alt="test-account" id='imagemPerfil'/></Link>
+              <Link to=''>
+                <img src={fotoUsuario}
+                alt="test-account"
+                id='imagemPerfil'/>
+              </Link>
               
             ) : (
               

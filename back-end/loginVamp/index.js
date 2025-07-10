@@ -7,7 +7,17 @@ const fs = require('fs');
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+
+//Permite o front
+app.use(cors({ origin: 'http://localhost:5173' }));
+
+//Permite imagens na pasta uploads
+app.use('/uploads', express.static('uploads', {
+  setHeaders: (res) => {
+    res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
+  }
+}));
+
 
 // Cria a pasta uploads se não existir
 const uploadDir = path.join(__dirname, 'uploads');
@@ -85,23 +95,26 @@ app.post('/cadastrandoUsuarios', upload.single('foto'), (req, res) => {
 
     const novoUsuarioId = result.insertId;
 
-    const sqlUsuario = `INSERT INTO usuario (novousuario_id, email, senha) VALUES (?, ?, ?)`;
+    const sqlUsuario = `
+      INSERT INTO usuario (novousuario_id, email, senha, foto) 
+      VALUES (?, ?, ?, ?)
+    `;
 
-    db.query(sqlUsuario, [novoUsuarioId, email, senha], (err2, result2) => {
+    db.query(sqlUsuario, [novoUsuarioId, email, senha, fotoPath], (err2, result2) => {
       if (err2) {
         console.error('Erro ao inserir na tabela usuario:', err2);
         return res.status(500).json({ error: err2.message });
       }
 
       res.json({
-      message: 'Usuário cadastrado com sucesso!',
-      id: novoUsuarioId,
-      foto: fotoPath ? `http://localhost:3000/uploads/${fotoPath}` : null
-    });
-
+        message: 'Usuário cadastrado com sucesso!',
+        id: novoUsuarioId,
+        foto: fotoPath ? `http://localhost:3000/uploads/${fotoPath}` : null
+      });
     });
   });
 });
+
 
 // Rota de login
 app.post('/usuarios', (req, res) => {
@@ -112,7 +125,7 @@ app.post('/usuarios', (req, res) => {
   }
 
   const sql = `
-    SELECT u.*, n.nome, n.foto 
+    SELECT u.*, n.nome, COALESCE(u.foto, n.foto) AS foto 
     FROM usuario u
     JOIN novousuario n ON u.novousuario_id = n.id
     WHERE u.email = ? AND u.senha = ?
@@ -128,7 +141,6 @@ app.post('/usuarios', (req, res) => {
       return res.status(401).json({ error: 'Email ou senha inválidos' });
     }
 
-    // Retorna também o caminho da imagem, se tiver
     const usuario = results[0];
     const fotoUrl = usuario.foto ? `http://localhost:3000/uploads/${usuario.foto}` : null;
 
@@ -144,40 +156,6 @@ app.post('/usuarios', (req, res) => {
   });
 });
 
-app.post('/redefinirSenha', (req, res) => {
-  const { email, novaSenha } = req.body;
-
-  if (!email || !novaSenha) {
-    return res.status(400).json({ error: 'Email e nova senha são obrigatórios' });
-  }
-
-  const sqlUsuario = `UPDATE usuario SET senha = ? WHERE email = ?`;
-  const sqlNovoUsuario = `UPDATE novousuario SET senha = ? WHERE email = ?`;
-
-  db.query(sqlUsuario, [novaSenha, email], (err1, result1) => {
-    if (err1) {
-      console.error('Erro ao atualizar senha na tabela usuario:', err1);
-      return res.status(500).json({ error: 'Erro ao redefinir senha' });
-    }
-
-    db.query(sqlNovoUsuario, [novaSenha, email], (err2, result2) => {
-      if (err2) {
-        console.error('Erro ao atualizar senha na tabela novousuario:', err2);
-        return res.status(500).json({ error: 'Erro ao redefinir senha' });
-      }
-
-      // ✅ Verifica se ao menos uma tabela atualizou algum registro
-      const atualizou =
-        result1.affectedRows > 0 || result2.affectedRows > 0;
-
-      if (!atualizou) {
-        return res.status(404).json({ error: 'Email não encontrado.' });
-      }
-
-      return res.json({ message: 'Senha redefinida com sucesso!' });
-    });
-  });
-});
 
 
 // Porta do servidor

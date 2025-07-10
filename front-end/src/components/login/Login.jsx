@@ -36,7 +36,7 @@ export function Login(){
 
     const navigate = useNavigate();
     const enviarDados = async (e) => {
-        e.preventDefault(); // prevenir reload da página
+        e.preventDefault();
 
         if (login === '' || senha === '') {
             setErro(true);
@@ -52,8 +52,6 @@ export function Login(){
                 },
                 body: JSON.stringify({ email: login, senha })
             });
-
-
             
             if (!response.ok) {
                 // tratar erro
@@ -71,7 +69,6 @@ export function Login(){
             localStorage.setItem("fotoUsuario", data.usuario.foto);
             navigate("/"); // Redirecionar após login
 
-            // opcional: limpar campos
             setLogin('');
             setSenha('');
             

@@ -11,8 +11,6 @@ export function Main() {
   const [currentImage, setCurrentImage] = useState(Tradicional); // Estado inicial com a imagem preta
   const [isMobile, setIsMobile] = useState(false); // Evita erro no SSR
 
-  console.log(currentImage)
-
   useEffect(() => {
     setIsMobile(window.innerWidth <= 768); // Define o valor correto no client-side
     const handleResize = () => {
