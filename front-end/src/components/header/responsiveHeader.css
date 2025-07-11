@@ -11,10 +11,15 @@
         font-size: 1.5em;
         flex-direction: row;
         gap: 15%;
+        margin-right: 40px;
     
     }
 
-    #log img {width: 180%;}
+    #carrinhoHeader {
+        margin-left: 0px;
+    }
+
+    /*#log img {width: 180%;}*/
 
     #dropdownMenu {
 
