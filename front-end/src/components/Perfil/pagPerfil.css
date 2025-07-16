@@ -1,0 +1,96 @@
+#perfilMain{
+
+    display: flex;
+    justify-content: space-around;
+    margin-top: 130px;
+
+}
+.caixaPerfil{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+/* Parte de perfil */
+
+.fotoPerfil{display: flex;}
+
+#perfilMain #imagemPerfil {width: 140px;}
+
+.logadoUsu #pagNomePerfil{
+
+    font-weight: 500;
+    margin-left: 20px;
+    font-size: 1.2em;
+
+}
+
+/* Parte do tempo */
+
+.caixaTempo{
+
+    background: #2a292bcf;
+    padding: 10px;
+    border-radius: 10px;
+
+}
+
+.caixaTempo h3{margin: 5px 0;}
+
+/* Seta de volta */
+
+#perfilMain .seta{
+
+    vertical-align: middle;
+    font-weight: 700;
+
+}
+
+/* form */
+
+.msgEditar{
+    
+    margin-bottom: 20px;
+    color: #929090;
+
+}
+
+ @media (max-width: 1026px) {
+
+    #perfilMain{
+
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    .caixaPerfil {
+
+        flex-direction: row;
+        justify-content: space-around;
+        align-self: flex-start;
+        align-items: flex-start;
+        width: 100vw;
+        margin-bottom: 40px;
+    }
+
+    .logadoUsu #pagNomePerfil{font-size: 1.8em;}
+    #perfilMain #imagemPerfil {width: 15vw;}
+
+ }
+
+  @media (max-width: 768px) {
+
+    .caixaPerfil {
+        flex-direction: column;
+        align-items: normal;
+        gap: 30px;
+    }
+    #perfilMain  #close, .fotoPerfil{margin-left: 20px;}
+
+    .caixaTempo{border-radius: 0;}
+    #perfilMain #imagemPerfil {width: 24vw;}
+
+  }

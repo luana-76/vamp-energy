@@ -11,8 +11,21 @@
         font-size: 1.5em;
         flex-direction: row;
         gap: 15%;
-        margin-right: 40px;
+        margin-right: 12%;
     
+    }
+
+    .logadoUsu{
+
+        margin-left: 10px;
+        font-size: 60%;
+    
+    }
+    #perfilMobile{
+
+        display: flex;
+        align-items: center;
+
     }
 
     #carrinhoHeader {
@@ -42,10 +55,17 @@
 
 @media screen and (max-width:667px){
 
+    #dropdownMenu {
+
+        right: 5vw;
+        font-size: 0.8em;
+        
+    }
+
     /* Estilização da parte do dropDown */
     #log{
 
-        margin: 10px 10% 0 0;
+        margin: 10px 26% 0 0;
         font-size: 1em;
 
     }

@@ -157,6 +157,41 @@ app.post('/usuarios', (req, res) => {
 });
 
 
+app.get('/perfil/:id', (req, res) => {
+  const { id } = req.params;
+
+  const sql = `
+    SELECT 
+      n.nome,
+      n.data_nascimento,
+      n.telefone,
+      n.nome_empresa,
+      u.email
+      COALESCE(u.foto, n.foto) AS foto
+    FROM usuario u
+    JOIN novousuario n ON u.novousuario_id = n.id
+    WHERE u.id = ?
+  `;
+
+  db.query(sql, [id], (err, results) => {
+    if (err) {
+      console.error('Erro ao buscar perfil:', err);
+      return res.status(500).json({ error: 'Erro no servidor' });
+    }
+
+    if (results.length === 0) {
+      return res.status(404).json({ error: 'Usuário não encontrado' });
+    }
+
+    const usuario = results[0];
+    usuario.foto = usuario.foto
+      ? `http://localhost:3000/uploads/${usuario.foto}`
+      : null;
+
+    res.json(usuario);
+  });
+});
+
 
 // Porta do servidor
 app.listen(3000, () => {
