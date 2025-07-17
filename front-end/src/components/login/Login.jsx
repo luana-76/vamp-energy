@@ -65,10 +65,11 @@ export function Login(){
 
             //Salva os dados se o usuário conseguir logar
             localStorage.setItem("usuarioLogado", "true");
-
+    
+            localStorage.setItem("idUsuario", data.usuario.id);
             localStorage.setItem("nomeUsuario", data.usuario.nome);
             localStorage.setItem("fotoUsuario", data.usuario.foto);
-            localStorage.setItem("idUsuario", data.usuario.id);
+ 
             navigate("/"); // Redirecionar após login
 
             setLogin('');

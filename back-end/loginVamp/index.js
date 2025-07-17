@@ -162,11 +162,13 @@ app.get('/perfil/:id', (req, res) => {
 
   const sql = `
     SELECT 
+      n.id,
       n.nome,
       n.data_nascimento,
       n.telefone,
       n.nome_empresa,
-      u.email
+      u.email,
+      n.senha,
       COALESCE(u.foto, n.foto) AS foto
     FROM usuario u
     JOIN novousuario n ON u.novousuario_id = n.id
@@ -189,6 +191,73 @@ app.get('/perfil/:id', (req, res) => {
       : null;
 
     res.json(usuario);
+  });
+});
+
+//PUT
+app.put('/perfil/:id', upload.single('foto'), (req, res) => {
+  const { id } = req.params;
+  const { nome, data_nascimento, telefone, nome_empresa, tem_empresa, email, senha } = req.body;
+  const fotoPath = req.file ? req.file.filename : null;
+
+  if (!nome || !data_nascimento || !telefone || !email || !senha) {
+    return res.status(400).json({ error: 'Campos obrigatórios faltando' });
+  }
+
+  const dataNascimento = new Date(data_nascimento).toISOString().slice(0, 10);
+
+  const temEmpresaNum = tem_empresa === true || tem_empresa === 'true' || tem_empresa === '1' ? 1 : 0;
+
+  // pega novousuario_id para atualizar as duas tabelas
+  const sqlGetIds = `SELECT u.novousuario_id FROM usuario u WHERE u.id = ?`;
+
+  db.query(sqlGetIds, [id], (err, results) => {
+    if (err) return res.status(500).json({ error: 'Erro no servidor' });
+    if (results.length === 0) return res.status(404).json({ error: 'Usuário não encontrado' });
+
+    const novousuarioId = results[0].novousuario_id;
+
+    const sqlUpdateNovoUsuario = `
+      UPDATE novousuario
+      SET nome = ?, data_nascimento = ?, telefone = ?, nome_empresa = ?, tem_empresa = ?, senha = ?
+      WHERE id = ?
+    `;
+
+    db.query(sqlUpdateNovoUsuario, [
+      nome,
+      dataNascimento,
+      telefone,
+      nome_empresa || null,
+      temEmpresaNum,
+      senha,
+      novousuarioId
+    ], (err2) => {
+      if (err2) return res.status(500).json({ error: err2.message });
+
+      let sqlUpdateUsuario;
+      let paramsUsuario;
+
+      if (fotoPath) {
+        sqlUpdateUsuario = `
+          UPDATE usuario
+          SET email = ?, senha = ?, foto = ?
+          WHERE id = ?
+        `;
+        paramsUsuario = [email, senha, fotoPath, id];
+      } else {
+        sqlUpdateUsuario = `
+          UPDATE usuario
+          SET email = ?, senha = ?
+          WHERE id = ?
+        `;
+        paramsUsuario = [email, senha, id];
+      }
+
+      db.query(sqlUpdateUsuario, paramsUsuario, (err3) => {
+        if (err3) return res.status(500).json({ error: err3.message });
+        res.json({ message: 'Perfil atualizado com sucesso!' });
+      });
+    });
   });
 });
 

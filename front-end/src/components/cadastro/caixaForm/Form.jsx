@@ -107,7 +107,7 @@ export function Form(prop) {
         });
     };
 
-    const [erro, setErro] = useState(false);
+    /*const [erro, setErro] = useState(false);
     const enviar = (e) => {
         if (
             nome == '' || data == '' ||
@@ -120,7 +120,7 @@ export function Form(prop) {
                 setErro(false);
             }, 2000);
         }
-    };
+    };*/
 
     const [foto, setFoto] = useState(null);
     const enviarDados = async (e) => {
@@ -132,8 +132,8 @@ export function Form(prop) {
             (!isChecked && empresa === '') ||
             password === '' || confirmPassword === ''
         ) {
-            setErro(true);
-            setTimeout(() => setErro(false), 2000);
+            /*setErro(true);
+            setTimeout(() => setErro(false), 2000);*/
             return;
         }
 
@@ -187,6 +187,20 @@ export function Form(prop) {
         }
     };
 
+    //Para mudar os valores dos inputs
+    useEffect(() => {
+        if (location.pathname !== "/cadastro") {
+            setNome(prop.nome || "");
+            setData(prop.dataNascimento ? prop.dataNascimento.slice(0,10) : "");
+            setTel(prop.telefone || "");
+            setEmpresa(prop.nomeEmpresa || "");
+            setEmail(prop.email || "");
+            setPassword(prop.senha || "");
+            setConfirmPassword(prop.senha || "");
+        }
+    }, [location.pathname, prop.nome, prop.dataNascimento, prop.telefone, prop.nomeEmpresa, prop.email, prop.senha]);
+
+
     return (
         <div id="caixaForm" className="caixaSegurar formCadastro">
 
@@ -194,13 +208,13 @@ export function Form(prop) {
 
             <span className='msgEditar'>{location.pathname === "/cadastro" ? null : "Edite seu perfil e se mantenha atualizado"}</span>
 
-            <form id="formLogin" onSubmit={enviarDados}>
+            <form id="formLogin" onSubmit={location.pathname === "/cadastro" ? enviarDados : prop.onSubmit}>
                 <input
                     type="text"
                     placeholder="Nome completo"
                     id='campNome'
                     required
-                    value={location.pathname === "/cadastro" ? "" : prop.nome}
+                    value={nome}
                     onChange={handleNomeChange}
                 />
                 {!isNomeValido && nome.length > 0 && (
@@ -211,7 +225,7 @@ export function Form(prop) {
                     type="date"
                     required
                     placeholder='Data de nascimento'
-                    value={location.pathname === "/cadastro" ? "" : prop.dataNascimento}
+                    value={data.slice(0, 10)}
                     onChange={handleDataChange}
                 />
                 {!isDataValido && data.length > 0 && (
@@ -222,7 +236,7 @@ export function Form(prop) {
                     type="tel"
                     placeholder="Telefone"
                     required
-                    value={location.pathname === "/cadastro" ? "" : prop.telefone}
+                    value={tel}
                     onChange={handleTelefoneChange}
                 />
                 {!isTelefoneValido && tel.length > 0 && (
@@ -236,7 +250,7 @@ export function Form(prop) {
                     id='campoEmpresa'
                     disabled={isChecked}
                     /*value={isChecked ? "" : empresa}*/
-                    value={location.pathname === "/cadastro" ? "" : prop.nomeEmpresa}
+                    value={empresa}
                     onChange={handleEmpresaChange}
                 />
                 {!isEmpresaValido && empresa.length > 0 && (
@@ -257,14 +271,13 @@ export function Form(prop) {
                 <input
                     type='file' 
                     onChange={(e) => setFoto(e.target.files[0])}
-
                 />
 
                 <input
                     type="email"
                     placeholder="Email"
                     required
-                    value={location.pathname === "/cadastro" ? "" : prop.email}
+                    value={email}
                     onChange={handleEmailChange}
                 />
                 {!isEmailValido && email.length > 0 && (
@@ -275,7 +288,7 @@ export function Form(prop) {
                     type="password"
                     placeholder="Senha"
                     required
-                    value={location.pathname === "/cadastro" ? "" : prop.senha}
+                    value={password}
                     onChange={(e) => validatePassword(e.target.value)}
                     onFocus={() => setShowValidation(true)}
                     onBlur={() => !password && setShowValidation(false)}
@@ -302,13 +315,14 @@ export function Form(prop) {
                     </ul>
                 )}
 
-                <input
+                {location.pathname === "/cadastro" ? <input
                     type="password"
                     placeholder="Confirme a senha"
                     required
                     value={confirmPassword}
                     onChange={(e) => validateConfirmPassword(e.target.value)}
-                />
+                />: null}
+
                 {!passwordMatch && confirmPassword.length > 0 && (
                     <p className='error'>As senhas não coincidem!</p>
                 )}
@@ -316,10 +330,11 @@ export function Form(prop) {
                 <input
                     type="submit"
                     value={location.pathname === "/cadastro" ? "Cadastrar" : "Redefinir"}
-                    onClick={enviar}
+                    /*onClick={location.pathname === "/cadastro" ? {enviar} : prop.onSubmit}*/
+                    
                 />
 
-                {erro && <ErroInputVazio />}
+                {/*{erro && <ErroInputVazio />}*/}
                 {location.pathname === "/cadastro" ? <Raiz /> : null}
                 {location.pathname === "/cadastro" ? <span>Já tem uma conta? <Link to='/login'>Faça login</Link></span> : null}
                 
