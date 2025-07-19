@@ -16,6 +16,7 @@ export function Perfil() {
   const [senha, setSenha] = useState('');
   const [telefone, setTelefone] = useState('');
   const [nomeEmpresa, setNomeEmpresa] = useState('');
+  const [idCadastro, setIdCadastro] = useState('');
 
   useEffect(() => {
     if (!id) {
@@ -37,24 +38,47 @@ export function Perfil() {
         setSenha(data.senha);
         setTelefone(data.telefone);
         setNomeEmpresa(data.nome_empresa ? data.nome_empresa.charAt(0).toUpperCase() + data.nome_empresa.slice(1) : '');
+
+        setIdCadastro(data.id)
       })
         .catch(err => console.error("Erro ao carregar perfil:", err));
       }, [id]);
+  
+
+      //Modificando campos
+      const handleChangeNome = (novoNome) => {
+        setNomeUsuario(novoNome);
+      };
+      const handleChangeData = (novaData) => {
+        setDataNascimento(novaData);
+      };
+      const handleChangeEmail = (novoEmail) => {
+        setEmail(novoEmail);
+      };
+      const handleChangeSenha = (novoSenha) => {
+        setSenha(novoSenha);
+      };
+      const handleChangeTelefone = (novoTelefone) => {
+        setTelefone(novoTelefone);
+      };
+      const handleChangeNomeEmpresa = (novoNomeEmpresa) => {
+        setNomeEmpresa(novoNomeEmpresa);
+      };
 
       function handleSalvar(event) {
         event.preventDefault();
 
         const formData = new FormData();
         formData.append("nome", nomeUsuario);
-        formData.append("data_nascimento", dataNascimento);
+        formData.append("data_nascimento", dataNascimento.split('T')[0]);
         formData.append("email", email);
         formData.append("senha", senha);
         formData.append("telefone", telefone);
         formData.append("nome_empresa", nomeEmpresa);
-        formData.append("tem_empresa", false);
+        formData.append("tem_empresa", 1);
 
-
-        fetch(`http://localhost:3000/perfil/${id}`, {
+        console.log(idCadastro)
+        fetch(`http://localhost:3000/perfil/${idCadastro}`, {
           method: "PUT",
           body: formData,
         })
@@ -69,14 +93,14 @@ export function Perfil() {
         });
   }
 
-
+  console.log(fotoUsuario )
   return (
     <main id='perfilMain'>
       <div className='caixaPerfil'>
         <div className='fotoPerfil'>
           <Link to='/perfil'>
             <img
-              src={fotoUsuario !== 'null' ? fotoUsuario : "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAWVJREFUSEvFlM8rRFEUxz/fZI2wsJxkZaPYytKGmqLY2NjZWPi1tFFKiaT8CbKRX9n4ByjJQrMiS1JYoJTimJnmTePNe3Nf983k7t6793w+59zOuaLBSw3mk0hgZkPAKtBbSugGWJJ07krQKTCzSWAXqpL5AbKSTmpJagrMrBW4B9piII9At6TPOIlLkAUOHNcwLOnMVzAPrDsEc5I2fQWjwLFDMCLp1FfQAtwBHTGAJ6BH0ruXoBBkZhPAXgSg0EVjkg69uygINLNBYK00B99ADliUdJF6DlwA175z0FwA136swMw6gQWgH+gD2kOwF+AauAQ2JD1HySIFZjaVB24DhS5Ksl6BaUlH4cNVAjObzT8NW0moEWfGJe1X/v8jMLMMcAs0eQo+gEzldYUFO8CMJzwIW5a0EnyEBQ9AV0rBlaSBOMEX0JxS8JZ//MrNEa7AUsKL4ZLK3P8btHpUUqymXqA4zi95YmAZ3ClLGQAAAABJRU5ErkJggg=="}
+              src={fotoUsuario !== null ? fotoUsuario : "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAWVJREFUSEvFlM8rRFEUxz/fZI2wsJxkZaPYytKGmqLY2NjZWPi1tFFKiaT8CbKRX9n4ByjJQrMiS1JYoJTimJnmTePNe3Nf983k7t6793w+59zOuaLBSw3mk0hgZkPAKtBbSugGWJJ07krQKTCzSWAXqpL5AbKSTmpJagrMrBW4B9piII9At6TPOIlLkAUOHNcwLOnMVzAPrDsEc5I2fQWjwLFDMCLp1FfQAtwBHTGAJ6BH0ruXoBBkZhPAXgSg0EVjkg69uygINLNBYK00B99ADliUdJF6DlwA175z0FwA136swMw6gQWgH+gD2kOwF+AauAQ2JD1HySIFZjaVB24DhS5Ksl6BaUlH4cNVAjObzT8NW0moEWfGJe1X/v8jMLMMcAs0eQo+gEzldYUFO8CMJzwIW5a0EnyEBQ9AV0rBlaSBOMEX0JxS8JZ//MrNEa7AUsKL4ZLK3P8btHpUUqymXqA4zi95YmAZ3ClLGQAAAABJRU5ErkJggg=="}
               alt="foto de perfil"
               id='imagemPerfil'
             />
@@ -103,12 +127,19 @@ export function Perfil() {
       <Form
         id={id}
         nome={nomeUsuario}
+        setNomeUsuario = {handleChangeNome}
         dataNascimento={dataNascimento}
+        setDataNascimento={handleChangeData}
         email={email}
+        setEmail={handleChangeEmail}
         senha={senha}
+        setSenha={handleChangeSenha}
         nomeEmpresa={nomeEmpresa}
+        setNomeEmpresa={handleChangeNomeEmpresa}
         telefone={telefone}
+        setTelefone={handleChangeTelefone}
         onSubmit={handleSalvar}
+        
       />
     </main>
   );

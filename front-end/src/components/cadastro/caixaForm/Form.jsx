@@ -14,6 +14,7 @@ export function Form(prop) {
     const handleNomeChange = (e) => {
         const value = e.target.value;
         setNome(value);
+        prop.setNomeUsuario(value)
         setIsNomeValido(validacao.padraoString(value));
     };
 
@@ -22,6 +23,7 @@ export function Form(prop) {
     const handleDataChange = (e) => {
         const value = e.target.value;
         setData(value);
+        prop.setDataNascimento(value)
         setIsDataValido(validacao.padraoData(value));
     };
 
@@ -54,6 +56,7 @@ export function Form(prop) {
         }
 
         setIsTelefoneValido(validacao.padraoTelefone(value));
+        prop.setTelefone(value)
     };
 
     const [isChecked, setIsChecked] = useState(false);
@@ -62,6 +65,7 @@ export function Form(prop) {
     const handleEmpresaChange = (e) => {
         const value = e.target.value;
         setEmpresa(value);
+        prop.setNomeEmpresa(value)
         setIsEmpresaValido(validacao.padraoString(value));
     };
 
@@ -76,6 +80,7 @@ export function Form(prop) {
     const handleEmailChange = (e) => {
         const value = e.target.value;
         setEmail(value);
+        prop.setEmail(value)
         setIsEmailValido(validacao.padraoEmail(value));
     };
 
@@ -98,6 +103,7 @@ export function Form(prop) {
 
     const validatePassword = (value) => {
         setPassword(value);
+        prop.setSenha(value)
         setValidation({
             hasUpperCase: /[A-Z]/.test(value),
             hasLowerCase: /[a-z]/.test(value),
@@ -107,7 +113,7 @@ export function Form(prop) {
         });
     };
 
-    /*const [erro, setErro] = useState(false);
+    const [erro, setErro] = useState(false);
     const enviar = (e) => {
         if (
             nome == '' || data == '' ||
@@ -120,7 +126,7 @@ export function Form(prop) {
                 setErro(false);
             }, 2000);
         }
-    };*/
+    };
 
     const [foto, setFoto] = useState(null);
     const enviarDados = async (e) => {
@@ -132,8 +138,8 @@ export function Form(prop) {
             (!isChecked && empresa === '') ||
             password === '' || confirmPassword === ''
         ) {
-            /*setErro(true);
-            setTimeout(() => setErro(false), 2000);*/
+            setErro(true);
+            setTimeout(() => setErro(false), 2000);
             return;
         }
 
