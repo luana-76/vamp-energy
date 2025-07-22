@@ -64,6 +64,15 @@ export function Perfil() {
       const handleChangeNomeEmpresa = (novoNomeEmpresa) => {
         setNomeEmpresa(novoNomeEmpresa);
       };
+      
+      const [arquivoFoto, setArquivoFoto] = useState(null);
+
+      const handleChangeFoto = (file) => {
+
+        setArquivoFoto(file);
+        if (file) setFotoUsuario(URL.createObjectURL(file));
+        
+      };
 
       function handleSalvar(event) {
         event.preventDefault();
@@ -72,6 +81,7 @@ export function Perfil() {
         formData.append("nome", nomeUsuario);
         formData.append("data_nascimento", dataNascimento.split('T')[0]);
         formData.append("email", email);
+        if (arquivoFoto) formData.append("foto", arquivoFoto);
         formData.append("senha", senha);
         formData.append("telefone", telefone);
         formData.append("nome_empresa", nomeEmpresa);
@@ -93,7 +103,6 @@ export function Perfil() {
         });
   }
 
-  console.log(fotoUsuario )
   return (
     <main id='perfilMain'>
       <div className='caixaPerfil'>
@@ -139,7 +148,7 @@ export function Perfil() {
         telefone={telefone}
         setTelefone={handleChangeTelefone}
         onSubmit={handleSalvar}
-        
+        setFoto={handleChangeFoto}
       />
     </main>
   );

@@ -5,7 +5,7 @@ import videoFundo from '../../assets/login.mp4';
 import { Form } from './caixaForm/Form.jsx';
 
 export function Cadastro() {
- 
+
     return (
         <main id="mainLogin" className="mainCadastro">
 

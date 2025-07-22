@@ -81,6 +81,11 @@ export function Login(){
         
     };
 
+    const handleLogin = () => {
+        
+        navigate('/informacoes'); // Vai pra página inicial
+    };
+
     return(
         <main id='mainLogin'>
 

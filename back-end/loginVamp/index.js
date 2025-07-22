@@ -6,18 +6,20 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
+
+// -------------------- Configurações --------------------
+
 app.use(express.json());
 
 //Permite o front
 app.use(cors({ origin: 'http://localhost:5173' }));
 
-//Permite imagens na pasta uploads
+// Middleware para servir imagens públicas da pasta 'uploads'
 app.use('/uploads', express.static('uploads', {
   setHeaders: (res) => {
     res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
   }
 }));
-
 
 // Cria a pasta uploads se não existir
 const uploadDir = path.join(__dirname, 'uploads');
@@ -36,14 +38,8 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-// Servir imagens estaticamente da pasta uploads
-app.use('/uploads', express.static('uploads', {
-  setHeaders: (res) => {
-    res.setHeader("Cross-Origin-Resource-Policy", "same-origin"); // ou "cross-origin" se necessário
-  }
-}));
+// -------------------- Banco de Dados --------------------
 
-// Conexão com o banco
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
@@ -59,7 +55,10 @@ db.connect((err) => {
   }
 });
 
-// Rota de cadastro com foto
+// -------------------- Rotas --------------------
+
+// 📌 Rota para cadastro de novo usuário (tabelas: novousuario e usuario)
+
 app.post('/cadastrandoUsuarios', upload.single('foto'), (req, res) => {
   console.log('Recebido no backend:', req.body);
 
@@ -116,7 +115,8 @@ app.post('/cadastrandoUsuarios', upload.single('foto'), (req, res) => {
 });
 
 
-// Rota de login
+// 📌 Rota para login de usuário (com JOIN entre novousuario e usuario)
+
 app.post('/usuarios', (req, res) => {
   const { email, senha } = req.body;
 
@@ -156,6 +156,7 @@ app.post('/usuarios', (req, res) => {
   });
 });
 
+// 📌 Rota para buscar dados de perfil de um usuário pelo ID
 
 app.get('/perfil/:id', (req, res) => {
   const { id } = req.params;
@@ -194,8 +195,8 @@ app.get('/perfil/:id', (req, res) => {
   });
 });
 
+// 📌 Rota para editar perfil (atualiza novousuario e usuario)
 
-// ROTA PUT
 app.put('/perfil/:id', upload.single('foto'), (req, res) => {
   const id = req.params.id;
   const {
@@ -208,32 +209,26 @@ app.put('/perfil/:id', upload.single('foto'), (req, res) => {
     senha
   } = req.body;
 
-  const foto = req.file ? req.file.buffer : null;
+  const foto = req.file ? req.file.filename : null;
 
-  const sql = `
-    UPDATE novousuario 
-    SET nome = ?,
-    data_nascimento = ?,
-    telefone = ?,
-    nome_empresa = ?,
-    tem_empresa = ?,
-    email = ?,
-    senha = ?,
-    foto = ?
-    WHERE id = ?
-  `;
+  let sql, values;
 
-  const values = [
-    nome,
-    data_nascimento,
-    telefone,
-    nome_empresa,
-    tem_empresa,
-    email,
-    senha,
-    foto,
-    id
-  ];
+  // Atualiza com ou sem foto, dependendo do req.file
+  if (foto) {
+    sql = `
+      UPDATE novousuario 
+      SET nome = ?, data_nascimento = ?, telefone = ?, nome_empresa = ?, tem_empresa = ?, email = ?, senha = ?, foto = ?
+      WHERE id = ?
+    `;
+    values = [nome, data_nascimento, telefone, nome_empresa, tem_empresa, email, senha, foto, id];
+  } else {
+    sql = `
+      UPDATE novousuario 
+      SET nome = ?, data_nascimento = ?, telefone = ?, nome_empresa = ?, tem_empresa = ?, email = ?, senha = ?
+      WHERE id = ?
+    `;
+    values = [nome, data_nascimento, telefone, nome_empresa, tem_empresa, email, senha, id];
+  }
 
   db.query(sql, values, (err, result) => {
     if (err) {
@@ -245,26 +240,36 @@ app.put('/perfil/:id', upload.single('foto'), (req, res) => {
       return res.status(404).json({ error: 'Usuário não encontrado' });
     }
 
-    /*const sqlUsuario = `
-     UPDATE usuario 
-      SET novousuario_id = ?, 
-          email = ?, 
-          senha = ?, 
-          foto = ?
-      WHERE id = ?
+    // Atualiza a tabela usuario também
+    let sqlUpdateUsuario, valuesUpdate;
 
-    `;
+    if (foto) {
+      sqlUpdateUsuario = `
+        UPDATE usuario 
+        SET email = ?, senha = ?, foto = ?
+        WHERE novousuario_id = ?
+      `;
+      valuesUpdate = [email, senha, foto, id];
+    } else {
+      sqlUpdateUsuario = `
+        UPDATE usuario 
+        SET email = ?, senha = ?
+        WHERE novousuario_id = ?
+      `;
+      valuesUpdate = [email, senha, id];
+    }
 
-    db.query(sqlUsuario, [email, senha, foto, id], (err2, result2) => {
+    db.query(sqlUpdateUsuario, valuesUpdate, (err2, result2) => {
       if (err2) {
-        console.error('Erro ao atualizar a tabela usuario:', err2);
-        return res.status(500).json({ error: err2.message });
+        console.error('Erro ao atualizar usuario:', err2);
+        return res.status(500).json({ error: 'Erro ao atualizar a tabela usuario' });
       }
-    });*/
 
-    res.json({ message: 'Perfil atualizado com sucesso' });
+      res.json({ message: 'Perfil atualizado com sucesso' });
+    });
   });
 });
+
 
 // Porta do servidor
 app.listen(3000, () => {

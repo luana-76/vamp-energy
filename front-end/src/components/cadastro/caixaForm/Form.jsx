@@ -1,4 +1,4 @@
-import { Link, useLocation} from "react-router-dom";
+import { Link, useLocation, useNavigate} from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Autenticacao } from '../autenticacao.js';
 import { ErroInputVazio } from '../../ErroVazio/ErroInpuVazio.jsx';
@@ -9,12 +9,14 @@ export function Form(prop) {
     const location = useLocation();
     const validacao = new Autenticacao(); // Importando as válidações
 
+    const navigate = useNavigate();
+
     const [nome, setNome] = useState("");
     const [isNomeValido, setIsNomeValido] = useState(true);
     const handleNomeChange = (e) => {
         const value = e.target.value;
         setNome(value);
-        prop.setNomeUsuario(value)
+        {location.pathname === "/perfil" ? prop.setNomeUsuario(value) : null}
         setIsNomeValido(validacao.padraoString(value));
     };
 
@@ -23,7 +25,8 @@ export function Form(prop) {
     const handleDataChange = (e) => {
         const value = e.target.value;
         setData(value);
-        prop.setDataNascimento(value)
+        {location.pathname === "/perfil" ? prop.setDataNascimento(value) : null}
+        
         setIsDataValido(validacao.padraoData(value));
     };
 
@@ -56,7 +59,8 @@ export function Form(prop) {
         }
 
         setIsTelefoneValido(validacao.padraoTelefone(value));
-        prop.setTelefone(value)
+        {location.pathname === "/perfil" ? prop.setTelefone(value) : null}
+        
     };
 
     const [isChecked, setIsChecked] = useState(false);
@@ -65,7 +69,8 @@ export function Form(prop) {
     const handleEmpresaChange = (e) => {
         const value = e.target.value;
         setEmpresa(value);
-        prop.setNomeEmpresa(value)
+        {location.pathname === "/perfil" ? prop.setNomeEmpresa(value) : null}
+        
         setIsEmpresaValido(validacao.padraoString(value));
     };
 
@@ -80,8 +85,19 @@ export function Form(prop) {
     const handleEmailChange = (e) => {
         const value = e.target.value;
         setEmail(value);
-        prop.setEmail(value)
+        {location.pathname === "/perfil" ? prop.setEmail(value) : null}
+        
         setIsEmailValido(validacao.padraoEmail(value));
+    };
+
+    const [foto, setFoto] = useState("");
+    const handleChangeFoto = (e) => {
+    if (e.target.files && e.target.files[0]) {
+        const file = e.target.files[0];
+        setFoto(file);
+        {location.pathname === "/perfil" ? prop.setFoto(file) : null}
+        
+    }
     };
 
     const [password, setPassword] = useState("");
@@ -103,7 +119,8 @@ export function Form(prop) {
 
     const validatePassword = (value) => {
         setPassword(value);
-        prop.setSenha(value)
+        {location.pathname === "/perfil" ? prop.setSenha(value) : null}
+        
         setValidation({
             hasUpperCase: /[A-Z]/.test(value),
             hasLowerCase: /[a-z]/.test(value),
@@ -128,7 +145,7 @@ export function Form(prop) {
         }
     };
 
-    const [foto, setFoto] = useState(null);
+    //const [foto, setFoto] = useState(null);
     const enviarDados = async (e) => {
         e.preventDefault();
 
@@ -157,7 +174,9 @@ export function Form(prop) {
         formData.append('email', email);
         formData.append('senha', password);
         if (foto) {
+            
             formData.append('foto', foto);
+            localStorage.setItem("foto", foto);
         }
 
         try {
@@ -179,7 +198,7 @@ export function Form(prop) {
                 setPassword('');
                 setConfirmPassword('');
                 setIsChecked(false);
-                setFoto(null);
+                setFoto('');
 
 
             } else {
@@ -276,7 +295,8 @@ export function Form(prop) {
 
                 <input
                     type='file' 
-                    onChange={(e) => setFoto(e.target.files[0])}
+                    //onChange={(e) => setFoto(e.target.files[0])}
+                    onChange={handleChangeFoto}
                 />
 
                 <input
@@ -336,7 +356,8 @@ export function Form(prop) {
                 <input
                     type="submit"
                     value={location.pathname === "/cadastro" ? "Cadastrar" : "Redefinir"}
-                    /*onClick={location.pathname === "/cadastro" ? {enviar} : prop.onSubmit}*/
+                    onClick={location.pathname === "/cadastro" ? () => navigate('/login') : undefined}
+
                     
                 />
 

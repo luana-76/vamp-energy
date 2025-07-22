@@ -3,9 +3,10 @@ import "./styleHeader.css";
 import "./responsiveHeader.css";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate} from "react-router-dom";
 
 export function Header() {
+
   const [activeLink, setActiveLink] = useState("Início"); // Link ativo da navegação
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Estado do menu dropdown
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024); // Define se está em modo mobile
@@ -16,6 +17,7 @@ export function Header() {
   const [fotoUsuario, setFotoUsuario] = useState('');
 
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Atualiza o estado de mobile e fecha dropdown ao redimensionar a tela
   useEffect(() => {
@@ -66,6 +68,23 @@ export function Header() {
   }
 }, [location.pathname]);
   
+ useEffect(() => {
+  const usuarioId = localStorage.getItem("idUsuario");
+
+  if (usuarioId) {
+    fetch(`http://localhost:3000/perfil/${usuarioId}`)
+      .then(res => res.json())
+      .then(data => {
+        if (data) {
+          console.log(data)
+          localStorage.setItem("fotoUsuario", data.foto)
+          localStorage.setItem("nomeUsuario", data.nome)
+        }
+      })
+      .catch(err => console.error("Erro ao buscar usuário:", err));
+  }
+}, []);
+
   return (
     <header
       style={
@@ -145,6 +164,7 @@ export function Header() {
                       localStorage.removeItem("usuarioLogado");
                       localStorage.removeItem("nomeUsuario"); 
                       window.location.reload();
+                      navigate('/');
                     }}
                     style={{ color: "#ff4141", background: "transparent", border: "none", cursor: "pointer" }}
                   >
@@ -273,7 +293,7 @@ export function Header() {
               
             ) : (
               
-              <Link to='/login'>
+              <Link to=''>
 
                  <img
                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAWVJREFUSEvFlM8rRFEUxz/fZI2wsJxkZaPYytKGmqLY2NjZWPi1tFFKiaT8CbKRX9n4ByjJQrMiS1JYoJTimJnmTePNe3Nf983k7t6793w+59zOuaLBSw3mk0hgZkPAKtBbSugGWJJ07krQKTCzSWAXqpL5AbKSTmpJagrMrBW4B9piII9At6TPOIlLkAUOHNcwLOnMVzAPrDsEc5I2fQWjwLFDMCLp1FfQAtwBHTGAJ6BH0ruXoBBkZhPAXgSg0EVjkg69uygINLNBYK00B99ADliUdJF6DlwA175z0FwA136swMw6gQWgH+gD2kOwF+AauAQ2JD1HySIFZjaVB24DhS5Ksl6BaUlH4cNVAjObzT8NW0moEWfGJe1X/v8jMLMMcAs0eQo+gEzldYUFO8CMJzwIW5a0EnyEBQ9AV0rBlaSBOMEX0JxS8JZ//MrNEa7AUsKL4ZLK3P8btHpUUqymXqA4zi95YmAZ3ClLGQAAAABJRU5ErkJggg=="
@@ -294,7 +314,10 @@ export function Header() {
                     onClick={() => {
                       localStorage.removeItem("usuarioLogado");
                       localStorage.removeItem("nomeUsuario"); 
-                      window.location.reload();
+                      {location.pathname === "/perfil" ? navigate('/'): ""}
+                      localStorage.clear();
+                      window.location.reload()
+    
                     }}
                     style={{ color: "#ff4141", background: "transparent", border: "none", cursor: "pointer" }}
                   >
