@@ -1,5 +1,4 @@
 import './styleLogin.css';
-import './responsive.css';
 import videoFundo from '../../assets/login.mp4';
 import { useState } from "react";
 import { Raiz } from '../google/Raiz';
@@ -89,10 +88,10 @@ export function Login(){
     return(
         <main id='mainLogin'>
 
-            <video id='fundoVideo' autoPlay loop muted>
+            {/*<video id='fundoVideo' autoPlay loop muted>
                 <source src={videoFundo} type="video/mp4"/>
                 Seu navegador não suporta a tag de vídeo.
-            </video>
+            </video>*/}
 
             <div id='caixaForm'>
                 <h1>Entrar</h1>

@@ -170,7 +170,7 @@ export function Form(prop) {
         formData.append('data_nascimento', data);
         formData.append('telefone', tel);
         formData.append('nome_empresa', empresa);
-        formData.append('tem_empresa', !isChecked);
+        formData.append('tem_empresa', isChecked ? '0' : '1');
         formData.append('email', email);
         formData.append('senha', password);
         if (foto) {
@@ -188,7 +188,6 @@ export function Form(prop) {
             if (response.ok) {
 
                 const resultado = await response.json();
-                console.log(resultado);
                 alert('Usuário cadastrado com sucesso!');
                 setNome('');
                 setData('');
@@ -197,7 +196,7 @@ export function Form(prop) {
                 setEmail('');
                 setPassword('');
                 setConfirmPassword('');
-                setIsChecked(false);
+                setIsChecked('');
                 setFoto('');
 
 
@@ -211,7 +210,7 @@ export function Form(prop) {
             alert('Erro de conexão com o servidor.');
         }
     };
-
+    
     //Para mudar os valores dos inputs
     useEffect(() => {
         if (location.pathname !== "/cadastro") {
@@ -287,7 +286,16 @@ export function Form(prop) {
                         type="checkbox"
                         id="checkCadastro"
                         checked={isChecked}
-                        onChange={() => setIsChecked(!isChecked)}
+                        onChange={(e) => {
+
+                            const checked = e.target.checked;
+                            setIsChecked(checked);
+            
+                        }
+                            
+                            
+                        
+                        }
                     />
                     <label htmlFor="switch"></label>
                     <span>Não tenho uma empresa</span>
@@ -323,19 +331,19 @@ export function Form(prop) {
                 />
                 {showValidation && (
                     <ul className="password-validation">
-                        <li style={{ color: validation.hasUpperCase ? "green" : "red" }}>
+                        <li style={{ color: validation.hasUpperCase ? "#ffffff5e" : "white" }}>
                             {validation.hasUpperCase ? "✔" : "✖"} Pelo menos uma letra maiúscula
                         </li>
-                        <li style={{ color: validation.hasLowerCase ? "green" : "red" }}>
+                        <li style={{ color: validation.hasLowerCase ? "#ffffff5e" : "white" }}>
                             {validation.hasLowerCase ? "✔" : "✖"} Pelo menos uma letra minúscula
                         </li>
-                        <li style={{ color: validation.hasNumber ? "green" : "red" }}>
+                        <li style={{ color: validation.hasNumber ? "#ffffff5e" : "white" }}>
                             {validation.hasNumber ? "✔" : "✖"} Pelo menos um número
                         </li>
-                        <li style={{ color: validation.hasSpecialChar ? "green" : "red" }}>
+                        <li style={{ color: validation.hasSpecialChar ? "#ffffff5e" : "white" }}>
                             {validation.hasSpecialChar ? "✔" : "✖"} Pelo menos um caractere especial
                         </li>
-                        <li style={{ color: validation.hasValidLength ? "green" : "red" }}>
+                        <li style={{ color: validation.hasValidLength ? "#ffffff5e" : "white" }}>
                             {validation.hasValidLength ? "✔" : "✖"} Entre 8 e 20 caracteres
                         </li>
                     </ul>

@@ -6,24 +6,14 @@
     justify-content: center;
     position: relative;
     z-index: 1;
-    background: #00000042;
-}
-
-#fundoVideo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -1;
-    filter: brightness(2);
+    background: url("../../assets/login.png");
 }
 
 #caixaForm{
 
     width: 50vw;
-    background: #2a292bcf;
+    background: rgba(255, 255, 255, 0.1); /* fundo branco transparente */
+    backdrop-filter: blur(10px);  
     border-radius: 10px;
     padding: 20px;
     display: flex;

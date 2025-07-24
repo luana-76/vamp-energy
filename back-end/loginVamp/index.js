@@ -82,7 +82,7 @@ app.post('/cadastrandoUsuarios', upload.single('foto'), (req, res) => {
     dataNascimento,
     telefone,
     nome_empresa || null,
-    tem_empresa ? 1 : 0,
+    tem_empresa === '1' ? 0 : 1,
     email,
     senha,
     fotoPath

@@ -1,18 +1,12 @@
 .mainCadastro{
 
-    height: 100vh !important;
+    /*height: 100vh !important;*/
     padding: 50vh 0 20vh 0;
+    background: url("../../assets/login.png");
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
 }
-
-.mainCadastro #fundoVideo {
- 
-    height: calc(100vh + 70vh);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    object-fit: cover;
-    z-index: -1;
-  
-}
+.password-validation{padding: 0;}

@@ -1,9 +1,21 @@
+@media screen and 
+  (width: 768px) and (height: 1024px),
+  (width: 820px) and (height: 1180px),
+  (width: 912px) and (height: 1368px),
+  (width: 1024px) and (height: 1366px),
+  (width: 340px) and (height: 720px) {
+    
+  .mainCadastro {
+    height: 100vw;
+    padding-top: 160px;
+  }
+}
+
 /* Cadastro Responsivo */
 
 @media screen and (max-width: 1200px) {
 
     .mainCadastro{padding: 10vh 0 10vh 0;}
-    .mainCadastro #fundoVideo {height: calc(100vh + 20vh);}
 
     #caixaForm {
         width: 60vw;

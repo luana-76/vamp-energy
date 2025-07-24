@@ -85,7 +85,7 @@ export function Perfil() {
         formData.append("senha", senha);
         formData.append("telefone", telefone);
         formData.append("nome_empresa", nomeEmpresa);
-        formData.append("tem_empresa", 1);
+        formData.append("tem_empresa", 0);
 
         console.log(idCadastro)
         fetch(`http://localhost:3000/perfil/${idCadastro}`, {
