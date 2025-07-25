@@ -4,6 +4,7 @@
     justify-content: space-around;
     padding: 130px 0;
     background: #0d0521;
+    background: url("../../assets/fundoPerfil.png");
 
 }
 
@@ -47,7 +48,8 @@
 
 .caixaTempo{
 
-    background: #2a292bcf;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     padding: 10px;
     border-radius: 10px;
 
@@ -73,8 +75,7 @@
 
 }
 
-.perfilForm{border: none;}
-.caixaTempo{background: #261e38}
+.perfilForm{border: 0 !important;}
  @media (max-width: 1026px) {
 
     #perfilMain{

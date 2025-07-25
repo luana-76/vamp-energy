@@ -1,5 +1,4 @@
 import './styleLogin.css';
-import videoFundo from '../../assets/login.mp4';
 import { useState } from "react";
 import { Raiz } from '../google/Raiz';
 import { FaEye, FaEyeSlash } from "react-icons/fa";

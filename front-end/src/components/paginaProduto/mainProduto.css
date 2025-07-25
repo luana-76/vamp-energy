@@ -2,7 +2,7 @@
 #mainProduto {
   
   padding-bottom: 50px;
-  background: #0d0615;
+  background: #130e14;
 
 }
 
@@ -50,6 +50,7 @@
 
 /* === Imagem de separação/decoração entre seções === */
 .separacaoSecao {
+  filter: brightness(0.5);
   display: flex;
   width: 100vw;
   height: 40vh;
