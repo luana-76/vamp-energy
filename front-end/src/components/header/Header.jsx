@@ -88,7 +88,7 @@ export function Header() {
   return (
     <header
       style={
-        ["/produtos", "/comprar", "/carrinho", "/informacoes", "/login", "/cadastro", "/"].includes(location.pathname)
+        ["/produtos", "/comprar", "/carrinho", "/informacoes", "/login", "/cadastro", "/", "/perfil"].includes(location.pathname)
           ? { background: cor, zIndex: "9999"}
           : {}
       }

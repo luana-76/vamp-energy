@@ -77,6 +77,7 @@ export function Form(prop) {
     useEffect(() => {
         if (isChecked) {
             setEmpresa("");
+            {location.pathname === "/perfil" ? prop.setNomeEmpresa("") : null}
         }
     }, [isChecked]);
 
@@ -170,7 +171,7 @@ export function Form(prop) {
         formData.append('data_nascimento', data);
         formData.append('telefone', tel);
         formData.append('nome_empresa', empresa);
-        formData.append('tem_empresa', isChecked ? '0' : '1');
+        formData.append('tem_empresa', isChecked ? '1' : '0');
         formData.append('email', email);
         formData.append('senha', password);
         if (foto) {
@@ -226,7 +227,7 @@ export function Form(prop) {
 
 
     return (
-        <div id="caixaForm" className="caixaSegurar formCadastro">
+        <div id="caixaForm" className="caixaSegurar formCadastro perfilForm">
 
             <h1>{location.pathname === "/cadastro" ? "Cadastro" : "Dados do Usuário"}</h1>
 
@@ -290,6 +291,8 @@ export function Form(prop) {
 
                             const checked = e.target.checked;
                             setIsChecked(checked);
+                            {location.pathname === "/perfil" ? prop.setTemEmpresa(checked) : null}
+                        
             
                         }
                             

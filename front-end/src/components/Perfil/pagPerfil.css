@@ -2,9 +2,12 @@
 
     display: flex;
     justify-content: space-around;
-    margin-top: 130px;
+    padding: 130px 0;
+    background: #0d0521;
 
 }
+
+
 .caixaPerfil{
 
     display: flex;
@@ -13,16 +16,29 @@
 
 }
 
+.fotoPerfil img{
+
+    border: 2px solid #f8f6f6;
+    filter: drop-shadow(2px 1px 3px white);
+
+}
+
 /* Parte de perfil */
 
-.fotoPerfil{display: flex;}
+.fotoPerfil {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
 
 #perfilMain #imagemPerfil {width: 140px;}
 
 .logadoUsu #pagNomePerfil{
 
     font-weight: 500;
-    margin-left: 20px;
     font-size: 1.2em;
 
 }
@@ -57,6 +73,8 @@
 
 }
 
+.perfilForm{border: none;}
+.caixaTempo{background: #261e38}
  @media (max-width: 1026px) {
 
     #perfilMain{

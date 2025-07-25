@@ -17,6 +17,7 @@ export function Perfil() {
   const [telefone, setTelefone] = useState('');
   const [nomeEmpresa, setNomeEmpresa] = useState('');
   const [idCadastro, setIdCadastro] = useState('');
+  const [temEmpresa, setTemEmpresa] = useState(0);
 
   useEffect(() => {
     if (!id) {
@@ -40,6 +41,7 @@ export function Perfil() {
         setNomeEmpresa(data.nome_empresa ? data.nome_empresa.charAt(0).toUpperCase() + data.nome_empresa.slice(1) : '');
 
         setIdCadastro(data.id)
+       
       })
         .catch(err => console.error("Erro ao carregar perfil:", err));
       }, [id]);
@@ -52,6 +54,7 @@ export function Perfil() {
       const handleChangeData = (novaData) => {
         setDataNascimento(novaData);
       };
+      
       const handleChangeEmail = (novoEmail) => {
         setEmail(novoEmail);
       };
@@ -63,6 +66,10 @@ export function Perfil() {
       };
       const handleChangeNomeEmpresa = (novoNomeEmpresa) => {
         setNomeEmpresa(novoNomeEmpresa);
+      };
+
+      const handleChangeTemEmpresa = (temEmpresa) => {
+        setTemEmpresa(temEmpresa);
       };
       
       const [arquivoFoto, setArquivoFoto] = useState(null);
@@ -85,7 +92,9 @@ export function Perfil() {
         formData.append("senha", senha);
         formData.append("telefone", telefone);
         formData.append("nome_empresa", nomeEmpresa);
-        formData.append("tem_empresa", 0);
+        formData.append("tem_empresa", temEmpresa ? '0' : '1');
+        
+        console.log(nomeEmpresa)
 
         console.log(idCadastro)
         fetch(`http://localhost:3000/perfil/${idCadastro}`, {
@@ -149,6 +158,8 @@ export function Perfil() {
         setTelefone={handleChangeTelefone}
         onSubmit={handleSalvar}
         setFoto={handleChangeFoto}
+        temEmpresa={temEmpresa}
+        setTemEmpresa={handleChangeTemEmpresa}
       />
     </main>
   );
