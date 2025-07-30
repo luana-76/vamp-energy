@@ -201,7 +201,7 @@ export function ComprarProduto() {
                                 <img src={
                                     imagem === "/src/assets/produto/limao.jpeg"
                                     ? Limao
-                                    : imagem === "/src/assets/produto/tradicional.jpeg"
+                                    : imagem === "/assets/tradicional-Cmp_76vP.jpeg"
                                     ? Tradicional
                                     : imagem === "/src/assets/produto/misterioso.jpeg"
                                     ? Branco
