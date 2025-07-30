@@ -4,9 +4,18 @@
 
 /* Tablets e telas até 1024px */
 @media (max-width: 1024px) {
+    .embaca {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .informacoesProduto {
+        position: inherit;
+    }
     .comprar {
       height: auto;
       padding: 5vh 0;
+      padding-bottom: 0;
       margin: 0;
       width: 100vw;
     }
@@ -25,8 +34,8 @@
     }
   
     .imagemProduto img {
-      width: 40vw;
-      height: 35vh;
+        width: 50vw;
+        height: 50vh;
     }
   
     .informacoesProduto {
@@ -80,6 +89,19 @@
   
   /* Telas pequenas e celulares até 768px */
   @media (max-width: 768px) {
+
+    .cabecalho #close {
+      margin-left: 20px;
+    }
+
+    .comprar .seta{
+
+      background: #00000026;
+    }
+
+    .divisaoSetor {
+      flex-direction: column;
+    }
     .comprar {
       height: auto;
       padding: 5vh 0;
@@ -107,12 +129,26 @@
   
     .informacoesProduto {
       font-size: 1.2em;
+      bottom: 4%;
+      position: inherit;
     }
   
     .informacoesProduto h1 {
       font-size: 1.2em;
     }
-  
+
+    .caixaPagamento {
+      margin-top: 5vh;
+      display: flex;
+      padding-bottom: 40px;
+      flex-direction: column;
+      /*align-items: center;*/
+      margin-left: 20px;
+    }
+    #confirmar {
+        width: 100px;
+    }
+
     .precoComprar {
       flex-direction: column;
       align-items: center;
@@ -121,10 +157,17 @@
     .endereco .adicionar,
     .endereco .enderecoOpc,
     .formularioContainer {
-      width: 90%;
       max-width: 400px;
     }
-  
+
+    .embaca {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .informacoesProduto {
+      width: 90%;
+    }
     .inputEndereco {
       width: 90%;
     }

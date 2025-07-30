@@ -14,6 +14,25 @@ import { Link} from "react-router-dom";
 import { PagamentoQr } from "./Qr/PagamentoQr";
 import Credito from "./CartaoCredito/Credito";
 
+import Saco from "../../assets/produtosAmostra/sacoBebida.png"
+import Limao from "../../assets/produtosAmostra/limaoVamp.png"
+import Uva from "../../assets/produtosAmostra/uvaVamp.png"
+import Branco from "../../assets/produtosAmostra/brancoVamp.png"
+import Tradicional from "../../assets/produtosAmostra/originalVamp.png"
+
+import Pirula from "../../assets/produtosAmostra/pirula.png"
+import Whey from "../../assets/produtosAmostra/whey.png"
+import Isotonico from "../../assets/produtosAmostra/isotonico.png"
+import Creatina from "../../assets/produtosAmostra/creativa.png"
+import PoEnergetico from "../../assets/produtosAmostra/teste6.png"
+
+
+import Barra1 from "../../assets/produtosAmostra/barra6.png"
+import Barra2 from "../../assets/produtosAmostra/barra2.png"
+import Barra3 from "../../assets/produtosAmostra/barra3.png"
+import Barra4 from "../../assets/produtosAmostra/barra4.png"
+import Barra5 from "../../assets/produtosAmostra/barra5.png"
+
 export function ComprarProduto() {
 
     const navigate = useNavigate();
@@ -153,194 +172,242 @@ export function ComprarProduto() {
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);
-      
+    
+    console.log(imagem)
     return (
 
         <main id='mainCompra'>
             <section className="comprar">
 
-                {/* Seta de fechamento */}
-                <div id="close" onClick={() => navigate(-1)} style={{ cursor: 'pointer', marginLeft: "45px" }}>
-                    <img className='seta' src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAANBJREFUSEvtlEEKwjAQRd8/hKB7Bc8ggrcQXAteR1wLHkbBO7hxL3iHaCCFUmsyKcmuXZbhvT+TTETlT5X5jILkhM0jcs5NgZ2kY5LaKjAJAvwKLICDpLNVkhQE+A2YA09gJelVRNCBP4BNDtyH+NuBc24C3ENyD19LeluTN3W9ggD3M19+D3YwvLeDDtwcWFJv2J+f1QU+ctURNTMpJYnuQYmblLto2buQFIQz8e9Q81TsJV2s18skCJIZsJV0ssKjm5wDidWaOxgqHAXJyX0AzWRKGaDSgDcAAAAASUVORK5CYII=" alt='setaVoltar'/>
-                </div>
-
                 <div className="divisaoSetor">
-
+                    
                     <div className="cabecalho">
 
-                        <div className="imagemProduto">
-                            <img src={imagem} alt="produto" />
-                        </div>
-
-                        <div className="informacoesProduto">
-
-                            <h1>{nome}</h1>
-                            <div className="precoComprar">
-                                <span>R$ {preco} - <span style={{ color: "#C8A769" }}>10%</span></span>
-                                <span>1x</span>
+                        {/* Seta de fechamento */}
+                <div
+                    id="close"
+                    onClick={() => {
+                        document.getElementById('mainCompra').classList.add('animar-volta');
+                        setTimeout(() => {
+                        navigate(-1);
+                        }, 60); // mesma duração da animação
+                    }}
+                    style={{ cursor: 'pointer', marginRight: "45px" }}
+                    >
+                    <img className='seta' src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAANBJREFUSEvtlEEKwjAQRd8/hKB7Bc8ggrcQXAteR1wLHkbBO7hxL3iHaCCFUmsyKcmuXZbhvT+TTETlT5X5jILkhM0jcs5NgZ2kY5LaKjAJAvwKLICDpLNVkhQE+A2YA09gJelVRNCBP4BNDtyH+NuBc24C3ENyD19LeluTN3W9ggD3M19+D3YwvLeDDtwcWFJv2J+f1QU+ctURNTMpJYnuQYmblLto2buQFIQz8e9Q81TsJV2s18skCJIZsJV0ssKjm5wDidWaOxgqHAXJyX0AzWRKGaDSgDcAAAAASUVORK5CYII=" alt='setaVoltar'/>
+                </div>
+                        <div className="embaca">
+                            <div className="imagemProduto">
+                                <img src={
+                                    imagem === "/src/assets/produto/limao.jpeg"
+                                    ? Limao
+                                    : imagem === "/src/assets/produto/tradicional.jpeg"
+                                    ? Tradicional
+                                    : imagem === "/src/assets/produto/misterioso.jpeg"
+                                    ? Branco
+                                    : imagem === "/src/assets/produto/uva.jpeg"
+                                    ? Uva
+                                    :imagem === "/src/assets/produto/sacoBebida.webp"
+                                    ?Saco
+                                    : imagem === "/src/assets/produto/pirula.webp"
+                                    ?Pirula
+                                    : imagem === "/src/assets/produto/whey.webp"
+                                    ? Whey
+                                    : imagem === "/src/assets/produto/isotonico.webp"
+                                    ? Isotonico
+                                    : imagem === "/src/assets/produto/teste0.webp"
+                                    ? Creatina
+                                    : imagem === "/src/assets/produto/teste6.webp"
+                                    ? PoEnergetico
+                                    : imagem === "/src/assets/produto/barra6.webp"
+                                    ? Barra1
+                                    : imagem === "/src/assets/produto/barra2.webp"
+                                    ? Barra2
+                                    : imagem === "/src/assets/produto/barra3.webp"
+                                    ? Barra3
+                                    : imagem === "/src/assets/produto/barra4.webp"
+                                    ? Barra4
+                                    : imagem === "/src/assets/produto/barra5.webp"
+                                    ? Barra5
+                                    :""
+                                }
+                                    
+                                    alt="produto" />
                             </div>
 
+                            <div className="informacoesProduto">
+
+                                <h1>{nome}</h1>
+                                <div className="precoComprar">
+                                    <span>R$ {preco} - <span style={{ color: "#C8A769" }}>10%</span></span>
+                                    <span>1x</span>
+                                </div>
+
+                            </div>
                         </div>
 
                     </div>
 
                     {/* Parte de pagamentos */}
-                    <div className="pagamento">
 
-                        <h2>Pagamento</h2>
+                    <div className='caixaPagamento'>
+                        <div className="pagamento">
 
-                        <div id="tipoPagamento">
+                            <h2>Pagamento</h2>
 
-                            <div 
-                                
-                                className='caixaIcone'
-                                onClick={() => gerarBoleto()} style={{ backgroundColor: colorBackBoleto }}>
+                            <div id="tipoPagamento">
 
-                                <img src={imagemBoleto} className='icone' alt='boleto'/>
-
-                            </div>
-
-                            <div className='caixaIcone' onClick={() => setMostrarCredito(true)}>
-
-                                <img src={CartaoCredito} className='icone' alt='cartão de credito'/>
-
-                            </div>
-
-                            {/* Mostrando tela do Cartão de credito */}
-                            {mostrarCredito && (
-                                <Credito fechar={() => setMostrarCredito(false)} />
-                            )}
-
-                            <div className='caixaIcone' onClick={() => setMostrarPix(true)}>
-
-                                <img src={Pix} className='icone' alt='pix'/>
-
-                            </div>
-
-                            {/* Mostrando tela do pix */}
-                            {mostrarPix && (
-                                <PagamentoQr fechar={() => setMostrarPix(false)} />
-                            )}
-                        
-                        </div>
-
-                    </div>
-                    
-                    {/* Parte do endereço */}
-                    <div className="endereco">
-
-                        <h2>Endereço</h2>
-
-                        {enderecos.map((endereco, index) => (
-
-                            <div key={index} className="enderecoOpc">
-                                
-                                {/* Renderizando endereço */}
-                                {Object.keys(endereco).map((key) => (
-                                    <div key={key}>{`${key.charAt(0).toUpperCase() + key.slice(1)}: ${endereco[key]}`}</div>
-                                ))}
-
-                                <button onClick={() => editarEndereco(index)} className="editarEndereco">Editar</button>
-                                <button onClick={() => excluirEndereco(index)} className="excluirEndereco">Excluir</button>
-
-                            </div>
-
-                        ))}
-
-                        {/* Formulario de edição e de criação de endereço*/}
-                        {formVisivel ? (
-
-                            <div className="formularioEndereco">
-
-                                <div className="formularioContainer">
-
-                                    <h3>{editando !== null ? "Editar endereço" : "Preencha seu novo endereço"}</h3>
-                                    <span style={{Color: "gray", marginBottom: '20px'}}>Preencha os dados corretamente</span>
-
-                                    <input
-                                        type="text"
-                                        value={rua}
-                                        onChange={(e) => setRua(e.target.value)}
-                                        placeholder="Rua"
-                                        className="inputEndereco"
-                                    />
-
-                                    <input
-                                        type="text"
-                                        value={numero}
-                                        onChange={(e) => setNumero(e.target.value)}
-                                        placeholder="Número"
-                                        className="inputEndereco"
-                                    />
-
-                                    <input
-                                        type="text"
-                                        value={referencia}
-                                        onChange={(e) => setReferencia(e.target.value)}
-                                        placeholder="Referência"
-                                        className="inputEndereco"
-                                    />
-
-                                    <input
-                                        type="text"
-                                        value={cidade}
-                                        onChange={(e) => setCidade(e.target.value)}
-                                        placeholder="Cidade"
-                                        className="inputEndereco"
-                                    />
-
-                                    <input
-                                        type="text"
-                                        value={bairro}
-                                        onChange={(e) => setBairro(e.target.value)}
-                                        placeholder="Bairro"
-                                        className="inputEndereco"
-                                    />
-
-                                    <div className="formButtons">
-
-                                        <button onClick={editando !== null ? salvarEnderecoEditado : adicionarEndereco} className="salvarEndereco">
-                                            {editando !== null ? "Salvar" : "Salvar"}
-                                        </button>
-
-                                        <button onClick={() => setFormVisivel(false)} className="cancelarEndereco">Cancelar</button>
-
-                                    </div>
+                                <div 
                                     
+                                    className='caixaIcone'
+                                    onClick={() => gerarBoleto()} style={{ backgroundColor: colorBackBoleto }}>
+
+                                    <img src={imagemBoleto} className='icone' alt='boleto'/>
+
                                 </div>
+
+                                <div className='caixaIcone' onClick={() => setMostrarCredito(true)}>
+
+                                    <img src={CartaoCredito} className='icone' alt='cartão de credito'/>
+
+                                </div>
+
+                                {/* Mostrando tela do Cartão de credito */}
+                                {mostrarCredito && (
+                                    <Credito fechar={() => setMostrarCredito(false)} />
+                                )}
+
+                                <div className='caixaIcone' onClick={() => setMostrarPix(true)}>
+
+                                    <img src={Pix} className='icone' alt='pix'/>
+
+                                </div>
+
+                                {/* Mostrando tela do pix */}
+                                {mostrarPix && (
+                                    <PagamentoQr fechar={() => setMostrarPix(false)} />
+                                )}
+                            
                             </div>
-
-                        ) : (
-
-                            <div className="adicionar" onClick={() => {
-                                setFormVisivel(true);
-                                limparCampos(); // Limpa os campos antes de adicionar um novo endereço
-                            }}>Adicionar novo endereço  
-
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAARRJREFUSEvtlLFOwzAURc/9CgaGAoIFhJAYixi7deRz2PmZrmxsFUxILC0SQoJ26NCveMiRE6XBjZ8R3eolSvR8jp99HbHjoR3zcQvM7AB4BAwYS1p7FucSRPgLcBKhX8DQI8kKInwKnAHLKBgAn8BtTtIr6Kx8BdxEwTNwCGQ72SpIwSVVHZhZ6MAlSQr64PXBeiW/BB54iWRDUAL3ShpBJy1h/rGkhSfrZnYEfMfajXRVAjMLzzfgqgZKyka4LTezcAHrMZN0GV7aglfg+p8ET5JGjSC1kr920J2XSlHV6l7QnGU3hnUa9lvUt0Vz4NxzgxM175Iu2t9TMb0DHoDTQskHcC9p0isohGbLi/43WVqi4AcdgqsZWC8YwQAAAABJRU5ErkJggg=="/>
-                            </div>
-
-                        )}
-                    </div>
-                    
-                    {/* Parte do resumo da compra */}
-                    <div className="resumo">
-
-                        <h2>Resumo</h2>
-
-                        <div id="extrato">
-
-                            <span><span className="bold">Valor do produto:</span> R$ {preco}</span>
-                            <span><span className="bold">Desconto:</span> 10%</span>
-                            <span><span className="bold">Frete:</span> R${frete}</span>
-                            <h3 className="bold">Total: R${parseInt(preco) - (parseInt(preco) * (10 / 100)) + 20}</h3>
-                            <button id="confirmar"><Link to='/confirmando'>Confirmar</Link></button>
 
                         </div>
-                    </div>
+                        
+                        {/* Parte do endereço */}
+                        <div className="endereco">
 
+                            <h2>Endereço</h2>
+
+                            {enderecos.map((endereco, index) => (
+
+                                <div key={index} className="enderecoOpc">
+                                    
+                                    {/* Renderizando endereço */}
+                                    {Object.keys(endereco).map((key) => (
+                                        <div key={key}>{`${key.charAt(0).toUpperCase() + key.slice(1)}: ${endereco[key]}`}</div>
+                                    ))}
+
+                                    <button onClick={() => editarEndereco(index)} className="editarEndereco">Editar</button>
+                                    <button onClick={() => excluirEndereco(index)} className="excluirEndereco">Excluir</button>
+
+                                </div>
+
+                            ))}
+
+                            {/* Formulario de edição e de criação de endereço*/}
+                            {formVisivel ? (
+
+                                <div className="formularioEndereco">
+
+                                    <div className="formularioContainer">
+
+                                        <h3>{editando !== null ? "Editar endereço" : "Preencha seu novo endereço"}</h3>
+                                        <span style={{Color: "gray", marginBottom: '20px'}}>Preencha os dados corretamente</span>
+
+                                        <input
+                                            type="text"
+                                            value={rua}
+                                            onChange={(e) => setRua(e.target.value)}
+                                            placeholder="Rua"
+                                            className="inputEndereco"
+                                        />
+
+                                        <input
+                                            type="text"
+                                            value={numero}
+                                            onChange={(e) => setNumero(e.target.value)}
+                                            placeholder="Número"
+                                            className="inputEndereco"
+                                        />
+
+                                        <input
+                                            type="text"
+                                            value={referencia}
+                                            onChange={(e) => setReferencia(e.target.value)}
+                                            placeholder="Referência"
+                                            className="inputEndereco"
+                                        />
+
+                                        <input
+                                            type="text"
+                                            value={cidade}
+                                            onChange={(e) => setCidade(e.target.value)}
+                                            placeholder="Cidade"
+                                            className="inputEndereco"
+                                        />
+
+                                        <input
+                                            type="text"
+                                            value={bairro}
+                                            onChange={(e) => setBairro(e.target.value)}
+                                            placeholder="Bairro"
+                                            className="inputEndereco"
+                                        />
+
+                                        <div className="formButtons">
+
+                                            <button onClick={editando !== null ? salvarEnderecoEditado : adicionarEndereco} className="salvarEndereco">
+                                                {editando !== null ? "Salvar" : "Salvar"}
+                                            </button>
+
+                                            <button onClick={() => setFormVisivel(false)} className="cancelarEndereco">Cancelar</button>
+
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+
+                            ) : (
+
+                                <div className="adicionar" onClick={() => {
+                                    setFormVisivel(true);
+                                    limparCampos(); // Limpa os campos antes de adicionar um novo endereço
+                                }}>Adicionar novo endereço  
+
+                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAARRJREFUSEvtlLFOwzAURc/9CgaGAoIFhJAYixi7deRz2PmZrmxsFUxILC0SQoJ26NCveMiRE6XBjZ8R3eolSvR8jp99HbHjoR3zcQvM7AB4BAwYS1p7FucSRPgLcBKhX8DQI8kKInwKnAHLKBgAn8BtTtIr6Kx8BdxEwTNwCGQ72SpIwSVVHZhZ6MAlSQr64PXBeiW/BB54iWRDUAL3ShpBJy1h/rGkhSfrZnYEfMfajXRVAjMLzzfgqgZKyka4LTezcAHrMZN0GV7aglfg+p8ET5JGjSC1kr920J2XSlHV6l7QnGU3hnUa9lvUt0Vz4NxzgxM175Iu2t9TMb0DHoDTQskHcC9p0isohGbLi/43WVqi4AcdgqsZWC8YwQAAAABJRU5ErkJggg=="/>
+                                </div>
+
+                            )}
+                        </div>
+                        
+                        {/* Parte do resumo da compra */}
+                        <div className="resumo">
+
+                            <h2>Resumo</h2>
+
+                            <div id="extrato">
+
+                                <span><span className="bold">Valor do produto:</span> R$ {preco}</span>
+                                <span><span className="bold">Desconto:</span> 10%</span>
+                                <span><span className="bold">Frete:</span> R${frete}</span>
+                                <h3 className="bold">Total: R${parseInt(preco) - (parseInt(preco) * (10 / 100)) + 20}</h3>
+                                <button id="confirmar"><Link to='/confirmando'>Confirmar</Link></button>
+
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-                
+
                 {/* Quando o formulário aparecer, o fundo ficará escuro */}
                 {formVisivel && <div className="fundoEscurecido"></div>}
 

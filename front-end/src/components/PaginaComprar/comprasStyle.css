@@ -6,24 +6,47 @@
     margin: 10vh 0 0 20px;
     align-self: flex-start;
   }
-  
+
+ @keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.animar-volta {
+  animation: slideOutRight 0.5s ease forwards;
+}
+
   /* ===================== */
   /* Seção Principal       */
   /* ===================== */
 
+  .divisaoSetor{
+
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+
+  }
   #mainCompra{
 
-    background: #0d0615;
+    background: #19191a;
+    /*background: linear-gradient(180deg,#6e1920 20%, rgba(57, 13, 17, 1) 50%);*/
 
   }
   .comprar {
-    height: 150vh;
+   
     width: 100vw;
-    padding: 30vh 0;
+    /*padding: 40vh 0;*/
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    /*align-items: center;
+    justify-content: center;*/
   }
   
   /* ===================== */
@@ -31,20 +54,44 @@
   /* ===================== */
   .cabecalho {
     display: flex;
+    padding: 40px 0;
+    flex-direction: column;
+    align-items: center;
+    background: #c5c5c5;
+    box-shadow: 2px 2px 15px #0e0e0e;
+
   }
   
   .imagemProduto {
     margin-right: 20px;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
   }
-  
+  .embaca{
+
+      height: 100%;
+      display: flex;
+      justify-content: center;
+
+  }
+    
   .imagemProduto img {
-    height: 50vh;
-    filter: drop-shadow(2px 4px 6px black);
+    width: 30vw;
+    height: 100vh;
+    filter: drop-shadow(4px 10px 9px black);
   }
   
   .informacoesProduto {
     margin: 0;
     font-size: 1.8em;
+    background: #fff;
+    padding: 10px;
+    width: 50%;
+    color: #313131;
+    border-radius: 20px;
+    position: absolute;
+    bottom: -40%;
   }
   
   .informacoesProduto h1 {
@@ -58,14 +105,16 @@
     gap: 20px;
   }
   
-  .divisaoSetor {
-    display: flex;
-    flex-direction: column;
-  }
-  
   /* ===================== */
   /* Tipo de Pagamento     */
   /* ===================== */
+
+  .caixaPagamento{
+
+    margin-top: 20vh;
+    padding-bottom: 40px;
+
+  }
   #tipoPagamento {
     display: flex;
     gap: 10px;
@@ -100,7 +149,7 @@
   
   .endereco .adicionar,
   .endereco .enderecoOpc {
-    width: 50vw;
+    
     padding: 20px;
     font-weight: 500;
     background: #19191A;

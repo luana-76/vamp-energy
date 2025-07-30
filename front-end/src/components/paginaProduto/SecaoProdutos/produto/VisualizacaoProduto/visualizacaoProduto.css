@@ -5,7 +5,9 @@
     flex-direction: row;
     align-items: center;
     height: 100vh;
-    background: #141318;
+    /*background: #141318;*/
+    background: url("../../../../../assets/produto.png");
+    
     padding: 20px 0;
 }
 
@@ -116,6 +118,22 @@
 }
 
 /* ---------------------------- BOTÕES DE AÇÃO ---------------------------- */
+
+/* Botão de comprar */
+@keyframes slideOutLeft {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+.animar-saida {
+  animation: slideOutLeft 0.5s ease forwards;
+}
 
 .caixaDoForm .caixaDeBotoes {
     display: flex;

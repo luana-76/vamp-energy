@@ -134,12 +134,18 @@ export function VisualizacaoProduto() {
                         <div className='caixaDeBotoes'>
 
                             {/* Botão Comprar que leva para a página de compra */}
-                            <Link
-                                to='/comprar'
-                                state={{ nome, imagem, preco, frete }}
-                            >
-                                <button>Comprar</button>
-                            </Link>
+                            <button
+                                onClick={() => {
+                                    document.getElementById('caixaPrincipal').classList.add('animar-saida');
+                                    setTimeout(() => {
+                                    navigate('/comprar', {
+                                        state: { nome, imagem, preco, frete }
+                                    });
+                                    }, 60);
+                                }}
+                                >
+                                Comprar
+                            </button>
 
                             {/* Botão Adicionar ao Carrinho (ícone) */}
                             <Link
