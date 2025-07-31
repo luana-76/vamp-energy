@@ -40,6 +40,16 @@ export function ComprarProduto() {
 
     const { nome, imagem, preco, frete } = location.state || {};
 
+    //Pegando o frete
+    const [freteOrigin, setFreteOrigin] = useState(frete !== null ? frete : 30);
+    useEffect(() => {
+        if (frete !== null) {
+            setFreteOrigin(frete);
+        } else {
+            setFreteOrigin(30);
+        }
+    }, [frete]);
+
     //Mostrar caixa ou não
     const [mostrarPix, setMostrarPix] = useState(false);
     const [mostrarCredito, setMostrarCredito] = useState(false);
@@ -135,37 +145,40 @@ export function ComprarProduto() {
         setBackBoleto("#ffffff");
 
         try {
-            const res = await fetch('https://vamp-energy.up.railway.app/gerar-boleto', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
-    
-            if (!res.ok) throw new Error('Erro ao gerar boleto');
-    
-            // Cria um Blob a partir da resposta do servidor
+            const res = await fetch('http://localhost:3001/gerar-boleto', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                nome: 'João',
+                endereco: 'Rua A, 123 - Centro - Recife/PE - CEP: 50000-000',
+                valor: 70.00,
+                data_vencimento: new Date().toISOString() // ou use '2025-08-10' por exemplo
+            })
+        });
+
+        if (!res.ok) throw new Error('Erro ao gerar boleto');
+
             const blob = await res.blob();
             const url = window.URL.createObjectURL(blob);
-    
-            // Cria um link para download do PDF
+
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'boleto.pdf'; // Nome do arquivo
+            a.download = 'boleto.pdf';
             a.click();
-    
-            // Libera o URL criado
+
             window.URL.revokeObjectURL(url);
             setImagemBoleto(Boleto);
             setBackBoleto("#1c1c1c");
+
         } catch (err) {
             console.error('Erro ao baixar boleto:', err);
-
             setImagemBoleto(Boleto);
             setBackBoleto("#1c1c1c");
-
-            alert("Erro ao gerar boleto, tente uma outra hora.")
+            alert("Erro ao gerar boleto, tente uma outra hora.");
         }
+
     };
 
     /* Rolando página pro início */
@@ -173,7 +186,6 @@ export function ComprarProduto() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);
     
-    console.log(imagem)
     return (
 
         <main id='mainCompra'>
@@ -199,35 +211,50 @@ export function ComprarProduto() {
                         <div className="embaca">
                             <div className="imagemProduto">
                                 <img src={
-                                    imagem === "/src/assets/produto/limao.jpeg"
+                                    imagem === "/src/assets/produto/limao.jpeg" ||
+                                    imagem === "/assets/limao-CEA3eo2_.jpeg"
                                     ? Limao
-                                    : imagem === "/assets/tradicional-Cmp_76vP.jpeg"
+                                    : imagem === "/assets/tradicional-Cmp_76vP.jpeg" ||
+                                    imagem === "/src/assets/produto/tradicional.jpeg"
                                     ? Tradicional
-                                    : imagem === "/src/assets/produto/misterioso.jpeg"
+                                    : imagem === "/src/assets/produto/misterioso.jpeg" ||
+                                    imagem ===  "/assets/misterioso-BBQavf8G.jpeg"
                                     ? Branco
-                                    : imagem === "/src/assets/produto/uva.jpeg"
+                                    : imagem === "/src/assets/produto/uva.jpeg" ||
+                                    imagem === "/assets/uva-DPCtJJND.jpeg"
                                     ? Uva
-                                    :imagem === "/src/assets/produto/sacoBebida.webp"
+                                    :imagem === "/src/assets/produto/sacoBebida.webp" ||
+                                    imagem === "/assets/sacoBebida-D454ZaN8.webp"
                                     ?Saco
-                                    : imagem === "/src/assets/produto/pirula.webp"
+                                    : imagem === "/src/assets/produto/pirula.webp" ||
+                                    imagem === "/assets/pirula-7TQ7NDtI.webp"
                                     ?Pirula
-                                    : imagem === "/src/assets/produto/whey.webp"
+                                    : imagem === "/src/assets/produto/whey.webp"||
+                                    imagem === "/assets/whey-DzZ7Vu88.webp"
                                     ? Whey
-                                    : imagem === "/src/assets/produto/isotonico.webp"
+                                    : imagem === "/src/assets/produto/isotonico.webp"||
+                                    imagem === "/assets/isotonico-Y8J_BwKq.webp"
                                     ? Isotonico
-                                    : imagem === "/src/assets/produto/teste0.webp"
+                                    : imagem === "/src/assets/produto/teste0.webp"||
+                                    imagem === "/assets/teste0-BJz4TU8d.webp"
                                     ? Creatina
-                                    : imagem === "/src/assets/produto/teste6.webp"
+                                    : imagem === "/src/assets/produto/teste6.webp"||
+                                    imagem === "/assets/teste6-DIk_NiM6.webp"
                                     ? PoEnergetico
-                                    : imagem === "/src/assets/produto/barra6.webp"
+                                    : imagem === "/src/assets/produto/barra6.webp"||
+                                    imagem === "/assets/barra6-Bc3d72CJ.webp"
                                     ? Barra1
-                                    : imagem === "/src/assets/produto/barra2.webp"
+                                    : imagem === "/src/assets/produto/barra2.webp"||
+                                    imagem === "/assets/barra2-BAuSeDvZ.webp"
                                     ? Barra2
-                                    : imagem === "/src/assets/produto/barra3.webp"
+                                    : imagem === "/src/assets/produto/barra3.webp"||
+                                    imagem === "/assets/barra3-Mm4djLgD.webp"
                                     ? Barra3
-                                    : imagem === "/src/assets/produto/barra4.webp"
+                                    : imagem === "/src/assets/produto/barra4.webp"||
+                                    imagem === "/assets/barra4-Bxsi8y52.webp"
                                     ? Barra4
-                                    : imagem === "/src/assets/produto/barra5.webp"
+                                    : imagem === "/src/assets/produto/barra5.webp"||
+                                    imagem === "/assets/barra5-DZPYwnXs.webp"
                                     ? Barra5
                                     :""
                                 }
@@ -260,7 +287,8 @@ export function ComprarProduto() {
                                 <div 
                                     
                                     className='caixaIcone'
-                                    onClick={() => gerarBoleto()} style={{ backgroundColor: colorBackBoleto }}>
+                                    onClick={() => gerarBoleto()} 
+                                    style={{ backgroundColor: colorBackBoleto }}>
 
                                     <img src={imagemBoleto} className='icone' alt='boleto'/>
 
@@ -398,8 +426,8 @@ export function ComprarProduto() {
 
                                 <span><span className="bold">Valor do produto:</span> R$ {preco}</span>
                                 <span><span className="bold">Desconto:</span> 10%</span>
-                                <span><span className="bold">Frete:</span> R${frete}</span>
-                                <h3 className="bold">Total: R${parseInt(preco) - (parseInt(preco) * (10 / 100)) + 20}</h3>
+                                <span><span className="bold">Frete:</span> R${freteOrigin}</span>
+                                <h3 className="bold">Total: R${parseInt(preco) - (parseInt(preco) * 0.10) + freteOrigin}</h3>
                                 <button id="confirmar"><Link to='/confirmando'>Confirmar</Link></button>
 
                             </div>

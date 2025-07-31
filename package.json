@@ -11,6 +11,7 @@
     "mysql2": "^3.14.1",
     "node-boleto": "^2.3.0",
     "pdfkit": "^0.17.1",
-    "puppeteer": "^24.8.2"
+    "puppeteer": "^24.8.2",
+    "qrcode": "^1.5.4"
   }
 }
