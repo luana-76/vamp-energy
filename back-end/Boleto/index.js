@@ -2,16 +2,10 @@ const express = require('express');
 const cors = require('cors');
 const { Boleto } = require('node-boleto');
 const PDFDocument = require('pdfkit');
-const stream = require('stream');
+
 
 const app = express();
 const port = 3001;
-
-/*app.use(cors({
-  origin: 'http://localhost:5173',
-  methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type']
-}));*/
 
 const allowedOrigins = [
   'https://vamp-energy.vercel.app',
