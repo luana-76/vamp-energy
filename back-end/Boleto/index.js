@@ -7,12 +7,29 @@ const stream = require('stream');
 const app = express();
 const port = 3001;
 
+/*app.use(cors({
+  origin: 'http://localhost:5173',
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type']
+}));*/
+
+const allowedOrigins = [
+  'https://vamp-energy.vercel.app',
+  'http://localhost:5173'
+];
+
 app.use(cors({
-  origin: 'https://vamp-energy.vercel.app',
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type']
 }));
-app.use(cors({ origin: 'http://localhost:5173' }));
+
 
 const QRCode = require('qrcode');
 const path = require('path');
