@@ -8,10 +8,11 @@ const app = express();
 const port = 3001;
 
 app.use(cors({
-  origin: 'https://vamp-energy.onrender.com',
+  origin: 'https://vamp-energy.vercel.app',
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type']
 }));
+app.use(cors({ origin: 'http://localhost:5173' }));
 
 const QRCode = require('qrcode');
 const path = require('path');
