@@ -41,13 +41,11 @@ export function ComprarProduto() {
     const { nome, imagem, preco, frete } = location.state || {};
 
     //Pegando o frete
-    const [freteOrigin, setFreteOrigin] = useState(frete !== null ? frete : 30);
+    //O operador ?? só cai no valor alternativo (30) se frete for null ou undefined, mas não se for 0 ou false
+    const [freteOrigin, setFreteOrigin] = useState(frete ?? 30);
+
     useEffect(() => {
-        if (frete !== null) {
-            setFreteOrigin(frete);
-        } else {
-            setFreteOrigin(30);
-        }
+        setFreteOrigin(frete ?? 30);
     }, [frete]);
 
     //Mostrar caixa ou não
@@ -138,6 +136,12 @@ export function ComprarProduto() {
 
     const[imagemBoleto, setImagemBoleto] = useState(Boleto);
     const[colorBackBoleto, setBackBoleto] = useState("#1c1c1c");
+
+    const enderecoSelecionado = enderecos[0]; // ou outro que o usuário tenha escolhido
+
+    //Formatando data
+    const enderecoFormatado = `${enderecoSelecionado.rua}, ${enderecoSelecionado.numero} - ${enderecoSelecionado.bairro} - ${enderecoSelecionado.cidade}`;
+  
     /* Opção de gerar boleto (AINDA EM DESENVOLVIMENTO) */
     const gerarBoleto = async () => {
 
@@ -145,15 +149,15 @@ export function ComprarProduto() {
         setBackBoleto("#ffffff");
 
         try {
-            const res = await fetch('http://localhost:3001/gerar-boleto', {
+            const res = await fetch('https://vamp-energy.onrender.com/gerar-boleto', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
                 nome: 'João',
-                endereco: 'Rua A, 123 - Centro - Recife/PE - CEP: 50000-000',
-                valor: 70.00,
+                endereco: enderecoFormatado,
+                valor: Number(precoTotal),
                 data_vencimento: new Date().toISOString() // ou use '2025-08-10' por exemplo
             })
         });
@@ -185,6 +189,9 @@ export function ComprarProduto() {
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);
+
+    //Calculo da compra total
+    const precoTotal = parseInt(preco) - (parseInt(preco) * 0.10) + freteOrigin
     
     return (
 
@@ -427,7 +434,7 @@ export function ComprarProduto() {
                                 <span><span className="bold">Valor do produto:</span> R$ {preco}</span>
                                 <span><span className="bold">Desconto:</span> 10%</span>
                                 <span><span className="bold">Frete:</span> R${freteOrigin}</span>
-                                <h3 className="bold">Total: R${parseInt(preco) - (parseInt(preco) * 0.10) + freteOrigin}</h3>
+                                <h3 className="bold">Total: R${precoTotal}</h3>
                                 <button id="confirmar"><Link to='/confirmando'>Confirmar</Link></button>
 
                             </div>
