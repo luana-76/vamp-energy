@@ -45,7 +45,13 @@
 }
 .produto button:hover .produto button a{color: green;}
 
-.produto button:hover{background:#b2b3b5;}
+.produto button:hover{
+
+  background:#e5c8c4;
+  border: none;
+  filter: drop-shadow(2px 2px 2px white);
+
+}
 
 .produto {
 

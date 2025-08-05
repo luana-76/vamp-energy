@@ -1,7 +1,10 @@
 @media screen and (max-width:1024px){
 
     .login-container,
-    #dropdownMenu{z-index: 100;}/* Faz o dropDown ficar a cima de todos os elementos*/
+    #dropdownMenu{
+        right: 12%;
+        z-index: 100;
+    }/* Faz o dropDown ficar a cima de todos os elementos*/
 
     /* Estilização do dropdown*/
     #log {
@@ -38,7 +41,7 @@
 
         margin-top: 30px;
         position: absolute;
-        top: 50%;
+        top: 80%;
         
     }
 
@@ -57,7 +60,7 @@
 
     #dropdownMenu {
 
-        /*right: 5vw;*/
+        right: 20%;
         font-size: 0.8em;
         
     }

@@ -71,3 +71,8 @@ input:focus{
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
+
+/* Para quando o input vier com valor padrão */
+input:-webkit-autofill {
+  background-color: #fff !important;
+}

@@ -6,7 +6,7 @@
     align-items: center;
     height: 100vh;
     /*background: #141318;*/
-    background: url("../../../../../assets/produto.png");
+    background: rgb(19 14 20) 70%;
     
     padding: 20px 0;
 }
@@ -103,12 +103,15 @@
     position: relative;
     left: 217px;
     top: 3px;
-    padding: 6px 8px;
+    padding: 8px 8px;
     width: 94px;
     margin: -36px 0 0 0;
     background: aliceblue;
     color: #444;
     transition: background 1s;
+    border-radius: 0;
+    border-top-right-radius: 10px;   /* canto superior esquerdo */
+    border-bottom-right-radius: 10px;
 }
 
 .botaoFrete:hover {
