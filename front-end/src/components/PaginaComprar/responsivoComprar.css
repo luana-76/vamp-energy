@@ -35,7 +35,7 @@
   
     .imagemProduto img {
         width: 50vw;
-        height: 50vh;
+        height: 100%;
     }
   
     .informacoesProduto {
@@ -124,7 +124,7 @@
   
     .imagemProduto img {
       width: 40vw;
-      height: 40vh;
+      height: 100%;
     }
   
     .informacoesProduto {

@@ -115,108 +115,40 @@ app.post('/gerar-boleto', (req, res) => {
 
 // ================= ROTAS DE USUÁRIO =================
 
-// Cadastro
-app.post('/cadastrandoUsuarios', upload.single('foto'), (req, res) => {
-  const { nome, data_nascimento, telefone, nome_empresa, tem_empresa, email, senha } = req.body;
-  const fotoPath = req.file ? req.file.filename : null;
-  const dataNascimento = new Date(data_nascimento).toISOString().slice(0, 10);
+// initTables.js
+import pool from './db.js';
 
-  const sqlNovoUsuario = `INSERT INTO novousuario (nome, data_nascimento, telefone, nome_empresa, tem_empresa, email, senha, foto) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
+export async function criarTabelas() {
+  try {
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS novousuario (
+        id SERIAL PRIMARY KEY,
+        nome TEXT NOT NULL,
+        data_nascimento DATE NOT NULL,
+        telefone TEXT,
+        nome_empresa TEXT,
+        tem_empresa BOOLEAN DEFAULT false,
+        email TEXT UNIQUE NOT NULL,
+        senha TEXT NOT NULL,
+        foto TEXT
+      );
+    `);
 
-  db.query(sqlNovoUsuario, [nome, dataNascimento, telefone, nome_empresa || null, tem_empresa === '1' ? 0 : 1, email, senha, fotoPath], (err, result) => {
-    if (err) return res.status(500).json({ error: err.message });
-    const novoUsuarioId = result.insertId;
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS usuario (
+        id SERIAL PRIMARY KEY,
+        novousuario_id INTEGER REFERENCES novousuario(id) ON DELETE CASCADE,
+        email TEXT UNIQUE NOT NULL,
+        senha TEXT NOT NULL,
+        foto TEXT
+      );
+    `);
 
-    const sqlUsuario = `INSERT INTO usuario (novousuario_id, email, senha, foto) VALUES (?, ?, ?, ?)`;
-    db.query(sqlUsuario, [novoUsuarioId, email, senha, fotoPath], (err2) => {
-      if (err2) return res.status(500).json({ error: err2.message });
-      res.json({
-        message: 'Usuário cadastrado com sucesso!',
-        id: novoUsuarioId,
-        foto: fotoPath ? `/uploads/${fotoPath}` : null
-      });
-    });
-  });
-});
-
-// Login
-app.post('/usuarios', (req, res) => {
-  const { email, senha } = req.body;
-  const sql = `
-    SELECT u.*, n.nome, COALESCE(u.foto, n.foto) AS foto 
-    FROM usuario u
-    JOIN novousuario n ON u.novousuario_id = n.id
-    WHERE u.email = ? AND u.senha = ?`;
-
-  db.query(sql, [email, senha], (err, results) => {
-    if (err) return res.status(500).json({ error: 'Erro no servidor' });
-    if (results.length === 0) return res.status(401).json({ error: 'Email ou senha inválidos' });
-
-    const usuario = results[0];
-    const fotoUrl = usuario.foto ? `/uploads/${usuario.foto}` : null;
-
-    res.json({
-      message: 'Login realizado com sucesso!',
-      usuario: {
-        id: usuario.id,
-        nome: usuario.nome,
-        email: usuario.email,
-        foto: fotoUrl
-      }
-    });
-  });
-});
-
-// Perfil
-app.get('/perfil/:id', (req, res) => {
-  const { id } = req.params;
-  const sql = `
-    SELECT n.id, n.nome, n.data_nascimento, n.telefone, n.nome_empresa, u.email, n.senha,
-    COALESCE(u.foto, n.foto) AS foto
-    FROM usuario u
-    JOIN novousuario n ON u.novousuario_id = n.id
-    WHERE u.id = ?`;
-
-  db.query(sql, [id], (err, results) => {
-    if (err) return res.status(500).json({ error: 'Erro no servidor' });
-    if (results.length === 0) return res.status(404).json({ error: 'Usuário não encontrado' });
-
-    const usuario = results[0];
-    usuario.foto = usuario.foto ? `/uploads/${usuario.foto}` : null;
-
-    res.json(usuario);
-  });
-});
-
-// Atualizar perfil
-app.put('/perfil/:id', upload.single('foto'), (req, res) => {
-  const id = req.params.id;
-  const { nome, data_nascimento, telefone, nome_empresa, tem_empresa, email, senha } = req.body;
-  const foto = req.file ? req.file.filename : null;
-
-  const sqlUpdate = foto ?
-    `UPDATE novousuario SET nome = ?, data_nascimento = ?, telefone = ?, nome_empresa = ?, tem_empresa = ?, email = ?, senha = ?, foto = ? WHERE id = ?` :
-    `UPDATE novousuario SET nome = ?, data_nascimento = ?, telefone = ?, nome_empresa = ?, tem_empresa = ?, email = ?, senha = ? WHERE id = ?`;
-
-  const values = foto ?
-    [nome, data_nascimento, telefone, nome_empresa, tem_empresa, email, senha, foto, id] :
-    [nome, data_nascimento, telefone, nome_empresa, tem_empresa, email, senha, id];
-
-  db.query(sqlUpdate, values, (err, result) => {
-    if (err || result.affectedRows === 0) return res.status(500).json({ error: 'Erro ao atualizar' });
-
-    const sqlUsuarioUpdate = foto ?
-      `UPDATE usuario SET email = ?, senha = ?, foto = ? WHERE novousuario_id = ?` :
-      `UPDATE usuario SET email = ?, senha = ? WHERE novousuario_id = ?`;
-
-    const val = foto ? [email, senha, foto, id] : [email, senha, id];
-
-    db.query(sqlUsuarioUpdate, val, (err2) => {
-      if (err2) return res.status(500).json({ error: 'Erro ao atualizar a tabela usuario' });
-      res.json({ message: 'Perfil atualizado com sucesso' });
-    });
-  });
-});
+    console.log('Tabelas criadas ou já existentes ✅');
+  } catch (error) {
+    console.error('Erro ao criar tabelas:', error);
+  }
+}
 
 // ================= START =================
 app.listen(port, () => {
