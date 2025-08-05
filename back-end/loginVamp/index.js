@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 
 //Permite o front
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors());
 
 // Middleware para servir imagens públicas da pasta 'uploads'
 app.use('/uploads', express.static('uploads', {
