@@ -42,14 +42,16 @@
 
 }
 
-#blue{background: green;}
-#yellow{background: #fff;}
+#green{background: green;}
+#green:hover{background: rgb(5, 196, 5);}
+#white{background: #fff;}
+#white:hover{background: #afafaf;}
 #black{background: #111111;}
-
+#black:hover{background: #3f3f3f;}
 
 /* Designer da lata */
 #lata {
-  width: 200px;
+  width: 310px;
   max-width: 30vw;
   z-index: 100;
   position: absolute;

@@ -1,43 +1,47 @@
-/* Altura mínima */
+/* Altura mínima para o main ocupar 90% da altura da tela */
 @media screen and (min-height: 768px) {
-  #mainPrincipal {height: 90vh;}
+  #mainPrincipal {
+    height: 90vh;
+  }
 }
 
+/* Ajustes específicos para telas com altura 1399px ou largura 1024px */
 @media screen and (height: 1399px), screen and (width: 1024px) {
+  #sepTextButtons p {
+    font-size: 2em !important;
+  }
 
-  #sepTextButtons p {font-size: 2em !important;}
+  #logoCentral {
+    width: 400px !important;
+  }
 
-  #logoCentral {width: 400px !important;}
+  #sepTextButtons {
+    width: 600px !important;
+  }
 
-  #sepTextButtons {width: 600px !important;}
-    
-  .seguraBorda:nth-child(2) {bottom: 200px !important;}
-
+  .seguraBorda:nth-child(2) {
+    bottom: 200px !important;
+  }
 }
 
-/* Exatamente altura 1399px OU largura 1024px */
-@media screen and (height: 1399px), screen and (width: 1024px) {
-
-  #sepTextButtons p {font-size: 2em;}
-
-  #logoCentral {width: 400px;}
-
-  #sepTextButtons {width: 600px;}
-
-  .seguraBorda:nth-child(2) {bottom: 200px;}
-
+/* Ajuste de altura para dispositivos com 1024px largura ou 1366px altura */
+@media screen and (width: 1024px), screen and (height: 1366px) {
+  #mainPrincipal {
+    height: 100vh !important;
+  }
 }
 
-/* Desktop (>= 1024px) */
+/* Repetido, mas sem !important — mantido apenas o necessário acima */
+
+/* Layout desktop */
 @media screen and (min-width: 1024px) {
-
-  #sepTextButtons {width: 600px;}
-
+  #sepTextButtons {
+    width: 600px;
+  }
 }
 
-/* Tablets e laptops pequenos (<= 1270px) */
+/* Layout para tablets e notebooks pequenos */
 @media screen and (max-width: 1024px) {
-
   #mainPrincipal {
     flex-direction: column;
     align-items: center;
@@ -51,7 +55,9 @@
     text-align: center;
   }
 
-  #sepTextButtons p {font-size: 1.3em;}
+  #sepTextButtons p {
+    font-size: 1.3em;
+  }
 
   .seguraBorda {
     height: auto;
@@ -62,26 +68,39 @@
     text-align: center;
   }
 
+  .seguraBorda p {
+    width: 80vw;
+  }
+
   .seguraBorda:nth-child(2) {
     position: relative;
     bottom: 100px;
   }
 
   #buttons,
-  .buttons svg {display: none;}
+  .buttons svg {
+    display: none;
+  }
 
   #vampImagem {
+    display: flex;
     flex-direction: row !important;
     justify-content: center;
     flex-wrap: wrap;
     margin: 50px 0;
   }
 
-  #vampImagem img {filter: drop-shadow(2px 4px 6px black);}
+  #vampImagem img {
+    filter: drop-shadow(2px 4px 6px black);
+  }
 
-  #vampImagem .latasMenores:hover {width: 120%;}
+  #vampImagem .latasMenores:hover {
+    width: 120%;
+  }
 
   .mobileCaixa {
+    display: flex;
+    justify-content: center;
     width: 25vw;
     height: 15vh;
     border-radius: 20px 20px 0 0;
@@ -114,22 +133,19 @@
     max-width: 80px;
   }
 
-  img[alt='vamp tradicional'] {width: 40%;}
-
-  #logoCentral {width: 220px;}
-
-  #lata {
-    width: 140px;
-    left: 30% !important;
-    right:auto !important;
-    transform: translateX(-50%);
+  #logoCentral {
+    width: 220px;
   }
 
+  #lata {
+    left: 30% !important;
+    right: auto !important;
+    transform: translateX(-50%);
+  }
 }
 
-/* iPad específico (768x1024) */
+/* Layout para iPads (768x1024) */
 @media screen and (max-width: 768px) and (max-height: 1024px) {
-
   #mainPrincipal div {
     display: flex;
     flex-direction: column;
@@ -138,9 +154,13 @@
     gap: 27px;
   }
 
-  .seguraBorda p {width: 75%;}
+  .seguraBorda p {
+    width: 75%;
+  }
 
-  .seguraBorda:nth-child(2) {position: initial;}
+  .seguraBorda:nth-child(2) {
+    position: initial;
+  }
 
   #lata {
     width: 120px;
@@ -152,12 +172,10 @@
     width: 9vh;
     max-width: 75%;
   }
-
 }
 
-/* Celulares (<= 667px) */
+/* Layout para celulares pequenos (<= 667px) */
 @media screen and (max-width: 667px) {
-
   #mainPrincipal {
     flex-direction: column;
     padding-top: 50px;
@@ -166,7 +184,9 @@
     width: auto;
   }
 
-  #mainPrincipal div {gap: initial;}
+  #mainPrincipal div {
+    gap: initial;
+  }
 
   #sepTextButtons {
     justify-content: center;
@@ -174,7 +194,9 @@
     width: auto;
   }
 
-  #sepTextButtons div {width: 67%;}
+  #sepTextButtons div {
+    width: 67%;
+  }
 
   .seguraBorda {
     flex-direction: column;
@@ -202,23 +224,22 @@
     justify-content: center;
   }
 
-  #vampImagem img {width: 60vw;}
-
-  .caixaLata img {bottom: 5%;}
+  .caixaLata img {
+    bottom: 5%;
+  }
 
   .latasMenores {
     width: 9vh;
     max-width: 75%;
   }
 
-  #logoCentral {width: 180px;}
-
-  img[alt='vamp tradicional'] {width: 50% !important;}
+  #logoCentral {
+    width: 180px;
+  }
 
   #lata {
     width: 90px;
     left: 50%;
     transform: translateX(-50%);
   }
-
 }
