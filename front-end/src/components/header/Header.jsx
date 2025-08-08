@@ -88,7 +88,7 @@ export function Header() {
   return (
     <header
       style={
-        ["/produtos", "/comprar", "/carrinho", "/informacoes", "/login", "/cadastro", "/", "/perfil"].includes(location.pathname)
+        ["/produtos", "/comprar", "/carrinho", "/secaoProduto", "/informacoes", "/login", "/cadastro", "/", "/perfil"].includes(location.pathname)
           ? { background: cor, zIndex: "9999"}
           : {}
       }
@@ -104,7 +104,7 @@ export function Header() {
         {/* Links de navegação (visível apenas em desktop) */}
         {!isMobile && (
           <ul id="listaInterna">
-            {["Início", "Informações", "Produtos"].map((item, index) => (
+            {["Início", "Produtos"].map((item, index) => (
               <motion.li
                 key={index}
                 initial={{ y: -50, opacity: 0 }}
@@ -116,8 +116,6 @@ export function Header() {
                   to={
                     item === "Início"
                       ? "/"
-                      : item === "Informações"
-                      ? "/informacoes"
                       : item === "Produtos"
                       ? "/produtos"
                       : "#"
@@ -232,7 +230,7 @@ export function Header() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
           >
-            {["Início", "Informações", "Produtos"].map((item, index) => (
+            {["Início", "Produtos"].map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ y: -50, opacity: 0 }}
@@ -244,8 +242,6 @@ export function Header() {
                   to={
                     item === "Início"
                       ? "/"
-                      : item === "Informações"
-                      ? "/informacoes"
                       : item === "Produtos"
                       ? "/produtos"
                       : "#"

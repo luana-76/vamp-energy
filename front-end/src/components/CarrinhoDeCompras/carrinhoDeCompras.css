@@ -57,7 +57,7 @@
 #mainCarrinho > section {
     animation: fadeUp 0.8s ease forwards;
     opacity: 0;
-    margin-bottom: 15px;
+    margin: 0px;
 }
 
 /* Título do produto */
@@ -99,11 +99,6 @@
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.resumoFinalizacao input:focus {
-    border-color: #452E73; /* muda borda para roxo escuro */
-    box-shadow: 0 0 8px 2px rgba(69, 46, 115, 0.6); /* brilho roxo suave */
-}
-
 
 /* Botão de aplicar cupom */
 
@@ -115,6 +110,7 @@
 }
 #caixaDoCupom button{
 
+    top: 4px;
     left: 0;
 
 }
@@ -166,14 +162,12 @@
 
 
 /* Foco nos botões */
-#botoesCarrinho button:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(69, 46, 115, 0.3);
-}
 
-/* Espaçamento entre os botões */
-#botoesCarrinho button:first-child {
-    margin-right: 30px;
+#botoesCarrinho button{
+    width: 100%;
+}
+#botoesCarrinho button:first-child{
+    margin-bottom: 30px;
 }
 
 /* Mensagem de carrinho vazio */

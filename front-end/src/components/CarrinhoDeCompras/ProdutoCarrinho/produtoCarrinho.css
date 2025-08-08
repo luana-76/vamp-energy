@@ -129,12 +129,13 @@
 
 .botaoQuantidade button:hover {
     transform: scale(1.1);
-    background-color: #3a2c4d;
+    background-color: #a33437;
     outline: none;
 }
 
 /* === Botão Excluir Produto === */
 .botaoExcluir button {
+    margin-bottom: 30px;
     position: inherit;
     width: 100%;
     border-radius: 8px;

@@ -55,10 +55,6 @@
     filter: drop-shadow(2px 2px 2px white);
 }
 
-.produto button:hover a {
-    color: green;
-}
-
 /* ============================= */
 /*       CARD DE PRODUTO         */
 /* ============================= */

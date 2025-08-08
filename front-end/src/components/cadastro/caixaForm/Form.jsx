@@ -225,7 +225,7 @@ export function Form(prop) {
         }
     }, [location.pathname, prop.nome, prop.dataNascimento, prop.telefone, prop.nomeEmpresa, prop.email, prop.senha]);
 
-
+    console.log(prop.temEmpresa)
     return (
         <div id="caixaForm" className="caixaSegurar formCadastro perfilForm">
 
@@ -286,19 +286,15 @@ export function Form(prop) {
                     <input
                         type="checkbox"
                         id="checkCadastro"
-                        checked={isChecked}
+                        checked={prop.temEmpresa === 0 || isChecked}
                         onChange={(e) => {
 
                             const checked = e.target.checked;
                             setIsChecked(checked);
                             {location.pathname === "/perfil" ? prop.setTemEmpresa(checked) : null}
-                        
+                         
             
-                        }
-                            
-                            
-                        
-                        }
+                        }}
                     />
                     <label htmlFor="switch"></label>
                     <span>Não tenho uma empresa</span>

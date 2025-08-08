@@ -1,6 +1,5 @@
-/* Responsividade até 1200px */
+/* === Responsividade até 1200px === */
 @media (max-width: 1200px) {
-
     #mainCarrinho #close {
         padding-top: 20px;
         margin-top: 10vw;
@@ -33,14 +32,18 @@
         position: inherit;
     }
 
+    #caixaDoCupom button {
+        width: 20vw;
+        top: 5px;
+    }
+
     .resumoFinalizacao {
-        margin: 10vh 0 0 0vw;
+        margin: 10vh 0 0 0;
     }
 }
 
-/* Responsividade até 768px */
+/* === Responsividade até 768px === */
 @media (max-width: 768px) {
-
     .checkbox-wrapper-30 .checkbox svg,
     .checkbox-wrapper-30 .checkbox input {
         height: 70% !important;
@@ -114,5 +117,12 @@
 
     #botoesCarrinho button:first-child {
         margin-bottom: 20px;
+    }
+}
+
+/* === Responsividade até 344px === */
+@media (max-width: 344px) {
+    #caixaDoCupom button {
+        width: 17vw;
     }
 }

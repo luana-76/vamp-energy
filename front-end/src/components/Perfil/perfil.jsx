@@ -40,7 +40,7 @@ export function Perfil() {
         setSenha(data.senha);
         setTelefone(data.telefone);
         setNomeEmpresa(data.nome_empresa ? data.nome_empresa.charAt(0).toUpperCase() + data.nome_empresa.slice(1) : '');
-
+        setTemEmpresa(data.tem_empresa)
         setIdCadastro(data.id)
        
       })
@@ -94,8 +94,6 @@ export function Perfil() {
         formData.append("telefone", telefone);
         formData.append("nome_empresa", nomeEmpresa);
         formData.append("tem_empresa", temEmpresa ? '0' : '1');
-        
-        console.log(nomeEmpresa)
 
         console.log(idCadastro)
         fetch(`http://localhost:3000/perfil/${idCadastro}`, {
@@ -130,11 +128,6 @@ export function Perfil() {
               {nomeUsuario.split(" ")[0]}
             </span>
           </div>
-        </div>
-
-        <div className='caixaTempo'>
-          <h3>Última atualização:</h3>
-          <span>00/00/0000</span>
         </div>
 
         <div id="close" onClick={() => navigate(-1)} style={{ cursor: 'pointer' }}>
