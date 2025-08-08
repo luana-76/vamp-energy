@@ -5,9 +5,7 @@
     flex-direction: row;
     align-items: center;
     height: 100vh;
-    /*background: #141318;*/
     background: rgb(19 14 20) 70%;
-    
     padding: 20px 0;
 }
 
@@ -165,7 +163,15 @@
 
 .botaoCarrinho {
     width: 40px;
+    transition: width 1s ease;
     cursor: pointer;
+}
+
+.botaoCarrinho:hover{
+
+    width: 45px;
+    filter: drop-shadow(1px 1px 6px white);
+
 }
 
 /* ---------------------------- MODAL DE IMAGEM ---------------------------- */

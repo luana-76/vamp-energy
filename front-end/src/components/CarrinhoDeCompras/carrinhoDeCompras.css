@@ -1,7 +1,7 @@
 /* Área principal do carrinho */
 #mainCarrinho {
     padding: 10vw;
-    background: #0d0615;
+    background: #130e14;
 }
 
 /* Container para título e produto lado a lado */
@@ -22,7 +22,7 @@
 /* Fundo dos containers do carrinho */
 .seguraProdutos,
 #mainCarrinho #close {
-    background: #34016b;
+    background: #3f0f11;
 }
 
 /* Estilo para título e botão de fechar */
@@ -91,6 +91,7 @@
     border: 1px solid #F7F3F0;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
+    border-radius: 15px 0 0 15px;
     outline: none;
     width: 140px;
     padding: 4px;
@@ -105,34 +106,18 @@
 
 
 /* Botão de aplicar cupom */
-#caixaDoCupom button {
-    padding: 6px 10px;
-    border:1px solid #fff;
-    border-radius: 0;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    color: #452E73;
-    background: #F7F3F0;
-    font-weight: 700;
-    font-size: 13px;
-    top: 0;
-    position: initial;
-    vertical-align: top;
-    cursor: pointer;
-    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
-}
 
-#caixaDoCupom button:hover {
-    background-color: #dcd6cf;  /* fundo levemente mais escuro */
-    border-color: #452E73;       /* borda muda para a cor do texto */
-    transform: scale(1.05);      /* leve zoom */
-}
+#caixaDoCupom input[name='cupom']{
 
-#caixaDoCupom button:active {
-    transform: scale(0.95);      /* efeito de pressionar */
-    transition: transform 0.1s ease;
-}
+    padding: 5px;
+    width: auto;
 
+}
+#caixaDoCupom button{
+
+    left: 0;
+
+}
 
 /* Caixa de resumo do pedido */
 #resumo {
@@ -178,25 +163,7 @@
 }
 
 /* Botões de finalizar e continuar comprando */
-#botoesCarrinho button {
-    padding: 10px 20px;
-    color: #452E73;
-    background-color: #F7F3F0;
-    font-weight: 700;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    position: initial;
-}
 
-/* Efeito hover nos botões */
-#botoesCarrinho button:hover {
-    background-color: #564970;
-    color: #fff;
-}
 
 /* Foco nos botões */
 #botoesCarrinho button:focus {

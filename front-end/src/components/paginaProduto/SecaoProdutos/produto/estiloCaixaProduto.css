@@ -1,159 +1,179 @@
-.titulo{
+/* ============================= */
+/*         ESTILOS GERAIS         */
+/* ============================= */
 
+/* Título da seção */
+.titulo {
     align-self: flex-start;
     margin-left: 10%;
-
 }
 
-.titulo h2{
-
+.titulo h2 {
     text-decoration: underline;
     align-self: center;
-
 }
 
+/* Texto dentro do card de produto */
 .produto span,
-.produto h3{padding-left: 10px;}
-
-.produto h3{margin-bottom: 0;}
-
-.preco{font-weight: bold;}
-
-#descricao{
-  
-  margin: 10px 0;
-  padding: 0 10px;
-
+.produto h3 {
+    padding-left: 10px;
 }
 
-.produto button{
+.produto h3 {
+    margin-bottom: 0;
+}
 
+.preco {
+    font-weight: bold;
+}
+
+#descricao {
+    margin: 10px 0;
+    padding: 0 10px;
+}
+
+/* ============================= */
+/*       BOTÃO DE COMPRA         */
+/* ============================= */
+.produto button {
     position: initial;
     border-radius: 100px;
     background: #dcdde1;
     padding: 5px;
     width: 50%;
     margin: 13px auto 0 auto;
-
 }
 
-.produto button a{
-
-  color: #e74c3c;
-  font-weight: 600;
-
-}
-.produto button:hover .produto button a{color: green;}
-
-.produto button:hover{
-
-  background:#e5c8c4;
-  border: none;
-  filter: drop-shadow(2px 2px 2px white);
-
+.produto button a {
+    color: #e74c3c;
+    font-weight: 600;
 }
 
+.produto button:hover {
+    background: #e5c8c4;
+    border: none;
+    filter: drop-shadow(2px 2px 2px white);
+}
+
+.produto button:hover a {
+    color: green;
+}
+
+/* ============================= */
+/*       CARD DE PRODUTO         */
+/* ============================= */
 .produto {
-
-  background: #3e0e11;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 30px;
-  border-radius: 0 0 10px 10px;
-  width: 180px;
-  font-size: 90%;
-
+    background: #3e0e11;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 30px;
+    border-radius: 0 0 10px 10px;
+    width: 180px;
+    font-size: 90%;
 }
 
 .caixaProduto {
-  margin: 15px;
-  flex: 1 1 45%; /* cada caixa ocupa ~45% da linha */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    margin: 15px;
+    flex: 1 1 45%; /* cada caixa ocupa ~45% da linha */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .caixaProduto img {
-
-  width: 180px;
-  border-radius: 10px 10px 0 0;
-  filter: opacity(0.8);
-
+    width: 180px;
+    border-radius: 10px 10px 0 0;
+    filter: opacity(0.8);
 }
 
+/* ============================= */
+/*       RESPONSIVIDADE          */
+/* ============================= */
 
+/* Telas até 1024px */
 @media (max-width: 1024px) {
 
-  #alinhamentoCaixas {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
+    #alinhamentoCaixas {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
 
-  .caixaProduto {
-    width: 100vw;
-    flex-direction: row;
-    justify-content: center;
-    filter: drop-shadow(2px 4px 6px black);
-  }
+    .caixaProduto {
+        width: 100vw;
+        flex-direction: row;
+        justify-content: center;
+        filter: drop-shadow(2px 4px 6px black);
+    }
 
-  .produto {
-    width: 500px;
-    height: 90%;
-    box-shadow: -32px 7px 56px -15px rgb(0 0 0);
-    justify-content: center;
-    border-radius: 0 10px 10px 0;
-  }
+    .produto {
+        width: 500px;
+        height: 90%;
+        box-shadow: -32px 7px 56px -15px rgb(0 0 0);
+        justify-content: center;
+        border-radius: 0 10px 10px 0;
+    }
 
-  .caixaProduto img {
-    width: 217px;
-    border-radius: 10px 0 0 10px;
-  }
+    .caixaProduto img {
+        width: 217px;
+        border-radius: 10px 0 0 10px;
+    }
 
-  .produto h3 {font-size: 2em;}
+    .produto h3 {
+        font-size: 2em;
+    }
 
-  .produto span {font-size: 1.5em;}
-
-
+    .produto span {
+        font-size: 1.5em;
+    }
 }
 
-@media (max-width: 600px){
+/* Telas até 600px */
+@media (max-width: 600px) {
 
-  .caixaProduto {
-    flex-direction: row !important;
-    align-items: center;
-    width: 90vw;
-  }
+    .caixaProduto {
+        flex-direction: row !important;
+        align-items: center;
+        width: 90vw;
+    }
 
-  .produto {
-    width: 100vw;
-    max-width: auto;
-    height: 160px;
-  }
+    .produto {
+        width: 100vw;
+        height: 160px;
+    }
 
-  .caixaProduto img {width: 190px;}
+    .caixaProduto img {
+        width: 190px;
+    }
 
-  .produto span{font-size: 1em;}
+    .produto span {
+        font-size: 1em;
+    }
 
-  .produto h3 {font-size: 1.3em;}
+    .produto h3 {
+        font-size: 1.3em;
+    }
 
-  .produto button {
-    width: 70%;
-    font-size: 0.9em;
-  }
-
+    .produto button {
+        width: 70%;
+        font-size: 0.9em;
+    }
 }
 
-@media (max-width: 344px){
+/* Telas muito pequenas (até 344px) */
+@media (max-width: 344px) {
 
-  .produto {
-    width: 65vw;
-    height: 134px;
-    font-size: 70%;
-  }
+    .produto {
+        width: 65vw;
+        height: 134px;
+        font-size: 70%;
+    }
 
-  .caixaProduto img {width: 161px;}
+    .caixaProduto img {
+        width: 161px;
+    }
 
-  .produto span {padding-left: 10px;}
-
+    .produto span {
+        padding-left: 10px;
+    }
 }

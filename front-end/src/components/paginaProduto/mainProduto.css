@@ -1,12 +1,11 @@
 /* === Seção principal de produtos === */
 #mainProduto {
-  
   padding-bottom: 50px;
   background: #130e14;
-
+  position: relative; /* Necessário para posicionar ::before */
 }
 
-/* Adiciona uma imagem decorativa à esquerda da seção */
+/* Imagem decorativa à esquerda */
 #mainProduto::before {
   content: url(/src/assets/produto/l.png);
   position: absolute;
@@ -15,40 +14,43 @@
 }
 
 /* === Carrossel de imagens === */
-.carrossel{
+.carrossel {
   overflow: hidden; /* Esconde partes que saem do container */
   width: 100vw;
   height: 100vh;
-  /*margin-top: 80px;*/
 }
 
-/* Container interno do carrossel com animação de slide horizontal */
 .wrap {
   display: grid;
-  grid-auto-flow: column; /* Garante que as imagens fiquem em sequência horizontal */
-  grid-auto-columns: 100vw; /* Cada imagem ocupa a tela inteira */
+  grid-auto-flow: column; /* Alinha imagens horizontalmente */
+  grid-auto-columns: 100vw; /* Cada imagem ocupa toda a tela */
   justify-items: stretch;
-  animation: slide 30s linear infinite; /* Animação contínua */
+  animation: slide 30s linear infinite;
 }
 
-/* Imagens do carrossel */
 .wrap img {
   width: 100vw;
   height: 90vh;
   border-radius: 15px;
-  object-fit: 100% 100%; /* Força o preenchimento completo */
-  filter: brightness(80%); /* Escurece a imagem */
-  mask-image: linear-gradient(to top, #00000000 0%, #00000021 10%, black 30%, #00000000 100%);
+  object-fit: cover; /* Preenche sem distorcer */
+  filter: brightness(80%);
+  mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    rgba(0, 0, 0, 0.13) 10%,
+    black 30%,
+    transparent 100%
+  );
 }
 
-/* Animação que move o carrossel para a esquerda */
+/* Animação do carrossel */
 @keyframes slide {
   to {
-    translate: calc(-4 * 100vw); /* Desloca 4 imagens para a esquerda */
+    translate: calc(-4 * 100vw); /* Move 4 imagens para a esquerda */
   }
 }
 
-/* === Imagem de separação/decoração entre seções === */
+/* === Imagem separadora entre seções === */
 .separacaoSecao {
   filter: brightness(0.5);
   display: flex;
@@ -59,21 +61,20 @@
 
 .separacaoSecao img {
   flex: 1;
-  object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+  object-fit: cover;
 }
-
 
 /* === Responsividade para tablets (até 1024px) === */
 @media (max-width: 1024px) {
-
   .carrossel {
     position: relative;
     top: 140px;
   }
 
-  .wrap img {height: 60vh; /* Reduz altura do carrossel */}
+  .wrap img {
+    height: 60vh;
+  }
 
-  /* Reposiciona imagem decorativa para telas médias */
   #mainProduto::before {
     left: 5%;
     top: 30%;
@@ -89,30 +90,34 @@
     height: 200px;
   }
 
-  .titulo h2{
+  .titulo h2 {
     align-self: flex-start;
     font-size: 2.5em;
   }
-
 }
 
 /* === Responsividade para celulares (até 600px) === */
 @media (max-width: 600px) {
-
-  .carrossel {position: inherit;}
-
-  #mainProduto::before {
-    top: inherit;
-    left: -13vh !important; /* Move a imagem decorativa para fora da tela */
-    transform: scale(0.5); /* Diminui tamanho da imagem */
+  .carrossel {
+    position: inherit;
+    height: 60vh;
   }
 
-  .wrap img {height: 40vh; /* Carrossel menor */}
+  .wrap img {
+    height: 40vh;
+  }
 
-  .carrossel{height: 60vh;}
+  #mainProduto::before {
+    top: auto;
+    left: -13vh !important;
+    transform: scale(0.5);
+  }
 
-  .titulo {font-size: 1.2em;}
+  .titulo {
+    font-size: 1.2em;
+  }
 
-  .titulo h2 {font-size: 1.5em;}
-
+  .titulo h2 {
+    font-size: 1.5em;
+  }
 }

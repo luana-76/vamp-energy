@@ -6,7 +6,7 @@ import { Login } from "./components/login/Login";
 import { Cadastro } from "./components/cadastro/cadastro";
 import { ErroInputVazio } from "./components/ErroVazio/ErroInpuVazio";
 import { MainProduto } from "./components/paginaProduto/MainProduto";
-import { VisualizacaoProduto } from "./components/paginaProduto/SecaoProdutos/produto/VisualizacaoProduto/visualizacaoProduto";
+import { VisualizacaoProduto } from "./components/paginaProduto/SecaoProdutos/produto/PaginaVisualizacaoProduto/PaginaVisualizacaoProduto";
 import { ComprarProduto } from "./components/PaginaComprar/ComprarProduto";
 import { PagamentoQr } from "./components/PaginaComprar/Qr/PagamentoQr";
 import Credito from "./components/PaginaComprar/CartaoCredito/Credito";

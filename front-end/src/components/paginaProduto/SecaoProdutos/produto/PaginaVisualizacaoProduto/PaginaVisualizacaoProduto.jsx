@@ -1,6 +1,8 @@
+// Estilos
 import './visualizacaoProduto.css';
 import './responsiveVisualizacao.css';
 
+// Dependências
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
@@ -8,21 +10,20 @@ export function VisualizacaoProduto() {
     const navigate = useNavigate();
     const location = useLocation();
 
-    // Dados do produto vindos da navegação anterior (ex: da listagem de produtos)
+    //Dados recebidos da página anterior (via navigate)
     const { nome, imagem, descricao, preco } = location.state || {};
 
-    const [cep, setCep] = useState('');
-    // Estado para armazenar o valor do frete calculado ou mensagem de erro
-    const [frete, setFrete] = useState(null);
-    // Estado para controlar a exibição do modal da imagem
-    const [modalAberto, setModalAberto] = useState(false);
+    // Estados
+    const [cep, setCep] = useState('');              // CEP digitado pelo usuário
+    const [frete, setFrete] = useState(null);        // Valor ou mensagem de frete
+    const [modalAberto, setModalAberto] = useState(false); // Controle do modal de imagem
 
-    // Garante que a página role para o topo ao ser carregada
+    // Garante que a página comece no topo ao carregar
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);
 
-    // Função para simular o cálculo de frete com base no início do CEP
+    //Calcula o frete com base no prefixo do CEP
     function calcularFrete() {
         if (cep.startsWith("01")) setFrete(10);        // São Paulo
         else if (cep.startsWith("20")) setFrete(25);   // Rio de Janeiro
@@ -32,24 +33,22 @@ export function VisualizacaoProduto() {
         else setFrete('CEP inválido');                 // CEP inválido
     }
 
-    // Abre o modal de imagem ampliada
+    //Abre modal com imagem ampliada
     function abrirModal() {
         setModalAberto(true);
     }
 
-    // Fecha o modal de imagem ampliada
+    //Fecha modal de imagem
     function fecharModal() {
         setModalAberto(false);
     }
 
-    // Adiciona o produto ao carrinho no localStorage
+    //Adiciona produto ao carrinho no localStorage (sem duplicar)
     function adicionarAoCarrinho() {
         const novoProduto = { nome, preco, imagem };
         const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
-        // Verifica se o produto já está no carrinho para não duplicar
         const jaExiste = carrinho.some(item => item.nome === novoProduto.nome);
-
         if (!jaExiste) {
             carrinho.push(novoProduto);
             localStorage.setItem('carrinho', JSON.stringify(carrinho));
@@ -59,12 +58,12 @@ export function VisualizacaoProduto() {
     return (
         <div id='caixaPrincipal'>
 
-            {/* Imagem principal do produto com clique para abrir modal */}
+            {/*Imagem principal do produto */}
             <div className='caixaImagemProduto'>
                 <img src={imagem} onClick={abrirModal} alt='produto' />
             </div>
 
-            {/* Modal que exibe a imagem ampliada do produto */}
+            {/*Modal de imagem ampliada */}
             {modalAberto && (
                 <div className='modalImagem' onClick={fecharModal}>
                     <div className='modalConteudo'>
@@ -73,10 +72,10 @@ export function VisualizacaoProduto() {
                 </div>
             )}
 
-            {/* Conteúdo de detalhes do produto */}
+            {/*Detalhes do produto */}
             <div className='conteudoProduto'>
 
-                {/* Botão/ícone de voltar para a página anterior */}
+                {/*Botão de voltar */}
                 <div id='close' onClick={() => navigate(-1)} style={{ cursor: 'pointer' }}>
                     <img
                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAANBJREFUSEvtlEEKwjAQRd8/hKB7Bc8ggrcQXAteR1wLHkbBO7hxL3iHaCCFUmsyKcmuXZbhvT+TTETlT5X5jILkhM0jcs5NgZ2kY5LaKjAJAvwKLICDpLNVkhQE+A2YA09gJelVRNCBP4BNDtyH+NuBc24C3ENyD19LeluTN3W9ggD3M19+D3YwvLeDDtwcWFJv2J+f1QU+ctURNTMpJYnuQYmblLto2buQFIQz8e9Q81TsJV2s18skCJIZsJV0ssKjm5wDidWaOxgqHAXJyX0AzWRKGaDSgDcAAAAASUVORK5CYII="
@@ -85,6 +84,7 @@ export function VisualizacaoProduto() {
                     />
                 </div>
 
+                {/* Nome, desconto e frete */}
                 <div className='caixaDeTitulo'>
                     <h1>{nome}</h1>
                     <div>
@@ -93,15 +93,16 @@ export function VisualizacaoProduto() {
                     </div>
                 </div>
 
+                {/* Descrição e preço */}
                 <div className='caixaDescricao'>
                     <p>{descricao}</p>
                     <span className='visualizacaoPreco'>R$ {preco}</span>
                 </div>
 
+                {/* Formulário de cálculo de frete */}
                 <div className='caixaDoForm'>
                     <form onSubmit={(e) => e.preventDefault()}>
 
-                        {/* Campo para digitar o CEP */}
                         <div className='caixaDoCep'>
                             <label htmlFor='cep'>Calcular CEP:</label>
                             <input
@@ -120,7 +121,7 @@ export function VisualizacaoProduto() {
                                 Calcular
                             </button>
 
-                            {/* Exibição do valor ou mensagem do frete */}
+                            {/* Exibição do frete calculado */}
                             {frete !== null && (
                                 <div className='freteResultado'>
                                     {typeof frete === 'number'
@@ -130,24 +131,22 @@ export function VisualizacaoProduto() {
                             )}
                         </div>
 
-                        {/* Botões: Comprar e Adicionar ao Carrinho */}
+                        {/* Botões de ação */}
                         <div className='caixaDeBotoes'>
 
-                            {/* Botão Comprar que leva para a página de compra */}
+                            {/* Comprar */}
                             <button
                                 onClick={() => {
                                     document.getElementById('caixaPrincipal').classList.add('animar-saida');
                                     setTimeout(() => {
-                                    navigate('/comprar', {
-                                        state: { nome, imagem, preco, frete }
-                                    });
+                                        navigate('/comprar', { state: { nome, imagem, preco, frete } });
                                     }, 60);
                                 }}
-                                >
+                            >
                                 Comprar
                             </button>
 
-                            {/* Botão Adicionar ao Carrinho (ícone) */}
+                            {/* Adicionar ao Carrinho */}
                             <Link
                                 to='/carrinho'
                                 state={{ nome, preco, imagem }}
