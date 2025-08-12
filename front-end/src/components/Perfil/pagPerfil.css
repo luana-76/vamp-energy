@@ -1,115 +1,118 @@
-#perfilMain{
-
-    display: flex;
-    justify-content: space-around;
-    padding: 130px 0;
-    background: #0d0521;
-    background: url("../../assets/fundoPerfil.png");
-
+/* Container principal da página de perfil */
+#perfilMain {
+    display: flex; 
+    justify-content: space-around; 
+    padding: 130px 0; 
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                url("../../assets/fundoPerfil.png");
 }
 
+/* Botão/área de "voltar" */
+#perfilMain #close {
+    font-weight: 600;
+}
 
-.caixaPerfil{
-
+/* Caixa que agrupa foto e informações do usuário */
+.caixaPerfil {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
 }
 
-.fotoPerfil img{
-
-    border: 2px solid #f8f6f6;
-    filter: drop-shadow(2px 1px 3px white);
-
+/* Foto de perfil */
+.fotoPerfil img {
+    border: 3px solid #f8f6f6;
 }
 
-/* Parte de perfil */
-
+/* Container da foto e nome do usuário */
 .fotoPerfil {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 10px; /* Espaço entre imagem e nome */
     align-content: center;
     justify-content: center;
     align-items: center;
 }
 
-#perfilMain #imagemPerfil {width: 140px;}
+/* Tamanho da imagem do perfil */
+#perfilMain #imagemPerfil {
+    width: 140px;
+}
 
-.logadoUsu #pagNomePerfil{
-
-    font-weight: 500;
+/* Nome do usuário logado */
+.logadoUsu #pagNomePerfil {
+    font-weight: 600;
     font-size: 1.2em;
-
 }
 
-/* Parte do tempo */
-
-.caixaTempo{
-
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    padding: 10px;
-    border-radius: 10px;
-
-}
-
-.caixaTempo h3{margin: 5px 0;}
-
-/* Seta de volta */
-
-#perfilMain .seta{
-
+/* Ícone de seta para voltar */
+#perfilMain .seta {
     vertical-align: middle;
     font-weight: 700;
-
 }
 
-/* form */
+/* Estilo do formulário */
+.formCadastro {
+    filter: drop-shadow(2px 4px 6px black); 
+    background: rgb(28 28 28) !important; 
+}
 
-.msgEditar{
-    
+/* Mensagem de edição */
+.msgEditar {
     margin-bottom: 20px;
-    color: #929090;
-
+    color: #929090; 
 }
 
-.perfilForm{border: 0 !important;}
- @media (max-width: 1026px) {
+/* Remove borda do formulário */
+.perfilForm {
+    border: 0 !important;
+}
 
-    #perfilMain{
+/* ----- RESPONSIVIDADE ----- */
 
-        flex-direction: column;
-        align-items: center;
-
+/* Telas até 1026px */
+@media (max-width: 1026px) {
+    #perfilMain {
+        flex-direction: column; 
+        align-items: center; 
     }
 
     .caixaPerfil {
-
-        flex-direction: row;
+        flex-direction: row; 
         justify-content: space-around;
         align-self: flex-start;
         align-items: flex-start;
-        width: 100vw;
+        width: 100vw; 
         margin-bottom: 40px;
     }
 
-    .logadoUsu #pagNomePerfil{font-size: 1.8em;}
-    #perfilMain #imagemPerfil {width: 15vw;}
+    .logadoUsu #pagNomePerfil {
+        font-size: 2em; 
+    }
 
- }
+    #perfilMain #imagemPerfil {
+        width: 15vw; 
+    }
+}
 
-  @media (max-width: 768px) {
-
+/* Telas até 768px */
+@media (max-width: 768px) {
     .caixaPerfil {
-        flex-direction: column;
+        flex-direction: column; 
         align-items: normal;
         gap: 30px;
     }
-    #perfilMain  #close, .fotoPerfil{margin-left: 20px;}
 
-    .caixaTempo{border-radius: 0;}
-    #perfilMain #imagemPerfil {width: 24vw;}
+    #perfilMain #close, 
+    .fotoPerfil {
+        margin-left: 20px; 
+    }
 
-  }
+    .caixaTempo {
+        border-radius: 0;
+    }
+
+    #perfilMain #imagemPerfil {
+        width: 24vw; 
+    }
+}
