@@ -34,11 +34,23 @@
 
     #caixaDoCupom button {
         width: 20vw;
-        top: 5px;
+        /*top: 5px;*/
     }
 
     .resumoFinalizacao {
         margin: 10vh 0 0 0;
+    }
+
+    .botaoFrete{
+
+        padding: 7px 8px !important;
+
+    }
+
+    #caixaDoCupom button{
+
+        top: 4px !important;
+
     }
 }
 
@@ -104,6 +116,10 @@
     .resumoFinalizacao label {
         display: block;
         margin-bottom: 7px;
+    }
+    
+    #caixaDoCupom input[name='cupom'] {
+        width: 140px;
     }
 
     #botoesCarrinho {
