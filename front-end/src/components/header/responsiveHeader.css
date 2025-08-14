@@ -37,12 +37,33 @@
 
     /*#log img {width: 180%;}*/
 
+    #dropdownMenu::before {
+        content: url("./../../assets/arrow.png");
+        display: inline-block;
+        position: absolute;
+        top: -30px;
+        right: 10px;
+        transform: rotate(271deg);
+    }
+
     #dropdownMenu {
 
         margin-top: 30px;
         position: absolute;
         top: 80%;
+        right: 11vw;
+        padding: 15px 40px 10vw 10px;
+        background: #b5b4b469;
+        border-bottom: 2px solid #ffffff85;
         
+    }
+    .padraoLi a::after {
+        content: "";
+        width: 130%;
+        height: 2px;
+        background: #e5e5e5d9;
+        display: block;
+
     }
 
     /* separação do dropdown */
@@ -60,9 +81,12 @@
 
     #dropdownMenu {
 
-        right: 20%;
+        right: 15vw;
         font-size: 0.8em;
         
+    }
+    .padraoLi a::after{
+        width: 150%;
     }
 
     /* Estilização da parte do dropDown */

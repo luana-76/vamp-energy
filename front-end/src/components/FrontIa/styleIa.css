@@ -1,0 +1,70 @@
+/* Definir a propriedade customizada */
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
+}
+
+.vampBall {
+
+  position: fixed;
+  bottom: 10%;
+  right: 10%;
+  z-index: 999;
+  cursor: pointer;
+  width: 75px;
+  height: 75px;
+  padding: 10px;
+  border-radius: 100%;
+  text-align: center;
+  display: grid;
+  place-content: center;
+  color: white;
+  text-shadow: 0 1px 0 #000;
+  
+  --border-angle: 0turn; /* Para animação */
+  --main-bg: conic-gradient(
+      from var(--border-angle),
+      #213,
+      #112 5%,
+      #112 60%,
+      #213 95%
+  );
+  
+  border: solid 5px transparent;
+  --gradient-border: conic-gradient(
+      from var(--border-angle),
+      transparent 25%,
+      #08f,
+      #f03 99%,
+      transparent
+  );
+  
+  background: 
+    var(--main-bg) padding-box, /* fundo principal */
+    var(--gradient-border) border-box, /* borda animada */
+    var(--main-bg) border-box; /* fundo duplicado para borda */
+  
+  background-position: center center;
+
+  animation: bg-spin 3s linear infinite;
+}
+
+/* Keyframes fora do seletor */
+@keyframes bg-spin {
+  to {
+    --border-angle: 1turn;
+  }
+}
+
+/* Hover para pausar a animação */
+.vampBall:hover {
+  animation-play-state: paused;
+}
+
+
+.vampBall img{
+
+    width: 5vw;
+
+}
