@@ -15,6 +15,7 @@ import { Carrinho } from "./components/CarrinhoDeCompras/Carrinho";
 import { PagInformacoes } from "./components/pagInformacoes/PagInformacoes";
 import { Redefinicao } from "./components/redefinirSenha/redefinicao";
 import { Perfil } from "./components/Perfil/perfil";
+import { Mensagem } from "./components/FrontIa/BoxMensagem/Mensagem";
 
 export default function AppRoutes() {
 
@@ -69,6 +70,7 @@ export default function AppRoutes() {
         <Route path='/informacoes' element={<PagInformacoes/>} />
         <Route path='/redefinicao' element={<Redefinicao/>} />
         <Route path='/perfil' element={<Perfil/>} />
+        <Route path='/mensagem' element={<Mensagem/>} />
         
     </Routes>
   );

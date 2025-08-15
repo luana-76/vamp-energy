@@ -1,0 +1,68 @@
+.CaixaPrincipalMensagem{
+
+    background: #242424;
+    position: fixed;
+    bottom: 5%;
+    right: 10%;
+    height: 50vh;
+    width: 300px;
+    z-index: 999;
+
+}
+
+#cabecalhoMensagem{
+
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    border-bottom: 1px solid #6f6f6f;
+    padding-bottom: 7px;
+    background: #161616;
+
+
+}
+
+#cabecalhoMensagem img[alt="Personagem"]{
+
+    width: 15%;
+    background: #941b1b;
+    border-radius: 50%;
+    margin-right: 5px;
+
+}
+
+
+.perfilPersongem{
+
+    display: flex;
+    align-items: center;
+
+}
+.fecharCaixa span{
+
+     margin-right: 10px;
+     cursor: pointer;
+
+}
+.historicoDeMensagens{
+
+    height: calc(100% - 20% - 30px);
+
+}
+
+.entradaDeDados{
+
+    width: 100%;
+
+}
+
+.entradaDeDados input{
+        width: 98%;
+        padding:0px;
+        padding-left: 5px;
+        height: 30px;
+        border: 0;
+        position: absolute;
+        bottom: 0px;
+}
