@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import AppRoutes from './AppRoutes';
 import { Header } from './components/header/Header';
 import { Footer } from './components/footer/Footer';
-import { Ia } from './components/FrontIa/ia';
+import { FrontIa } from './components/FrontIa/FrontIa';
 
 function App() {
 
@@ -11,7 +11,7 @@ function App() {
     <Router>
       <Header />
       <AppRoutes />
-      <Ia/>
+      <FrontIa/>
       <Footer/>
     </Router>
   );

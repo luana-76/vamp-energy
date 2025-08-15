@@ -1,7 +1,7 @@
 import Logo from "../../assets/logo.png"
 import "./styleIa.css"
 
-export function Ia(){
+export function FrontIa(){
 
     return(
 
