@@ -1,0 +1,17 @@
+.mensagem:first-child{
+
+    margin-top: 10px;
+
+}
+
+.mensagem{
+
+    background: #e4020a;
+    width: 70%;
+    padding: 5px;
+    border-radius: 10px;
+    position: relative;
+    left: 15%;
+    margin-bottom: 15px;
+
+}

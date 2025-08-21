@@ -48,12 +48,16 @@
 .historicoDeMensagens{
 
     height: calc(100% - 20% - 30px);
+    overflow: auto;
 
 }
 
 .entradaDeDados{
 
     width: 100%;
+    display: flex;
+    position: relative;
+    bottom: -10px;
 
 }
 
@@ -63,6 +67,25 @@
         padding-left: 5px;
         height: 30px;
         border: 0;
-        position: absolute;
-        bottom: 0px;
+        /*position: absolute;
+        bottom: 0px;*/
+}
+
+@media (max-width: 1024px) {
+
+    .entradaDeDados {
+        position: relative;
+        bottom: -10%;
+
+    }
+}
+@media (max-width: 600px) {
+
+    .entradaDeDados{
+
+        position: relative;
+        bottom: -9%;
+
+    }
+
 }
