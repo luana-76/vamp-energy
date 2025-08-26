@@ -6,16 +6,23 @@ import { useState, useRef, useEffect } from "react";
 import Vampiro from "../../../assets/vamp.png";
 
 export function Mensagem({ onFechar }) {
+  
   const [mensagem, setMensagem] = useState("");
-  const [listaMensagens, setListaMensagens] = useState([]);
+  const [listaMensagens, setListaMensagens] = useState([
+    { autor: "ia", texto: "Olá! Eu sou o Vampirinho, como posso ajudar? 😊" }
+  ]);
 
   const historicoRef = useRef(null); // ref para o histórico de mensagens
 
   const handleEnviar = async () => {
     if (mensagem.trim() === "") return;
 
-    // adiciona mensagem do usuário
-    setListaMensagens((prev) => [...prev, { autor: "usuario", texto: mensagem }]);
+    // Adiciona mensagem do usuário
+    setListaMensagens((prev) => [
+      ...prev,
+      { autor: "usuario", texto: mensagem }
+    ]);
+
     setMensagem("");
 
     try {
@@ -24,7 +31,30 @@ export function Mensagem({ onFechar }) {
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ contents: [{ parts: [{ text: mensagem }] }] }),
+          body: JSON.stringify({ contents: [{ 
+            parts: [{ text: `
+                  Você é um assistente do site Vamp Energy chamado Vampirinho.
+                  - Se o usuário perguntar como funciona o site, explique assim:
+
+                  Manual simples:
+                  1. Página inicial → mostra destaques e promoções.  
+                  2. Produtos → divididos em energéticos, barras de cereal e suplementos.  
+                  3. Carrinho → adicionar, revisar e finalizar compras.  
+                  4. Pagamento → escolher boleto, cartão, etc.  
+                  5. Perfil → usuário pode se cadastrar e acompanhar pedidos.  
+                  6. Chat → pode tirar dúvidas sobre produtos ou compras.  
+
+                  - Se o usuário perguntar qualquer outra coisa, responda normalmente, mas sempre no contexto do Vamp Energy.
+
+                  - Se perguntar sobre os preços, diga para clicar no link acima "produtos" para vê todos os produtos e preços.
+
+                  - Se perguntar sobre quem é o dono do site, diga que é Luana Maria.
+
+                  -Seja breve nas mensagens.
+
+                  Usuário: ${mensagem}
+            `}] }] 
+          }),
         }
       );
 
